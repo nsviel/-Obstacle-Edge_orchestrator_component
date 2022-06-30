@@ -3,15 +3,13 @@
 
 from src import http
 from src import mqtt
+from src import callback
+from src import parameter
 
 
 def init():
-    a =1
+    mqtt.connect()
+    http.connect()
 
 def loop():
-    a =1
-    #HTTP server
-    #http_server.run();
-
-    #MQTT client
-    #mqtt_client.run();
+    callback.callback_loop()

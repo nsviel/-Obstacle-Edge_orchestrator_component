@@ -3,6 +3,7 @@
 
 from src import parameter
 from src import io
+from src import mqtt
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
 import threading
@@ -22,13 +23,14 @@ class S(BaseHTTPRequestHandler):
     def do_POST(self):
         manage_post(self);
         self.log()
-def run(server_class=HTTPServer, handler_class=S):
+
+def connect(server_class=HTTPServer, handler_class=S):
     server_address = (parameter.http_ip, parameter.http_port)
     server = ThreadingHTTPServer(server_address, handler_class)
     httpd = threading.Thread(target=server.serve_forever)
     httpd.daemon = True
     httpd.start()
-    print('Starting httpd port ', parameter.port)
+    parameter.http_is_connected = True
 
 #Command functions
 def manage_post(self):
@@ -36,7 +38,7 @@ def manage_post(self):
     post_data = self.rfile.read(content_length) # <--- Gets the data itself
     path = str(self.path)
 
-    if(parameter.verbose):
+    if(parameter.http_verbose):
         print("---- POST request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
@@ -47,10 +49,11 @@ def manage_post(self):
         print("velodyne !")
     if(path == '/scala'):
         print("scala !")
+
 def manage_get(self):
     path = str(self.path)
 
-    if(parameter.verbose):
+    if(parameter.http_verbose):
         print("---- GET request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
@@ -62,6 +65,8 @@ def manage_get(self):
        self.send_header("Content-type", "image/bmp")
        self.end_headers()
        self.wfile.write(load_binary(parameter.path_image))
+    if(path == '/falsealarm'):
+       mqtt.send_false_alarm()
 
 #Specific functions
 def load_binary(filename):

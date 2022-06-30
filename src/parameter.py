@@ -19,16 +19,22 @@ port_pywar = 2370 # IN port
 port_edge = 2370 # IN OUT port
 
 # HTTP
-http_verbose = False;
-http_port = 8888;
+http_verbose = False
+http_is_connected = False
+http_port = 8889;
 http_ip = "";
 
 # MQTT
-mqtt_port = 1883;
-mqtt_ip = '127.0.0.1';
+mqtt_is_connected = False
+mqtt_client = 0
+mqtt_port = 1883
+mqtt_ip = '127.0.0.1'
 mqtt_topic = 'ai_obstacle'
-mqtt_message = 'hello le monde'
+mqtt_message = 'hello world'
 
 # Path
-path_geolocalization = "data/geo.dat"
+path_geoloc = "data/geo.dat"
 path_image = "data/image"
+path_frame = "data/frame/"
+path_predic = "data/prediction/"
+path_generic = "data/generic/"

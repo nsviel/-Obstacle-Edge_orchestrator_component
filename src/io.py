@@ -3,10 +3,23 @@
 
 from src import parameter
 from scapy.all import *
+from pathlib import Path
 
-import os
+import os, os.path
 import pcapy
 
+
+def get_number_file(path):
+    if(is_dir_exist(path) == False):
+        return 0
+    _, _, files = next(os.walk(path))
+    return len(files)
+
+def is_dir_exist(path):
+    return Path(path).is_dir()
+
+def is_file_exist(path):
+    return os.path.isfile(path)
 
 def open_pcap(path):
     pcap = scapy.utils.rdpcap(path)
