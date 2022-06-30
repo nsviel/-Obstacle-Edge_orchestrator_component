@@ -17,6 +17,10 @@ def callback_parameter():
     parameter.mqtt_topic = dpg.get_value("mqttt")
     parameter.mqtt_message = dpg.get_value("mqttm")
 
+    parameter.port_pywar = dpg.get_value("socketpy")
+    parameter.port_velo = dpg.get_value("socketve")
+    parameter.port_edge = dpg.get_value("socketed")
+
 
 def callback_loop():
     nb_frame = io.get_number_file(parameter.path_frame)

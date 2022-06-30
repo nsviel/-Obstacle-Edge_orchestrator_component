@@ -21,7 +21,7 @@ port_edge = 2370 # IN OUT port
 # HTTP
 http_verbose = False
 http_is_connected = False
-http_port = 8889;
+http_port = 8000;
 http_ip = "";
 
 # MQTT
@@ -34,7 +34,7 @@ mqtt_message = 'hello world'
 
 # Path
 path_geoloc = "data/geo.dat"
-path_image = "data/image"
+path_image = "data/image/image"
 path_frame = "data/frame/"
 path_predic = "data/prediction/"
 path_generic = "data/generic/"

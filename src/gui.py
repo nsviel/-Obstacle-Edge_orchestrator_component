@@ -3,6 +3,7 @@
 
 from src import gui_parameter
 from src import gui_runtime
+from src import gui_connection
 from src import loop
 from src import parameter
 from src import callback
@@ -17,6 +18,7 @@ def start():
     #Build GUI
     with dpg.window(tag="window", label="Hubium"):
         gui_parameter.build_parameter()
+        gui_connection.build_connection()
         gui_runtime.build_runtime()
         build_end()
         #demo.show_demo()

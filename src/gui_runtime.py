@@ -7,20 +7,7 @@ import dearpygui.dearpygui as dpg
 
 
 def build_runtime():
-    build_connection()
     build_data()
-
-def build_connection():
-    dpg.add_separator()
-    dpg.add_text("Connection", color=(125, 125, 125))
-    with dpg.group(horizontal=True):
-        dpg.add_text("HTTP server: [")
-        dpg.add_text("OFF", tag="qhttpserv", color=(31, 140, 250))
-        dpg.add_text("]")
-    with dpg.group(horizontal=True):
-        dpg.add_text("MQTT SNCF: [")
-        dpg.add_text("OFF", tag="smqttsncf", color=(31, 140, 250))
-        dpg.add_text("]")
 
 def build_data():
     dpg.add_separator()

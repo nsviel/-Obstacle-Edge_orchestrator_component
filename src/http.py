@@ -66,7 +66,9 @@ def manage_get(self):
        self.end_headers()
        self.wfile.write(load_binary(parameter.path_image))
     if(path == '/falsealarm'):
-       mqtt.send_false_alarm()
+       mqtt.publish_false_alarm()
+    if(path == '/test'):
+       self.send_response(200)
 
 #Specific functions
 def load_binary(filename):

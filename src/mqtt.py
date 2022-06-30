@@ -2,6 +2,7 @@
 #---------------------------------------------
 
 from src import parameter
+from src import io
 
 import paho.mqtt.client as mqtt
 import time
@@ -11,18 +12,13 @@ def connect():
     client = mqtt.Client()
     client.on_connect = on_connection
     client.on_disconnect = on_disconnect
-    client.on_message = subscribe
 
     client.connect(parameter.mqtt_ip, parameter.mqtt_port)
     client.loop_start()
     parameter.mqtt_client = client
 
 def run():
-    publish(parameter.mqtt_client)
-
-def send_false_alarm():
-    print("OKKKKKKKKKKKKKKKKKKKKKKK")
-    #publish(parameter.mqtt_client)
+    publish_test()
 
 #Action functions
 def on_connection(client, userdata, flags, rc):
@@ -32,20 +28,17 @@ def on_connection(client, userdata, flags, rc):
 def on_disconnect(client, userdata, rc):
     parameter.mqtt_is_connected = False
 
-def subscribe(client, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))
+def publish_test(client):
+    result = parameter.mqtt_client.publish(parameter.mqtt_topic, parameter.mqtt_message)
+    if success[0] == 0:
+        print(f"Send `{parameter.mqtt_message}` to topic `{parameter.mqtt_topic}`")
+    else:
+        print(f"Failed to send message to topic {parameter.mqtt_topic}")
 
-def publish(client):
-    msg_count = 0
-    while True:
-        time.sleep(1)
-        msg = f"messages: {msg_count}"
-        result = client.publish(parameter.mqtt_topic, parameter.mqtt_message)
-
-        # result: [0, 1]
-        status = result[0]
-        if status == 0:
-         print(f"Send `{parameter.mqtt_message}` to topic `{parameter.mqtt_topic}`")
-        else:
-         print(f"Failed to send message to topic {topic}")
-        msg_count += 1
+def publish_false_alarm():
+    msg = io.parse_json(parameter.path_generic + "prediction.json")
+    success = parameter.mqtt_client.publish(parameter.mqtt_topic, msg)
+    if success[0] == 0:
+        print(f"Send false alarm to topic `{parameter.mqtt_topic}`")
+    else:
+        print(f"Failed to send message to topic {parameter.mqtt_topic}")
