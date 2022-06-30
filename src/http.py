@@ -1,9 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import http_config
-from src import write_data
-from src import config
+from src import parameter
+from src import io
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
 import threading
@@ -24,12 +23,12 @@ class S(BaseHTTPRequestHandler):
         manage_post(self);
         self.log()
 def run(server_class=HTTPServer, handler_class=S):
-    server_address = (http_config.ip, http_config.port)
+    server_address = (parameter.http_ip, parameter.http_port)
     server = ThreadingHTTPServer(server_address, handler_class)
     httpd = threading.Thread(target=server.serve_forever)
     httpd.daemon = True
     httpd.start()
-    print('Starting httpd port ', http_config.port)
+    print('Starting httpd port ', parameter.port)
 
 #Command functions
 def manage_post(self):
@@ -37,13 +36,13 @@ def manage_post(self):
     post_data = self.rfile.read(content_length) # <--- Gets the data itself
     path = str(self.path)
 
-    if(http_config.verbose):
+    if(parameter.verbose):
         print("---- POST request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
         print("Body:\n \033[94m%s\033[0m" % post_data.decode('utf-8'))
     if(path == '/geo'):
-        write_data.write_data(config.path_geolocalization, post_data.decode('utf-8'))
+        io.write_data(parameter.path_geolocalization, post_data.decode('utf-8'))
     if(path == '/velodyne'):
         print("velodyne !")
     if(path == '/scala'):
@@ -51,7 +50,7 @@ def manage_post(self):
 def manage_get(self):
     path = str(self.path)
 
-    if(http_config.verbose):
+    if(parameter.verbose):
         print("---- GET request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
@@ -62,7 +61,7 @@ def manage_get(self):
        self.send_response(200)
        self.send_header("Content-type", "image/bmp")
        self.end_headers()
-       self.wfile.write(load_binary(config.path_image))
+       self.wfile.write(load_binary(parameter.path_image))
 
 #Specific functions
 def load_binary(filename):

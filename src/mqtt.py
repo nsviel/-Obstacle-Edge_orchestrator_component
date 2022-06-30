@@ -1,9 +1,9 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import mqtt_config
-import paho.mqtt.client as mqtt
+from src import parameter
 
+import paho.mqtt.client as mqtt
 import time
 
 
@@ -18,15 +18,17 @@ def connect_mqtt():
     client.on_connect = on_connection
     client.on_message = subscribe
 
-    client.connect(mqtt_config.ip, mqtt_config.port, 60)
+    client.connect(parameter.mqtt_ip, parameter.mqtt_port, 60)
     return client
 
 #Action functions
 def on_connection(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
     client.subscribe("ai_obstacle")
+
 def subscribe(client, userdata, msg):
     print(msg.topic+" "+str(msg.payload))
+
 def publish(client):
     msg_count = 0
     while True:

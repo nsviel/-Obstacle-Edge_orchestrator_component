@@ -1,19 +1,14 @@
-from src import http_server
-from src import mqtt_client
+from src import gui
+from src import signal
+
+import os
 
 
 print("---- Start program ----")
 #-------------
 
-#HTTP server
-http_server.run();
-
-#MQTT client
-mqtt_client.run();
-
-#Loop
-while 1:
-    pass
+os.system('clear')
+gui.start()
 
 #-------------
 print("---- Stop program ----")
