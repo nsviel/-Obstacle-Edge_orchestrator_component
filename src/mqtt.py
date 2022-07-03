@@ -8,6 +8,15 @@ import paho.mqtt.client as mqtt
 import time
 
 
+def test_connection():
+    client = mqtt.Client()
+    try:
+        client.connect(parameter.mqtt_ip, parameter.mqtt_port, 5)
+        parameter.mqtt_connected = True
+    except:
+        parameter.mqtt_connected = False
+
+
 def connect():
     client = mqtt.Client()
     client.on_connect = on_connection
@@ -17,16 +26,13 @@ def connect():
     client.loop_start()
     parameter.mqtt_client = client
 
-def run():
-    publish_test()
-
 #Action functions
 def on_connection(client, userdata, flags, rc):
-    parameter.mqtt_is_connected = True
+    parameter.mqtt_connected = True
     client.subscribe("ai_obstacle")
 
 def on_disconnect(client, userdata, rc):
-    parameter.mqtt_is_connected = False
+    parameter.mqtt_connected = False
 
 def publish_test(client):
     result = parameter.mqtt_client.publish(parameter.mqtt_topic, parameter.mqtt_message)

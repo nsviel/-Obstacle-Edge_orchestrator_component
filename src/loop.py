@@ -3,13 +3,18 @@
 
 from src import http
 from src import mqtt
-from src import callback
 from src import parameter
+from src import connection
+
+from gui import gui_loop
 
 
 def init():
-    mqtt.connect()
     http.connect()
+    connection.start_thread_test_conn()
 
 def loop():
-    callback.callback_loop()
+    a=1
+
+def exit():
+    connection.stop_thread()

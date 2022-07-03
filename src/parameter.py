@@ -18,6 +18,8 @@ port_velo = 2370 # OUT port
 port_pywar = 2370 # IN port
 port_edge = 2370 # IN OUT port
 
+thread_con = False
+
 # HTTP
 http_verbose = False
 http_is_connected = False
@@ -25,7 +27,7 @@ http_port = 8000;
 http_ip = "";
 
 # MQTT
-mqtt_is_connected = False
+mqtt_connected = False
 mqtt_client = 0
 mqtt_port = 1883
 mqtt_ip = '127.0.0.1'

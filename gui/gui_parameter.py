@@ -2,10 +2,10 @@
 #---------------------------------------------
 
 from src import parameter
-from src import callback
+
+from gui import callback
 
 import dearpygui.dearpygui as dpg
-import dearpygui.demo as demo
 
 
 def build_parameter():
