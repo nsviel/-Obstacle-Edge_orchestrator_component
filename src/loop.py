@@ -6,11 +6,21 @@ from src import mqtt
 from src import parameter
 from src import connection
 
-from gui import gui_loop
 
+def start():
+    # Init variables
+    init()
+
+    # Start main loop program
+    while parameter.run:
+        loop()
+
+    # Join threads
+    exit()
 
 def init():
     http.connect()
+    mqtt.connect()
     connection.start_thread_test_conn()
 
 def loop():

@@ -52,6 +52,7 @@ def manage_post(self):
 
 def manage_get(self):
     path = str(self.path)
+    print(path)
 
     if(parameter.http_verbose):
         print("---- GET request ----")

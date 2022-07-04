@@ -16,15 +16,15 @@ def test_connection():
     except:
         parameter.mqtt_connected = False
 
-
 def connect():
-    client = mqtt.Client()
-    client.on_connect = on_connection
-    client.on_disconnect = on_disconnect
+    if(parameter.mqtt_connected):
+        client = mqtt.Client()
+        client.on_connect = on_connection
+        client.on_disconnect = on_disconnect
 
-    client.connect(parameter.mqtt_ip, parameter.mqtt_port)
-    client.loop_start()
-    parameter.mqtt_client = client
+        client.connect(parameter.mqtt_ip, parameter.mqtt_port)
+        client.loop_start()
+        parameter.mqtt_client = client
 
 #Action functions
 def on_connection(client, userdata, flags, rc):

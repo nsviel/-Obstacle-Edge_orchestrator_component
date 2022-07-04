@@ -5,6 +5,8 @@
 
 import os
 
+import paho.mqtt.client as mqtt
+
 
 # Parameters
 run = True;
@@ -28,7 +30,7 @@ http_ip = "";
 
 # MQTT
 mqtt_connected = False
-mqtt_client = 0
+mqtt_client  = None
 mqtt_port = 1883
 mqtt_ip = '127.0.0.1'
 mqtt_topic = 'ai_obstacle'

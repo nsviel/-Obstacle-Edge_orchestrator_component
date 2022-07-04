@@ -1,4 +1,4 @@
-from gui import gui
+from src import loop
 from src import signal
 
 import os
@@ -8,7 +8,7 @@ print("---- Start program ----")
 #-------------
 
 os.system('clear')
-gui.start()
+loop.start()
 
 #-------------
 print("---- Stop program ----")

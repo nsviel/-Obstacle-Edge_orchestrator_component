@@ -28,8 +28,8 @@ def stop_thread():
 def update_state_json():
     file = open('src/state.json', "r")
     data = json.load(file)
-    if(data["mqtt_connected"] != parameter.mqtt_connected):
-        data["mqtt_connected"] = parameter.mqtt_connected
+    if(data["mqtt"]["connected"] != parameter.mqtt_connected):
+        data["mqtt"]["connected"] = parameter.mqtt_connected
         file = open('src/state.json', "w")
         json.dump(data, file, indent=4)
         file.truncate()
