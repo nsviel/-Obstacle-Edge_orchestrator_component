@@ -24,13 +24,12 @@ class S(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
-def connect(server_class=HTTPServer, handler_class=S):
+def start_http_daemon(server_class=HTTPServer, handler_class=S):
     address = (parameter.http_ip, parameter.http_port)
     server = ThreadingHTTPServer(address, handler_class)
     httpd = threading.Thread(target=server.serve_forever)
     httpd.daemon = True
     httpd.start()
-    parameter.http_is_connected = True
 
 #Command functions
 def manage_post(self):
@@ -52,7 +51,6 @@ def manage_post(self):
 
 def manage_get(self):
     path = str(self.path)
-    print(path)
 
     if(parameter.http_verbose):
         print("---- GET request ----")
@@ -67,8 +65,8 @@ def manage_get(self):
        http_get.get_falsealarm(self)
     elif(path == '/test'):
        http_get.get_test(self)
-    elif(path == '/is_mqtt_connected'):
-        http_get.get_is_mqtt_connected(self)
+    elif(path == '/state'):
+        http_get.get_state(self)
 
 #Specific functions
 def load_binary(filename):

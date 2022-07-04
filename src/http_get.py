@@ -3,6 +3,7 @@
 
 from src import parameter
 from src import mqtt
+from src import parser_json
 
 import json
 
@@ -22,10 +23,9 @@ def get_falsealarm(self):
 def get_test(self):
     self.send_response(200)
 
-def get_is_mqtt_connected(self):
+def get_state(self):
     self.send_response(200)
     self.send_header("Content-type", "application/json")
     self.end_headers()
-    file = open('src/state.json')
-    jdat = json.dumps(json.load(file))
-    self.wfile.write(jdat.encode(encoding='utf_8'))
+    data = parser_json.get_json_encoded()
+    self.wfile.write(data)

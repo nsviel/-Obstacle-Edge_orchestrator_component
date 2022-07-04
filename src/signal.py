@@ -9,6 +9,6 @@ import time
 
 # Manage Ctrl+C input
 def handler(signum, frame):
-    parameter.run = False
+    parameter.run_loop = False
 
 signal.signal(signal.SIGINT, handler)

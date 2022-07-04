@@ -12,15 +12,15 @@ def start():
     init()
 
     # Start main loop program
-    while parameter.run:
+    while parameter.run_loop:
         loop()
 
     # Join threads
     exit()
 
 def init():
-    http.connect()
-    mqtt.connect()
+    http.start_http_daemon()
+    mqtt.start_init()
     connection.start_thread_test_conn()
 
 def loop():
