@@ -1,7 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import parameter
+from param import param_hu
+
 from src import io
 from src import mqtt
 from src import http_get
@@ -25,7 +26,7 @@ class S(BaseHTTPRequestHandler):
         return
 
 def start_http_daemon(server_class=HTTPServer, handler_class=S):
-    address = (parameter.http_ip, parameter.http_port)
+    address = (param_hu.httpd_ip, param_hu.httpd_port)
     server = ThreadingHTTPServer(address, handler_class)
     httpd = threading.Thread(target=server.serve_forever)
     httpd.daemon = True
@@ -37,13 +38,13 @@ def manage_post(self):
     post_data = self.rfile.read(content_length) # <--- Gets the data itself
     path = str(self.path)
 
-    if(parameter.http_verbose):
+    if(param_hu.httpd_verbose):
         print("---- POST request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
         print("Body:\n \033[94m%s\033[0m" % post_data.decode('utf-8'))
     if(path == '/geo'):
-        io.write_data(parameter.path_geolocalization, post_data.decode('utf-8'))
+        io.write_data(param_hu.path_geolocalization, post_data.decode('utf-8'))
     if(path == '/velodyne'):
         print("velodyne !")
     if(path == '/scala'):
@@ -52,7 +53,7 @@ def manage_post(self):
 def manage_get(self):
     path = str(self.path)
 
-    if(parameter.http_verbose):
+    if(param_hu.httpd_verbose):
         print("---- GET request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))

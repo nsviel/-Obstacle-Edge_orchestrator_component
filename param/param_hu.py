@@ -8,40 +8,27 @@ import os
 import paho.mqtt.client as mqtt
 
 
+# State
+status = "Offline"
+
 # Thread
 run_loop = True
 run_thread_con = False
+run_thread_socket = False
 
-# Velodium
-velo_ip = '127.0.0.1'
-velo_port = 2370
-
-# Edge
-edge_ip = '127.0.0.1'
-edge_port = 2370
-
-# Pywardium
-py_port_sock = 2370
-
-# Valeo
-valeo_ip = '127.0.0.1'
-valeo_port = 2370
+# Socket
+sock_server = None
+sock_port = 2370
+sock_port_listen = 2372
 
 # HTTP daemon
-http_verbose = False
-http_port = 8000;
-http_ip = "";
-
-# MQTT
-mqtt_connected = False
-mqtt_client  = None
-mqtt_ip = '127.0.0.1'
-mqtt_port = 1883
-mqtt_topic = 'ai_obstacle'
-mqtt_message = 'hello world'
+httpd_verbose = False
+httpd_port = 8000;
+httpd_ip = "";
 
 # Path
-path_state = "src/state.json"
+path_state = "param/state.json"
+path_config = "param/config.json"
 path_geoloc = "data/geo.dat"
 path_image = "data/image/image"
 path_frame = "data/frame/"

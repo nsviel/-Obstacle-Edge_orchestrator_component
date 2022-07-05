@@ -1,7 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import parameter
 from scapy.all import *
 from pathlib import Path
 
@@ -9,11 +8,6 @@ import os, os.path
 import pcapy
 import json
 
-
-def parse_json(path):
-    f = open(path)
-    data = json.dumps(json.load(f))
-    return data
 
 def get_number_file(path):
     if(is_dir_exist(path) == False):

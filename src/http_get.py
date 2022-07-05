@@ -1,8 +1,9 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import parameter
-from src import mqtt
+from param import param_hu
+
+from src import mqtt_publish
 from src import parser_json
 
 import json
@@ -15,10 +16,10 @@ def get_image(self):
     self.send_response(200)
     self.send_header("Content-type", "image/bmp")
     self.end_headers()
-    self.wfile.write(load_binary(parameter.path_image))
+    self.wfile.write(load_binary(param_hu.path_image))
 
 def get_falsealarm(self):
-    mqtt.publish_false_alarm()
+    mqtt_publish.publish_false_alarm()
 
 def get_test(self):
     self.send_response(200)
