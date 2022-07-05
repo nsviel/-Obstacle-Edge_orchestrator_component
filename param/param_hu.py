@@ -18,7 +18,7 @@ run_thread_socket = False
 
 # Socket
 sock_server = None
-sock_port = 2370
+sock_port = 2371
 sock_port_listen = 2372
 
 # HTTP daemon

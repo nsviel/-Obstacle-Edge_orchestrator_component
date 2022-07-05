@@ -6,7 +6,7 @@ from param import param_hu
 from src import http
 from src import mqtt
 from src import connection
-from src import socket
+from src import socket_server
 from src import file
 
 
@@ -25,7 +25,7 @@ def init():
     file.init_state()
     http.start_http_daemon()
     mqtt.start_init()
-    socket.start_thread_socket_server()
+    socket_server.start_thread_socket_server()
     connection.start_thread_test_conn()
 
 def loop():

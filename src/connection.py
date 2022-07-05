@@ -4,6 +4,7 @@
 from param import param_hu
 
 from src import mqtt
+from src import socket
 
 from threading import Thread
 
@@ -14,6 +15,7 @@ import time
 def thread_test_connection():
     while param_hu.run_thread_con:
         mqtt.test_connection()
+        socket.test_connection()
         time.sleep(1)
         pass
 
