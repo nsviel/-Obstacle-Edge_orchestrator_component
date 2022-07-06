@@ -14,6 +14,7 @@ def init_state():
 def upload_config_file():
     param_hu.sock_port = parser_json.upload_state_lvl2_json(param_hu.path_config, "hubium", "sock_client")
     param_hu.sock_port_listen = parser_json.upload_state_lvl2_json(param_hu.path_config, "hubium", "sock_listen")
+    param_hu.sock_port_connection = parser_json.upload_state_lvl2_json(param_hu.path_config, "hubium", "sock_connection")
     param_hu.httpd_port = parser_json.upload_state_lvl2_json(param_hu.path_config, "hubium", "httpd_port")
 
     param_ext.py_ip = parser_json.upload_state_lvl2_json(param_hu.path_config, "pywardium", "ip")
@@ -30,6 +31,7 @@ def update_state_file():
     parser_json.update_state_lvl1_json(param_hu.path_state, "status", param_hu.status)
     parser_json.update_state_lvl2_json(param_hu.path_state, "hubium", "sock_client", param_hu.sock_port)
     parser_json.update_state_lvl2_json(param_hu.path_state, "hubium", "sock_listen", param_hu.sock_port_listen)
+    parser_json.update_state_lvl2_json(param_hu.path_state, "hubium", "sock_connection", param_hu.sock_port_connection)
     parser_json.update_state_lvl2_json(param_hu.path_state, "hubium", "httpd_port", param_hu.httpd_port)
 
     parser_json.update_state_lvl2_json(param_hu.path_state, "pywardium", "ip", param_ext.py_ip)

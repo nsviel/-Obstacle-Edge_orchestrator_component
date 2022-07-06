@@ -18,8 +18,9 @@ run_thread_socket = False
 
 # Socket
 sock_server = None
-sock_port = 2371
-sock_port_listen = 2372
+sock_port = 1
+sock_port_listen = 1
+sock_port_connection = 1
 
 # HTTP daemon
 httpd_verbose = False

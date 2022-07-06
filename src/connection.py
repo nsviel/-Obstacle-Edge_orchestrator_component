@@ -14,15 +14,20 @@ import time
 
 
 def thread_test_connection():
+    param_hu.run_thread_con = True
     while param_hu.run_thread_con:
+        # Test connection
         mqtt.test_connection()
         socket.test_connection()
+
+        # Update state
         file.update_state_file()
+
+        # Wait for 1 second
         time.sleep(1)
         pass
 
 def start_thread_test_conn():
-    param_hu.run_thread_con = True
     thread_con = Thread(target = thread_test_connection)
     thread_con.start()
 
