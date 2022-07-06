@@ -20,8 +20,10 @@ def start_thread_socket_server():
 def thread_socket_server():
     while param_hu.run_thread_socket:
         try:
+            print("wait data")
             data, (address, port) = param_hu.sock_server.recvfrom(4096)
             msg = data.decode('utf-8')
+            print(msg)
             if(msg == "test"):
                 param_hu.sock_server.sendto(str.encode("ok"), ("127.0.0.1", param_ext.py_sock_port))
         except:

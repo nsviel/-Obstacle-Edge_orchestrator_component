@@ -19,7 +19,7 @@ def start():
         loop()
 
     # Join threads
-    exit()
+    end()
 
 def init():
     file.init_state()
@@ -27,9 +27,12 @@ def init():
     mqtt.start_init()
     socket_server.start_thread_socket_server()
     connection.start_thread_test_conn()
+    param_hu.status = "Online"
 
 def loop():
     a=1
 
-def exit():
+def end():
+    param_hu.status = "Offline"
+    file.update_state_file()
     connection.stop_thread()

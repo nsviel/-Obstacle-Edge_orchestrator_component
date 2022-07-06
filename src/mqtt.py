@@ -25,9 +25,7 @@ def start_init():
 
 def on_connection(client, userdata, flags, rc):
     param_ext.mqtt_connected = True
-    parser_json.update_state_lvl2_json(param_hu.path_state, "mqtt", "connected", param_ext.mqtt_connected)
     client.subscribe("ai_obstacle")
 
 def on_disconnect(client, userdata, rc):
     param_ext.mqtt_connected = False
-    parser_json.update_state_lvl2_json(param_hu.path_state, "mqtt", "connected", param_ext.mqtt_connected)

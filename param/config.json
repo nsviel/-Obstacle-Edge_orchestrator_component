@@ -1,10 +1,19 @@
 {
+    "pywardium": {
+        "ip": "127.0.0.1",
+        "port": 314
+    },
+    "hubium": {
+        "sock_client": 317,
+        "sock_listen": 315,
+        "httpd_port": 316
+    },
     "mqtt": {
         "ip": "127.0.0.1",
-        "port": 1883
+        "port": 318
     },
     "velodium": {
-        "port": 2370
+        "port": 319
     },
     "valeo": {
         "ip": "127.0.0.1",
@@ -12,6 +21,6 @@
     },
     "edge": {
         "ip": "127.0.0.1",
-        "port": 8001
+        "port": 316
     }
 }

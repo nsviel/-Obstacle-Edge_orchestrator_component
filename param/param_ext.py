@@ -9,6 +9,7 @@ import paho.mqtt.client as mqtt
 
 
 #Pywardium
+py_ip = ""
 py_sock_port = 2371
 
 # Velodium
