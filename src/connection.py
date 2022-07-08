@@ -6,6 +6,7 @@ from param import param_hu
 from src import mqtt
 from src import socket
 from src import file
+from src import http_client
 
 from threading import Thread
 
@@ -19,6 +20,7 @@ def thread_test_connection():
         # Test connection
         mqtt.test_connection()
         socket.test_connection()
+        http_client.test_connection()
 
         # Update state
         file.update_state_file()

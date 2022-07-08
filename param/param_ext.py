@@ -11,6 +11,8 @@ import paho.mqtt.client as mqtt
 #Pywardium
 py_ip = ""
 py_sock_port = 1
+py_http_port = 1
+py_http_connected = False
 
 # Velodium
 velo_connected = False

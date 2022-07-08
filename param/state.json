@@ -27,7 +27,7 @@
     "edge": {
         "connected": false,
         "ip": "127.0.0.1",
-        "port": 316
+        "port": 315
     },
     "ai": {
         "connected": false

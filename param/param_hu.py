@@ -9,7 +9,10 @@ import paho.mqtt.client as mqtt
 
 
 # State
+#--------------------
 status = "Offline"
+ip = "127.0.0.1"
+#--------------------
 
 # Thread
 run_loop = True
