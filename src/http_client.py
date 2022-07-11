@@ -1,22 +1,21 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_hu
-from param import param_ext
+
+from param import classes
 
 import http.client as client
-
 import requests
 
 
 def test_connection():
-    sock = client.HTTPConnection(param_ext.py_ip, param_ext.py_http_port, timeout=0.1)
+    sock = client.HTTPConnection(classes.connec.py_ip, classes.connec.py_http_port, timeout=0.1)
     try:
         sock.request("GET", "/test")
-        param_ext.py_http_connected = True
+        classes.connec.py_http_connected = True
     except:
         connection_closed()
     sock.close()
 
 def connection_closed():
-    param_ext.py_http_connected = False
+    classes.connec.py_http_connected = False

@@ -1,8 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_ext
-from param import param_hu
+from param import classes
 
 from src import parser_json
 
@@ -10,10 +9,10 @@ import paho.mqtt.client as mqtt
 
 
 def test_connection():
-    if(param_ext.mqtt_connected == False):
+    if(classes.connec.mqtt_connected == False):
         try:
-            param_ext.mqtt_client.connect(param_ext.mqtt_ip, param_ext.mqtt_port, 5)
-            param_ext.mqtt_client.loop_start()
+            classes.connec.mqtt_client.connect(classes.connec.mqtt_ip, classes.connec.mqtt_port, 5)
+            classes.connec.mqtt_client.loop_start()
         except:
             return
 
@@ -21,11 +20,11 @@ def start_init():
     client = mqtt.Client()
     client.on_connect = on_connection
     client.on_disconnect = on_disconnect
-    param_ext.mqtt_client = client
+    classes.connec.mqtt_client = client
 
 def on_connection(client, userdata, flags, rc):
-    param_ext.mqtt_connected = True
+    classes.connec.mqtt_connected = True
     client.subscribe("ai_obstacle")
 
 def on_disconnect(client, userdata, rc):
-    param_ext.mqtt_connected = False
+    classes.connec.mqtt_connected = False
