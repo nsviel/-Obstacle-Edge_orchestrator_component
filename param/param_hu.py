@@ -31,7 +31,7 @@ httpd_port = 8000;
 httpd_ip = "";
 
 # Path
-path_state = "param/state.json"
+path_state = "state/state_hu.json"
 path_config = "param/config.json"
 path_geoloc = "data/geo.dat"
 path_image = "data/image/image"

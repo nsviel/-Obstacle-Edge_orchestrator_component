@@ -1,5 +1,6 @@
 {
     "status": "Offline",
+    "ip": "127.0.0.1",
     "hubium": {
         "sock_client": 317,
         "sock_listen": 315,
@@ -11,7 +12,7 @@
         "port": 314
     },
     "mqtt": {
-        "connected": false,
+        "connected": true,
         "ip": "127.0.0.1",
         "port": 1883
     },

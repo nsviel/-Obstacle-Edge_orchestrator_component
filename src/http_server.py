@@ -3,15 +3,13 @@
 
 from param import param_hu
 
-from src import io
-from src import mqtt
-from src import http_get
+from src import http_server_get
+from src import http_server_post
 
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
 import threading
 import http.server
-import io
 
 
 #Server functions
@@ -26,7 +24,8 @@ class S(BaseHTTPRequestHandler):
         return
 
 def start_http_daemon(server_class=HTTPServer, handler_class=S):
-    address = (param_hu.httpd_ip, param_hu.httpd_port)
+    port = param_hu.httpd_port
+    address = (param_hu.httpd_ip, port)
     server = ThreadingHTTPServer(address, handler_class)
     httpd = threading.Thread(target=server.serve_forever)
     httpd.daemon = True
@@ -44,7 +43,7 @@ def manage_post(self):
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
         print("Body:\n \033[94m%s\033[0m" % post_data.decode('utf-8'))
     if(path == '/geo'):
-        io.write_data(param_hu.path_geolocalization, post_data.decode('utf-8'))
+        http_server_port.post_geo()
     if(path == '/velodyne'):
         print("velodyne !")
     if(path == '/scala'):
@@ -59,17 +58,12 @@ def manage_get(self):
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
         print("Body:\n \033[94m%s\033[0m" % post_data.decode('utf-8'))
     if(path == '/geo'):
-        http_get.get_geo(self)
+        http_server_get.get_geo(self)
     elif(path == '/image'):
-       http_get.get_image(self)
+       http_server_get.get_image(self)
     elif(path == '/falsealarm'):
-       http_get.get_falsealarm(self)
+       http_server_get.get_falsealarm(self)
     elif(path == '/test'):
-       http_get.get_test(self)
+       http_server_get.get_test(self)
     elif(path == '/state'):
-        http_get.get_state(self)
-
-#Specific functions
-def load_binary(filename):
-    with open(filename, 'rb') as file_handle:
-        return file_handle.read()
+        http_server_get.get_state(self)

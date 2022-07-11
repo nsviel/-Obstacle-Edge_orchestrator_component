@@ -58,3 +58,7 @@ def write_pcap(pcap, path, is_append):
                 wrpcap(path, pkt, append=is_append)  #appends packet to output file
             else:
                 pass
+
+def load_binary(path):
+    with open(path, 'rb') as file_handle:
+        return file_handle.read()
