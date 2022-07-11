@@ -5,14 +5,13 @@
 class Connection:
     #Pywardium
     py_ip = ""
-    py_sock_port = 1
-    py_http_port = 1
+    py_http_server_port = 1
     py_http_connected = False
 
     # Velodium
-    velo_sock_connected = False
     velo_ip = '127.0.0.1'
-    velo_port = 1
+    velo_sock_server_port = 1
+    velo_sock_connected = False
 
     # AI
     ai_connected = False
@@ -27,10 +26,11 @@ class Connection:
 
     # Valeo
     valeo_ip = '127.0.0.1'
+    valeo_connected = False
 
     # Edge
     edge_ip = '127.0.0.1'
-    edge_sock_server_port = 1
+    edge_connected = False
 
     def reset(self):
         self.py_http_connected = False

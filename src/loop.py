@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import classes
+from param import cla
 
 from src import http_server
 from src import mqtt
@@ -15,24 +15,24 @@ def start():
     init()
 
     # Start main loop program
-    while classes.hubium.run_loop:
+    while cla.hubium.run_loop:
         loop()
 
     # Join threads
     end()
 
 def init():
-    file.init_state()
-    http_server.start_http_daemon()
+    file.load_configuration()
+    http_server.start_daemon()
     mqtt.start_init()
-    socket_server.start_thread_socket_server()
-    connection.start_thread_test_conn()
-    classes.hubium.status = "Online"
+    #socket_server.start_thread_socket_server()
+    #connection.start_thread_test_conn()
+    cla.hubium.status = "Online"
 
 def loop():
     a=1
 
 def end():
-    classes.hubium.status = "Offline"
+    cla.hubium.status = "Offline"
     file.update_state_file()
     connection.stop_thread()

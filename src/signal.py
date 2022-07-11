@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import classes
+from param import cla
 
 import signal
 import time
@@ -9,6 +9,6 @@ import time
 
 # Manage Ctrl+C input
 def handler(signum, frame):
-    classes.hubium.run_loop = False
+    cla.hubium.run_loop = False
 
 signal.signal(signal.SIGINT, handler)

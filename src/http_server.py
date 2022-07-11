@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import classes
+from param import cla
 
 from src import http_server_get
 from src import http_server_post
@@ -23,9 +23,10 @@ class S(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
-def start_http_daemon(server_class=HTTPServer, handler_class=S):
-    port = classes.hubium.http_server_port
-    address = (classes.hubium.http_server_ip, port)
+def start_daemon(server_class=HTTPServer, handler_class=S):
+    ip = cla.hubium.http_server_ip
+    port = cla.hubium.http_server_port
+    address = (ip, port)
     server = ThreadingHTTPServer(address, handler_class)
     httpd = threading.Thread(target=server.serve_forever)
     httpd.daemon = True
@@ -37,7 +38,7 @@ def manage_post(self):
     post_data = self.rfile.read(content_length) # <--- Gets the data itself
     path = str(self.path)
 
-    if(classes.hubium.http_server_verbose):
+    if(cla.hubium.http_server_verbose):
         print("---- POST request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
@@ -52,7 +53,7 @@ def manage_post(self):
 def manage_get(self):
     path = str(self.path)
 
-    if(classes.hubium.http_server_verbose):
+    if(cla.hubium.http_server_verbose):
         print("---- GET request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
@@ -65,5 +66,7 @@ def manage_get(self):
        http_server_get.get_falsealarm(self)
     elif(path == '/test'):
        http_server_get.get_test(self)
-    elif(path == '/state'):
-        http_server_get.get_state(self)
+    elif(path == '/state_hu'):
+        http_server_get.get_state_hu(self)
+    elif(path == '/state_py'):
+         http_server_get.get_state_py(self)

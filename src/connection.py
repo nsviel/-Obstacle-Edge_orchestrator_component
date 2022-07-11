@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import classes
+from param import cla
 
 from src import mqtt
 from src import socket
@@ -14,8 +14,8 @@ import time
 
 
 def thread_test_connection():
-    classes.hubium.run_thread_con = True
-    while classes.hubium.run_thread_con:
+    cla.hubium.run_thread_con = True
+    while cla.hubium.run_thread_con:
         # Test connection
         mqtt.test_connection()
         socket.test_connection()
@@ -33,5 +33,5 @@ def start_thread_test_conn():
     thread_con.start()
 
 def stop_thread():
-    classes.hubium.run_thread_con = False
-    classes.hubium.run_thread_socket = False
+    cla.hubium.run_thread_con = False
+    cla.hubium.run_thread_socket = False

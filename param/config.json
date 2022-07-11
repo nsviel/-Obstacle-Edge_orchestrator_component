@@ -1,27 +1,23 @@
 {
+    "self": {
+        "sock_server_port": 315,
+        "http_server_port": 443
+    },
     "pywardium": {
         "ip": "127.0.0.1",
-        "port": 314
+        "http_server_port": 314
     },
-    "hubium": {
-        "sock_client": 317,
-        "sock_listen": 315,
-        "sock_connection": 320,
-        "http_server_port": 316
-    },
-    "mqtt": {
-        "ip": "127.0.0.1",
-        "port": 1883
+    "sncf": {
+        "broker_ip": "127.0.0.1",
+        "broker_port": 1883
     },
     "velodium": {
-        "port": 2370
+        "sock_server_port": 2370
     },
     "valeo": {
-        "ip": "127.0.0.1",
-        "port": 443
+        "ip": "127.0.0.1"
     },
     "edge": {
-        "ip": "127.0.0.1",
-        "port": 315
+        "ip": "127.0.0.1"
     }
 }

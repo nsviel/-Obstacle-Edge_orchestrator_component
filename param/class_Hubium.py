@@ -17,15 +17,16 @@ class Hubium:
     # Socket
     sock_server = None
     sock_server_port = 1
-    sock_client_port = 1
 
     # HTTP daemon
     http_server_verbose = False
-    http_server_port = 8000;
+    http_server_port = 1;
     http_server_ip = "";
 
     # Path
-    path_state = "state/state_hu.json"
+    path_state_hu = "state/state_hu.json"
+    path_state_py = "state/state_hu.json"
+
     path_config = "param/config.json"
     path_geoloc = "data/geo.dat"
     path_image = "data/image/image"
