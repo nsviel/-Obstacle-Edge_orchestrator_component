@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
+from param import param_hu
 
 from src import http_server_get
 from src import http_server_post
@@ -24,9 +24,7 @@ class S(BaseHTTPRequestHandler):
         return
 
 def start_daemon(server_class=HTTPServer, handler_class=S):
-    ip = cla.hubium.http_server_ip
-    port = cla.hubium.http_server_port
-    address = (ip, port)
+    address = ("", param_hu.state_hu["self"]["http_server_port"])
     server = ThreadingHTTPServer(address, handler_class)
     httpd = threading.Thread(target=server.serve_forever)
     httpd.daemon = True
@@ -38,7 +36,7 @@ def manage_post(self):
     post_data = self.rfile.read(content_length) # <--- Gets the data itself
     path = str(self.path)
 
-    if(cla.hubium.http_server_verbose):
+    if(param_hu.http_server_verbose):
         print("---- POST request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
@@ -53,7 +51,7 @@ def manage_post(self):
 def manage_get(self):
     path = str(self.path)
 
-    if(cla.hubium.http_server_verbose):
+    if(param_hu.http_server_verbose):
         print("---- GET request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))

@@ -13,14 +13,18 @@
         "sock_server_port": 320,
         "http_server_port": 314
     },
-    "sncf": {
-        "connected": true,
-        "broker_ip": "127.0.0.1",
-        "broker_port": 1883
-    },
     "velodium": {
-        "connected": false,
+        "connected": true,
         "sock_server_port": 2370
+    },
+    "ai": {
+        "connected": false
+    },
+    "sncf": {
+        "connected": false,
+        "broker_ip": "127.0.0.1",
+        "broker_port": 1883,
+        "mqtt_topic": "ai_obstacle"
     },
     "valeo": {
         "connected": false,
@@ -29,8 +33,5 @@
     "edge": {
         "connected": false,
         "ip": "127.0.0.1"
-    },
-    "ai": {
-        "connected": false
     }
 }

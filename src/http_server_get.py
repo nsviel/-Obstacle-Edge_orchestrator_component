@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
+from param import param_hu
 
 from src import mqtt_publish
 from src import parser_json
@@ -17,7 +17,7 @@ def get_image(self):
     self.send_response(200)
     self.send_header("Content-type", "image/bmp")
     self.end_headers()
-    self.wfile.write(io.load_binary(cla.hubium.path_image))
+    self.wfile.write(io.load_binary(param_hu.path_image))
 
 def get_falsealarm(self):
     mqtt_publish.publish_false_alarm()
@@ -29,12 +29,12 @@ def get_state_hu(self):
     self.send_response(200)
     self.send_header("Content-type", "application/json")
     self.end_headers()
-    data = parser_json.get_json_encoded(cla.hubium.path_state_hu)
+    data = parser_json.load_file_to_sock_data_encoded(param_hu.path_state_hu)
     self.wfile.write(data)
 
 def get_state_py(self):
     self.send_response(200)
     self.send_header("Content-type", "application/json")
     self.end_headers()
-    data = parser_json.get_json_encoded(cla.hubium.path_state_py)
+    data = parser_json.load_file_to_sock_data_encoded(param_hu.path_state_py)
     self.wfile.write(data)

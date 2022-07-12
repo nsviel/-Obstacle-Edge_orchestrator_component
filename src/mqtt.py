@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
+from param import param_hu
 
 from src import parser_json
 
@@ -9,22 +9,25 @@ import paho.mqtt.client as mqtt
 
 
 def test_connection():
-    if(cla.connec.sncf_broker_connected == False):
+    connected = param_hu.state_hu["sncf"]["connected"]
+    ip = param_hu.state_hu["sncf"]["broker_ip"]
+    port = param_hu.state_hu["sncf"]["broker_port"]
+    if(connected == False):
         try:
-            cla.connec.mqtt_client.connect(cla.connec.sncf_broker_ip, cla.connec.sncf_broker_port, 5)
-            cla.connec.mqtt_client.loop_start()
+            param_hu.mqtt_client.connect(ip, port, 5)
+            param_hu.mqtt_client.loop_start()
         except:
-            return
+            pass
 
 def start_client():
     client = mqtt.Client()
     client.on_connect = on_connection
     client.on_disconnect = on_disconnect
-    cla.connec.mqtt_client = client
+    param_hu.mqtt_client = client
 
 def on_connection(client, userdata, flags, rc):
-    cla.connec.sncf_broker_connected = True
-    client.subscribe(cla.connec.sncf_mqtt_topic)
+    param_hu.state_hu["sncf"]["connected"] = True
+    client.subscribe(param_hu.state_hu["sncf"]["mqtt_topic"])
 
 def on_disconnect(client, userdata, rc):
-    cla.connec.sncf_broker_connected = False
+    param_hu.state_hu["sncf"]["connected"] = False

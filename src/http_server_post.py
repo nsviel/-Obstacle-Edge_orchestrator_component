@@ -1,10 +1,10 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
+from param import param_hu
 
 from src import io
 
 
 def post_geo():
-    io.write_data(cla.hubium.path_geolocalization, post_data.decode('utf-8'))
+    io.write_data(param_hu.path_geoloc, post_data.decode('utf-8'))

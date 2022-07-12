@@ -1,27 +1,38 @@
 {
-    "status": "Offline",
-    "ip": "127.0.0.1",
-    "pywardium": {
-        "socket_listen": 314
+    "self": {
+        "status": "Online",
+        "http_server_port": 314,
+        "sock_connected": false
     },
-    "lidar_1": {
-        "ip": "http://192.168.1.201/cgi/setting",
-        "device": "enxf8e43b6cecab",
-    },
-    "lidar_2": {
-        "ip": "http://192.168.1.202/cgi/setting",
-        "device": "enxf8e43b6cdf6c"
-    },
-    "hubium": {
-        "ip": "127.0.0.1",
-        "port_sock": 315,
-        "port_http": 316
-    },
-    "connection": {
-        "lidar_1": false,
-        "lidar_2": false,
-        "hu_sock": false,
-        "hu_http": false,
-        "ssd": false
-    }
+  "lidar_1": {
+      "connected": false,
+      "activated": false,
+      "ip": "http://192.168.1.201/cgi/setting",
+      "device": "enxf8e43b6cecab",
+      "speed": 600,
+      "nb_packet": 0,
+      "dir": "",
+      "file": ""
+  },
+  "lidar_2": {
+      "connected": false,
+      "activated": false,
+      "ip": "http://192.168.1.202/cgi/setting",
+      "device": "enxf8e43b6cdf6c",
+      "speed": 600,
+      "nb_packet": 0,
+      "dir": "",
+      "file": ""
+  },
+  "geolocalization":{
+    "country": "France"
+  },
+    "device": {
+    "a":1
+  },
+  "path":{
+    "capture": "",
+    "additional": "",
+    "name": ""
+  }
 }
