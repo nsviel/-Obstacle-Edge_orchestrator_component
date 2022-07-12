@@ -14,7 +14,7 @@ def publish_test():
         print(f"Failed to send message to topic {cla.connec.mqtt_topic}")
 
 def publish_false_alarm():
-    if(cla.connec.mqtt_connected):
+    if(cla.connec.sncf_broker_connected):
         msg = parser_json.parse_json(cla.hubium.path_generic + "prediction.json")
         success = cla.connec.mqtt_client.publish(cla.connec.mqtt_topic, msg)
         if success[0] == 0:

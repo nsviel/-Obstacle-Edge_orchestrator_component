@@ -2,16 +2,19 @@
     "self": {
         "status": "Offline",
         "ip": "127.0.0.1",
-        "sock_server_port": 315,
-        "http_server_port": 443
+        "sock_server_port": 344,
+        "http_server_port": 443,
+        "nb_frame": 20,
+        "nb_prediction": 0
     },
     "pywardium": {
         "connected": false,
         "ip": "127.0.0.1",
+        "sock_server_port": 320,
         "http_server_port": 314
     },
     "sncf": {
-        "connected": false,
+        "connected": true,
         "broker_ip": "127.0.0.1",
         "broker_port": 1883
     },

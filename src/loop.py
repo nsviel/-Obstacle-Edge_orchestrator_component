@@ -24,9 +24,9 @@ def start():
 def init():
     file.load_configuration()
     http_server.start_daemon()
-    mqtt.start_init()
-    #socket_server.start_thread_socket_server()
-    #connection.start_thread_test_conn()
+    mqtt.start_client()
+    socket_server.start_daemon()
+    connection.start_daemon()
     cla.hubium.status = "Online"
 
 def loop():

@@ -23,16 +23,19 @@ class Hubium:
     http_server_port = 1;
     http_server_ip = "";
 
-    # Path
+    # State
+    path_config = "param/config.json"
     path_state_hu = "state/state_hu.json"
     path_state_py = "state/state_hu.json"
 
-    path_config = "param/config.json"
+    # Data
     path_geoloc = "data/geo.dat"
     path_image = "data/image/image"
     path_frame = "data/frame/"
-    path_predic = "data/prediction/"
+    path_predi = "data/prediction/"
     path_generic = "data/generic/"
+    nb_frame = 0
+    nb_predi = 0
 
     def reset(self):
         self.status = "Offline"
