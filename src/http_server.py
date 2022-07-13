@@ -32,8 +32,6 @@ def start_daemon(server_class=HTTPServer, handler_class=S):
 
 #Command functions
 def manage_post(self):
-    content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
-    post_data = self.rfile.read(content_length) # <--- Gets the data itself
     path = str(self.path)
 
     if(param_hu.http_server_verbose):
@@ -42,15 +40,14 @@ def manage_post(self):
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
         print("Body:\n \033[94m%s\033[0m" % post_data.decode('utf-8'))
     if(path == '/geo'):
-        http_server_port.post_geo()
-    if(path == '/velodyne'):
-        print("velodyne !")
+        http_server_post.post_geo(self)
+    if(path == '/new_state_py'):
+        http_server_post.post_new_state_py(self)
     if(path == '/scala'):
         print("scala !")
 
 def manage_get(self):
     path = str(self.path)
-
     if(param_hu.http_server_verbose):
         print("---- GET request ----")
         print("Path: \033[94m%s\033[0m" % path)
@@ -62,8 +59,8 @@ def manage_get(self):
        http_server_get.get_image(self)
     elif(path == '/falsealarm'):
        http_server_get.get_falsealarm(self)
-    elif(path == '/test'):
-       http_server_get.get_test(self)
+    elif(path == '/test_http_conn'):
+       http_server_get.get_test_http_conn(self)
     elif(path == '/state_hu'):
         http_server_get.get_state_hu(self)
     elif(path == '/state_py'):

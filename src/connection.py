@@ -7,6 +7,7 @@ from src import mqtt
 from src import parser_json
 from src import socket_client
 from src import http_client
+from src import http_client_get
 from src import io
 
 from threading import Thread
@@ -25,6 +26,7 @@ def thread_test_connection():
         mqtt.test_connection()
         socket_client.test_velo_connection()
         http_client.test_connection()
+        http_client_get.get_state_py()
 
         # Update state file
         parser_json.upload_file(param_hu.path_state_hu, param_hu.state_hu)
