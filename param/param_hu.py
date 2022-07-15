@@ -15,6 +15,8 @@ run_thread_socket = False
 sock_server = None
 
 # HTTP
+http_server = None
+http_server_daemon = None
 http_server_verbose = False
 http_server_ip = "";
 

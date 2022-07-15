@@ -11,13 +11,22 @@ import requests
 def test_connection():
     ip = param_hu.state_hu["pywardium"]["ip"]
     port = param_hu.state_hu["pywardium"]["http_server_port"]
+
+    if(http_connection(ip, port, "/test_http_conn")):
+        param_hu.state_hu["pywardium"]["connected"] = True
+    else:
+        connection_closed()
+
+def http_connection(ip, port, get):
+    connected = False
     sock = client.HTTPConnection(ip, port, timeout=0.1)
     try:
-        sock.request("GET", "/test")
-        param_hu.state_hu["pywardium"]["connected"] = True
+        sock.request("GET", get)
+        connected = True
     except:
-        connection_closed()
+        connected = False
     sock.close()
+    return connected
 
 def connection_closed():
     param_hu.state_hu["pywardium"]["connected"] = False

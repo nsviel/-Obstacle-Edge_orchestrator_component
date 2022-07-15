@@ -3,8 +3,8 @@
 
 from param import param_hu
 
-from src import http_server_get
-from src import http_server_post
+from conn import http_server_get
+from conn import http_server_post
 
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
@@ -25,10 +25,14 @@ class S(BaseHTTPRequestHandler):
 
 def start_daemon(server_class=HTTPServer, handler_class=S):
     address = ("", param_hu.state_hu["self"]["http_server_port"])
-    server = ThreadingHTTPServer(address, handler_class)
-    httpd = threading.Thread(target=server.serve_forever)
-    httpd.daemon = True
-    httpd.start()
+    param_hu.http_server = ThreadingHTTPServer(address, handler_class)
+    param_hu.http_server_daemon = threading.Thread(target=param_hu.http_server.serve_forever)
+    param_hu.http_server_daemon.daemon = True
+    param_hu.http_server_daemon.start()
+
+def stop_daemon():
+    param_hu.http_server.shutdown()
+    param_hu.http_server_daemon.join()
 
 #Command functions
 def manage_post(self):
@@ -43,8 +47,8 @@ def manage_post(self):
         http_server_post.post_geo(self)
     if(path == '/new_state_py'):
         http_server_post.post_new_state_py(self)
-    if(path == '/scala'):
-        print("scala !")
+    if(path == '/new_param_py'):
+        http_server_post.post_new_param_py(self)
 
 def manage_get(self):
     path = str(self.path)

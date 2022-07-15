@@ -1,6 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_hu
+
 import json
 
 
@@ -23,6 +25,10 @@ def load_file_to_sock_data_encoded(path):
 def upload_file(path, data):
     file = open(path, "w")
     json.dump(data, file, indent=4)
+
+def upload_state():
+    file = open(param_hu.path_state_hu, "w")
+    json.dump(param_hu.state_hu, file, indent=4)
 
 def upload_file_by_sock_data(path, data):
     file = open(path, 'w')
