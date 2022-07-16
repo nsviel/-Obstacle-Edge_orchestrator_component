@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_hu
-from conn import http_client
+from HTTP import http_client
 from src import parser_json
 
 import http.client as client

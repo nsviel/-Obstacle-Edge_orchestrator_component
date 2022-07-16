@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_hu
-from conn import http_client_post
+from HTTP import http_client_post
 from src import parser_json
 from src import io
 
@@ -25,12 +25,12 @@ def post_new_state_py(self):
     except:
         print('not valid JSON')
 
-def post_new_param_py(self):
+def post_param_py(self):
     content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
     post_data = self.rfile.read(content_length) # <--- Gets the data itself
     self.send_response(200)
     try:
         data = post_data.decode('utf8')
-        http_client_post.post_new_param_py(data)
+        http_client_post.post_param_py(data)
     except:
         print('not valid JSON')

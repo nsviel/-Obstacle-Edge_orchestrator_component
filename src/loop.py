@@ -3,11 +3,11 @@
 
 from param import param_hu
 
-from conn import http_server
-from conn import mqtt_client
-from conn import connection
-from conn import socket_server
+from HTTP import http_server
+from MQTT import mqtt_client
+from SOCK import socket_server
 
+from src import connection
 from src import file
 from src import parser_json
 

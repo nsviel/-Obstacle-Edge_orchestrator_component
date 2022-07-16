@@ -3,8 +3,8 @@
 
 from param import param_hu
 
-from conn import http_server_get
-from conn import http_server_post
+from HTTP import http_server_get
+from HTTP import http_server_post
 
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
@@ -48,7 +48,7 @@ def manage_post(self):
     if(path == '/new_state_py'):
         http_server_post.post_new_state_py(self)
     if(path == '/new_param_py'):
-        http_server_post.post_new_param_py(self)
+        http_server_post.post_param_py(self)
 
 def manage_get(self):
     path = str(self.path)

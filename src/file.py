@@ -17,6 +17,8 @@ def load_json_file():
 
 def upload_config_file():
     config = parser_json.load_file(param_hu.path_config)
+    param_hu.state_hu["self"]["country"] = config["self"]["country"]
+    param_hu.state_hu["self"]["edge_id"] = config["self"]["edge_id"]
     param_hu.state_hu["self"]["sock_server_port"] = config["self"]["sock_server_port"]
     param_hu.state_hu["self"]["http_server_port"] = config["self"]["http_server_port"]
 

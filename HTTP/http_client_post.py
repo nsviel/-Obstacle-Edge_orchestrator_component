@@ -22,7 +22,7 @@ def post_new_state_py():
         except:
             print("[error] Sending new state py failed for ip: %s | port: %d"% (ip, port))
 
-def post_new_param_py(payload):
+def post_param_py(payload):
     connected = param_hu.state_hu["pywardium"]["connected"]
     ip = param_hu.state_hu["pywardium"]["ip"]
     port = param_hu.state_hu["pywardium"]["http_server_port"]

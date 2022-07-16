@@ -2,13 +2,15 @@
     "self": {
         "status": "Offline",
         "ip": "127.0.0.1",
+        "country": "France",
+        "edge_id": 0,
         "sock_server_port": 344,
         "http_server_port": 443,
         "nb_frame": 20,
         "nb_prediction": 0
     },
     "pywardium": {
-        "connected": false,
+        "connected": true,
         "ip": "127.0.0.1",
         "sock_server_port": 320,
         "http_server_port": 314
@@ -32,6 +34,13 @@
     },
     "edge": {
         "connected": false,
-        "ip": "127.0.0.1"
+        "ip": "127.0.0.1",
+        "country": "Spain",
+        "edge_id": 1
+    },
+    "controlium": {
+        "connected": false,
+        "ip": "127.0.0.1",
+        "sock_server_port": 344
     }
 }

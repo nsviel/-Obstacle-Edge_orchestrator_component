@@ -8,7 +8,7 @@ from src import parser_json
 import paho.mqtt.client as mqtt
 
 
-def test_connection():
+def test_sncf_connection():
     connected = param_hu.state_hu["sncf"]["connected"]
     ip = param_hu.state_hu["sncf"]["broker_ip"]
     port = param_hu.state_hu["sncf"]["broker_port"]

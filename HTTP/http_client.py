@@ -1,14 +1,13 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-
 from param import param_hu
 
 import http.client as client
 import requests
 
 
-def test_connection():
+def test_py_connection():
     ip = param_hu.state_hu["pywardium"]["ip"]
     port = param_hu.state_hu["pywardium"]["http_server_port"]
 
