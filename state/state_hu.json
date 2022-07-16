@@ -10,7 +10,7 @@
         "nb_prediction": 0
     },
     "pywardium": {
-        "connected": true,
+        "connected": false,
         "ip": "127.0.0.1",
         "sock_server_port": 320,
         "http_server_port": 314

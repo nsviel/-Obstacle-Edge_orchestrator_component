@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
+from param import param_hu
 from HTTP import http_client
 from src import connection
 from src import parser_json
@@ -11,8 +11,8 @@ import json
 
 
 def send_conn_request(command):
-    ip = param_co.state_co["hubium"]["ip"]
-    port = param_co.state_co["hubium"]["http_server_port"]
+    ip = param_hu.state_hu["pywardium"]["ip"]
+    port = param_hu.state_hu["pywardium"]["http_server_port"]
     connected = False
     sock = client.HTTPConnection(ip, port, timeout=0.1)
     try:
@@ -24,9 +24,9 @@ def send_conn_request(command):
     return connected
 
 def send_state_request(name):
-    connected = param_co.state_co["hubium"]["connected"]
-    ip = param_co.state_co["hubium"]["ip"]
-    port = param_co.state_co["hubium"]["http_server_port"]
+    connected = param_hu.state_hu["pywardium"]["connected"]
+    ip = param_hu.state_hu["pywardium"]["ip"]
+    port = param_hu.state_hu["pywardium"]["http_server_port"]
     if(connected):
         try:
             sock = client.HTTPConnection(ip, port, timeout=1)
@@ -39,9 +39,9 @@ def send_state_request(name):
             pass
 
 def send_command_request(command, sucess):
-    connected = param_co.state_co["hubium"]["connected"]
-    ip = param_co.state_co["hubium"]["ip"]
-    port = param_co.state_co["hubium"]["http_server_port"]
+    connected = param_hu.state_hu["pywardium"]["connected"]
+    ip = param_hu.state_hu["pywardium"]["ip"]
+    port = param_hu.state_hu["pywardium"]["http_server_port"]
     if(connected):
         try:
             sock = client.HTTPConnection(ip, port, timeout=1)
@@ -51,9 +51,9 @@ def send_command_request(command, sucess):
             http_client.connection_closed()
 
 def send_image_request(path):
-    connected = param_co.state_co["hubium"]["connected"]
-    ip = param_co.state_co["hubium"]["ip"]
-    port = param_co.state_co["hubium"]["http_server_port"]
+    connected = param_hu.state_hu["pywardium"]["connected"]
+    ip = param_hu.state_hu["pywardium"]["ip"]
+    port = param_hu.state_hu["pywardium"]["http_server_port"]
     if(connected):
         try:
             sock = client.HTTPConnection(ip, port, timeout=1)
@@ -70,19 +70,16 @@ def send_image_request(path):
         except:
             http_client.connection_closed()
 
-def send_param_request(command, lvl1, lvl2, value):
-    connected = param_co.state_co["hubium"]["connected"]
-    ip = param_co.state_co["hubium"]["ip"]
-    port = param_co.state_co["hubium"]["http_server_port"]
+def send_param_request(command, payload):
+    connected = param_hu.state_hu["pywardium"]["connected"]
+    ip = param_hu.state_hu["pywardium"]["ip"]
+    port = param_hu.state_hu["pywardium"]["http_server_port"]
 
     header = {"Content-type": "application/json"}
-    payload = {lvl1: {lvl2: value}}
-    file = json.dumps(payload)
-
     if(connected):
         try:
             sock = client.HTTPConnection(ip, port, timeout=1)
-            sock.request("POST", command, file, header)
+            sock.request("POST", command, payload, header)
             sock.close()
         except:
             print("[error] Sending new state py failed for ip: %s | port: %d"% (ip, port))
