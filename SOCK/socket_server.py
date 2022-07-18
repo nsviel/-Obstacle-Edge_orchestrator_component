@@ -8,6 +8,12 @@ from threading import Thread
 import socket
 
 
+#!/usr/bin/python3
+
+import sys, time
+import threading
+
+
 def start_daemon():
     thread_con = Thread(target = thread_socket_server)
     thread_con.start()

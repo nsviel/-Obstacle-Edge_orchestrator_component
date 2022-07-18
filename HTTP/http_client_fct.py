@@ -24,7 +24,7 @@ def send_conn_request(command):
     return connected
 
 def send_state_request(name):
-    connected = param_hu.state_hu["pywardium"]["connected"]
+    connected = param_hu.state_hu["pywardium"]["http_connected"]
     ip = param_hu.state_hu["pywardium"]["ip"]
     port = param_hu.state_hu["pywardium"]["http_server_port"]
     if(connected):
@@ -39,7 +39,7 @@ def send_state_request(name):
             pass
 
 def send_command_request(command, sucess):
-    connected = param_hu.state_hu["pywardium"]["connected"]
+    connected = param_hu.state_hu["pywardium"]["http_connected"]
     ip = param_hu.state_hu["pywardium"]["ip"]
     port = param_hu.state_hu["pywardium"]["http_server_port"]
     if(connected):
@@ -51,7 +51,7 @@ def send_command_request(command, sucess):
             http_client.connection_closed()
 
 def send_image_request(path):
-    connected = param_hu.state_hu["pywardium"]["connected"]
+    connected = param_hu.state_hu["pywardium"]["http_connected"]
     ip = param_hu.state_hu["pywardium"]["ip"]
     port = param_hu.state_hu["pywardium"]["http_server_port"]
     if(connected):
@@ -71,7 +71,7 @@ def send_image_request(path):
             http_client.connection_closed()
 
 def send_param_request(command, payload):
-    connected = param_hu.state_hu["pywardium"]["connected"]
+    connected = param_hu.state_hu["pywardium"]["http_connected"]
     ip = param_hu.state_hu["pywardium"]["ip"]
     port = param_hu.state_hu["pywardium"]["http_server_port"]
 

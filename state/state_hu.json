@@ -10,10 +10,12 @@
         "nb_prediction": 0
     },
     "pywardium": {
-        "connected": false,
         "ip": "127.0.0.1",
+        "http_connected": true,
+        "http_server_port": 314,
+        "sock_connected": true,
         "sock_server_port": 320,
-        "http_server_port": 314
+        "connected": false
     },
     "velodium": {
         "connected": false,

@@ -8,8 +8,9 @@ from MQTT import mqtt_client
 from SOCK import socket_server
 
 from src import connection
-from src import file
+from src import state
 from src import parser_json
+from src import data
 
 
 def start():
@@ -24,7 +25,8 @@ def start():
     end()
 
 def init():
-    file.load_configuration()
+    data.check_directories()
+    state.load_configuration()
     mqtt_client.start_client()
     connection.start_daemon()
     socket_server.start_daemon()

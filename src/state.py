@@ -34,7 +34,8 @@ def upload_config_file():
     param_hu.state_hu["edge"]["ip"] = config["edge"]["ip"]
 
 def reset_value():
-    param_hu.state_hu["pywardium"]["connected"] = False
+    param_hu.state_hu["pywardium"]["http_connected"] = False
+    param_hu.state_hu["pywardium"]["sock_connected"] = False
     param_hu.state_hu["velodium"]["connected"] = False
     param_hu.state_hu["ai"]["connected"] = False
     param_hu.state_hu["sncf"]["connected"] = False

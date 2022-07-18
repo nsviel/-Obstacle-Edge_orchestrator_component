@@ -30,8 +30,11 @@ path_state_hu = "state/state_hu.json"
 path_state_py = "state/state_py.json"
 
 # Data
+path_data_dir = "data"
+path_image_dir = "data/image"
+path_frame_dir = "data/frame/"
+path_predi_dir = "data/prediction/"
+
 path_geoloc = "data/geo.dat"
 path_image = "data/image/image"
-path_frame = "data/frame/"
-path_predi = "data/prediction/"
 path_generic = "data/generic/"
