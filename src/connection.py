@@ -6,7 +6,7 @@ from param import param_hu
 from HTTP import http_client
 from HTTP import http_client_get
 from MQTT import mqtt_client
-from SOCK import socket_client
+from SOCK import sock_client
 
 from src import parser_json
 from src import io
@@ -28,7 +28,7 @@ def thread_test_connection():
     while param_hu.run_thread_con:
         # Test connection
         mqtt_client.test_sncf_connection()
-        socket_client.test_velo_connection()
+        sock_client.test_velo_connection()
         http_client.test_py_connection()
 
         # Update state file

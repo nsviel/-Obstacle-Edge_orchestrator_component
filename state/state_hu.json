@@ -11,9 +11,9 @@
     },
     "pywardium": {
         "ip": "127.0.0.1",
-        "http_connected": true,
+        "http_connected": false,
         "http_server_port": 314,
-        "sock_connected": true,
+        "sock_connected": false,
         "sock_server_port": 320,
         "connected": false
     },
@@ -35,10 +35,12 @@
         "ip": "127.0.0.1"
     },
     "edge": {
-        "connected": false,
         "ip": "127.0.0.1",
         "country": "Spain",
-        "edge_id": 1
+        "edge_id": 1,
+        "http_connected": false,
+        "sock_connected": false,
+        "connected": false
     },
     "controlium": {
         "connected": false,

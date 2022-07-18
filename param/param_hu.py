@@ -13,6 +13,8 @@ run_thread_socket = False
 
 # Socket
 sock_server = None
+sock_client = None
+sock_client_ok = False
 
 # HTTP
 http_server = None
