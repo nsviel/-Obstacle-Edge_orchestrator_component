@@ -26,6 +26,9 @@ def upload_config_file():
     param_hu.state_hu["pywardium"]["sock_server_port"] = config["pywardium"]["sock_server_port"]
     param_hu.state_hu["pywardium"]["http_server_port"] = config["pywardium"]["http_server_port"]
 
+    param_hu.state_hu["controlium"]["ip"] = config["controlium"]["ip"]
+    param_hu.state_hu["controlium"]["sock_server_port"] = config["controlium"]["sock_server_port"]
+
     param_hu.state_hu["sncf"]["broker_ip"] = config["sncf"]["broker_ip"]
     param_hu.state_hu["sncf"]["broker_port"] = config["sncf"]["broker_port"]
 

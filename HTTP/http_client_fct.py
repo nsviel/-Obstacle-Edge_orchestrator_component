@@ -80,6 +80,7 @@ def send_param_request(command, payload):
         try:
             sock = client.HTTPConnection(ip, port, timeout=1)
             sock.request("POST", command, payload, header)
+
             sock.close()
         except:
             print("[error] Sending new state py failed for ip: %s | port: %d"% (ip, port))

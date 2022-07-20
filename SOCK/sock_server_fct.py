@@ -1,6 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from SOCK import sock_client
 from param import param_hu
 
 from threading import Thread
@@ -19,14 +20,22 @@ def thread_socket_server():
 
     while param_hu.run_thread_socket:
         try:
+            param_hu.state_hu["pywardium"]["sock_connected"] = False
             data, (address, port) = param_hu.sock_server.recvfrom(4096)
+            param_hu.state_hu["pywardium"]["sock_connected"] = True
             process_data(data)
         except:
             pass
 
     param_hu.sock_server.close()
 
-def process_data():
-    msg = data.decode('utf-8')
+def process_data(data):
+    msg = 0
+    try:
+        msg = data.decode('utf-8')
+    except:
+        pass
     if(msg == "ok"):
         param_hu.state_hu["velodium"]["connected"] = True
+    else:
+        sock_client.send_packet(data)

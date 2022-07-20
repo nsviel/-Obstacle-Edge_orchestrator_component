@@ -10,6 +10,7 @@ state_py = {}
 run_loop = True
 run_thread_con = False
 run_thread_socket = False
+run_thread_perf = False
 
 # Socket
 sock_server = None

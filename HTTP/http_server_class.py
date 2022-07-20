@@ -24,7 +24,6 @@ class S(BaseHTTPRequestHandler):
 
 def manage_post(self):
     path = str(self.path)
-
     if(param_hu.http_server_verbose):
         print("---- POST request ----")
         print("Path: \033[94m%s\033[0m" % path)

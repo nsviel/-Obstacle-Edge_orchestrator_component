@@ -8,7 +8,7 @@ import os
 
 def check_directories():
     create_directory(param_hu.path_data_dir)
-    create_or_clear_dir(param_hu.path_image_dir)
+    create_directory(param_hu.path_image_dir)
     create_or_clear_dir(param_hu.path_frame_dir)
     create_or_clear_dir(param_hu.path_predi_dir)
 

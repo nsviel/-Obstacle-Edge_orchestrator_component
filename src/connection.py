@@ -13,6 +13,7 @@ from src import io
 
 from threading import Thread
 
+import threading
 import time
 
 
@@ -34,7 +35,11 @@ def thread_test_connection():
         # Update state file
         http_client_get.get_state_py()
         parser_json.upload_state()
+        update_nb_thread()
 
         # Wait for 1 second
         time.sleep(1)
         pass
+
+def update_nb_thread():
+    param_hu.state_hu["self"]["nb_thread"] = threading.active_count()

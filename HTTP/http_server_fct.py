@@ -25,7 +25,8 @@ def send_image(self, path):
         self.send_response(200)
         self.send_header("Content-type", "image/bmp")
         self.end_headers()
-        self.wfile.write(io.load_binary(path))
+        if(os.path.isfile(path)):
+            self.wfile.write(io.load_binary(path))
     except:
         pass
 

@@ -31,6 +31,7 @@ def upload_state():
     json.dump(param_hu.state_hu, file, indent=4)
 
 def upload_file_by_sock_data(path, data):
-    file = open(path, 'w')
-    data_loaded = json.loads(data)
-    json.dump(data_loaded, file, indent=4)
+    if(len(data) != 0):
+        file = open(path, 'w')
+        data_loaded = json.loads(data)
+        json.dump(data_loaded, file, indent=4)
