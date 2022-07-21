@@ -22,7 +22,7 @@
         "connected": false
     },
     "controlium": {
-        "ip": "127.0.0.1",
+        "ip": "192.168.153.147",
         "sock_server_port": 321
     },
     "velodium": {

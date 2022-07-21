@@ -47,7 +47,7 @@ def process_post_param(self):
     try:
         data = post_data.decode('utf8')
         data = json.loads(data)
-        print(data)
+
         for key, value in data.items():
             lvl1 = key
             for key_, value_ in data[key].items():
@@ -55,7 +55,6 @@ def process_post_param(self):
                 lvl3 = value_
 
         param_hu.state_hu[lvl1][lvl2] = lvl3
-        print(param_hu.state_hu[lvl1][lvl2])
 
     except:
         print('[error] Processing post param failed')
