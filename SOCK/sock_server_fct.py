@@ -20,12 +20,11 @@ def thread_socket_server():
 
     while param_hu.run_thread_socket:
         try:
-            param_hu.state_hu["pywardium"]["sock_connected"] = False
             data, (address, port) = param_hu.sock_server.recvfrom(4096)
             param_hu.state_hu["pywardium"]["sock_connected"] = True
             process_data(data)
         except:
-            pass
+            param_hu.state_hu["pywardium"]["sock_connected"] = False
 
     param_hu.sock_server.close()
 
