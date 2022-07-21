@@ -39,3 +39,23 @@ def send_state(self, path):
         self.wfile.write(data)
     except:
         pass
+
+def process_post_param(self):
+    content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
+    post_data = self.rfile.read(content_length) # <--- Gets the data itself
+    self.send_response(200)
+    try:
+        data = post_data.decode('utf8')
+        data = json.loads(data)
+        print(data)
+        for key, value in data.items():
+            lvl1 = key
+            for key_, value_ in data[key].items():
+                lvl2 = key_
+                lvl3 = value_
+
+        param_hu.state_hu[lvl1][lvl2] = lvl3
+        print(param_hu.state_hu[lvl1][lvl2])
+
+    except:
+        print('[error] Processing post param failed')

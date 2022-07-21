@@ -33,6 +33,8 @@ def manage_post(self):
         http_server_post.post_geo(self)
     if(path == '/new_param_py'):
         http_server_post.post_param_py(self)
+    if(path == '/new_param_hu'):
+        http_server_post.post_param_hu(self)
 
 def manage_get(self):
     path = str(self.path)

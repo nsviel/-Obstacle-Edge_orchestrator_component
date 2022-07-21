@@ -16,3 +16,6 @@ def post_geo():
 def post_param_py(self):
     data = http_server_fct.post_param(self)
     http_client_post.post_param_py(data)
+
+def post_param_hu(self):
+    http_server_fct.process_post_param(self)
