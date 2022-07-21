@@ -17,12 +17,14 @@
         "ip": "127.0.0.1",
         "http_connected": false,
         "http_server_port": 314,
-        "sock_connected": false,
+        "sock_l1_connected": false,
+        "sock_l2_connected": false,
+        "connected": false,
         "sock_server_port": 320,
-        "connected": false
+        "sock_connected": false
     },
     "controlium": {
-        "ip": "192.168.153.147",
+        "ip": "127.0.0.1",
         "sock_server_port": 321
     },
     "velodium": {

@@ -26,7 +26,8 @@ def init_state():
     param_hu.state_hu["ai"]["http_connected"] = False
     param_hu.state_hu["velodium"]["sock_connected"] = False
     param_hu.state_hu["pywardium"]["http_connected"] = False
-    param_hu.state_hu["pywardium"]["sock_connected"] = False
+    param_hu.state_hu["pywardium"]["sock_l1_connected"] = False
+    param_hu.state_hu["pywardium"]["sock_l2_connected"] = False
     param_hu.state_hu["velodium"]["connected"] = False
     param_hu.state_hu["valeo"]["connected"] = False
     param_hu.state_hu["edge"]["connected"] = False
