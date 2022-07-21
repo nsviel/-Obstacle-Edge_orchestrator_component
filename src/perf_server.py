@@ -13,7 +13,6 @@ def start_daemon():
     thread_con.start()
 
 def stop_daemon():
-    print("stop")
     param_hu.run_thread_perf = False
 
 def thread_perf_server():

@@ -2,20 +2,36 @@
 #---------------------------------------------
 
 from param import param_hu
-
+from src import connection
 from src import parser_json
 
 
 def load_configuration():
     load_json_file()
-    upload_config_file()
-    reset_value()
+    init_state()
+    load_config_file()
+    upload_state()
 
 def load_json_file():
     param_hu.state_hu = parser_json.load_file(param_hu.path_state_hu)
     param_hu.state_py = parser_json.load_file(param_hu.path_state_py)
 
-def upload_config_file():
+def init_state():
+    param_hu.state_hu["self"]["status"] = "Offline"
+    param_hu.state_hu["self"]["ip"] = connection.get_ip_adress()
+    param_hu.state_hu["self"]["nb_frame"] = 0
+    param_hu.state_hu["self"]["nb_prediction"] = 0
+    param_hu.state_hu["self"]["nb_thread"] = 0
+    param_hu.state_hu["sncf"]["broker_connected"] = False
+    param_hu.state_hu["ai"]["http_connected"] = False
+    param_hu.state_hu["velodium"]["sock_connected"] = False
+    param_hu.state_hu["pywardium"]["http_connected"] = False
+    param_hu.state_hu["pywardium"]["sock_connected"] = False
+    param_hu.state_hu["velodium"]["connected"] = False
+    param_hu.state_hu["valeo"]["connected"] = False
+    param_hu.state_hu["edge"]["connected"] = False
+
+def load_config_file():
     config = parser_json.load_file(param_hu.path_config)
     param_hu.state_hu["self"]["country"] = config["self"]["country"]
     param_hu.state_hu["self"]["edge_id"] = config["self"]["edge_id"]
@@ -36,11 +52,5 @@ def upload_config_file():
     param_hu.state_hu["valeo"]["ip"] = config["valeo"]["ip"]
     param_hu.state_hu["edge"]["ip"] = config["edge"]["ip"]
 
-def reset_value():
-    param_hu.state_hu["pywardium"]["http_connected"] = False
-    param_hu.state_hu["pywardium"]["sock_connected"] = False
-    param_hu.state_hu["velodium"]["connected"] = False
-    param_hu.state_hu["ai"]["connected"] = False
-    param_hu.state_hu["sncf"]["connected"] = False
-    param_hu.state_hu["valeo"]["connected"] = False
-    param_hu.state_hu["edge"]["connected"] = False
+def upload_state():
+    parser_json.upload_file(param_hu.path_state_hu, param_hu.state_hu)
