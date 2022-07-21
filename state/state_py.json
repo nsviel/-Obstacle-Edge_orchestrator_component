@@ -1,58 +1,38 @@
 {
     "self": {
-        "status": "Online",
+        "status": "Offline",
         "add": "",
         "ip": "10.201.20.131",
-        "nb_thread": 10,
+        "nb_thread": 0,
         "http_server_port": 314
     },
     "lidar_1": {
         "connected": false,
         "activated": true,
-        "ip": "http://192.168.2.201/cgi/setting",
+        "ip": "http://192.168.21.201/cgi/setting",
         "device": "enxa0cec8737a9e",
         "speed": 600,
         "bandwidth": 0,
-        "nb_packet": 0,
-        "dir": "",
-        "file": ""
+        "nb_packet": 0
     },
     "lidar_2": {
-        "connected": true,
+        "connected": false,
         "activated": true,
         "ip": "http://192.168.1.202/cgi/setting",
         "device": "enxf8e43b6cdf6c",
         "speed": 600,
-        "bandwidth": 1.021,
-        "nb_packet": 309378,
-        "dir": "",
-        "file": ""
+        "bandwidth": 0,
+        "nb_packet": 0
     },
     "hubium": {
         "ip": "127.0.0.1",
         "sock_server_l1_port": 344,
-        "sock_server_l2_port": 345
+        "sock_server_l2_port": 345,
+        "sock_server_ip": "127.0.0.1",
+        "sock_server_port": 344
     },
     "geolocalization": {
         "country": "France"
     },
-    "device": {
-        "0": "enp34s0",
-        "1": "enxf8e43b6cdf6c",
-        "2": "enxa0cec8737a9e",
-        "3": "lo",
-        "4": "any",
-        "5": "docker0",
-        "6": "br-162b65f1f577",
-        "7": "bluetooth-monitor",
-        "8": "nflog",
-        "9": "nfqueue",
-        "10": "bluetooth0",
-        "11": "bluetooth0"
-    },
-    "path": {
-        "capture": "",
-        "additional": "",
-        "name": ""
-    }
+    "device": {}
 }
