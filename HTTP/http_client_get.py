@@ -15,3 +15,6 @@ def get_state_py():
     if(state != None):
         parser_json.upload_file_by_sock_data(param_hu.path_state_py, state)
         param_hu.state_py = parser_json.load_file(param_hu.path_state_py)
+
+def get_command(command, text):
+    http_client_fct.send_command_request(command, text)
