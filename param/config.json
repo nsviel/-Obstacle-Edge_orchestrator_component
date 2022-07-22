@@ -1,6 +1,7 @@
 {
     "self": {
         "country": "France",
+        "add": "MINES_Nathan",
         "edge_id": 0,
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
@@ -16,6 +17,7 @@
         "sock_server_l2_port": 322
     },
     "sncf": {
+        "add": "MINES_Nathan",
         "broker_ip": "127.0.0.1",
         "broker_port": 1883
     },

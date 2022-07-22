@@ -10,7 +10,6 @@
         "http_server_port": 443
     },
     "pywardium": {
-        "add": "localhost",
         "ip": "127.0.0.1",
         "http_connected": false,
         "http_server_port": 314,
