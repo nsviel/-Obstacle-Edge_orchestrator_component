@@ -54,6 +54,6 @@ def process_data(data):
     except:
         pass
     if(msg == "ok"):
-        param_hu.state_hu["velodium"]["connected"] = True
+        param_hu.state_hu["velodium"]["sock_connected"] = True
     else:
         sock_client.send_packet(data)

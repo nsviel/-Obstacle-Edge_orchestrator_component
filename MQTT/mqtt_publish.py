@@ -16,7 +16,7 @@ def publish_test():
         print(f"Failed to send message to topic {topic}")
 
 def publish_false_alarm():
-    connected = param_hu.state_hu["sncf"]["connected"]
+    connected = param_hu.state_hu["sncf"]["broker_connected"]
     path_false_alarm = param_hu.path_generic + "prediction.json"
     topic = param_hu.state_hu["sncf"]["mqtt_topic"]
     if(connected):

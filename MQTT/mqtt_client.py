@@ -9,7 +9,7 @@ import paho.mqtt.client as mqtt
 
 
 def test_sncf_connection():
-    connected = param_hu.state_hu["sncf"]["connected"]
+    connected = param_hu.state_hu["sncf"]["broker_connected"]
     ip = param_hu.state_hu["sncf"]["broker_ip"]
     port = param_hu.state_hu["sncf"]["broker_port"]
     if(connected == False):
@@ -26,8 +26,8 @@ def start_client():
     param_hu.mqtt_client = client
 
 def on_connection(client, userdata, flags, rc):
-    param_hu.state_hu["sncf"]["connected"] = True
+    param_hu.state_hu["sncf"]["broker_connected"] = True
     client.subscribe(param_hu.state_hu["sncf"]["mqtt_topic"])
 
 def on_disconnect(client, userdata, rc):
-    param_hu.state_hu["sncf"]["connected"] = False
+    param_hu.state_hu["sncf"]["broker_connected"] = False

@@ -10,7 +10,7 @@ def connection():
 
 def send_packet(packet):
     ip = param_hu.state_hu["controlium"]["ip"]
-    port = param_hu.state_hu["controlium"]["sock_server_port"]
+    port = param_hu.state_hu["controlium"]["sock_server_l1_port"]
     sock_client_fct.send_packet_add(ip, port, packet)
 
 def test_velo_connection():

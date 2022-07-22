@@ -12,7 +12,7 @@ def create_socket():
 
 def send_packet(packet):
     ip = param_hu.state_py["hubium"]["ip"]
-    port = param_hu.state_py["hubium"]["sock_server_port"]
+    port = param_hu.state_py["hubium"]["sock_server_l1_port"]
     if(packet != None and param_hu.sock_client_ok):
         #Remove network queue data
         packet = packet[42:]

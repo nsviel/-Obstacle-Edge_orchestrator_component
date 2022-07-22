@@ -14,6 +14,7 @@ def test_py_connection():
 
 def connection_closed():
     param_hu.state_hu["pywardium"]["http_connected"] = False
-    param_hu.state_hu["pywardium"]["sock_connected"] = False
+    param_hu.state_hu["pywardium"]["sock_l1_connected"] = False
+    param_hu.state_hu["pywardium"]["sock_l2_connected"] = False
     param_hu.state_py["lidar_1"]["connected"] = False
     param_hu.state_py["lidar_2"]["connected"] = False

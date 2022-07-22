@@ -2,15 +2,12 @@
     "self": {
         "status": "Offline",
         "ip": "192.168.153.147",
-        "nb_thread": 4,
+        "nb_thread": 5,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
-        "http_server_port": 443,
-        "nb_frame": 0,
-        "nb_prediction": 0,
-        "sock_server_port": 344
+        "http_server_port": 443
     },
     "pywardium": {
         "add": "localhost",
@@ -18,35 +15,30 @@
         "http_connected": false,
         "http_server_port": 314,
         "sock_l1_connected": false,
-        "sock_l2_connected": false,
-        "connected": false,
-        "sock_server_port": 320,
-        "sock_connected": false
+        "sock_l2_connected": false
     },
     "controlium": {
         "ip": "127.0.0.1",
-        "sock_server_port": 321
+        "sock_server_l1_port": 321,
+        "sock_server_l2_port": 322
     },
     "velodium": {
         "sock_connected": false,
-        "sock_server_port": 2370,
-        "connected": false
+        "sock_server_port": 2370
     },
     "ai": {
         "http_connected": false,
-        "http_server_port": 5000,
-        "connected": false
+        "http_server_port": 5000
     },
     "sncf": {
         "add": "localhost",
-        "broker_connected": false,
+        "broker_connected": true,
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
-        "mqtt_topic": "ai_obstacle",
-        "connected": true
+        "mqtt_topic": "ai_obstacle"
     },
     "valeo": {
-        "connected": false,
+        "http_connected": false,
         "ip": "127.0.0.1"
     },
     "edge": {
@@ -55,7 +47,10 @@
         "country": "Spain",
         "edge_id": 1,
         "http_connected": false,
-        "sock_connected": false,
-        "connected": false
+        "sock_connected": false
+    },
+    "data": {
+        "nb_frame": 0,
+        "nb_prediction": 0
     }
 }
