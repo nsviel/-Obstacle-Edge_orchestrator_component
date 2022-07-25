@@ -13,7 +13,8 @@ run_thread_socket = False
 run_thread_perf = False
 
 # Socket
-sock_server = None
+sock_server_l1 = None
+sock_server_l2 = None
 sock_client = None
 sock_client_ok = False
 
