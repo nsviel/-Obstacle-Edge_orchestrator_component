@@ -2,7 +2,7 @@
     "self": {
         "status": "Offline",
         "ip": "192.168.153.147",
-        "nb_thread": 5,
+        "nb_thread": 8,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
@@ -17,7 +17,7 @@
         "sock_l2_connected": false
     },
     "controlium": {
-        "ip": "127.0.0.1",
+        "ip": "192.168.153.147",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
