@@ -29,6 +29,7 @@ def init_state():
     param_hu.state_hu["pywardium"]["sock_l1_connected"] = False
     param_hu.state_hu["pywardium"]["sock_l2_connected"] = False
     param_hu.state_hu["velodium"]["sock_connected"] = False
+    param_hu.state_hu["velodium"]["http_connected"] = False
     param_hu.state_hu["valeo"]["http_connected"] = False
     param_hu.state_hu["edge"]["http_connected"] = False
     param_hu.state_hu["edge"]["sock_connected"] = False
@@ -52,6 +53,7 @@ def load_config_file():
     param_hu.state_hu["sncf"]["broker_port"] = config["sncf"]["broker_port"]
 
     param_hu.state_hu["velodium"]["sock_server_port"] = config["velodium"]["sock_server_port"]
+    param_hu.state_hu["velodium"]["http_server_port"] = config["velodium"]["http_server_port"]
     param_hu.state_hu["valeo"]["ip"] = config["valeo"]["ip"]
     param_hu.state_hu["edge"]["ip"] = config["edge"]["ip"]
 

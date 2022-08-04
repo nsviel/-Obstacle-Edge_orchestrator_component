@@ -19,6 +19,7 @@ def stop_daemon():
     param_hu.run_thread_socket = False
 
 def restart_daemon():
+    print("[\033[1;32mOK\033[0m] Restart socket server daemon")
     stop_daemon()
     time.sleep(1)
     start_daemon()

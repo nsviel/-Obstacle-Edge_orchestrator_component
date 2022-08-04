@@ -5,6 +5,7 @@ from param import param_hu
 
 from HTTP import http_server_fct
 from HTTP import http_client_get
+from SOCK import sock_server
 from MQTT import mqtt_publish
 
 from src import parser_json
@@ -19,8 +20,11 @@ def get_geo(self):
 def get_image(self):
     http_server_fct.send_image(self, param_hu.path_image)
 
-def get_falsealarm(self):
+def get_false_alarm(self):
     mqtt_publish.publish_false_alarm()
+
+def get_restart_sock_server():
+    sock_server.restart_daemon()
 
 def get_lidar_1_start():
     http_client_get.get_command("/lidar_1_start", "[#] Lidar 1 start")

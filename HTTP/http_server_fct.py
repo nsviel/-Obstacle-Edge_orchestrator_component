@@ -3,7 +3,6 @@
 
 from param import param_hu
 from HTTP import http_client
-from SOCK import sock_server
 from src import connection
 from src import parser_json
 
@@ -56,10 +55,5 @@ def process_post_param(self):
                 lvl3 = value_
 
         param_hu.state_hu[lvl1][lvl2] = lvl3
-        if(lvl1 == "self" and lvl2 == "sock_server_l1_port"):
-            sock_server.restart_daemon()
-        if(lvl1 == "self" and lvl2 == "sock_server_l2_port"):
-            sock_server.restart_daemon()
-
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')

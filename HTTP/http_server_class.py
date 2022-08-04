@@ -35,6 +35,8 @@ def manage_post(self):
         http_server_post.post_param_py(self)
     if(path == '/new_param_hu'):
         http_server_post.post_param_hu(self)
+    if(path == '/new_param_ve'):
+        http_server_post.post_param_ve(self)
 
 def manage_get(self):
     path = str(self.path)
@@ -48,7 +50,9 @@ def manage_get(self):
     elif(path == '/image'):
        http_server_get.get_image(self)
     elif(path == '/false_alarm'):
-       http_server_get.get_falsealarm(self)
+       http_server_get.get_false_alarm(self)
+    elif(path == '/restart_sock_server'):
+       http_server_get.get_restart_sock_server()
     elif(path == '/test_http_conn'):
        http_server_get.get_test_http_conn(self)
     elif(path == '/state_hu'):
