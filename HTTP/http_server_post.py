@@ -18,8 +18,7 @@ def post_param_py(self):
     http_client_post.post_param_py(data)
 
 def post_param_hu(self):
-    http_server_fct.process_post_param(self)
+    http_server_fct.process_post_hu_param(self)
 
 def post_param_ve(self):
-    data = http_server_fct.post_param(self)
-    http_client_post.post_param_ve(data)
+    http_server_fct.process_post_ve_param(self)

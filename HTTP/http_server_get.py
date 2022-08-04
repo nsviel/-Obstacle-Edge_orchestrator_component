@@ -27,16 +27,16 @@ def get_restart_sock_server():
     sock_server.restart_daemon()
 
 def get_lidar_1_start():
-    http_client_get.get_command("/lidar_1_start", "[#] Lidar 1 start")
+    http_client_get.get_command_py("/lidar_1_start", "[#] Lidar 1 start")
 
 def get_lidar_1_stop():
-    http_client_get.get_command("/lidar_1_stop", "[#] Lidar 1 stop")
+    http_client_get.get_command_py("/lidar_1_stop", "[#] Lidar 1 stop")
 
 def get_lidar_2_start():
-    http_client_get.get_command("/lidar_2_start", "[#] Lidar 2 start")
+    http_client_get.get_command_py("/lidar_2_start", "[#] Lidar 2 start")
 
 def get_lidar_2_stop():
-    http_client_get.get_command("/lidar_2_stop", "[#] Lidar 2 stop")
+    http_client_get.get_command_py("/lidar_2_stop", "[#] Lidar 2 stop")
 
 def get_test_http_conn(self):
     self.send_response(200)

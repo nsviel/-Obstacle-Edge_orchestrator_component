@@ -16,5 +16,8 @@ def get_state_py():
         parser_json.upload_file_by_sock_data(param_hu.path_state_py, state)
         param_hu.state_py = parser_json.load_file(param_hu.path_state_py)
 
-def get_command(command, text):
-    http_client_fct.send_get_command(command, text)
+def get_command_py(command, text):
+    http_client_fct.send_get_command_py(command, text)
+
+def get_command_ve(command):
+    http_client_fct.send_get_command_ve(command)

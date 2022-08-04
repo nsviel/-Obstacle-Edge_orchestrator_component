@@ -5,7 +5,7 @@
         "nb_thread": 6,
         "country": "France",
         "edge_id": 0,
-        "sock_server_l1_port": 315,
+        "sock_server_l1_port": 344,
         "sock_server_l1_source": "Lidar 1",
         "sock_server_l2_port": 345,
         "sock_server_l2_source": "Lidar 2",
@@ -25,7 +25,7 @@
     },
     "velodium": {
         "http_connected": false,
-        "http_server_port": 325,
+        "http_server_port": 8888,
         "sock_connected": false,
         "sock_server_port": 2370
     },
