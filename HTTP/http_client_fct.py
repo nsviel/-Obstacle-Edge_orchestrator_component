@@ -26,7 +26,7 @@ def send_conn_request_py(command):
 def send_conn_request_ve(command):
     port = param_hu.state_hu["velodium"]["http_server_port"]
     connected = False
-    sock = client.HTTPConnection("", port, timeout=0.1)
+    sock = client.HTTPConnection("localhost", port, timeout=0.1)
     try:
         sock.request("GET", command)
         connected = True
@@ -67,9 +67,8 @@ def send_get_command_ve(command):
     port = param_hu.state_hu["velodium"]["http_server_port"]
     if(connected):
         try:
-            sock = client.HTTPConnection("", port, timeout=1)
+            sock = client.HTTPConnection("localhost", port, timeout=1)
             sock.request("GET", command)
-            print(command)
         except:
             http_client.connection_closed()
 

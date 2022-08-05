@@ -6,6 +6,7 @@ from HTTP import http_client
 from HTTP import http_server_velo
 from src import connection
 from src import parser_json
+from src import io
 
 import http.client as client
 import json
@@ -19,7 +20,7 @@ def post_param(self):
         data = post_data.decode('utf8')
         return data
     except:
-        print('not valid JSON')
+        print("[\033[1;31merror\033[0m] POST param failed")
 
 def send_image(self, path):
     try:
@@ -27,9 +28,10 @@ def send_image(self, path):
         self.send_header("Content-type", "image/bmp")
         self.end_headers()
         if(os.path.isfile(path)):
-            self.wfile.write(io.load_binary(path))
+            bin = io.load_binary(path)
+            self.wfile.write(bin)
     except:
-        pass
+        print("[\033[1;31merror\033[0m] Image sending failed (\033[1;32m%s\033[0m)" % path)
 
 def send_state(self, path):
     try:
@@ -39,7 +41,7 @@ def send_state(self, path):
         data = parser_json.load_file_to_sock_data_encoded(path)
         self.wfile.write(data)
     except:
-        pass
+        print("[\033[1;31merror\033[0m] State sending failed")
 
 def process_post_hu_param(self):
     content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
