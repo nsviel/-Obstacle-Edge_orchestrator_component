@@ -15,7 +15,7 @@ import json
 
 
 def get_geo(self):
-    print("geo !")
+    pass
 
 def get_image(self):
     http_server_fct.send_image(self, param_hu.path_image)

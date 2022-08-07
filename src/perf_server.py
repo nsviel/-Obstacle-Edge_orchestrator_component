@@ -30,5 +30,3 @@ def thread_perf_server():
 
         net_in = round((net_in_2 - net_in_1) / 1024 / 1024, 3)
         net_out = round((net_out_2 - net_out_1) / 1024 / 1024, 3)
-
-        #print(f"Current net-usage:\nIN: {net_in} MB/s, OUT: {net_out} MB/s")

@@ -1,7 +1,6 @@
 {
     "self": {
         "country": "France",
-        "add": "MINES_Nathan",
         "edge_id": 0,
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,

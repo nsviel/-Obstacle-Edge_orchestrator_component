@@ -3,6 +3,7 @@
 
 from param import param_hu
 from HTTP import http_client_post
+from HTTP import http_client_get
 from HTTP import http_server_fct
 from src import parser_json
 from src import io
@@ -16,6 +17,7 @@ def post_geo():
 def post_param_py(self):
     data = http_server_fct.post_param(self)
     http_client_post.post_param_py(data)
+    http_client_get.get_state_py()
 
 def post_param_hu(self):
     http_server_fct.process_post_hu_param(self)

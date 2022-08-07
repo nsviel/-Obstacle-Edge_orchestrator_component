@@ -55,7 +55,7 @@ def process_l1_data(data):
         elif(param_hu.state_hu["self"]["sock_server_l1_source"] == "Lidar 2"):
             sock_client.send_packet_l2(data)
         else:
-            print("[error] What is the L1 socket source ?")
+            print("[\033[1;31merror\033[0m] What is the L1 socket source ?")
 
 def process_l2_data(data):
     msg = 0
@@ -71,4 +71,4 @@ def process_l2_data(data):
         elif(param_hu.state_hu["self"]["sock_server_l2_source"] == "Lidar 2"):
             sock_client.send_packet_l2(data)
         else:
-            print("[error] What is the L2 socket source ?")
+            print("[\033[1;31merror\033[0m] What is the L2 socket source ?")

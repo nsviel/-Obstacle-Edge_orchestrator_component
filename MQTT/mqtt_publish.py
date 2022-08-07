@@ -11,9 +11,9 @@ def publish_test():
     msg = param_hu.mqtt_message
     result = cla.connec.mqtt_client.publish(topic, msg)
     if success[0] == 0:
-        print(f"Send `{msg}` to topic `{topic}`")
+        print("[\033[1;32mOK\033[0m] Send '%s' to topic '%s'" % msg, topic)
     else:
-        print(f"Failed to send message to topic {topic}")
+        print("[\033[1;31merror\033[0m] Failed to send message to topic '%s'" % topic)
 
 def publish_false_alarm():
     connected = param_hu.state_hu["sncf"]["broker_connected"]
@@ -23,6 +23,6 @@ def publish_false_alarm():
         msg = parser_json.load_file_to_sock_data(path_false_alarm)
         success = cla.connec.mqtt_client.publish(topic, msg)
         if success[0] == 0:
-            print(f"Send false alarm to topic `{topic}`")
+            print("[\033[1;32mOK\033[0m] Send false alarm to topic '%s'" % topic)
         else:
-            print(f"Failed to send message to topic {topic}")
+            print("[\033[1;31merror\033[0m] Failed to send message to topic 'topic'" % topic)
