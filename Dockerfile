@@ -7,17 +7,18 @@ ENV TZ Europe/Paris
 RUN mkdir app \
     && apt-get update \
     && apt-get install -y python3 python3-pip python3-pcapy python3-scapy \
+    && pip3 install scapy requests paho-mqtt \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-RUN pip3 install scapy requests
 
 # Program parameters
-COPY . /app
-WORKDIR /app
+COPY . /app/hubium
+WORKDIR /app/hubium
 
 # Open port
-EXPOSE 2369
-EXPOSE 2370 
+EXPOSE 344
+EXPOSE 345
+EXPOSE 443 
 
 # Final command
 CMD [ "python3", "main.py"]

@@ -1,3 +1,4 @@
 #!/bin/sh
 
-docker run -it -p 2369 --network host pywardium /bin/bash
+sudo docker run -it -p 344 -p 345 -p 443 hubium
+
