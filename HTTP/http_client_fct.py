@@ -110,7 +110,7 @@ def send_post_request_py(command, payload):
     port = param_hu.state_hu["pywardium"]["http_server_port"]
     header = {"Content-type": "application/json"}
     if(connected):
-        try:
+        try: 
             sock = client.HTTPConnection(ip, port, timeout=1)
             sock.request("POST", command, payload, header)
             sock.close()
