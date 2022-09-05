@@ -33,6 +33,7 @@ def thread_test_connection():
         sock_client.test_velo_connection()
         http_client.test_py_connection()
         http_client.test_ve_connection()
+        http_client.test_ai_connection()
 
         # Update state file
         http_client_get.get_state_py()

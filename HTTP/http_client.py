@@ -22,3 +22,10 @@ def test_ve_connection():
         param_hu.state_hu["velodium"]["http_connected"] = True
     else:
         param_hu.state_hu["velodium"]["http_connected"] = False
+
+def test_ai_connection():
+    connected = http_client_fct.send_conn_request_ai("/test_http_conn")
+    if(connected):
+        param_hu.state_hu["ai"]["http_connected"] = True
+    else:
+        param_hu.state_hu["ai"]["http_connected"] = False
