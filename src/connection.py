@@ -29,11 +29,12 @@ def thread_test_connection():
     param_hu.run_thread_con = True
     while param_hu.run_thread_con:
         # Test connection
-        mqtt_client.test_sncf_connection()
-        sock_client.test_velo_connection()
-        http_client.test_py_connection()
         http_client.test_ve_connection()
         http_client.test_ai_connection()
+        http_client.test_py_connection()
+        http_client.test_ed_connection()
+        mqtt_client.test_sncf_connection()
+        sock_client.test_velo_connection()
 
         # Update state file
         http_client_get.get_state_py()

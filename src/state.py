@@ -54,6 +54,7 @@ def load_config_file():
 
     param_hu.state_hu["velodium"]["sock_server_port"] = config["velodium"]["sock_server_port"]
     param_hu.state_hu["velodium"]["http_server_port"] = config["velodium"]["http_server_port"]
+
     param_hu.state_hu["valeo"]["ip"] = config["valeo"]["ip"]
     param_hu.state_hu["edge"]["ip"] = config["edge"]["ip"]
 

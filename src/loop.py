@@ -35,6 +35,9 @@ def init():
     #perf_server.start_daemon()
     sock_server.start_daemon()
     http_server.start_daemon()
+
+    param_hu.state_py["self"]["status"] = "Offline"
+    param_hu.state_hu["edge"]["status"] = "Offline"
     param_hu.state_hu["self"]["status"] = "Online"
     print("[\033[1;32mOK\033[0m] Program initialized...")
 

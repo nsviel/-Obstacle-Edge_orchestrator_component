@@ -10,6 +10,7 @@ from src import io
 
 import http.client as client
 import json
+import os
 
 
 def post_param(self):
@@ -31,7 +32,7 @@ def send_image(self, path):
             bin = io.load_binary(path)
             self.wfile.write(bin)
     except:
-        print("[\033[1;31merror\033[0m] Image sending failed (\033[1;32m%s\033[0m)" % path)
+        print("[\033[1;31merror\033[0m] Image sending failed -> \033[1;32m%s\033[0m [exists: %s]" % (path, os.path.isfile(path)))
 
 def send_state(self, path):
     try:

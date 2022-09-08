@@ -10,19 +10,6 @@ import http.client as client
 import json
 
 
-def send_conn_request_py(command):
-    ip = param_hu.state_hu["pywardium"]["ip"]
-    port = param_hu.state_hu["pywardium"]["http_server_port"]
-    connected = False
-    sock = client.HTTPConnection(ip, port, timeout=0.1)
-    try:
-        sock.request("GET", command)
-        connected = True
-    except:
-        connected = False
-    sock.close()
-    return connected
-
 def send_conn_request_ve(command):
     port = param_hu.state_hu["velodium"]["http_server_port"]
     connected = False
@@ -39,6 +26,32 @@ def send_conn_request_ai(command):
     port = param_hu.state_hu["ai"]["http_server_port"]
     connected = False
     sock = client.HTTPConnection("localhost", port, timeout=0.1)
+    try:
+        sock.request("GET", command)
+        connected = True
+    except:
+        connected = False
+    sock.close()
+    return connected
+
+def send_conn_request_py(command):
+    ip = param_hu.state_hu["pywardium"]["ip"]
+    port = param_hu.state_hu["pywardium"]["http_server_port"]
+    connected = False
+    sock = client.HTTPConnection(ip, port, timeout=0.1)
+    try:
+        sock.request("GET", command)
+        connected = True
+    except:
+        connected = False
+    sock.close()
+    return connected
+
+def send_conn_request_ed(command):
+    ip = param_hu.state_hu["edge"]["ip"]
+    port = param_hu.state_hu["self"]["http_server_port"]
+    connected = False
+    sock = client.HTTPConnection(ip, port, timeout=0.1)
     try:
         sock.request("GET", command)
         connected = True
@@ -110,7 +123,7 @@ def send_post_request_py(command, payload):
     port = param_hu.state_hu["pywardium"]["http_server_port"]
     header = {"Content-type": "application/json"}
     if(connected):
-        try: 
+        try:
             sock = client.HTTPConnection(ip, port, timeout=1)
             sock.request("POST", command, payload, header)
             sock.close()

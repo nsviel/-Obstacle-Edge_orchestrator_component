@@ -36,6 +36,7 @@
         "http_server_port": 5000
     },
     "sncf": {
+        "status": "Offline",
         "add": "localhost",
         "broker_connected": false,
         "broker_ip": "127.0.0.1",
@@ -49,11 +50,14 @@
     },
     "edge": {
         "add": "localhost",
-        "ip": "127.0.0.1",
+        "ip": "10.200.10.1",
         "country": "Spain",
         "edge_id": 1,
         "http_connected": false,
-        "sock_connected": false
+        "sock_connected": false,
+        "status": "Offline",
+        "sock_l1_connected": false,
+        "sock_l2_connected": false
     },
     "data": {
         "nb_frame": 0,
