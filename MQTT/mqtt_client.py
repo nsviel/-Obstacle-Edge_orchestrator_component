@@ -20,7 +20,7 @@ def test_sncf_connection():
             pass
 
 def start_client():
-    client = mqtt.Client()
+    client = mqtt.Client(param_hu.state_hu["sncf"]["mqtt_client"])
     client.on_connect = on_connection
     client.on_disconnect = on_disconnect
     param_hu.mqtt_client = client

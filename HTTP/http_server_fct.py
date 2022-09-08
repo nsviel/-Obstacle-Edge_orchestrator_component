@@ -3,7 +3,7 @@
 
 from param import param_hu
 from HTTP import http_client
-from HTTP import http_server_velo
+from HTTP import http_server_forward
 from src import connection
 from src import parser_json
 from src import io
@@ -73,6 +73,22 @@ def process_post_ve_param(self):
             lvl1 = key
             lvl2 = value
 
-        http_server_velo.process_post_data(lvl1, lvl2)
+        http_server_forward.process_post_data(lvl1, lvl2)
+    except:
+        print('[\033[1;31merror\033[0m] Processing post param failed')
+
+def process_post_ai_param(self):
+    content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
+    post_data = self.rfile.read(content_length) # <--- Gets the data itself
+    self.send_response(200)
+    try:
+        data = post_data.decode('utf8')
+        data = json.loads(data)
+
+        for key, value in data.items():
+            lvl1 = key
+            lvl2 = value
+
+        http_server_forward.forward_ve_post_data(lvl1, lvl2)
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')

@@ -4,7 +4,7 @@
 from HTTP import http_client_get
 
 
-def process_post_data(option, value):
+def forward_ve_post_data(option, value):
     if(option == "slam"):
         if(str(value) == "True"):
             http_client_get.get_command_ve("/slam_on")

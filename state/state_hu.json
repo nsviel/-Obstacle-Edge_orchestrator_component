@@ -19,17 +19,19 @@
         "sock_l2_connected": false
     },
     "controlium": {
-        "ip": "127.0.0.1",
+        "ip": "192.168.153.147",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
     "velodium": {
+        "status": "Offline",
         "http_connected": false,
         "http_server_port": 8888,
         "sock_connected": false,
         "sock_server_port": 2370
     },
     "ai": {
+        "status": "Offline",
         "http_connected": false,
         "http_server_port": 5000
     },
@@ -38,6 +40,7 @@
         "broker_connected": false,
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
+        "mqtt_client": "ai_module",
         "mqtt_topic": "ai_obstacle"
     },
     "valeo": {

@@ -24,3 +24,6 @@ def post_param_hu(self):
 
 def post_param_ve(self):
     http_server_fct.process_post_ve_param(self)
+
+def post_param_ai(self):
+    http_server_fct.process_post_ai_param(self)
