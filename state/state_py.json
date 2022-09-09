@@ -1,6 +1,6 @@
 {
     "self": {
-        "status": "Offline",
+        "status": "Online",
         "ip": "192.168.153.147",
         "nb_thread": 5,
         "http_server_port": 314

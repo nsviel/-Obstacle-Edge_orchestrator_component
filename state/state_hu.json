@@ -13,7 +13,7 @@
     },
     "pywardium": {
         "ip": "127.0.0.1",
-        "http_connected": false,
+        "http_connected": true,
         "http_server_port": 314,
         "sock_l1_connected": false,
         "sock_l2_connected": false
@@ -50,7 +50,7 @@
     },
     "edge": {
         "add": "localhost",
-        "ip": "10.200.10.1",
+        "ip": "10.201.224.13",
         "country": "Spain",
         "edge_id": 1,
         "http_connected": false,

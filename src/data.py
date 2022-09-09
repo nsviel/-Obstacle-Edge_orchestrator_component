@@ -15,7 +15,7 @@ def check_directories():
 def create_or_clear_dir(path):
     if(os.path.exists(path) == False):
         os.mkdir(path)
-        print("[\033[92mSSD\033[0m] Directory %s created" % path)
+        print("[\033[92mOK\033[0m] Directory \033[96m%s\033[0m created" % path)
     else:
         for file in os.scandir(path):
             os.remove(file.path)
@@ -23,4 +23,4 @@ def create_or_clear_dir(path):
 def create_directory(path):
     if(os.path.exists(path) == False):
         os.mkdir(path)
-        print("[\033[92mSSD\033[0m] Directory %s created" % path)
+        print("[\033[92mOK\033[0m] Directory \033[96m%s\033[0m created" % path)
