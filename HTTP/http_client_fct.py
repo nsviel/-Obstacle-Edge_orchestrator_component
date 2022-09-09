@@ -50,7 +50,6 @@ def send_conn_request_py(command):
 def send_conn_request_ed(command):
     ip = param_hu.state_hu["edge"]["ip"]
     port = param_hu.state_hu["self"]["http_server_port"]
-    connected = False
     sock = client.HTTPConnection(ip, port, timeout=0.1)
     try:
         sock.request("GET", command)
