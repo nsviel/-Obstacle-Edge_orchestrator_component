@@ -26,8 +26,10 @@ def start_client():
     param_hu.mqtt_client = client
 
 def on_connection(client, userdata, flags, rc):
+    param_hu.state_hu["sncf"]["status"] = "Online"
     param_hu.state_hu["sncf"]["broker_connected"] = True
     client.subscribe(param_hu.state_hu["sncf"]["mqtt_topic"])
 
 def on_disconnect(client, userdata, rc):
+    param_hu.state_hu["sncf"]["status"] = "Offline"
     param_hu.state_hu["sncf"]["broker_connected"] = False

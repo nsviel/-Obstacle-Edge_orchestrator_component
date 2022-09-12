@@ -1,63 +1,14 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from HTTP import http_client_con
 from param import param_hu
-from HTTP import http_client
 from src import connection
 from src import parser_json
 
 import http.client as client
 import json
 
-
-def send_conn_request_ve(command):
-    port = param_hu.state_hu["velodium"]["http_server_port"]
-    connected = False
-    sock = client.HTTPConnection("localhost", port, timeout=0.1)
-    try:
-        sock.request("GET", command)
-        connected = True
-    except:
-        connected = False
-    sock.close()
-    return connected
-
-def send_conn_request_ai(command):
-    port = param_hu.state_hu["ai"]["http_server_port"]
-    connected = False
-    sock = client.HTTPConnection("localhost", port, timeout=0.1)
-    try:
-        sock.request("GET", command)
-        connected = True
-    except:
-        connected = False
-    sock.close()
-    return connected
-
-def send_conn_request_py(command):
-    ip = param_hu.state_hu["pywardium"]["ip"]
-    port = param_hu.state_hu["pywardium"]["http_server_port"]
-    connected = False
-    sock = client.HTTPConnection(ip, port, timeout=0.1)
-    try:
-        sock.request("GET", command)
-        connected = True
-    except:
-        connected = False
-    sock.close()
-    return connected
-
-def send_conn_request_ed(command):
-    ip = param_hu.state_hu["edge"]["ip"]
-    port = param_hu.state_hu["self"]["http_server_port"]
-    sock = client.HTTPConnection(ip, port, timeout=0.1)
-    try:
-        sock.request("GET", command)
-        connected = True
-    except:
-        connected = False
-    sock.close()
-    return connected
 
 def send_get_state(name):
     connected = param_hu.state_hu["pywardium"]["http_connected"]
@@ -84,7 +35,7 @@ def send_get_command_py(command, sucess):
             sock.request("GET", command)
             print(sucess)
         except:
-            http_client.connection_closed()
+            http_client_con.connection_py_close()
 
 def send_get_command_ve(command):
     connected = param_hu.state_hu["velodium"]["http_connected"]
@@ -94,7 +45,7 @@ def send_get_command_ve(command):
             sock = client.HTTPConnection("localhost", port, timeout=1)
             sock.request("GET", command)
         except:
-            http_client.connection_closed()
+            http_client_con.connection_ve_close()
 
 def send_get_image(path):
     connected = param_hu.state_hu["pywardium"]["http_connected"]
@@ -114,7 +65,7 @@ def send_get_image(path):
 
             sock.close()
         except:
-            http_client.connection_closed()
+            http_client_con.connection_py_close()
 
 def send_post_request_py(command, payload):
     connected = param_hu.state_hu["pywardium"]["http_connected"]

@@ -22,6 +22,3 @@ EXPOSE 443
 
 # Final command
 CMD [ "python3", "main.py"]
-
-
-

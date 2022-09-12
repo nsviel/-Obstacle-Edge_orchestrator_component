@@ -13,17 +13,61 @@ import json
 
 def post_geo():
     io.write_data(param_hu.path_geoloc, post_data.decode('utf-8'))
-
 def post_param_py(self):
     data = http_server_fct.post_param(self)
     http_client_post.post_param_py(data)
     http_client_get.get_state_py()
-
 def post_param_hu(self):
-    http_server_fct.process_post_hu_param(self)
-
+    self.send_response(200)
+    try:
+        data = http_server_fct.decode_post_json(self)
+        for key, value in data.items():
+            lvl1 = key
+            for key_, value_ in data[key].items():
+                lvl2 = key_
+                lvl3 = value_
+        param_hu.state_hu[lvl1][lvl2] = lvl3
+        print("----")
+        print(lvl1)
+        print(lvl2)
+        print(lvl3)
+    except:
+        print('[\033[1;31merror\033[0m] Processing post param failed')
 def post_param_ve(self):
-    http_server_fct.process_post_ve_param(self)
-
+    self.send_response(200)
+    try:
+        data = http_server_fct.decode_post_json(self)
+        for key, value in data.items():
+            lvl1 = key
+            lvl2 = value
+        http_server_forward.process_post_data(lvl1, lvl2)
+    except:
+        print('[\033[1;31merror\033[0m] Processing post param failed')
 def post_param_ai(self):
-    http_server_fct.process_post_ai_param(self)
+    self.send_response(200)
+    try:
+        data = http_server_fct.decode_post_json(self)
+        for key, value in data.items():
+            lvl1 = key
+            lvl2 = value
+        http_server_forward.forward_ve_post_data(lvl1, lvl2)
+    except:
+        print('[\033[1;31merror\033[0m] Processing post param failed')
+
+
+def post_state_hu(self):
+    self.send_response(200)
+    try:
+        data = http_server_fct.decode_post_json(self)
+        param_hu.state_hu = data
+        parser_json.upload_state()
+    except:
+        print('[\033[1;31merror\033[0m] Processing post param failed')
+
+def post_state_py(self):
+    self.send_response(200)
+    try:
+        data = http_server_fct.decode_post_json(self)
+        http_client_post.send_py_state(data)
+    except:
+        print('[\033[1;31merror\033[0m] Processing post param failed')

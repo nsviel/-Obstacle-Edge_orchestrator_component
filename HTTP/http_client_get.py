@@ -2,7 +2,6 @@
 #---------------------------------------------
 
 from param import param_hu
-from HTTP import http_client
 from HTTP import http_client_fct
 from src import parser_json
 

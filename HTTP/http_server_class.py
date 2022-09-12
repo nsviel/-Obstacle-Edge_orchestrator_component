@@ -39,6 +39,10 @@ def manage_post(self):
         http_server_post.post_param_ve(self)
     if(path == '/new_param_ai'):
         http_server_post.post_param_ai(self)
+    if(path == '/new_state_hu'):
+        http_server_post.post_state_hu(self)
+    if(path == '/new_state_py'):
+        http_server_post.post_state_py(self)
 
 def manage_get(self):
     path = str(self.path)
