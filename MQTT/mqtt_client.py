@@ -24,6 +24,11 @@ def test_sncf_connection():
             param_hu.state_hu["sncf"]["status"] = "Offline"
             param_hu.state_hu["sncf"]["broker_connected"] = False
 
+    print("-------")
+    print(ip)
+    print(port)
+    print(param_hu.state_hu["sncf"]["broker_connected"])
+
 def create_client():
     client = mqtt.Client(param_hu.state_hu["sncf"]["mqtt_client"])
     client.on_connect = on_connection
