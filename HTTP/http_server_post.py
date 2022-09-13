@@ -27,10 +27,8 @@ def post_param_hu(self):
                 lvl2 = key_
                 lvl3 = value_
         param_hu.state_hu[lvl1][lvl2] = lvl3
-        print("----")
-        print(lvl1)
-        print(lvl2)
-        print(lvl3)
+        if(lvl1 == "sncf"):
+            param_hu.state_hu["sncf"]["broker_connected"] = False
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')
 def post_param_ve(self):
@@ -61,6 +59,8 @@ def post_state_hu(self):
         data = http_server_fct.decode_post_json(self)
         param_hu.state_hu = data
         parser_json.upload_state()
+        param_hu.state_hu["sncf"]["status"] = "Offline"
+        param_hu.state_hu["sncf"]["broker_connected"] = False
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')
 

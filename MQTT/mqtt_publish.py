@@ -25,4 +25,4 @@ def publish_false_alarm():
         if success[0] == 0:
             print("[\033[1;32mOK\033[0m] Send false alarm to topic '%s'" % topic)
         else:
-            print("[\033[1;31merror\033[0m] Failed to send message to topic 'topic'" % topic)
+            print("[\033[1;31m#\033[0m] Failed to send message to topic 'topic'" % topic)
