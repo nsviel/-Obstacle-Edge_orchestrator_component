@@ -42,3 +42,10 @@ path_predi_dir = "data/prediction/"
 path_geoloc = "data/geo.dat"
 path_image = "data/image/image"
 path_generic = "data/generic/"
+
+def info_connection(ip, port, connected):
+    print(" ")
+    print("--------------")
+    print(ip)
+    print(port)
+    print(connected)

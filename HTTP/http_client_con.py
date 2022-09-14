@@ -6,7 +6,9 @@ from src import parser_json
 from HTTP import http_client_fct
 from HTTP import http_client_post
 
+import json
 import http.client
+
 
 #-----------------------
 #Test Velodium HTTP connection
@@ -19,10 +21,12 @@ def test_ve_con():
     except:
         connection_ve_close()
     client.close()
+
 def connection_ve_open():
     connected = param_hu.state_hu["velodium"]["http_connected"]
     if(connected == False):
         param_hu.state_hu["velodium"]["http_connected"] = True
+
 def connection_ve_close():
     param_hu.state_hu["velodium"]["http_connected"] = False
 
@@ -37,10 +41,12 @@ def test_ai_con():
     except:
         connection_ai_close()
     client.close()
+
 def connection_ai_open():
     connected = param_hu.state_hu["ai"]["http_connected"]
     if(connected == False):
         param_hu.state_hu["ai"]["http_connected"] = True
+
 def connection_ai_close():
     param_hu.state_hu["ai"]["http_connected"] = False
 
@@ -56,11 +62,15 @@ def test_py_con():
     except:
         connection_py_close()
     client.close()
+
 def connection_py_open():
     connected = param_hu.state_hu["pywardium"]["http_connected"]
     if(connected == False):
         param_hu.state_hu["pywardium"]["http_connected"] = True
-        http_client_post.post_param_py("hubium", "ip", param_hu.state_hu["self"]["ip"])
+        payload = {"hubium": {"ip": param_hu.state_hu["self"]["ip"]}}
+        payload_json = json.dumps(payload)
+        http_client_post.post_param_py(payload_json)
+
 def connection_py_close():
     param_hu.state_hu["pywardium"]["http_connected"] = False
     param_hu.state_hu["pywardium"]["sock_l1_connected"] = False
@@ -83,10 +93,12 @@ def test_ed_con():
     except:
         connection_ed_close()
     client.close()
+
 def connection_ed_open():
     connected = param_hu.state_hu["edge"]["http_connected"]
     if(connected == False):
         param_hu.state_hu["edge"]["http_connected"] = True
+
 def connection_ed_close():
     param_hu.state_hu["edge"]["http_connected"] = False
     param_hu.state_hu["edge"]["sock_l1_connected"] = False

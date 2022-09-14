@@ -2,7 +2,7 @@
     "self": {
         "status": "Offline",
         "ip": "192.168.153.147",
-        "nb_thread": 6,
+        "nb_thread": 5,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
@@ -20,7 +20,7 @@
         "sock_l2_connected": false
     },
     "controlium": {
-        "ip": "192.168.153.147",
+        "ip": "127.0.0.1",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
@@ -37,10 +37,10 @@
         "http_server_port": 5000
     },
     "sncf": {
-        "status": "Online",
+        "status": "Offline",
         "add": "localhost",
-        "broker_connected": true,
-        "broker_ip": "10.201.20.131",
+        "broker_connected": false,
+        "broker_ip": "127.0.0.1",
         "broker_port": 1883,
         "mqtt_client": "ai_module",
         "mqtt_topic": "ai_obstacle",
