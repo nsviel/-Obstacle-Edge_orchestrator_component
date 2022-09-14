@@ -2,7 +2,7 @@
     "self": {
         "status": "Online",
         "ip": "10.201.20.68",
-        "nb_thread": 5,
+        "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314
@@ -12,7 +12,7 @@
         "activated": true,
         "ip": "http://192.168.1.201/cgi/setting",
         "port": 2368,
-        "device": "enx00e04c680731",
+        "device": "docker0",
         "speed": 600,
         "bandwidth": 0,
         "nb_packet": 0
