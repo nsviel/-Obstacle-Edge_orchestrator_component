@@ -13,10 +13,12 @@ import json
 
 def post_geo():
     io.write_data(param_hu.path_geoloc, post_data.decode('utf-8'))
+
 def post_param_py(self):
     data = http_server_fct.post_param(self)
     http_client_post.post_param_py(data)
     http_client_get.get_state_py()
+
 def post_param_hu(self):
     self.send_response(200)
     try:
@@ -31,6 +33,7 @@ def post_param_hu(self):
             param_hu.state_hu["sncf"]["broker_connected"] = False
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')
+
 def post_param_ve(self):
     self.send_response(200)
     try:
@@ -41,6 +44,7 @@ def post_param_ve(self):
         http_server_forward.process_post_data(lvl1, lvl2)
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')
+
 def post_param_ai(self):
     self.send_response(200)
     try:
@@ -51,7 +55,6 @@ def post_param_ai(self):
         http_server_forward.forward_ve_post_data(lvl1, lvl2)
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')
-
 
 def post_state_hu(self):
     self.send_response(200)
@@ -67,7 +70,8 @@ def post_state_hu(self):
 def post_state_py(self):
     self.send_response(200)
     try:
-        data = http_server_fct.decode_post_json(self)
+        content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
+        data = self.rfile.read(content_length) # <--- Gets the data itself
         http_client_post.send_py_state(data)
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')
