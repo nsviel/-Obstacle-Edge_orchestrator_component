@@ -25,9 +25,11 @@ def test_ve_con():
 def connection_ve_open():
     connected = param_hu.state_hu["velodium"]["http_connected"]
     if(connected == False):
+        param_hu.state_hu["velodium"]["status"] = "Online"
         param_hu.state_hu["velodium"]["http_connected"] = True
 
 def connection_ve_close():
+    param_hu.state_hu["velodium"]["status"] = "Offline"
     param_hu.state_hu["velodium"]["http_connected"] = False
 
 #-----------------------

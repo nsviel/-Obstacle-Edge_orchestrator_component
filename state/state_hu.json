@@ -1,8 +1,8 @@
 {
     "self": {
         "status": "Offline",
-        "ip": "10.201.20.68",
-        "nb_thread": 5,
+        "ip": "192.168.52.42",
+        "nb_thread": 6,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
@@ -14,13 +14,13 @@
     "pywardium": {
         "ip": "127.0.0.1",
         "add": "localhost",
-        "http_connected": true,
+        "http_connected": false,
         "http_server_port": 314,
         "sock_l1_connected": false,
         "sock_l2_connected": false
     },
     "controlium": {
-        "ip": "127.0.0.1",
+        "ip": "192.168.52.42",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
@@ -37,9 +37,9 @@
         "http_server_port": 5000
     },
     "sncf": {
-        "status": "Offline",
+        "status": "Online",
         "add": "localhost",
-        "broker_connected": false,
+        "broker_connected": true,
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
         "mqtt_client": "ai_module",

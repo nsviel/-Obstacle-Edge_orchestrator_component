@@ -9,7 +9,7 @@ from src import parser_json
 def publish_test():
     topic = param_hu.state_hu["sncf"]["mqtt_topic"]
     msg = param_hu.mqtt_message
-    result = cla.connec.mqtt_client.publish(topic, msg)
+    result = param_hu.mqtt_client.publish(topic, msg)
     if success[0] == 0:
         print("[\033[1;32mOK\033[0m] Send '%s' to topic '%s'" % msg, topic)
     else:
@@ -21,7 +21,7 @@ def publish_false_alarm():
     topic = param_hu.state_hu["sncf"]["mqtt_topic"]
     if(connected):
         msg = parser_json.load_file_to_sock_data(path_false_alarm)
-        success = cla.connec.mqtt_client.publish(topic, msg)
+        success = param_hu.mqtt_client.publish(topic, msg)
         if success[0] == 0:
             print("[\033[1;32mOK\033[0m] Send false alarm to topic '%s'" % topic)
         else:

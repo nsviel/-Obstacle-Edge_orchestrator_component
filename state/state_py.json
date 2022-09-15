@@ -15,16 +15,16 @@
         "device": "docker0",
         "speed": 600,
         "bandwidth": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "mean": 0
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "packet": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "mean": 0
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         }
     },
     "lidar_2": {
@@ -35,16 +35,16 @@
         "device": "bluetooth-monitor",
         "speed": 600,
         "bandwidth": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "mean": 0
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "packet": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "mean": 0
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         }
     },
     "hubium": {

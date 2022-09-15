@@ -41,7 +41,7 @@ def post_param_ve(self):
         for key, value in data.items():
             lvl1 = key
             lvl2 = value
-        http_server_forward.process_post_data(lvl1, lvl2)
+        http_server_forward.forward_ve_post_data(lvl1, lvl2)
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')
 
@@ -52,7 +52,7 @@ def post_param_ai(self):
         for key, value in data.items():
             lvl1 = key
             lvl2 = value
-        http_server_forward.forward_ve_post_data(lvl1, lvl2)
+        http_server_forward.forward_ai_post_data(lvl1, lvl2)
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')
 
