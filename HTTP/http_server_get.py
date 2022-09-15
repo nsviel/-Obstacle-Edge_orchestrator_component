@@ -42,7 +42,7 @@ def get_test_http_conn(self):
     self.send_response(200)
 
 def get_state_hu(self):
-    http_server_fct.send_state(self, param_hu.path_state_hu)
+    http_server_fct.post_state(self, param_hu.path_state_hu)
 
 def get_state_py(self):
-    http_server_fct.send_state(self, param_hu.path_state_py)
+    http_server_fct.post_state(self, param_hu.path_state_py)

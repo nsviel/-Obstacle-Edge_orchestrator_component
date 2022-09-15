@@ -12,7 +12,7 @@ import json
 import os
 
 
-def post_param(self):
+def retrieve_post_data(self):
     content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
     post_data = self.rfile.read(content_length) # <--- Gets the data itself
     self.send_response(200)
@@ -33,7 +33,7 @@ def send_image(self, path):
     except:
         print("[\033[1;31merror\033[0m] Image sending failed -> \033[1;32m%s\033[0m [exists: %s]" % (path, os.path.isfile(path)))
 
-def send_state(self, path):
+def post_state(self, path):
     try:
         self.send_response(200)
         self.send_header("Content-type", "application/json")
@@ -41,7 +41,8 @@ def send_state(self, path):
         data = parser_json.load_file_to_sock_data_encoded(path)
         self.wfile.write(data)
     except:
-        print("[\033[1;31merror\033[0m] State sending failed")
+        pass
+        #print("[\033[1;31merror\033[0m] State sending failed")
 
 def decode_post_json(self):
     content_length = int(self.headers['Content-Length']) # <--- Gets the size of data

@@ -1,92 +1,57 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from HTTP import http_client_con
 from param import param_hu
-from src import connection
-from src import parser_json
 
-import http.client as client
-import json
+import http.client
 
 
-def send_get_state(name):
-    connected = param_hu.state_hu["pywardium"]["http_connected"]
-    ip = param_hu.state_hu["pywardium"]["ip"]
-    port = param_hu.state_hu["pywardium"]["http_server_port"]
+def send_http_ping(ip, port):
+    client = http.client.HTTPConnection(ip, port, timeout=0.1)
+    connected = False
+    try:
+        client.request("GET", "/test_http_conn")
+        connected = True
+    except:
+        connected = False
+    client.close()
+    return connected
+
+def send_http_post(ip, port, connected, command, payload):
     if(connected):
         try:
-            sock = client.HTTPConnection(ip, port, timeout=1)
-            sock.request("GET", name)
-            response = sock.getresponse()
-            state = response.read()
-            sock.close()
-            return state
+            client = http.client.HTTPConnection(ip, port, timeout=1)
+            header = {"Content-type": "application/json"}
+            client.request("POST", command, payload, header)
+            client.close()
+        except:
+            print("[\033[1;31merror\033[0m] Command \033[1;36m%s\033[0m to ip \033[1;36m%s\033[0m port \033[1;36m%d\033[0m failed" % (command, ip, port))
+
+def send_http_get(ip, port, connected, command):
+    data = None
+    if(connected):
+        try:
+            client = http.client.HTTPConnection(ip, port, timeout=1)
+            client.request("GET", command)
+            response = client.getresponse()
+            data = response.read()
+            client.close()
         except:
             pass
+    return data
 
-def send_get_command_py(command, sucess):
-    connected = param_hu.state_hu["pywardium"]["http_connected"]
-    ip = param_hu.state_hu["pywardium"]["ip"]
-    port = param_hu.state_hu["pywardium"]["http_server_port"]
-    if(connected):
-        try:
-            sock = client.HTTPConnection(ip, port, timeout=1)
-            sock.request("GET", command)
-            print(sucess)
-        except:
-            http_client_con.connection_py_close()
+def network_info(dest):
+    if(dest == "py"):
+        ip = param_hu.state_hu["pywardium"]["ip"]
+        port = param_hu.state_hu["pywardium"]["http_server_port"]
+        connected = param_hu.state_hu["pywardium"]["http_connected"]
+    elif(dest == "ve"):
+        ip = "localhost"
+        port = param_hu.state_hu["velodium"]["http_server_port"]
+        connected = param_hu.state_hu["velodium"]["http_connected"]
+    elif(dest == "ai"):
+        ip = "localhost"
+        port = param_hu.state_hu["ai"]["http_server_port"]
+        connected = param_hu.state_hu["ai"]["http_connected"]
 
-def send_get_command_ve(command):
-    connected = param_hu.state_hu["velodium"]["http_connected"]
-    port = param_hu.state_hu["velodium"]["http_server_port"]
-    if(connected):
-        try:
-            sock = client.HTTPConnection("localhost", port, timeout=1)
-            sock.request("GET", command)
-        except:
-            http_client_con.connection_ve_close()
-
-def send_get_image(path):
-    connected = param_hu.state_hu["pywardium"]["http_connected"]
-    ip = param_hu.state_hu["pywardium"]["ip"]
-    port = param_hu.state_hu["pywardium"]["http_server_port"]
-    if(connected):
-        try:
-            sock = client.HTTPConnection(ip, port, timeout=1)
-            sock.request("GET", "/image")
-            response = sock.getresponse()
-            data_binary = response.read()
-
-            # Save image
-            img = open(path, "wb")
-            img.write(data_binary)
-            img.close()
-
-            sock.close()
-        except:
-            http_client_con.connection_py_close()
-
-def send_post_request_ve(command, payload):
-    connected = param_hu.state_hu["velodium"]["http_connected"]
-    port = param_hu.state_hu["velodium"]["http_server_port"]
-    header = {"Content-type": "application/json"}
-    if(connected):
-        try:
-            sock = client.HTTPConnection("", port, timeout=1)
-            sock.request("POST", command, payload, header)
-            sock.close()
-        except:
-            print("[\033[1;31merror\033[0m] Command \033[1;36m%s\033[0m to ip \033[1;36m%s\033[0m port \033[1;36m%d\033[0m failed" % (command, ip, port))
-
-def send_post_request_ai(command, payload):
-    connected = param_hu.state_hu["ai"]["http_connected"]
-    port = param_hu.state_hu["ai"]["http_server_port"]
-    header = {"Content-type": "application/json"}
-    if(connected):
-        try:
-            sock = client.HTTPConnection("", port, timeout=1)
-            sock.request("POST", command, payload, header)
-            sock.close()
-        except:
-            print("[\033[1;31merror\033[0m] Command \033[1;36m%s\033[0m to ip \033[1;36m%s\033[0m port \033[1;36m%d\033[0m failed" % (command, ip, port))
+    return [ip, port, connected]

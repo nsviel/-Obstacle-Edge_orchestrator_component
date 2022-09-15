@@ -1,54 +1,41 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_hu
 from HTTP import http_client_fct
 
-import http.client
 import json
 
 
-def post_param_py(payload):
-    connected = param_hu.state_hu["pywardium"]["http_connected"]
-    if(connected):
-        ip = param_hu.state_hu["pywardium"]["ip"]
-        port = param_hu.state_hu["pywardium"]["http_server_port"]
-        header = {"Content-type": "application/json"}
-        if(connected):
-            try:
-                client = http.client.HTTPConnection(ip, port, timeout=1)
-                client.request("POST", "/new_param_py", payload, header)
-                client.close()
-            except:
-                print("[\033[1;31merror\033[0m] Command \033[1;36m%s\033[0m to ip \033[1;36m%s\033[0m port \033[1;36m%d\033[0m failed" % (command, ip, port))
+def post_command(dest, value):
+    [ip, port, connected] = http_client_fct.network_info(dest)
+    command = "/" + dest + "_command"
+    http_client_fct.send_http_post(ip, port, connected, command, value)
 
-def post_param_ai(command, value):
-    connected = param_hu.state_hu["velodium"]["http_connected"]
-    port = param_hu.state_hu["velodium"]["http_server_port"]
-    header = {"Content-type": "application/json"}
-    if(connected):
-        try:
-            client = http.client.HTTPConnection("localhost", port, timeout=1)
-            client.request("POST", command, value, header)
-            client.close()
-        except:
-            print("[\033[1;31merror\033[0m] Command \033[1;36m%s\033[0m to ip \033[1;36m%s\033[0m port \033[1;36m%d\033[0m failed" % (command, ip, port))
+def post_command_val(dest, lvl1, value):
+    [ip, port, connected] = http_client_fct.network_info(dest)
+    command = "/" + dest + "_command"
+    payload = json.dumps({lvl1: value})
+    http_client_fct.send_http_post(ip, port, connected, command, payload)
 
+def post_param(dest, lvl1, value):
+    [ip, port, connected] = http_client_fct.network_info(dest)
+    command = "/" + dest + "_param"
+    payload = json.dumps({lvl1: value})
+    http_client_fct.send_http_post(ip, port, connected, command, payload)
 
-def send_py_state(data):
-    # Parameters
-    ip = param_hu.state_hu["pywardium"]["ip"]
-    port = param_hu.state_hu["pywardium"]["http_server_port"]
-    connected = param_hu.state_hu["pywardium"]["http_connected"]
+def post_param_val(dest, lvl1, lvl2, value):
+    [ip, port, connected] = http_client_fct.network_info(dest)
+    command = "/" + dest + "_param"
+    payload = json.dumps({lvl1: {lvl2: value}})
+    http_client_fct.send_http_post(ip, port, connected, command, payload)
 
-    # Header
-    header = {"Content-type": "application/json"}
-    command = "/new_state_py"
+def post_param_payload(dest, payload):
+    [ip, port, connected] = http_client_fct.network_info(dest)
+    command = "/" + dest + "_param"
+    http_client_fct.send_http_post(ip, port, connected, command, payload)
 
-    if(connected):
-        try:
-            client = http.client.HTTPConnection(ip, port, timeout=1)
-            client.request("POST", command, data, header)
-            client.close()
-        except:
-            print("[\033[1;31merror\033[0m] Command \033[1;36m%s\033[0m to ip \033[1;36m%s\033[0m port \033[1;36m%d\033[0m failed" % (command, ip, port))
+def post_state(dest, state):
+    [ip, port, connected] = http_client_fct.network_info(dest)
+    command = "/" + dest + "_state"
+    payload = json.dumps(state).encode(encoding='utf_8')
+    http_client_fct.send_http_post(ip, port, connected, command, payload)

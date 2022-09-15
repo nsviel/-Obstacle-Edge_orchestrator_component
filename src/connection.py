@@ -37,7 +37,7 @@ def thread_test_connection():
         sock_client.test_velo_connection()
 
         # Update state file
-        http_client_get.get_state_py()
+        http_client_get.get_state("py")
         parser_json.upload_state()
         update_nb_thread()
 

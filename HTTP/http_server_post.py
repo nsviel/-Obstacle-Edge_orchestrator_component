@@ -15,9 +15,8 @@ def post_geo():
     io.write_data(param_hu.path_geoloc, post_data.decode('utf-8'))
 
 def post_param_py(self):
-    data = http_server_fct.post_param(self)
-    http_client_post.post_param_py(data)
-    http_client_get.get_state_py()
+    data = http_server_fct.retrieve_post_data(self)
+    http_client_post.post_param_payload("py", data)
 
 def post_param_hu(self):
     self.send_response(200)
@@ -72,6 +71,6 @@ def post_state_py(self):
     try:
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
         data = self.rfile.read(content_length) # <--- Gets the data itself
-        http_client_post.send_py_state(data)
+        http_client_post.post_state("py", data)
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')

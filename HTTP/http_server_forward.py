@@ -19,6 +19,6 @@ def forward_ve_post_data(option, value):
 
 def forward_ai_post_data(option, value):
     if(option == "lidar_height"):
-        http_client_post.post_param_ai("/lidar_height", value)
+        http_client_post.post_param("ai", "lidar_height", value)
     if(option == "threshold"):
-        http_client_post.post_param_ai("/threshold", value)
+        http_client_post.post_param("ai", "threshold", value)

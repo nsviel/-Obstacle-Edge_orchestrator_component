@@ -43,6 +43,8 @@ def manage_post(self):
         http_server_post.post_state_hu(self)
     if(path == '/new_state_py'):
         http_server_post.post_state_py(self)
+    if(path == '/hu_command'):
+        pass#http_server_post.post_state_py(self)
 
 def manage_get(self):
     path = str(self.path)
@@ -54,15 +56,6 @@ def manage_get(self):
     #Pywardium
     if(path == '/geo'):
         http_server_get.get_geo(self)
-    elif(path == '/lidar_1_start'):
-        http_server_get.get_lidar_1_start(self)
-    elif(path == '/lidar_1_sttop'):
-        http_server_get.get_lidar_1_stop(self)
-    elif(path == '/lidar_2_start'):
-        http_server_get.get_lidar_2_start(self)
-    elif(path == '/lidar_2_stop'):
-        http_server_get.get_lidar_2_stop(self)
-
     #Hubium
     elif(path == '/false_alarm'):
         http_server_get.get_false_alarm(self)
@@ -74,9 +67,5 @@ def manage_get(self):
         http_server_get.get_test_http_conn(self)
     elif(path == '/state_hu'):
         http_server_get.get_state_hu(self)
-    elif(path == '/state_py'):
-        http_server_get.get_state_py(self)
-
-    #Velodium
     elif(path == '/state_py'):
         http_server_get.get_state_py(self)
