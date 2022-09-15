@@ -21,7 +21,6 @@ sock_client_ok = False
 # HTTP
 http_server = None
 http_server_daemon = None
-http_server_verbose = False
 http_server_ip = "";
 
 # MQTT

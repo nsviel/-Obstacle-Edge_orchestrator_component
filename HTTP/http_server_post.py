@@ -1,76 +1,80 @@
 #! /usr/bin/python
 #---------------------------------------------
+# Possible POST command:
+# - /sncf_param
+# - /hu_param
+# - /py_param
+# - /ve_param
+# - /ai_param
+# - /hu_state
+# - /py_state
+#---------------------------------------------
 
 from param import param_hu
 from HTTP import http_client_post
-from HTTP import http_client_get
 from HTTP import http_server_fct
 from src import parser_json
-from src import io
 
 import json
 
 
-def post_geo():
-    io.write_data(param_hu.path_geoloc, post_data.decode('utf-8'))
+def manage_post(self):
+    command = str(self.path)
+    if(command == '/sncf_param'):
+        manage_sncf_param(self)
+    elif(command == '/hu_param'):
+        manage_hu_param(self)
+    elif(command == '/py_param'):
+        manage_py_param(self)
+    elif(command == '/ve_param'):
+        manage_ve_param(self)
+    elif(command == '/ai_param'):
+        manage_ai_param(self)
+    elif(command == '/hu_state'):
+        manage_hu_state(self)
+    elif(command == '/py_state'):
+        manage_py_state(self)
 
-def post_param_py(self):
-    data = http_server_fct.retrieve_post_data(self)
-    http_client_post.post_param_payload("py", data)
+def manage_sncf_param(self):
+    pass
 
-def post_param_hu(self):
-    self.send_response(200)
-    try:
-        data = http_server_fct.decode_post_json(self)
-        for key, value in data.items():
-            lvl1 = key
-            for key_, value_ in data[key].items():
-                lvl2 = key_
-                lvl3 = value_
+def manage_hu_param(self):
+    payload = http_server_fct.retrieve_post_data(self)
+    if(payload != None):
+        data = json.loads(payload)
+        [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
         param_hu.state_hu[lvl1][lvl2] = lvl3
         if(lvl1 == "sncf"):
             param_hu.state_hu["sncf"]["broker_connected"] = False
-    except:
-        print('[\033[1;31merror\033[0m] Processing post param failed')
 
-def post_param_ve(self):
-    self.send_response(200)
-    try:
-        data = http_server_fct.decode_post_json(self)
-        for key, value in data.items():
-            lvl1 = key
-            lvl2 = value
-        http_server_forward.forward_ve_post_data(lvl1, lvl2)
-    except:
-        print('[\033[1;31merror\033[0m] Processing post param failed')
+def manage_py_param(self):
+    payload = http_server_fct.retrieve_post_data(self)
+    http_client_post.post_param_payload("py", payload)
 
-def post_param_ai(self):
-    self.send_response(200)
-    try:
-        data = http_server_fct.decode_post_json(self)
-        for key, value in data.items():
-            lvl1 = key
-            lvl2 = value
-        http_server_forward.forward_ai_post_data(lvl1, lvl2)
-    except:
-        print('[\033[1;31merror\033[0m] Processing post param failed')
+def manage_ve_param(self):
+    payload = http_server_fct.retrieve_post_data(self)
+    if(payload != None):
+        data = json.loads(payload)
+        [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
+        http_server_forward.forward_ve_post(lvl2, lvl3)
 
-def post_state_hu(self):
-    self.send_response(200)
-    try:
-        data = http_server_fct.decode_post_json(self)
+def manage_ai_param(self):
+    payload = http_server_fct.retrieve_post_data(self)
+    if(payload != None):
+        data = json.loads(payload)
+        [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
+        http_server_forward.forward_ai_post(lvl2, lvl3)
+
+def manage_hu_state(self):
+    payload = http_server_fct.retrieve_post_data(self)
+    if(payload != None):
+        data = json.loads(payload)
         param_hu.state_hu = data
         parser_json.upload_state()
         param_hu.state_hu["sncf"]["status"] = "Offline"
         param_hu.state_hu["sncf"]["broker_connected"] = False
-    except:
-        print('[\033[1;31merror\033[0m] Processing post param failed')
 
-def post_state_py(self):
-    self.send_response(200)
-    try:
-        content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
-        data = self.rfile.read(content_length) # <--- Gets the data itself
-        http_client_post.post_state("py", data)
-    except:
-        print('[\033[1;31merror\033[0m] Processing post param failed')
+def manage_py_state(self):
+    payload = http_server_fct.retrieve_post_data(self)
+    if(payload != None):
+        http_client_post.post_state("py", payload)

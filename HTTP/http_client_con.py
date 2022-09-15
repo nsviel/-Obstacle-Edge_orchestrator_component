@@ -37,7 +37,7 @@ def test_py_con():
 def connection_py_open():
     if(param_hu.state_hu["pywardium"]["http_connected"] == False):
         param_hu.state_hu["pywardium"]["http_connected"] = True
-        http_client_post.post_param_val("py", "hubium", "ip", param_hu.state_hu["self"]["ip"])
+        http_client_post.post_param_value("py", "hubium", "ip", param_hu.state_hu["self"]["ip"])
 
 def connection_py_close():
     param_hu.state_hu["pywardium"]["http_connected"] = False

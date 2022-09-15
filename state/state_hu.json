@@ -2,12 +2,12 @@
     "self": {
         "status": "Offline",
         "ip": "192.168.153.147",
-        "nb_thread": 7,
+        "nb_thread": 6,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
         "sock_server_l1_source": "Lidar 2",
-        "sock_server_l2_port": 343,
+        "sock_server_l2_port": 345,
         "sock_server_l2_source": "Lidar 1",
         "http_server_port": 443
     },
@@ -21,7 +21,7 @@
     },
     "controlium": {
         "ip": "127.0.0.1",
-        "sock_server_l1_port": 320,
+        "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
     "velodium": {
