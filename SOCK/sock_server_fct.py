@@ -48,9 +48,9 @@ def process_l1_data(data):
     if(msg == "ok"):
         param_hu.state_hu["velodium"]["sock_connected"] = True
     else:
-        if(param_hu.state_hu["self"]["sock_server_l1_source"] == "Lidar 1"):
+        if(param_hu.state_hu["self"]["sock_server_l1_source"] == "lidar_1"):
             sock_client.send_packet_l1(data)
-        elif(param_hu.state_hu["self"]["sock_server_l1_source"] == "Lidar 2"):
+        elif(param_hu.state_hu["self"]["sock_server_l1_source"] == "lidar_2"):
             sock_client.send_packet_l2(data)
         else:
             print("[\033[1;31merror\033[0m] What is the L1 socket source ?")
@@ -64,9 +64,9 @@ def process_l2_data(data):
     if(msg == "ok"):
         param_hu.state_hu["velodium"]["sock_connected"] = True
     else:
-        if(param_hu.state_hu["self"]["sock_server_l2_source"] == "Lidar 1"):
+        if(param_hu.state_hu["self"]["sock_server_l2_source"] == "lidar_1"):
             sock_client.send_packet_l1(data)
-        elif(param_hu.state_hu["self"]["sock_server_l2_source"] == "Lidar 2"):
+        elif(param_hu.state_hu["self"]["sock_server_l2_source"] == "lidar_2"):
             sock_client.send_packet_l2(data)
         else:
             print("[\033[1;31merror\033[0m] What is the L2 socket source ?")

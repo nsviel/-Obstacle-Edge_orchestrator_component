@@ -15,8 +15,9 @@ def load_json_file():
     param_hu.state_py = parser_json.load_data_from_file(param_hu.path_state_py)
 
 def init_state():
-    param_hu.state_hu["self"]["status"] = "Offline"
     param_hu.state_hu["self"]["ip"] = connection.get_ip_adress()
+    param_hu.state_hu["self"]["sock_server_l1_source"] = "lidar_1"
+    param_hu.state_hu["self"]["sock_server_l2_source"] = "lidar_2"
     param_hu.state_hu["data"]["nb_frame"] = 0
     param_hu.state_hu["data"]["nb_prediction"] = 0
     param_hu.state_hu["self"]["nb_thread"] = 0

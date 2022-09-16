@@ -14,11 +14,9 @@ def test_sncf_connection():
         try:
             param_hu.mqtt_client.connect(ip, port, 1)
             param_hu.mqtt_client.loop_start()
-            param_hu.state_hu["sncf"]["status"] = "Online"
             param_hu.state_hu["sncf"]["broker_connected"] = True
         except:
             param_hu.mqtt_client.disconnect()
-            param_hu.state_hu["sncf"]["status"] = "Offline"
             param_hu.state_hu["sncf"]["broker_connected"] = False
 
 def create_client():
@@ -31,10 +29,8 @@ def create_client():
 def on_connection(client, userdata, flags, rc):
     print("[\033[1;32mOK\033[0m] MQTT connected")
     client.subscribe(param_hu.state_hu["sncf"]["mqtt_topic"])
-    param_hu.state_hu["sncf"]["status"] = "Online"
     param_hu.state_hu["sncf"]["broker_connected"] = True
 
 def on_disconnect(client, userdata, rc):
     print("[\033[1;31merror\033[0m] MQTT disconnected")
-    param_hu.state_hu["sncf"]["status"] = "Offline"
     param_hu.state_hu["sncf"]["broker_connected"] = False

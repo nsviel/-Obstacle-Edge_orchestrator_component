@@ -59,4 +59,3 @@ def connection_ed_close():
     param_hu.state_hu["edge"]["http_connected"] = False
     param_hu.state_hu["edge"]["sock_l1_connected"] = False
     param_hu.state_hu["edge"]["sock_l2_connected"] = False
-    param_hu.state_hu["edge"]["status"] = "Offline"

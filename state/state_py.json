@@ -1,6 +1,5 @@
 {
     "self": {
-        "status": "Online",
         "ip": "10.201.20.68",
         "nb_thread": 5,
         "l1_port": 8308,

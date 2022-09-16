@@ -70,10 +70,10 @@ def manage_hu_state(self):
         data = json.loads(payload)
         param_hu.state_hu = data
         parser_json.upload_state()
-        param_hu.state_hu["sncf"]["status"] = "Offline"
         param_hu.state_hu["sncf"]["broker_connected"] = False
 
 def manage_py_state(self):
     payload = http_server_fct.retrieve_post_data(self)
     if(payload != None):
-        http_client_post.post_state("py", payload)
+        data = json.loads(payload)
+        http_client_post.post_state("py", data)
