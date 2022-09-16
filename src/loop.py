@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from param import param_hu
 
 from HTTP import http_server
@@ -13,6 +11,8 @@ from src import state
 from src import parser_json
 from src import data
 #from src import perf_server
+
+import time
 
 
 def start():
@@ -42,7 +42,7 @@ def init():
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
-    a=1
+    time.sleep(1)
 
 def end():
     print("[\033[1;32mOK\033[0m] Program terminating...")

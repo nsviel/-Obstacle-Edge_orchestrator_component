@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from param import param_hu
 from SOCK import sock_server_fct
 

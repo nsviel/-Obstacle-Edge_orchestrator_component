@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from param import param_hu
 
 from src import parser_json

@@ -1,4 +1,3 @@
-#! /usr/bin/python
 #---------------------------------------------
 # Possible POST command:
 # - /sncf_param

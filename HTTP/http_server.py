@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from param import param_hu
 from HTTP import http_server_get
 from HTTP import http_server_post

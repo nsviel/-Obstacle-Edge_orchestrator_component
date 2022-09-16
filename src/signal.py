@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from src import connection
 from param import param_hu
 
@@ -9,6 +7,7 @@ import platform
 import signal
 import time
 import os
+import sys
 
 
 # Manage Ctrl+C input
@@ -20,7 +19,13 @@ signal.signal(signal.SIGINT, handler)
 def system_clear():
     os.system('clear')
 
+def check_for_root():
+    if not os.geteuid() == 0:
+        sys.exit("\nOnly root can run this script\n")
+
 def system_information(prog_name):
+    check_for_root()
+
     #Info
     program = prog_name
     ip = connection.get_ip_adress()

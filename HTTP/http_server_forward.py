@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from HTTP import http_client_get
 from HTTP import http_client_post
 

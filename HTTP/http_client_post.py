@@ -1,4 +1,3 @@
-#! /usr/bin/python
 #---------------------------------------------
 # Possible POST command:
 # - /py_state

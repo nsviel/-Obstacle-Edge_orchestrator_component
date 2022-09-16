@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from scapy.all import *
 from pathlib import Path
 

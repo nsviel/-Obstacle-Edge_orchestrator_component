@@ -1,4 +1,3 @@
-#! /usr/bin/python
 #---------------------------------------------
 # Possible GET command:
 # - /test_http_conn
@@ -33,6 +32,6 @@ def manage_py_state(self):
     http_server_fct.send_get_response(data, "application/json")
 
 def manage_image(self):
-    if(os.path.isfile(param_hu.path_image)):
+    if(io.is_file_exist(param_hu.path_image)):
         data = io.load_binary(param_hu.path_image)
         http_server_fct.send_get_response(data, "image/bmp")

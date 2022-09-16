@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from param import param_hu
 from HTTP import http_client_fct
 from HTTP import http_client_post

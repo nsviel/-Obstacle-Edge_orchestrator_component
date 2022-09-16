@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from SOCK import sock_client
 from param import param_hu
 
