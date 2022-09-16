@@ -18,7 +18,7 @@ def publish_false_alarm():
     path_false_alarm = param_hu.path_generic + "prediction.json"
     topic = param_hu.state_hu["sncf"]["mqtt_topic"]
     if(connected):
-        msg = parser_json.load_file_to_sock_data(path_false_alarm)
+        msg = parser_json.load_data_from_file_b(path_false_alarm)
         success = param_hu.mqtt_client.publish(topic, msg)
         if success[0] == 0:
             print("[\033[1;32mOK\033[0m] Send false alarm to topic '%s'" % topic)

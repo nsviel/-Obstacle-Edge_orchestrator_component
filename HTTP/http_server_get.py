@@ -24,14 +24,14 @@ def manage_get(self):
         manage_image(self)
 
 def manage_hu_state(self):
-    data = parser_json.load_file_to_sock_data_encoded(param_hu.path_state_hu)
-    http_server_fct.send_get_response(data, "application/json")
+    data = parser_json.load_data_from_file_utf8(param_hu.path_state_hu)
+    http_server_fct.send_get_response(self, data, "application/json")
 
 def manage_py_state(self):
-    data = parser_json.load_file_to_sock_data_encoded(param_hu.path_state_py)
-    http_server_fct.send_get_response(data, "application/json")
+    data = parser_json.load_data_from_file_utf8(param_hu.path_state_py)
+    http_server_fct.send_get_response(self, data, "application/json")
 
 def manage_image(self):
     if(io.is_file_exist(param_hu.path_image)):
         data = io.load_binary(param_hu.path_image)
-        http_server_fct.send_get_response(data, "image/bmp")
+        http_server_fct.send_get_response(self, data, "image/bmp")

@@ -11,8 +11,8 @@ def load_configuration():
     upload_state()
 
 def load_json_file():
-    param_hu.state_hu = parser_json.load_file(param_hu.path_state_hu)
-    param_hu.state_py = parser_json.load_file(param_hu.path_state_py)
+    param_hu.state_hu = parser_json.load_data_from_file(param_hu.path_state_hu)
+    param_hu.state_py = parser_json.load_data_from_file(param_hu.path_state_py)
 
 def init_state():
     param_hu.state_hu["self"]["status"] = "Offline"
@@ -33,7 +33,7 @@ def init_state():
     param_hu.state_hu["edge"]["sock_connected"] = False
 
 def load_config_file():
-    config = parser_json.load_file(param_hu.path_config)
+    config = parser_json.load_data_from_file(param_hu.path_config)
     param_hu.state_hu["self"]["country"] = config["self"]["country"]
     param_hu.state_hu["self"]["edge_id"] = config["self"]["edge_id"]
     param_hu.state_hu["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]
