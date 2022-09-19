@@ -29,7 +29,6 @@ def start():
 def init():
     data.check_directories()
     state.load_configuration()
-    mqtt_client.create_client()
     sock_client.connection()
     connection.start_daemon()
     #perf_server.start_daemon()

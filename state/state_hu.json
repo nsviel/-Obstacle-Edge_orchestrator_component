@@ -19,7 +19,7 @@
         "sock_l2_connected": false
     },
     "controlium": {
-        "ip": "127.0.0.1",
+        "ip": "10.201.20.68",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
@@ -35,12 +35,11 @@
     },
     "sncf": {
         "add": "localhost",
-        "broker_connected": true,
+        "broker_connected": false,
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
-        "mqtt_client": "ai_module",
-        "mqtt_topic": "ai_obstacle",
-        "mqtt_client_name": "ai_module"
+        "mqtt_client": "ai_module_truc",
+        "mqtt_topic": "ai_obstacle"
     },
     "valeo": {
         "http_connected": false,

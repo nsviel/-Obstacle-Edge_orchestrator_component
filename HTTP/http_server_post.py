@@ -13,6 +13,7 @@ from param import param_hu
 from HTTP import http_client_post
 from HTTP import http_server_fct
 from src import parser_json
+from src import command
 
 import json
 
@@ -42,9 +43,7 @@ def manage_hu_param(self):
     if(payload != None):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
-        param_hu.state_hu[lvl1][lvl2] = lvl3
-        if(lvl1 == "sncf"):
-            param_hu.state_hu["sncf"]["broker_connected"] = False
+        command.manage_command(lvl1, lvl2, lvl3)
 
 def manage_py_param(self):
     payload = http_server_fct.retrieve_post_data(self)

@@ -18,10 +18,10 @@ def init_state():
     param_hu.state_hu["self"]["ip"] = connection.get_ip_adress()
     param_hu.state_hu["self"]["sock_server_l1_source"] = "lidar_1"
     param_hu.state_hu["self"]["sock_server_l2_source"] = "lidar_2"
+    param_hu.state_hu["self"]["nb_thread"] = 0
     param_hu.state_hu["data"]["nb_frame"] = 0
     param_hu.state_hu["data"]["nb_prediction"] = 0
-    param_hu.state_hu["self"]["nb_thread"] = 0
-    param_hu.state_hu["sncf"]["broker_connected"] = False
+
     param_hu.state_hu["ai"]["http_connected"] = False
     param_hu.state_hu["velodium"]["sock_connected"] = False
     param_hu.state_hu["pywardium"]["http_connected"] = False
@@ -32,6 +32,7 @@ def init_state():
     param_hu.state_hu["valeo"]["http_connected"] = False
     param_hu.state_hu["edge"]["http_connected"] = False
     param_hu.state_hu["edge"]["sock_connected"] = False
+    param_hu.state_hu["sncf"]["broker_connected"] = False
 
 def load_config_file():
     config = parser_json.load_data_from_file(param_hu.path_config)
@@ -50,6 +51,8 @@ def load_config_file():
 
     param_hu.state_hu["sncf"]["broker_ip"] = config["sncf"]["broker_ip"]
     param_hu.state_hu["sncf"]["broker_port"] = config["sncf"]["broker_port"]
+    param_hu.state_hu["sncf"]["mqtt_client"] = config["sncf"]["mqtt_client"]
+    param_hu.state_hu["sncf"]["mqtt_topic"] = config["sncf"]["mqtt_topic"]
 
     param_hu.state_hu["velodium"]["sock_server_port"] = config["velodium"]["sock_server_port"]
     param_hu.state_hu["velodium"]["http_server_port"] = config["velodium"]["http_server_port"]
