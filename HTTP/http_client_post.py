@@ -13,7 +13,7 @@ import json
 
 def post_command(dest, command, value):
     [ip, port, connected] = http_client_fct.network_info(dest)
-    http_client_fct.send_http_post(ip, port, connected, command, payload)
+    http_client_fct.send_http_post(ip, port, connected, command, value)
 
 def post_param_payload(dest, payload):
     [ip, port, connected] = http_client_fct.network_info(dest)

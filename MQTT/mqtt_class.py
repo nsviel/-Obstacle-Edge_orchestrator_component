@@ -10,7 +10,7 @@ def on_connection(client, userdata, flags, rc):
     topic = param_hu.state_hu["sncf"]["mqtt_topic"]
     client.subscribe(topic)
     param_hu.state_hu["sncf"]["broker_connected"] = True
-    print("[\033[1;32mOK\033[0m] MQTT \033[1;32mconnected\033[0m")
+    print("[\033[1;31mOK\033[0m] MQTT \033[1;32mconnected\033[0m")
 
 def on_disconnect(client, userdata, rc):
     topic = param_hu.state_hu["sncf"]["mqtt_topic"]

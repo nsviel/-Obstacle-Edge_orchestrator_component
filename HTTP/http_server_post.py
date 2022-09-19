@@ -12,6 +12,7 @@
 from param import param_hu
 from HTTP import http_client_post
 from HTTP import http_server_fct
+from HTTP import http_server_forward
 from src import parser_json
 from src import command
 
