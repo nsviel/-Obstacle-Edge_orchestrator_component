@@ -6,8 +6,8 @@ from HTTP import http_client_post
 
 #Test Velodium HTTP connection
 def test_ve_con():
-    port = param_hu.state_hu["velodium"]["http_server_port"]
-    connected = http_client_fct.send_http_ping("localhost", port)
+    [ip, port, connected] = http_client_fct.network_info("ve")
+    connected = http_client_fct.send_http_ping(ip, port)
     if(connected):
         param_hu.state_hu["velodium"]["http_connected"] = True
     else:
@@ -15,8 +15,11 @@ def test_ve_con():
 
 #Test AI HTTP connection
 def test_ai_con():
-    port = param_hu.state_hu["ai"]["http_server_port"]
-    connected = http_client_fct.send_http_ping("localhost", port)
+    [ip, port, connected] = http_client_fct.network_info("ai")
+    connected = http_client_fct.send_http_ping(ip, port)
+    print(connected)
+    print(ip)
+    print(port)
     if(connected):
         param_hu.state_hu["ai"]["http_connected"] = True
     else:
@@ -24,8 +27,7 @@ def test_ai_con():
 
 #Test Pywardium HTTP connection
 def test_py_con():
-    ip = param_hu.state_hu["pywardium"]["ip"]
-    port = param_hu.state_hu["pywardium"]["http_server_port"]
+    [ip, port, connected] = http_client_fct.network_info("py")
     connected = http_client_fct.send_http_ping(ip, port)
     if(connected):
         connection_py_open()
@@ -44,8 +46,7 @@ def connection_py_close():
 
 #Test Pywardium HTTP connection
 def test_ed_con():
-    ip = param_hu.state_hu["edge"]["ip"]
-    port = param_hu.state_hu["self"]["http_server_port"]
+    [ip, port, connected] = http_client_fct.network_info("ed")
     connected = http_client_fct.send_http_ping(ip, port)
     if(connected):
         connection_ed_open()

@@ -1,7 +1,7 @@
 {
     "self": {
         "ip": "10.201.20.131",
-        "nb_thread": 7,
+        "nb_thread": 12,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314
@@ -15,12 +15,12 @@
         "speed": 600,
         "bandwidth": {
             "value": 1.872,
-            "min": 0.05,
-            "max": 1.874,
-            "mean": 1.8639583333333334
+            "min": 0.0,
+            "max": 1.877,
+            "mean": 1.86575
         },
         "packet": {
-            "value": 368894,
+            "value": 31984794,
             "min": 0,
             "max": 0,
             "mean": 0

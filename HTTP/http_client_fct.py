@@ -19,7 +19,8 @@ def send_http_post(ip, port, connected, command, payload):
     if(connected):
         try:
             client = http.client.HTTPConnection(ip, port, timeout=1)
-            header = {"Content-type": "application/json"}
+            header = {"Content-type": "text/plain"}
+            payload = str(payload)
             client.request("POST", command, payload, header)
             client.close()
         except:
@@ -44,12 +45,16 @@ def network_info(dest):
         port = param_hu.state_hu["pywardium"]["http_server_port"]
         connected = param_hu.state_hu["pywardium"]["http_connected"]
     elif(dest == "ve"):
-        ip = "localhost"
+        ip = param_hu.state_hu["velodium"]["ip"]
         port = param_hu.state_hu["velodium"]["http_server_port"]
         connected = param_hu.state_hu["velodium"]["http_connected"]
     elif(dest == "ai"):
-        ip = "localhost"
+        ip = param_hu.state_hu["ai"]["ip"]
         port = param_hu.state_hu["ai"]["http_server_port"]
         connected = param_hu.state_hu["ai"]["http_connected"]
+    elif(dest == "ed"):
+        ip = param_hu.state_hu["edge"]["ip"]
+        port = param_hu.state_hu["self"]["http_server_port"]
+        connected = param_hu.state_hu["edge"]["http_connected"]
 
     return [ip, port, connected]

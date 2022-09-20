@@ -23,8 +23,13 @@
         "mqtt_topic": "ai_obstacle"
     },
     "velodium": {
+        "ip": "127.0.0.1",
         "sock_server_port": 2370,
         "http_server_port": 8888
+    },
+    "ai": {
+        "ip": "127.0.0.1",
+        "http_server_port": 8080
     },
     "valeo": {
         "ip": "127.0.0.1"

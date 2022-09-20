@@ -32,11 +32,11 @@ def thread_test_connection():
         http_client_con.test_py_con()
         http_client_con.test_ed_con()
         mqtt_client.test_sncf_connection()
-        sock_client.test_velo_connection()
 
         # Update state file
         http_client_get.get_state("py")
         parser_json.upload_state()
+        sock_client.reset_connnection()
         update_nb_thread()
 
         # Wait for 1 second
