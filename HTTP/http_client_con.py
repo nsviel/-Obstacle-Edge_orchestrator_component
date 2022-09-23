@@ -17,9 +17,6 @@ def test_ve_con():
 def test_ai_con():
     [ip, port, connected] = http_client_fct.network_info("ai")
     connected = http_client_fct.send_http_ping(ip, port)
-    print(connected)
-    print(ip)
-    print(port)
     if(connected):
         param_hu.state_hu["ai"]["http_connected"] = True
     else:

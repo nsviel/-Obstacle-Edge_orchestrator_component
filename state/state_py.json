@@ -1,26 +1,26 @@
 {
     "self": {
-        "ip": "10.201.20.131",
-        "nb_thread": 12,
+        "ip": "10.201.20.68",
+        "nb_thread": 5,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314
     },
     "lidar_1": {
-        "connected": true,
+        "connected": false,
         "activated": true,
         "ip": "http://192.168.1.201/cgi/setting",
         "port": 2368,
         "device": "enxa0cec8737a9e",
         "speed": 600,
         "bandwidth": {
-            "value": 1.872,
-            "min": 0.0,
-            "max": 1.877,
-            "mean": 1.86575
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "packet": {
-            "value": 31984794,
+            "value": 0,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -56,16 +56,16 @@
         "country": "France"
     },
     "device": {
-        "0": "enp34s0",
-        "1": "enxa0cec8737a9e",
-        "2": "lo",
-        "3": "any",
+        "0": "wlp2s0",
+        "1": "enx00e04c680731",
+        "2": "any",
+        "3": "lo",
         "4": "docker0",
-        "5": "enxf8e43b6cdf6c",
-        "6": "br-162b65f1f577",
-        "7": "bluetooth-monitor",
-        "8": "nflog",
-        "9": "nfqueue",
+        "5": "bluetooth0",
+        "6": "bluetooth-monitor",
+        "7": "nflog",
+        "8": "nfqueue",
+        "9": "dbus-system",
         "10": "dbus-session"
     }
 }
