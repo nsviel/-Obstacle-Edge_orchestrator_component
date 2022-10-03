@@ -1,13 +1,13 @@
 #---------------------------------------------
 from param import param_hu
-from HTTP import http_client_fct
-from HTTP import http_client_post
+from HTTPS import https_client_fct
+from HTTPS import https_client_post
 
 
 #Test Velodium HTTP connection
 def test_ve_con():
-    [ip, port, connected] = http_client_fct.network_info("ve")
-    connected = http_client_fct.send_http_ping(ip, port)
+    [ip, port, connected] = https_client_fct.network_info("ve")
+    connected = https_client_fct.send_https_ping(ip, port)
     if(connected):
         param_hu.state_hu["velodium"]["http_connected"] = True
     else:
@@ -15,8 +15,8 @@ def test_ve_con():
 
 #Test AI HTTP connection
 def test_ai_con():
-    [ip, port, connected] = http_client_fct.network_info("ai")
-    connected = http_client_fct.send_http_ping(ip, port)
+    [ip, port, connected] = https_client_fct.network_info("ai")
+    connected = https_client_fct.send_https_ping(ip, port)
     if(connected):
         param_hu.state_hu["ai"]["http_connected"] = True
     else:
@@ -24,8 +24,8 @@ def test_ai_con():
 
 #Test Pywardium HTTP connection
 def test_py_con():
-    [ip, port, connected] = http_client_fct.network_info("py")
-    connected = http_client_fct.send_http_ping(ip, port)
+    [ip, port, connected] = https_client_fct.network_info("py")
+    connected = https_client_fct.send_https_ping(ip, port)
     if(connected):
         connection_py_open()
     else:
@@ -34,7 +34,7 @@ def test_py_con():
 def connection_py_open():
     if(param_hu.state_hu["pywardium"]["http_connected"] == False):
         param_hu.state_hu["pywardium"]["http_connected"] = True
-        http_client_post.post_param_value("py", "hubium", "ip", param_hu.state_hu["self"]["ip"])
+        https_client_post.post_param_value("py", "hubium", "ip", param_hu.state_hu["self"]["ip"])
 
 def connection_py_close():
     param_hu.state_hu["pywardium"]["http_connected"] = False
@@ -43,8 +43,8 @@ def connection_py_close():
 
 #Test Pywardium HTTP connection
 def test_ed_con():
-    [ip, port, connected] = http_client_fct.network_info("ed")
-    connected = http_client_fct.send_http_ping(ip, port)
+    [ip, port, connected] = https_client_fct.network_info("ed")
+    connected = https_client_fct.send_https_ping(ip, port)
     if(connected):
         connection_ed_open()
     else:

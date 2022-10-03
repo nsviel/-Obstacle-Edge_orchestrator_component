@@ -1,8 +1,8 @@
 #---------------------------------------------
 from param import param_hu
 
-from HTTP import http_client_con
-from HTTP import http_client_get
+from HTTPS import https_client_con
+from HTTPS import https_client_get
 from MQTT import mqtt_client
 from SOCK import sock_client
 
@@ -27,14 +27,14 @@ def thread_test_connection():
     param_hu.run_thread_con = True
     while param_hu.run_thread_con:
         # Test connection
-        http_client_con.test_ve_con()
-        http_client_con.test_ai_con()
-        http_client_con.test_py_con()
-        http_client_con.test_ed_con()
+        https_client_con.test_ve_con()
+        https_client_con.test_ai_con()
+        https_client_con.test_py_con()
+        https_client_con.test_ed_con()
         mqtt_client.test_sncf_connection()
 
         # Update state file
-        http_client_get.get_state("py")
+        https_client_get.get_state("py")
         parser_json.upload_state()
         sock_client.reset_connnection()
         update_nb_thread()

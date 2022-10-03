@@ -20,7 +20,7 @@
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
         "mqtt_client": "ai_truc",
-        "mqtt_topic": "ai_obstacle"
+        "mqtt_topic": "alarmes/lidar"
     },
     "velodium": {
         "ip": "127.0.0.1",

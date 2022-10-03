@@ -17,7 +17,7 @@ sock_client = None
 sock_client_ok = False
 
 # HTTP
-http_server = None
+https_server = None
 http_server_daemon = None
 http_server_ip = "";
 

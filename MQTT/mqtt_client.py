@@ -26,7 +26,7 @@ def create_client():
 def mqtt_connection():
     ip = param_hu.state_hu["sncf"]["broker_ip"]
     port = param_hu.state_hu["sncf"]["broker_port"]
-    param_hu.mqtt_client.connect(ip, port, 1)
+    param_hu.mqtt_client.connect(ip, port)
     param_hu.mqtt_client.loop_start()
 
 def mqtt_disconnection():

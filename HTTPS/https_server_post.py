@@ -10,9 +10,9 @@
 #---------------------------------------------
 
 from param import param_hu
-from HTTP import http_client_post
-from HTTP import http_server_fct
-from HTTP import http_server_forward
+from HTTPS import https_client_post
+from HTTPS import https_server_fct
+from HTTPS import https_server_forward
 from src import parser_json
 from src import command
 
@@ -40,32 +40,32 @@ def manage_sncf_param(self):
     pass
 
 def manage_hu_param(self):
-    payload = http_server_fct.retrieve_post_data(self)
+    payload = https_server_fct.retrieve_post_data(self)
     if(payload != None):
         data = json.loads(payload)
-        [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
+        [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
         command.manage_command(lvl1, lvl2, lvl3)
 
 def manage_py_param(self):
-    payload = http_server_fct.retrieve_post_data(self)
-    http_client_post.post_param_payload("py", payload)
+    payload = https_server_fct.retrieve_post_data(self)
+    https_client_post.post_param_payload("py", payload)
 
 def manage_ve_param(self):
-    payload = http_server_fct.retrieve_post_data(self)
+    payload = https_server_fct.retrieve_post_data(self)
     if(payload != None):
         data = json.loads(payload)
-        [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
-        http_server_forward.forward_ve_post(lvl2, lvl3)
+        [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
+        https_server_forward.forward_ve_post(lvl2, lvl3)
 
 def manage_ai_param(self):
-    payload = http_server_fct.retrieve_post_data(self)
+    payload = https_server_fct.retrieve_post_data(self)
     if(payload != None):
         data = json.loads(payload)
-        [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
-        http_server_forward.forward_ai_post(lvl2, lvl3)
+        [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
+        https_server_forward.forward_ai_post(lvl2, lvl3)
 
 def manage_hu_state(self):
-    payload = http_server_fct.retrieve_post_data(self)
+    payload = https_server_fct.retrieve_post_data(self)
     if(payload != None):
         data = json.loads(payload)
         param_hu.state_hu = data
@@ -73,7 +73,7 @@ def manage_hu_state(self):
         param_hu.state_hu["sncf"]["broker_connected"] = False
 
 def manage_py_state(self):
-    payload = http_server_fct.retrieve_post_data(self)
+    payload = https_server_fct.retrieve_post_data(self)
     if(payload != None):
         data = json.loads(payload)
-        http_client_post.post_state("py", data)
+        https_client_post.post_state("py", data)

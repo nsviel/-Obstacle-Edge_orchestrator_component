@@ -5,11 +5,12 @@ from MQTT import mqtt_client
 
 
 def manage_command(lvl1, lvl2, lvl3):
+    # 3 level command
     if(lvl1 != None and lvl1 != "null"):
         param_hu.state_hu[lvl1][lvl2] = lvl3
         if(lvl1 == "sncf"):
-            if(lvl2 == "broker_ip"):
-                mqtt_client.mqtt_disconnection()
+            mqtt_client.mqtt_disconnection()
+    # Direct command
     else:
         if(lvl2 == "sncf"):
             if(lvl3 == "reset"):

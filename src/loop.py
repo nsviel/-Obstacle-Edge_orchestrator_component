@@ -1,7 +1,7 @@
 #---------------------------------------------
 from param import param_hu
 
-from HTTP import http_server
+from HTTPS import https_server
 from MQTT import mqtt_client
 from SOCK import sock_server
 from SOCK import sock_client
@@ -33,17 +33,23 @@ def init():
     connection.start_daemon()
     #perf_server.start_daemon()
     sock_server.start_daemon()
-    http_server.start_daemon()
+    https_server.start_daemon()
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
     time.sleep(1)
 
 def end():
-    print("[\033[1;32mOK\033[0m] Program terminating...")
     parser_json.upload_file(param_hu.path_state_hu, param_hu.state_hu)
     connection.stop_daemon()
     #perf_server.stop_daemon()
     sock_server.stop_daemon()
-    http_server.stop_daemon()
-    time.sleep(2)
+    https_server.stop_daemon()
+    shutdown()
+
+def shutdown():
+    print("[\033[1;32mOK\033[0m] Program terminating", flush=True, end='')
+    print("...2", flush=True, end='')
+    time.sleep(1)
+    print("...1", flush=True)
+    time.sleep(1)
