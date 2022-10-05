@@ -5,7 +5,7 @@ import http.client
 
 
 def send_https_ping(ip, port):
-    client = http.client.HTTPSConnection(ip, port, timeout=0.1)
+    client = http.client.HTTPConnection(ip, port, timeout=0.1)
     connected = False
     try:
         client.request("GET", "/test_http_conn")
@@ -18,7 +18,7 @@ def send_https_ping(ip, port):
 def send_https_post(ip, port, connected, command, payload):
     if(connected):
         try:
-            client = http.client.HTTPSConnection(ip, port, timeout=1)
+            client = http.client.HTTPConnection(ip, port, timeout=1)
             header = {"Content-type": "text/plain"}
             payload = str(payload)
             client.request("POST", command, payload, header)
@@ -30,7 +30,7 @@ def send_https_get(ip, port, connected, command):
     data = None
     if(connected):
         try:
-            client = http.client.HTTPSConnection(ip, port, timeout=1)
+            client = http.client.HTTPConnection(ip, port, timeout=1)
             client.request("GET", command)
             response = client.getresponse()
             data = response.read()
