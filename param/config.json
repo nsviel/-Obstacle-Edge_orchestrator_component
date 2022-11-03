@@ -4,7 +4,8 @@
         "edge_id": 0,
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
-        "http_server_port": 443
+        "http_server_port": 443,
+        "iperf_port": 6969
     },
     "pywardium": {
         "ip": "127.0.0.1",

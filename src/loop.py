@@ -5,6 +5,7 @@ from HTTPS import https_server
 from MQTT import mqtt_client
 from SOCK import sock_server
 from SOCK import sock_client
+from perf import perf_network_server
 
 from src import connection
 from src import state
@@ -34,6 +35,7 @@ def init():
     #perf_server.start_daemon()
     sock_server.start_daemon()
     https_server.start_daemon()
+    perf_network_server.start_daemon()
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
@@ -44,6 +46,7 @@ def end():
     connection.stop_daemon()
     #perf_server.stop_daemon()
     sock_server.stop_daemon()
+    perf_network_server.stop_daemon()
     https_server.stop_daemon()
     shutdown()
 

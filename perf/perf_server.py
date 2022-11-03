@@ -4,6 +4,7 @@ from param import param_hu
 from threading import Thread
 
 import psutil
+import iperf3
 
 
 def start_daemon():
@@ -28,3 +29,8 @@ def thread_perf_server():
 
         net_in = round((net_in_2 - net_in_1) / 1024 / 1024, 3)
         net_out = round((net_out_2 - net_out_1) / 1024 / 1024, 3)
+
+def perf_network():
+    server = iperf3.Server()
+    result = server.run()
+    result.remote_host

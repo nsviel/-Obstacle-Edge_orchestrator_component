@@ -70,7 +70,6 @@ def manage_hu_state(self):
         data = json.loads(payload)
         param_hu.state_hu = data
         parser_json.upload_state()
-        param_hu.state_hu["sncf"]["broker_connected"] = False
 
 def manage_py_state(self):
     payload = https_server_fct.retrieve_post_data(self)

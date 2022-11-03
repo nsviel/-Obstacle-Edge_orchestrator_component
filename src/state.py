@@ -13,6 +13,7 @@ def load_configuration():
 def load_json_file():
     param_hu.state_hu = parser_json.load_data_from_file(param_hu.path_state_hu)
     param_hu.state_py = parser_json.load_data_from_file(param_hu.path_state_py)
+    param_hu.state_net = parser_json.load_data_from_file(param_hu.path_state_net)
 
 def init_state():
     param_hu.state_hu["self"]["ip"] = connection.get_ip_adress()
@@ -41,6 +42,7 @@ def load_config_file():
     param_hu.state_hu["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]
     param_hu.state_hu["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
     param_hu.state_hu["self"]["http_server_port"] = config["self"]["http_server_port"]
+    param_hu.state_hu["self"]["iperf_port"] = config["self"]["iperf_port"]
 
     param_hu.state_hu["pywardium"]["ip"] = config["pywardium"]["ip"]
     param_hu.state_hu["pywardium"]["http_server_port"] = config["pywardium"]["http_server_port"]
