@@ -5,13 +5,13 @@ from HTTPS import https_server
 from MQTT import mqtt_client
 from SOCK import sock_server
 from SOCK import sock_client
-from perf import perf_network_server
+from perf import perf_server_network
+from perf import perf_client_network
 
 from src import connection
 from src import state
 from src import parser_json
 from src import data
-#from src import perf_server
 
 import time
 
@@ -32,10 +32,10 @@ def init():
     state.load_configuration()
     sock_client.connection()
     connection.start_daemon()
-    #perf_server.start_daemon()
     sock_server.start_daemon()
     https_server.start_daemon()
-    perf_network_server.start_daemon()
+    perf_server_network.start_daemon()
+    perf_client_network.start_daemon()
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
@@ -44,10 +44,10 @@ def loop():
 def end():
     parser_json.upload_file(param_hu.path_state_hu, param_hu.state_hu)
     connection.stop_daemon()
-    #perf_server.stop_daemon()
     sock_server.stop_daemon()
-    perf_network_server.stop_daemon()
     https_server.stop_daemon()
+    perf_server_network.stop_daemon()
+    perf_client_network.stop_daemon()
     shutdown()
 
 def shutdown():

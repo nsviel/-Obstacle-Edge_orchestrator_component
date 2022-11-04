@@ -1,7 +1,7 @@
 {
     "self": {
-        "ip": "192.168.167.42",
-        "nb_thread": 6,
+        "ip": "192.168.17.42",
+        "nb_thread": 7,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
@@ -14,13 +14,14 @@
     "pywardium": {
         "ip": "127.0.0.1",
         "add": "localhost",
-        "http_connected": true,
+        "http_connected": false,
         "http_server_port": 314,
         "sock_l1_connected": false,
-        "sock_l2_connected": false
+        "sock_l2_connected": false,
+        "iperf_port": 6970
     },
     "controlium": {
-        "ip": "192.168.167.42",
+        "ip": "127.0.0.1",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },

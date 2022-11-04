@@ -9,7 +9,8 @@
     },
     "pywardium": {
         "ip": "127.0.0.1",
-        "http_server_port": 314
+        "http_server_port": 314,
+        "iperf_port": 6970
     },
     "controlium": {
         "ip": "127.0.0.1",

@@ -1,30 +1,6 @@
 #---------------------------------------------
-from param import param_hu
-from threading import Thread
-
-import multiprocessing as mp
-
 import iperf3
-import json
-import os
 
-def start_daemon():
-    thread_con = Thread(target = thread_perf_server)
-    thread_con.start()
-
-def stop_daemon():
-    port = param_hu.state_hu["self"]["iperf_port"]
-    command = 'iperf3 -c 127.0.0.1 -p ' + str(port) + ' -t 1 > /dev/null 2>&1'
-    os.system(command)
-    param_hu.run_thread_net = False
-
-def thread_perf_server():
-    param_hu.run_thread_net = True
-    while param_hu.run_thread_net :
-        port = param_hu.state_hu["self"]["iperf_port"]
-        process_net = mp.Process(target = process_perf_server, args = (port,))
-        process_net.start()
-        process_net.join()
 
 def process_perf_server(port):
     server = iperf3.Server()
@@ -33,9 +9,8 @@ def process_perf_server(port):
     server.verbose = False
     server.json_output = True
     result = server.run()
-    parse_result(result)
 
-def parse_result(result):
+def print_result(result):
     try:
         if(result != None and result.error == None):
             print('  bytes transmitted  {0}'.format(result.bytes))

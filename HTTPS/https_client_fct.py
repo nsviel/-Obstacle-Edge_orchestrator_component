@@ -4,6 +4,26 @@ from param import param_hu
 import http.client
 
 
+def network_info(dest):
+    if(dest == "py" or dest == "perf"):
+        ip = param_hu.state_hu["pywardium"]["ip"]
+        port = param_hu.state_hu["pywardium"]["http_server_port"]
+        connected = param_hu.state_hu["pywardium"]["http_connected"]
+    elif(dest == "ve"):
+        ip = param_hu.state_hu["velodium"]["ip"]
+        port = param_hu.state_hu["velodium"]["http_server_port"]
+        connected = param_hu.state_hu["velodium"]["http_connected"]
+    elif(dest == "ai"):
+        ip = param_hu.state_hu["ai"]["ip"]
+        port = param_hu.state_hu["ai"]["http_server_port"]
+        connected = param_hu.state_hu["ai"]["http_connected"]
+    elif(dest == "ed"):
+        ip = param_hu.state_hu["edge"]["ip"]
+        port = param_hu.state_hu["self"]["http_server_port"]
+        connected = param_hu.state_hu["edge"]["http_connected"]
+
+    return [ip, port, connected]
+    
 def send_https_ping(ip, port):
     client = http.client.HTTPConnection(ip, port, timeout=0.1)
     connected = False
@@ -38,23 +58,3 @@ def send_https_get(ip, port, connected, command):
         except:
             pass
     return data
-
-def network_info(dest):
-    if(dest == "py"):
-        ip = param_hu.state_hu["pywardium"]["ip"]
-        port = param_hu.state_hu["pywardium"]["http_server_port"]
-        connected = param_hu.state_hu["pywardium"]["http_connected"]
-    elif(dest == "ve"):
-        ip = param_hu.state_hu["velodium"]["ip"]
-        port = param_hu.state_hu["velodium"]["http_server_port"]
-        connected = param_hu.state_hu["velodium"]["http_connected"]
-    elif(dest == "ai"):
-        ip = param_hu.state_hu["ai"]["ip"]
-        port = param_hu.state_hu["ai"]["http_server_port"]
-        connected = param_hu.state_hu["ai"]["http_connected"]
-    elif(dest == "ed"):
-        ip = param_hu.state_hu["edge"]["ip"]
-        port = param_hu.state_hu["self"]["http_server_port"]
-        connected = param_hu.state_hu["edge"]["http_connected"]
-
-    return [ip, port, connected]
