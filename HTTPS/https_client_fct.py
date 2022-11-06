@@ -23,7 +23,7 @@ def network_info(dest):
         connected = param_hu.state_hu["edge"]["http_connected"]
 
     return [ip, port, connected]
-    
+
 def send_https_ping(ip, port):
     client = http.client.HTTPConnection(ip, port, timeout=0.1)
     connected = False
