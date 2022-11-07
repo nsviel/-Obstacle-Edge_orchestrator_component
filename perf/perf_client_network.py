@@ -6,6 +6,7 @@ from perf import perf_client_ping
 from perf import perf_client_iperf
 from perf import perf_client_module
 from src import parser_json
+from src import kpi
 
 import multiprocessing as mp
 
@@ -38,6 +39,7 @@ def thread_perf_server():
         perf_client_iperf.compute_net_state(list_bandwidth, list_reliability, list_jitter)
         perf_client_ping.ping(ip, list_latency)
         perf_client_module.ask_for_time()
+        kpi.format_state_kpi()
 
         # Update state file and sleep one second
         parser_json.upload_file(param_hu.path_state_perf, param_hu.state_perf)

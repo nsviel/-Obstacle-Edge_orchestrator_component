@@ -4,6 +4,7 @@
 state_hu = {}
 state_py = {}
 state_perf = {}
+state_kpi = {}
 
 # Thread
 run_loop = True
@@ -32,6 +33,7 @@ path_config = "param/config.json"
 path_state_hu = "state/state_hu.json"
 path_state_py = "state/state_py.json"
 path_state_perf = "state/state_perf.json"
+path_state_kpi = "state/state_kpi.json"
 
 # Data
 path_data_dir = "data"
