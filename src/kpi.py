@@ -2,12 +2,21 @@
 from param import param_hu
 from src import parser_json
 
+import datetime;
+import json
+import sys
+import hashlib
+import argparse
+import time
+
 
 def format_state_kpi():
     # Load kpi state file
     param_hu.state_kpi = parser_json.load_data_from_file(param_hu.path_state_kpi)
 
     # Add values
+    param_hu.state_kpi["timestamp"] = datetime.datetime.now().timestamp()
+
     param_hu.state_kpi["uplink_data_rate_Mbs"] = param_hu.state_perf["local_cloud"]["bandwidth"]["value"]
     param_hu.state_kpi["downlink_data_rate_Mbs"] = param_hu.state_perf["cloud_local"]["bandwidth"]["value"]
 
@@ -22,3 +31,38 @@ def format_state_kpi():
 
     # Upload kpi state file
     parser_json.upload_file(param_hu.path_state_kpi, param_hu.state_kpi)
+
+def get_collection(url, database_name, collection_name, username, password):
+    from pymongo import MongoClient
+    import pymongo
+
+    # Provide the mongodb atlas url to connect python to mongodb using pymongo
+    server_url = ""
+    if username and password:
+        server_url = "mongodb://" + username + ":" + password + "@" + url
+    else:
+        server_url = "mongodb://" + url
+
+
+    # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
+    client = MongoClient(server_url)
+
+    # Create the database for our example (we will use the same database throughout the tutorial
+    database = client[database_name]
+    print(database[collection_name])
+
+    return database[collection_name]
+
+def send_kpi_to_mongodb():
+    url = "10.17.7.35:27017"
+    database_name = "20221107_5gmed_UC3_P2"
+    collection_name = "ServiceKpis"
+    username = ""
+    password = ""
+
+    # Get collection pointer
+    collection = get_collection(url, database_name, collection_name,  username, password)
+
+    # Insert kpi json into collection
+    parsed = json.loads(param_hu.state_kpi)
+    collection.insert_one(parsed)
