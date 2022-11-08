@@ -36,10 +36,15 @@ def thread_perf_server():
         process_net = mp.Process(target = perf_client_iperf.process_perf_server, args = (ip, port))
         process_net.start()
         process_net.join()
+
+        # Retrieve perf values
         perf_client_iperf.compute_net_state(list_bandwidth, list_reliability, list_jitter)
         perf_client_ping.ping(ip, list_latency)
         perf_client_module.ask_for_time()
+
+        # Make KPI stuff
         kpi.format_state_kpi()
+        kpi.send_kpi_to_mongodb()
 
         # Update state file and sleep one second
         parser_json.upload_file(param_hu.path_state_perf, param_hu.state_perf)
