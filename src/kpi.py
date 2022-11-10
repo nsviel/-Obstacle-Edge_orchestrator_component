@@ -1,6 +1,7 @@
 #---------------------------------------------
 from param import param_hu
 from src import parser_json
+from pymongo import MongoClient
 
 import datetime;
 import json
@@ -8,6 +9,7 @@ import sys
 import hashlib
 import argparse
 import time
+import pymongo
 
 
 def format_state_kpi():
@@ -17,8 +19,10 @@ def format_state_kpi():
     # Add values
     param_hu.state_kpi["timestamp"] = datetime.datetime.now().timestamp()
 
-    param_hu.state_kpi["uplink_data_rate_Mbs"] = param_hu.state_perf["local_cloud"]["bandwidth"]["value"]
-    param_hu.state_kpi["downlink_data_rate_Mbs"] = param_hu.state_perf["cloud_local"]["bandwidth"]["value"]
+    param_hu.state_kpi["uplink_throughput_Mbs"] = param_hu.state_py["lidar_1"]["throughput"]["value"]
+
+    param_hu.state_kpi["uplink_bandwidth_Mbs"] = param_hu.state_perf["local_cloud"]["bandwidth"]["value"]
+    param_hu.state_kpi["downlink_bandwidth_Mbs"] = param_hu.state_perf["cloud_local"]["bandwidth"]["value"]
 
     param_hu.state_kpi["uplink_cloud_end_to_end_latency_ms"] = param_hu.state_perf["local_cloud"]["latency"]["value"]
     param_hu.state_kpi["downlink_cloud_end_to_end_latency_ms"] = param_hu.state_perf["cloud_local"]["latency"]["value"]
@@ -33,9 +37,6 @@ def format_state_kpi():
     parser_json.upload_file(param_hu.path_state_kpi, param_hu.state_kpi)
 
 def get_collection(url, database_name, collection_name, username, password):
-    from pymongo import MongoClient
-    import pymongo
-
     # Provide the mongodb atlas url to connect python to mongodb using pymongo
     server_url = ""
     if username and password:
@@ -43,13 +44,12 @@ def get_collection(url, database_name, collection_name, username, password):
     else:
         server_url = "mongodb://" + url
 
-
     # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
     client = MongoClient(server_url)
 
     # Create the database for our example (we will use the same database throughout the tutorial
     database = client[database_name]
-    print(database[collection_name])
+    #print(database[collection_name])
 
     return database[collection_name]
 
@@ -64,5 +64,5 @@ def send_kpi_to_mongodb():
     collection = get_collection(url, database_name, collection_name,  username, password)
 
     # Insert kpi json into collection
-    parsed = json.loads(param_hu.state_kpi)
-    collection.insert_one(parsed)
+    #parsed = json.loads(param_hu.state_kpi)
+    collection.insert_one(param_hu.state_kpi)
