@@ -1,7 +1,7 @@
 {
     "self": {
         "ip": "10.201.20.68",
-        "nb_thread": 9,
+        "nb_thread": 6,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
@@ -14,7 +14,7 @@
     "pywardium": {
         "ip": "127.0.0.1",
         "add": "localhost",
-        "http_connected": false,
+        "http_connected": true,
         "http_server_port": 314,
         "sock_l1_connected": false,
         "sock_l2_connected": false,
