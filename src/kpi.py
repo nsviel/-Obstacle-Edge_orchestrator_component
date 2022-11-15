@@ -60,9 +60,12 @@ def send_kpi_to_mongodb():
     username = ""
     password = ""
 
-    # Get collection pointer
-    collection = get_collection(url, database_name, collection_name,  username, password)
+    try:
+        # Get collection pointer
+        collection = get_collection(url, database_name, collection_name,  username, password)
 
-    # Insert kpi json into collection
-    #parsed = json.loads(param_hu.state_kpi)
-    collection.insert_one(param_hu.state_kpi)
+        # Insert kpi json into collection
+        #parsed = json.loads(param_hu.state_kpi)
+        collection.insert_one(param_hu.state_kpi)
+    except:
+        print("[\033[1;31merror\033[0m] Failed to send KPIs")
