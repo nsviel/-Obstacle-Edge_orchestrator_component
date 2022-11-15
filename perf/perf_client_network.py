@@ -35,6 +35,8 @@ def thread_perf_server():
         port = param_hu.state_hu["pywardium"]["iperf_port"]
         process_net = mp.Process(target = perf_client_iperf.process_perf_server, args = (ip, port))
         process_net.start()
+        time.sleep(1)
+        process_net.terminate()
         process_net.join()
 
         # Retrieve perf values

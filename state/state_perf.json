@@ -38,25 +38,25 @@
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         },
         "latency": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 0.029,
+            "min": 0.029,
+            "max": 0.029,
+            "mean": 0.029
         },
         "jitter": {
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         },
         "reliability": {
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         }
     },
     "end_to_end": {
