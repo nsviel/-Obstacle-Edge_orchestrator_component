@@ -2,4 +2,3 @@ src/__pycache__
 data/frame
 data/image
 data/prediction
-state/*
