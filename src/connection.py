@@ -12,6 +12,7 @@ from src import io
 import threading
 import time
 import socket
+import os, os.path
 
 
 def start_daemon():
@@ -36,6 +37,7 @@ def thread_test_connection():
         parser_json.upload_state()
         sock_client.reset_connnection()
         update_nb_thread()
+        update_data()
 
         # Wait for 1 second
         time.sleep(1)
@@ -55,3 +57,8 @@ def get_ip_adress():
 
 def update_nb_thread():
     param_hu.state_hu["self"]["nb_thread"] = threading.active_count()
+
+def update_data():
+    path = param_hu.path_frame_dir
+    nb_file = len([f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))])
+    param_hu.state_hu["data"]["nb_frame"] = nb_file

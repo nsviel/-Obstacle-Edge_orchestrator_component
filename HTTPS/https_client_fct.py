@@ -39,8 +39,7 @@ def send_https_post(ip, port, connected, command, payload):
     if(connected):
         try:
             client = http.client.HTTPConnection(ip, port, timeout=1)
-            header = {"Content-type": "text/plain"}
-            payload = str(payload)
+            header = {"Content-type": "application/json"}
             client.request("POST", command, payload, header)
             client.close()
         except:

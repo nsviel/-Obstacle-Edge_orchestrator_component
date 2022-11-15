@@ -25,8 +25,7 @@ def send_packet_l1(packet):
 
 def send_packet_l2(packet):
     [ip, port] = sock_client_fct.network_info("co", "l2")
-    print(ip)
-    print(port)
+    packet = packet[42:]
     sock_client_fct.send_packet_add(ip, port, packet)
 
 def reset_connnection():
