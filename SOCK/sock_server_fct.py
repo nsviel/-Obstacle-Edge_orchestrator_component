@@ -2,8 +2,6 @@
 from SOCK import sock_client
 from param import param_hu
 
-from threading import Thread
-
 import socket
 
 

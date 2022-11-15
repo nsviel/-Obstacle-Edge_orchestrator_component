@@ -1,7 +1,6 @@
 #---------------------------------------------
 from param import param_hu
 from HTTPS import https_client_get
-from threading import Thread
 from perf import perf_client_ping
 from perf import perf_client_iperf
 from perf import perf_client_module
@@ -9,12 +8,12 @@ from src import parser_json
 from src import kpi
 
 import multiprocessing as mp
-
+import threading
 import time
 
 
 def start_daemon():
-    thread_con = Thread(target = thread_perf_server)
+    thread_con = threading.Thread(target = thread_perf_server)
     thread_con.start()
 
 def stop_daemon():

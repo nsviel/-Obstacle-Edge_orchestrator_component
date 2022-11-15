@@ -2,14 +2,14 @@
 from param import param_hu
 from SOCK import sock_server_fct
 
-from threading import Thread
+import threading 
 import time
 
 
 def start_daemon():
     if(check_port_distribution()):
-        thread_l1 = Thread(target = sock_server_fct.thread_socket_l1_server)
-        thread_l2 = Thread(target = sock_server_fct.thread_socket_l2_server)
+        thread_l1 = threading.Thread(target = sock_server_fct.thread_socket_l1_server)
+        thread_l2 = threading.Thread(target = sock_server_fct.thread_socket_l2_server)
         thread_l1.start()
         thread_l2.start()
 

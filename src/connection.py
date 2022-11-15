@@ -9,15 +9,13 @@ from SOCK import sock_client
 from src import parser_json
 from src import io
 
-from threading import Thread
-
 import threading
 import time
 import socket
 
 
 def start_daemon():
-    thread_con = Thread(target = thread_test_connection)
+    thread_con = threading.Thread(target = thread_test_connection)
     thread_con.start()
 
 def stop_daemon():

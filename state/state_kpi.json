@@ -1,10 +1,10 @@
 {
     "service": "UC3_P2",
-    "timestamp": 1668520453.601725,
+    "timestamp": 1668525115.764368,
     "uplink_data_rate_Mbs": 0,
     "downlink_data_rate_Mbs": 0,
     "uplink_cloud_end_to_end_latency_ms": 0,
-    "downlink_cloud_end_to_end_latency_ms": 0.029,
+    "downlink_cloud_end_to_end_latency_ms": 0.129,
     "uplink_reliability_%": 0,
     "downlink_reliability_%": 0,
     "time_for_service_warning_ms": 0,

@@ -36,22 +36,7 @@ def format_state_kpi():
     # Upload kpi state file
     parser_json.upload_file(param_hu.path_state_kpi, param_hu.state_kpi)
 
-def get_collection(url, database_name, collection_name, username, password):
-    # Provide the mongodb atlas url to connect python to mongodb using pymongo
-    server_url = ""
-    if username and password:
-        server_url = "mongodb://" + username + ":" + password + "@" + url
-    else:
-        server_url = "mongodb://" + url
 
-    # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
-    client = MongoClient(server_url)
-
-    # Create the database for our example (we will use the same database throughout the tutorial
-    database = client[database_name]
-    #print(database[collection_name])
-
-    return database[collection_name]
 
 def send_kpi_to_mongodb():
     url = "10.17.7.35:27017"
@@ -68,4 +53,22 @@ def send_kpi_to_mongodb():
         #parsed = json.loads(param_hu.state_kpi)
         collection.insert_one(param_hu.state_kpi)
     except:
-        print("[\033[1;31merror\033[0m] Failed to send KPIs")
+        pass
+        #print("[\033[1;31merror\033[0m] Failed to send KPIs")
+
+def get_collection(url, database_name, collection_name, username, password):
+    # Provide the mongodb atlas url to connect python to mongodb using pymongo
+    server_url = ""
+    if username and password:
+        server_url = "mongodb://" + username + ":" + password + "@" + url
+    else:
+        server_url = "mongodb://" + url
+
+    # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
+    client = MongoClient(server_url, {connectTimeoutMS: 1000, serverSelectionTimeoutMS: 1000})
+
+    # Create the database for our example (we will use the same database throughout the tutorial
+    database = client[database_name]
+    #print(database[collection_name])
+
+    return database[collection_name]
