@@ -41,10 +41,10 @@
             "mean": 0.0
         },
         "latency": {
-            "value": 0.029,
-            "min": 0.014,
-            "max": 0.039,
-            "mean": 0.030100000000000005
+            "value": 0.052,
+            "min": 0.036,
+            "max": 0.098,
+            "mean": 0.057800000000000004
         },
         "jitter": {
             "value": 0,
@@ -60,8 +60,8 @@
         }
     },
     "end_to_end": {
-        "time_slam": 0.0,
+        "time_slam": 0,
         "time_ai": 0,
-        "time_total": 0.0
+        "time_total": 0
     }
 }

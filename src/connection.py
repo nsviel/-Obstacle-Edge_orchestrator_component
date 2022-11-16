@@ -8,6 +8,7 @@ from SOCK import sock_client
 
 from src import parser_json
 from src import io
+from src import prediction
 
 import threading
 import time
@@ -36,6 +37,7 @@ def thread_test_connection():
         https_client_get.get_state("py")
         parser_json.upload_state()
         sock_client.reset_connnection()
+        prediction.format_prediction()
         update_nb_thread()
         update_data()
 

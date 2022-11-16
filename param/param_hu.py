@@ -5,6 +5,7 @@ state_hu = {}
 state_py = {}
 state_perf = {}
 state_kpi = {}
+state_pred = {}
 
 # Thread
 run_loop = True
@@ -28,12 +29,17 @@ http_server_ip = "";
 mqtt_client  = None
 mqtt_msg = 'hello world'
 
+# Perf
+process_client_iperf = None
+process_server_iperf = None
+
 # State
 path_config = "param/config.json"
 path_state_hu = "state/state_hu.json"
 path_state_py = "state/state_py.json"
 path_state_perf = "state/state_perf.json"
 path_state_kpi = "state/state_kpi.json"
+path_state_pred = "state/state_pred.json"
 
 # Data
 path_data_dir = "data"

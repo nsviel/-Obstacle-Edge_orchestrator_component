@@ -1,0 +1,17 @@
+{
+    "Timestamp": 1668596329,
+    "Position": {
+        "Longitude": 23.84,
+        "Latitude": 8.48,
+        "Speed": 50,
+        "Direction": "ToFrance"
+    },
+    "Label": "Car",
+    "Dimension": {
+        "Width": 3.867,
+        "Length": 1.7,
+        "Heigth": 1.403,
+        "Direction": 8.035
+    },
+    "Accuracy": 49
+}

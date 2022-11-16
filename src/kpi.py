@@ -36,8 +36,6 @@ def format_state_kpi():
     # Upload kpi state file
     parser_json.upload_file(param_hu.path_state_kpi, param_hu.state_kpi)
 
-
-
 def send_kpi_to_mongodb():
     url = "10.17.7.35:27017"
     database_name = "20221107_5gmed_UC3_P2"
