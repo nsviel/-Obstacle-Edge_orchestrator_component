@@ -36,6 +36,7 @@ def init():
     https_server.start_daemon()
     perf_server_network.start_daemon()
     perf_client_network.start_daemon()
+    print("hello")
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():

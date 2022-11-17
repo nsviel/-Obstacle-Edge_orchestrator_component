@@ -14,14 +14,14 @@
     "pywardium": {
         "ip": "127.0.0.1",
         "add": "localhost",
-        "http_connected": false,
+        "http_connected": true,
         "http_server_port": 314,
         "sock_l1_connected": false,
         "sock_l2_connected": false,
         "iperf_port": 6970
     },
     "controlium": {
-        "ip": "127.0.0.1",
+        "ip": "192.168.153.38",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },

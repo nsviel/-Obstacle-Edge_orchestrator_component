@@ -13,6 +13,7 @@ import time
 
 
 def start_daemon():
+    print("hello")
     thread_con = threading.Thread(target = thread_perf_server)
     thread_con.start()
 
