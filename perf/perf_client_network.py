@@ -52,7 +52,6 @@ def thread_perf_server():
         parser_json.upload_file(param_hu.path_state_perf, param_hu.state_perf)
         time.sleep(1)
 
-
 def process_iperf(ip, port):
     param_hu.process_client_iperf = mp.Process(target = perf_client_iperf.process_perf_server, args = (ip, port))
     param_hu.process_client_iperf.start()

@@ -17,11 +17,16 @@ def get_state(dest):
     data = https_client_fct.send_https_get(ip, port, connected, command)
 
     if(data != None):
-        if(dest == "py"):
-            parser_json.update_state_file(param_hu.path_state_py, data)
-            param_hu.state_py = json.loads(data)
-        elif(dest == "perf"):
-            param_hu.state_perf = json.loads(data)
+        try:
+            if(dest == "py"):
+                parser_json.update_state_file(param_hu.path_state_py, data)
+                param_hu.state_py = json.loads(data)
+            elif(dest == "perf"):
+                param_hu.state_perf = json.loads(data)
+        except:
+            print("[\033[1;31merror\033[0m] GET state failed")
+
+
 
 def send_command(dest, command):
     [ip, port, connected] = https_client_fct.network_info(dest)
