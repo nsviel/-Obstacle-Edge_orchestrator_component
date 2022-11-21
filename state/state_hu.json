@@ -1,13 +1,13 @@
 {
     "self": {
         "ip": "192.168.153.38",
-        "nb_thread": 7,
+        "nb_thread": 8,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
-        "sock_server_l1_source": "lidar_1",
+        "sock_server_l1_source": "lidar_2",
         "sock_server_l2_port": 345,
-        "sock_server_l2_source": "lidar_2",
+        "sock_server_l2_source": "lidar_1",
         "http_server_port": 443,
         "iperf_port": 6969
     },
@@ -21,7 +21,7 @@
         "iperf_port": 6970
     },
     "controlium": {
-        "ip": "192.168.153.38",
+        "ip": "172.17.0.2",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
@@ -29,7 +29,7 @@
         "ip": "127.0.0.1",
         "http_connected": false,
         "http_server_port": 8888,
-        "sock_connected": false,
+        "sock_connected": true,
         "sock_server_port": 2370
     },
     "ai": {
@@ -39,10 +39,10 @@
     },
     "sncf": {
         "add": "localhost",
-        "broker_connected": false,
+        "broker_connected": true,
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
-        "mqtt_client": "ai_truc",
+        "mqtt_client": "P2_module",
         "mqtt_topic": "alarmes/lidar"
     },
     "valeo": {
@@ -60,7 +60,7 @@
         "sock_l2_connected": false
     },
     "data": {
-        "nb_frame": 0,
+        "nb_frame": 40,
         "nb_prediction": 0
     }
 }

@@ -8,7 +8,6 @@ import os
 
 def ping(ip, list_latency):
     # Retrieve latency
-    os.system("ping -c 1 -t 1 " + ip)
     os.system("ping -c 1 -t 1 " + ip + " > perf/ping 2>/dev/null")
     with open('perf/ping', 'r') as file:
         data = file.read().rstrip()

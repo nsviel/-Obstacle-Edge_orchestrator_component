@@ -39,5 +39,8 @@ def manage_perf_state(self):
 
 def manage_image(self):
     if(io.is_file_exist(param_hu.path_image)):
-        data = io.load_binary(param_hu.path_image)
-        https_server_fct.send_get_response(self, data, "image/bmp")
+        try:
+            data = io.load_binary(param_hu.path_image)
+            https_server_fct.send_get_response(self, data, "image/bmp")
+        except:
+            pass

@@ -27,8 +27,8 @@ def mqtt_connection():
     ip = param_hu.state_hu["sncf"]["broker_ip"]
     port = param_hu.state_hu["sncf"]["broker_port"]
     param_hu.mqtt_client.connect(ip, port)
-    # /!\ this line is incompatible with iperf3 server thread
-    #param_hu.mqtt_client.loop_start()
+    param_hu.state_hu["sncf"]["broker_connected"] = True
+    param_hu.mqtt_client.loop_start()
 
 def mqtt_disconnection():
     param_hu.mqtt_client.disconnect()

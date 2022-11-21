@@ -1,7 +1,7 @@
 {
     "self": {
         "ip": "192.168.153.38",
-        "nb_thread": 7,
+        "nb_thread": 8,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314,
@@ -29,21 +29,21 @@
         }
     },
     "lidar_2": {
-        "connected": false,
+        "connected": true,
         "activated": true,
-        "running": false,
+        "running": true,
         "ip": "192.168.2.201",
         "port": 2369,
         "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 0.958,
+            "min": 0.954,
+            "max": 0.965,
+            "mean": 0.9593333333333333
         },
         "packet": {
-            "value": 0,
+            "value": 951746,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -61,13 +61,13 @@
     },
     "device": {
         "0": "wlp2s0",
-        "1": "ztwdjfturv",
-        "2": "any",
-        "3": "lo",
-        "4": "enx00e04c680731",
-        "5": "docker0",
-        "6": "br-7a750d0dd673",
-        "7": "br-8a34bbfcdb80",
+        "1": "enxf8e43b6cdf6c",
+        "2": "ztwdjfturv",
+        "3": "docker0",
+        "4": "vethf5ce654",
+        "5": "any",
+        "6": "lo",
+        "7": "enx00e04c680731",
         "8": "bluetooth0",
         "9": "bluetooth-monitor",
         "10": "nflog",
