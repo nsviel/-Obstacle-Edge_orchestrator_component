@@ -2,7 +2,6 @@
 from param import param_hu
 from HTTPS import https_client_get
 from perf import perf_client_ping
-from perf import perf_client_iperf
 from perf import perf_client_module
 from src import parser_json
 from src import kpi
@@ -34,10 +33,6 @@ def thread_perf_server():
         ip = param_hu.state_hu["pywardium"]["ip"]
         port = param_hu.state_hu["pywardium"]["iperf_port"]
 
-        # iperf
-        process_iperf(ip, port)
-        perf_client_iperf.compute_net_state(list_bandwidth, list_reliability, list_jitter)
-
         # Ping
         perf_client_ping.ping(ip, list_latency)
 
@@ -51,8 +46,3 @@ def thread_perf_server():
         # Update state file and sleep one second
         parser_json.upload_file(param_hu.path_state_perf, param_hu.state_perf)
         time.sleep(1)
-
-def process_iperf(ip, port):
-    param_hu.process_client_iperf = mp.Process(target = perf_client_iperf.process_perf_client, args = (ip, port))
-    param_hu.process_client_iperf.start()
-    param_hu.process_client_iperf.join()

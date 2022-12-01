@@ -4,8 +4,9 @@ import iperf3
 
 
 def process_perf_server(port):
+    ip = param_hu.state_hu["self"]["ip"]
     server = iperf3.Server()
-    server.bind_address = param_hu.state_hu["self"]["ip"]
+    server.bind_address = ip
     server.port = port
     server.verbose = False
     server.json_output = True

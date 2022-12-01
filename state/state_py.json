@@ -1,7 +1,7 @@
 {
     "self": {
-        "ip": "10.201.20.131",
-        "nb_thread": 8,
+        "ip": "192.168.153.38",
+        "nb_thread": 7,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314,
@@ -30,22 +30,22 @@
         }
     },
     "lidar_2": {
-        "connected": true,
+        "connected": false,
         "activated": true,
-        "running": true,
+        "running": false,
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
         "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
-            "value": 0.96,
-            "min": 0.954,
-            "max": 0.972,
-            "mean": 0.9596666666666666
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "packet": {
-            "value": 120229,
+            "value": 0,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -62,14 +62,14 @@
         "country": "France"
     },
     "device": {
-        "0": "enp34s0",
-        "1": "enxf8e43b6cdf6c",
-        "2": "vethf74ef6e",
-        "3": "lo",
-        "4": "enxa0cec8737a9e",
-        "5": "nflog",
-        "6": "dbus-system",
-        "7": "veth08f1fd1",
-        "8": "vethd877712"
+        "0": "wlp2s0",
+        "1": "ztwdjfturv",
+        "2": "lo",
+        "3": "enx00e04c680731",
+        "4": "br-de470ff68a90",
+        "5": "br-fc5d7334c3b2",
+        "6": "bluetooth-monitor",
+        "7": "nfqueue",
+        "8": "dbus-session"
     }
 }
