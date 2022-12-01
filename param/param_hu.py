@@ -30,7 +30,6 @@ mqtt_client  = None
 mqtt_msg = 'hello world'
 
 # Perf
-process_client_iperf = None
 process_server_iperf = None
 
 # State

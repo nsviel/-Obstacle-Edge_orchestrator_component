@@ -12,9 +12,9 @@
         "iperf_port": 6969
     },
     "pywardium": {
-        "ip": "127.0.0.1",
+        "ip": "10.201.20.131",
         "add": "localhost",
-        "http_connected": true,
+        "http_connected": false,
         "http_server_port": 314,
         "sock_l1_connected": false,
         "sock_l2_connected": false,
@@ -60,7 +60,7 @@
         "sock_l2_connected": false
     },
     "data": {
-        "nb_frame": 0,
+        "nb_frame": 20,
         "nb_prediction": 0
     }
 }
