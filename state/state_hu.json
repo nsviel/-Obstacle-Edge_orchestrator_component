@@ -1,6 +1,6 @@
 {
     "self": {
-        "ip": "192.168.59.42",
+        "ip": "192.168.153.38",
         "nb_thread": 8,
         "country": "France",
         "edge_id": 0,
@@ -21,13 +21,13 @@
         "iperf_port": 6970
     },
     "controlium": {
-        "ip": "192.168.59.42",
+        "ip": "172.17.0.2",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
     "velodium": {
         "ip": "127.0.0.1",
-        "http_connected": false,
+        "http_connected": true,
         "http_server_port": 8888,
         "sock_connected": false,
         "sock_server_port": 2370
@@ -60,7 +60,7 @@
         "sock_l2_connected": false
     },
     "data": {
-        "nb_frame": 0,
+        "nb_frame": 20,
         "nb_prediction": 0
     }
 }
