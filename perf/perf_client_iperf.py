@@ -6,13 +6,13 @@ from src import specific
 import iperf3
 
 
-def process_perf_server(ip, port):
+def process_perf_client(ip, port):
     client = iperf3.Client()
     client.duration = 1
     client.server_hostname = ip
     client.port = port
     client.cport =5555
-    client.blksize = 1240
+    client.blksize = 1230
     client.protocol = 'udp'
     client.verbose = False
     client.json_output = True

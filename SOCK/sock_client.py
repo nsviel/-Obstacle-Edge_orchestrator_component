@@ -14,7 +14,6 @@ def send_packet_l1(packet):
     [ip, port] = sock_client_fct.network_info("co", "l1")
     packet = packet[42:]
     sock_client_fct.send_packet_add(ip, port, packet)
-    print(ip)
 
     # Send packet to Velodium
     [ip, port] = sock_client_fct.network_info("ve", "")

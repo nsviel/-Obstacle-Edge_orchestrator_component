@@ -40,12 +40,12 @@
         "speed": 600,
         "throughput": {
             "value": 0.96,
-            "min": 0.953,
+            "min": 0.954,
             "max": 0.972,
-            "mean": 0.9597083333333333
+            "mean": 0.9596666666666666
         },
         "packet": {
-            "value": 544611,
+            "value": 120229,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -64,11 +64,12 @@
     "device": {
         "0": "enp34s0",
         "1": "enxf8e43b6cdf6c",
-        "2": "vethcad5b50",
+        "2": "vethf74ef6e",
         "3": "lo",
         "4": "enxa0cec8737a9e",
         "5": "nflog",
         "6": "dbus-system",
-        "7": "veth0e64b27"
+        "7": "veth08f1fd1",
+        "8": "vethd877712"
     }
 }
