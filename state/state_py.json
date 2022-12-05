@@ -1,7 +1,7 @@
 {
     "self": {
-        "ip": "10.201.20.131",
-        "nb_thread": 8,
+        "ip": "192.168.153.38",
+        "nb_thread": 9,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314,
@@ -39,13 +39,13 @@
         "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
-            "value": 0.961,
-            "min": 0.954,
-            "max": 0.962,
-            "mean": 0.9597499999999998
+            "value": 0.956,
+            "min": 0.955,
+            "max": 0.963,
+            "mean": 0.9590833333333335
         },
         "packet": {
-            "value": 154965,
+            "value": 35033,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -62,14 +62,18 @@
         "country": "France"
     },
     "device": {
-        "0": "enp34s0",
+        "0": "wlp2s0",
         "1": "enxf8e43b6cdf6c",
-        "2": "lo",
-        "3": "enxa0cec8737a9e",
-        "4": "bluetooth-monitor",
-        "5": "nfqueue",
-        "6": "dbus-session",
-        "7": "nfqueue",
-        "8": "dbus-session"
+        "2": "ztwdjfturv",
+        "3": "veth1883538",
+        "4": "lo",
+        "5": "enx00e04c680731",
+        "6": "br-de470ff68a90",
+        "7": "br-fc5d7334c3b2",
+        "8": "bluetooth-monitor",
+        "9": "nfqueue",
+        "10": "dbus-session",
+        "11": "veth5fd752f",
+        "12": "veth83826ab"
     }
 }

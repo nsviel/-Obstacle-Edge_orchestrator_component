@@ -41,14 +41,15 @@ path_state_kpi = "state/state_kpi.json"
 path_state_pred = "state/state_pred.json"
 
 # Data
-path_data_dir = "data"
-path_image_dir = "data/image"
-path_frame_dir = "data/frame/"
-path_predi_dir = "data/prediction/"
+path_data_dir =  "../data"
+path_image_dir = "../data/image"
+path_frame_dir = "../data/frames"
+path_predi_dir = "../data/prediction"
 
-path_geoloc = "data/geo.dat"
-path_image = "data/image/image"
+path_geoloc = "../data/geo.dat"
+path_image = "../data/image/image"
 path_generic = "data/generic/"
+
 
 def info_connection(ip, port, connected):
     print(" ")

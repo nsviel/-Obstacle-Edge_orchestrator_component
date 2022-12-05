@@ -2,13 +2,15 @@
 from param import param_hu
 
 import os
-
+import glob
 
 def check_directories():
     create_directory(param_hu.path_data_dir)
     create_directory(param_hu.path_image_dir)
     create_or_clear_dir(param_hu.path_frame_dir)
     create_or_clear_dir(param_hu.path_predi_dir)
+    #print(glob.glob("./*"))
+    #print(glob.glob("./data/*"))
 
 def create_or_clear_dir(path):
     if(os.path.exists(path) == False):

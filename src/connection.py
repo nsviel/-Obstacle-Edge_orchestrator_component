@@ -59,8 +59,9 @@ def get_ip_adress():
 
 def update_nb_thread():
     param_hu.state_hu["self"]["nb_thread"] = threading.active_count()
+import os
 
 def update_data():
-    path = param_hu.path_frame_dir
+    path = param_hu.path_frame_dir + "/"
     nb_file = len([f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))])
     param_hu.state_hu["data"]["nb_frame"] = nb_file
