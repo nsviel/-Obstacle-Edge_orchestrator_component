@@ -43,7 +43,7 @@ def send_https_post(ip, port, connected, command, payload):
             client.request("POST", command, payload, header)
             client.close()
         except:
-            print("[\033[1;31merror\033[0m] Command \033[1;36m%s\033[0m to ip \033[1;36m%s\033[0m port \033[1;36m%d\033[0m failed" % (command, ip, port))
+            print("[\033[1;31merror\033[0m] Command \033[1;36m%s\033[0m to ip \033[1;36m%s\033[0m port \033[1;36m%d\033[0m failed [%s]" % (command, ip, port, payload))
 
 def send_https_get(ip, port, connected, command):
     data = None
