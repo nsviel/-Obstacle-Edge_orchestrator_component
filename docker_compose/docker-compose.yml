@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  hubium:
+    image: "hubium"
+    tty: true        # docker run -t  
+    container_name: hu
+    volumes:
+      - app-volume:/app/data
+    ports:
+      - 344:344
+      - 345:345
+      - 443:443
+      - 6969:6965
+
+  velodium:
+    image: "velodium"
+    container_name: ve
+    network_mode: host
+    environment:
+      - DISPLAY
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - ~/.Xauthority:/root/.Xauthority
+      - app-volume:/app/data
+    devices:
+      - "/dev/dri:/dev/dri"
+    #ports:
+    #  - 2370:2370
+    #  - 8888:8888
+    command: sudo xvfb-run --server-args='-screen 0 1024x500x24' ./executable server
+
+volumes:
+    app-volume:

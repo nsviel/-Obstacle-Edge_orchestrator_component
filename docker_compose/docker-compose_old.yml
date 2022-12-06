@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  hubium:
+    image: "hubium"
+  velodium:
+    image: "velodium"
+    environment:
+      - DISPLAY
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - ~/.Xauthority:/root/.Xauthority
+      - "../data:/data"
+    devices:
+      - "/dev/dri:/dev/dri"
+    ports:
+      - 2370:2370
+      - 8888:8888
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+  ai:
+    image: "ai_img"
+    volumes:
+        - "../../Louis/docker_shared/install_required.sh:/install_required.sh"
+        - "../../models/once_models/sup_models/second_no_intensity/default/ckpt/checkpoint_epoch_80.pth:/model.pth"
+        - "../data:/data"
+    stdin_open: true
+    tty: true
+    deploy:
+       resources:
+         reservations:
+           devices:
+             - driver: nvidia
+               count: 1
+               capabilities: [gpu]
