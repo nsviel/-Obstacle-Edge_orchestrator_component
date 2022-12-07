@@ -65,3 +65,14 @@ def update_data():
     path = param_hu.path_frame_dir + "/"
     nb_file = len([f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))])
     param_hu.state_hu["data"]["nb_frame"] = nb_file
+
+def check_port_open(port):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    result = sock.connect_ex(('127.0.0.1', port))
+    is_open = False
+    if result == 0:
+       is_open = True
+    else:
+        print("[error] Port %d is closed"% port)
+    sock.close()
+    return is_open;

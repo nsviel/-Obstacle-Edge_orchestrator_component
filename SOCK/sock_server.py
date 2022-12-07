@@ -1,13 +1,14 @@
 #---------------------------------------------
 from param import param_hu
 from SOCK import sock_server_fct
+from src import connection
 
-import threading 
+import threading
 import time
 
 
 def start_daemon():
-    if(check_port_distribution()):
+    if(check_port()):
         thread_l1 = threading.Thread(target = sock_server_fct.thread_socket_l1_server)
         thread_l2 = threading.Thread(target = sock_server_fct.thread_socket_l2_server)
         thread_l1.start()
@@ -22,9 +23,11 @@ def restart_daemon():
     time.sleep(1)
     start_daemon()
 
-def check_port_distribution():
+def check_port():
     l1_port = param_hu.state_hu["self"]["sock_server_l1_port"]
     l2_port = param_hu.state_hu["self"]["sock_server_l2_port"]
+    connection.check_port_open(l1_port)
+    connection.check_port_open(l2_port)
     if(l1_port == l2_port):
         print("[\033[1;31merror\033[0m] Problem attribution port [%s]" % (l1_port))
         return False

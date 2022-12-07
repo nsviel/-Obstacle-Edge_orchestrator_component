@@ -2,6 +2,7 @@
 from param import param_hu
 from HTTPS import https_client_fct
 from HTTPS import https_client_post
+from src import connection
 
 
 #Test Velodium HTTP connection
