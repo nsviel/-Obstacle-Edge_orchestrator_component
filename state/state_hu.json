@@ -14,7 +14,7 @@
     "pywardium": {
         "ip": "127.0.0.1",
         "add": "localhost",
-        "http_connected": false,
+        "http_connected": true,
         "http_server_port": 314,
         "sock_l1_connected": false,
         "sock_l2_connected": false,

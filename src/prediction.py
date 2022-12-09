@@ -7,7 +7,7 @@ import datetime
 
 def format_prediction():
     # Load unformatted prediction
-    path = "data/generic/pred_thresh_0.1_frame_5.json"
+    path = param_hu.path_generic + "pred_thresh_0.1_frame_5.json"
     json = parser_json.load_data_from_file(path)
 
     # Format prediction

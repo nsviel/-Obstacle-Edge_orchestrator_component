@@ -1,7 +1,7 @@
 {
     "self": {
         "ip": "192.168.153.38",
-        "nb_thread": 8,
+        "nb_thread": 7,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314,
@@ -32,7 +32,7 @@
     "lidar_2": {
         "connected": true,
         "activated": true,
-        "running": true,
+        "running": false,
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
@@ -40,12 +40,12 @@
         "speed": 600,
         "throughput": {
             "value": 0.961,
-            "min": 0.955,
-            "max": 0.967,
-            "mean": 0.9596249999999996
+            "min": 0.954,
+            "max": 0.964,
+            "mean": 0.9598749999999998
         },
         "packet": {
-            "value": 8723,
+            "value": 0,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -53,7 +53,7 @@
     },
     "hubium": {
         "connected": true,
-        "ip": "172.18.0.2",
+        "ip": "192.168.153.38",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "iperf_port": 6969
@@ -67,11 +67,11 @@
         "2": "ztwdjfturv",
         "3": "lo",
         "4": "enx00e04c680731",
-        "5": "br-fc5d7334c3b2",
-        "6": "br-de470ff68a90",
-        "7": "bluetooth-monitor",
-        "8": "nfqueue",
-        "9": "dbus-session",
+        "5": "br-de470ff68a90",
+        "6": "br-fc5d7334c3b2",
+        "7": "bluetooth0",
+        "8": "nflog",
+        "9": "dbus-system",
         "10": "dbus-system",
         "11": "veth5fd752f",
         "12": "veth83826ab"
