@@ -7,11 +7,11 @@ def ask_for_time():
     time_slam = https_client_get.send_command("ve", "/time_slam")
     time_pred = https_client_get.send_command("ai", "/time_pred")
 
-    if(time_slam != None):
+    if(time_slam != None and time_slam != ""):
         time_slam = float(time_slam.decode("utf-8"))
         param_hu.state_perf["end_to_end"]["time_slam"] = time_slam
 
-    if(time_pred != None):
+    if(time_pred != None and time_pred != ""):
         time_pred = float(time_pred.decode("utf-8"))
         param_hu.state_perf["end_to_end"]["time_ai"] = time_pred
 

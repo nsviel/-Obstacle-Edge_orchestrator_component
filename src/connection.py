@@ -73,6 +73,6 @@ def check_port_open(port):
     if result == 0:
        is_open = True
     else:
-        print("[error] Port %d is closed"% port)
+        print("[\033[1;31merror\033[0m] Port \033[1;32m%d\033[0m is closed"% port)
     sock.close()
     return is_open;
