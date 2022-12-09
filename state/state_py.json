@@ -1,7 +1,7 @@
 {
     "self": {
         "ip": "192.168.153.38",
-        "nb_thread": 7,
+        "nb_thread": 13,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314,
@@ -32,7 +32,7 @@
     "lidar_2": {
         "connected": true,
         "activated": true,
-        "running": false,
+        "running": true,
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
@@ -40,12 +40,12 @@
         "speed": 600,
         "throughput": {
             "value": 0.961,
-            "min": 0.954,
-            "max": 0.964,
-            "mean": 0.9598749999999998
+            "min": 0.0,
+            "max": 1.787,
+            "mean": 0.9594166666666665
         },
         "packet": {
-            "value": 0,
+            "value": 9137722,
             "min": 0,
             "max": 0,
             "mean": 0

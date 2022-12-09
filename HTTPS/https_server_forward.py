@@ -21,6 +21,9 @@ def forward_ve_post(option, value):
             https_client_get.send_command("ve", "/view_top")
         if(value == "Oblique"):
             https_client_get.send_command("ve", "/view_oblique")
+    elif(value == "reset"):
+        if(value == "reset"):
+            https_client_get.send_command("ve", "/reset")
 
 #---------------------------------------------
 # Possible POST commands:
