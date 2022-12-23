@@ -18,8 +18,9 @@ def start_daemon():
 
 def stop_daemon():
     param_hu.run_thread_perf_client = False
-    param_hu.process_client_iperf.terminate()
-    param_hu.process_client_iperf.join()
+    if(param_hu.state_hu["perf"]["iperf_activated"]):
+        param_hu.process_client_iperf.terminate()
+        param_hu.process_client_iperf.join()
 
 def thread_perf_server():
     list_bandwidth = []
@@ -32,7 +33,7 @@ def thread_perf_server():
         # Get the actual perf json from Pywardium
         https_client_get.get_state("perf")
         ip = param_hu.state_py["self"]["ip"]
-        port = param_hu.state_py["self"]["iperf_port"]
+        port = param_hu.state_py["perf"]["iperf_port"]
 
         # iperf
         process_iperf(ip, port)
@@ -53,6 +54,7 @@ def thread_perf_server():
         time.sleep(1)
 
 def process_iperf(ip, port):
-    param_hu.process_client_iperf = mp.Process(target = perf_client_iperf.process_perf_client, args = (ip, port))
-    param_hu.process_client_iperf.start()
-    param_hu.process_client_iperf.join()
+    if(param_hu.state_hu["perf"]["iperf_activated"]):
+        param_hu.process_client_iperf = mp.Process(target = perf_client_iperf.process_perf_client, args = (ip, port))
+        param_hu.process_client_iperf.start()
+        param_hu.process_client_iperf.join()

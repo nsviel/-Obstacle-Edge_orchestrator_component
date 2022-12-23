@@ -42,13 +42,13 @@ def thread_socket_l2_server():
     param_hu.sock_server_l2.close()
 
 def process_l1_data(data):
-    if(param_hu.state_hu["self"]["sock_server_l1_source"] == "lidar_1"):
+    if(param_hu.state_hu["self"]["lidar_main"] == "lidar_1"):
         sock_client.send_packet_l1(data)
-    elif(param_hu.state_hu["self"]["sock_server_l1_source"] == "lidar_2"):
+    elif(param_hu.state_hu["self"]["lidar_main"] == "lidar_2"):
         sock_client.send_packet_l2(data)
 
 def process_l2_data(data):
-    if(param_hu.state_hu["self"]["sock_server_l2_source"] == "lidar_1"):
+    if(param_hu.state_hu["self"]["lidar_main"] == "lidar_2"):
         sock_client.send_packet_l1(data)
-    elif(param_hu.state_hu["self"]["sock_server_l2_source"] == "lidar_2"):
+    elif(param_hu.state_hu["self"]["lidar_main"] == "lidar_1"):
         sock_client.send_packet_l2(data)

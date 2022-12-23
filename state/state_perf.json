@@ -1,29 +1,29 @@
 {
     "local_cloud": {
-        "time": "Fri, 09 Dec 2022 14:11:56 GMT",
+        "time": 0,
         "bandwidth": {
-            "value": 19.983481288459497,
-            "min": 19.983261489727415,
-            "max": 19.9838209869198,
-            "mean": 19.98358919288009
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "latency": {
-            "value": 0.029,
-            "min": 0.028,
-            "max": 0.05,
-            "mean": 0.033900000000000007
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "jitter": {
-            "value": 0.020933785043602163,
-            "min": 0.006150051665947953,
-            "max": 0.020933785043602163,
-            "mean": 0.013401218445875768
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "reliability": {
-            "value": 100,
-            "min": 100,
-            "max": 100,
-            "mean": 100.0
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "interruption": {
             "value": 0,
@@ -33,12 +33,12 @@
         }
     },
     "cloud_local": {
-        "time": "Fri, 09 Dec 2022 14:11:57 GMT",
+        "time": 0,
         "bandwidth": {
-            "value": 19.983701092026834,
+            "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         },
         "latency": {
             "value": 0,
@@ -47,16 +47,16 @@
             "mean": 0
         },
         "jitter": {
-            "value": 0.007012296052220528,
+            "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         },
         "reliability": {
-            "value": 100,
+            "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         }
     },
     "end_to_end": {

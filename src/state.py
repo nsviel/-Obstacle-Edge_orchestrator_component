@@ -18,8 +18,7 @@ def load_json_file():
 
 def init_state_py():
     param_hu.state_hu["self"]["ip"] = connection.get_ip_adress()
-    param_hu.state_hu["self"]["sock_server_l1_source"] = "lidar_1"
-    param_hu.state_hu["self"]["sock_server_l2_source"] = "lidar_2"
+    param_hu.state_hu["self"]["lidar_main"] = "lidar_1"
     param_hu.state_hu["self"]["nb_thread"] = 0
     param_hu.state_hu["data"]["nb_frame"] = 0
     param_hu.state_hu["data"]["nb_prediction"] = 0
@@ -88,7 +87,8 @@ def load_config_file():
     param_hu.state_hu["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]
     param_hu.state_hu["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
     param_hu.state_hu["self"]["http_server_port"] = config["self"]["http_server_port"]
-    param_hu.state_hu["self"]["iperf_port"] = config["self"]["iperf_port"]
+
+    param_hu.state_hu["perf"]["iperf_port"] = config["perf"]["iperf_port"]
 
     param_hu.state_hu["pywardium"]["ip"] = config["pywardium"]["ip"]
     param_hu.state_hu["pywardium"]["http_server_port"] = config["pywardium"]["http_server_port"]

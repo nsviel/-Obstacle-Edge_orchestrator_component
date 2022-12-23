@@ -14,6 +14,7 @@ run_thread_socket = False
 run_thread_perf_client = False
 run_thread_perf_server = False
 process_server_iperf = None
+process_client_iperf = None
 
 # Socket
 sock_server_l1 = None
