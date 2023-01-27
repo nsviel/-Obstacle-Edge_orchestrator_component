@@ -15,6 +15,7 @@ from HTTPS import https_server_fct
 from HTTPS import https_server_forward
 from src import parser_json
 from src import command
+from src import terminal
 
 import json
 

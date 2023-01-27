@@ -15,6 +15,7 @@ def thread_socket_l1_server():
 
     while param_hu.run_thread_socket:
         try:
+
             data, (address, port) = param_hu.sock_server_l1.recvfrom(4096)
             param_hu.state_hu["pywardium"]["sock_l1_connected"] = True
             process_l1_data(data)

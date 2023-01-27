@@ -1,5 +1,6 @@
 #---------------------------------------------
 from param import param_hu
+from src import terminal
 
 import os
 
@@ -10,6 +11,7 @@ def check_directories():
     create_or_clear_dir(param_hu.path_frame_dir)
     create_or_clear_dir(param_hu.path_predi_dir)
     set_image_empty()
+    terminal.addLog("#", "Data directory checked")
 
 def create_or_clear_dir(path):
     if(os.path.exists(path) == False):

@@ -2,6 +2,7 @@
 from param import param_hu
 from HTTPS import https_server_get
 from HTTPS import https_server_post
+from src import terminal
 
 import http.server
 import threading
@@ -26,10 +27,13 @@ def start_daemon(server_class=http.server.HTTPServer, handler_class=S):
         param_hu.http_server_daemon = threading.Thread(target=param_hu.https_server.serve_forever)
         param_hu.http_server_daemon.daemon = True
         param_hu.http_server_daemon.start()
+        terminal.addDaemon("#", "ON", "HTTPS server")
     except:
-        print("[\033[1;31merror\033[0m] Address already in use")
+        terminal.addLog("error", "HTTPS address already used")
+        terminal.fatal_error()
         os.system("sudo kill -9 $(ps -A | grep python | awk '{print $1}')")
 
 def stop_daemon():
     param_hu.https_server.shutdown()
     param_hu.http_server_daemon.join()
+    terminal.addDaemon("#", "OFF", "HTTPS server")

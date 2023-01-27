@@ -9,6 +9,7 @@ from SOCK import sock_client
 from src import parser_json
 from src import io
 from src import prediction
+from src import terminal
 
 import threading
 import time
@@ -19,19 +20,21 @@ import os, os.path
 def start_daemon():
     thread_con = threading.Thread(target = thread_test_connection)
     thread_con.start()
+    terminal.addDaemon("#", "ON", "Connection tests")
 
 def stop_daemon():
     param_hu.run_thread_con = False
+    terminal.addDaemon("#", "OFF", "Connection tests")
 
 def thread_test_connection():
     param_hu.run_thread_con = True
     while param_hu.run_thread_con:
         # Test connection
+        mqtt_client.test_sncf_connection()
         https_client_con.test_ve_con()
         https_client_con.test_ai_con()
         https_client_con.test_py_con()
         https_client_con.test_ed_con()
-        mqtt_client.test_sncf_connection()
 
         # Update state file
         https_client_get.get_state("py")
@@ -73,6 +76,6 @@ def check_port_open(port):
     if result == 0:
        is_open = True
     else:
-        print("[\033[1;31merror\033[0m] Port \033[1;32m%d\033[0m is closed"% port)
+        terminal.addLog("error", "Port \033[1;32m%d\033[0m is closed"% port)
     sock.close()
     return is_open;

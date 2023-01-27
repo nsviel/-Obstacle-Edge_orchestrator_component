@@ -26,11 +26,13 @@ def test_ai_con():
 #Test Pywardium HTTP connection
 def test_py_con():
     [ip, port, connected] = https_client_fct.network_info("py")
-    connected = https_client_fct.send_https_ping(ip, port)
-    if(connected):
-        connection_py_open()
-    else:
-        connection_py_close()
+    is_con = https_client_fct.send_https_ping(ip, port)
+    connected = param_hu.state_hu["pywardium"]["http_connected"]
+    if(is_con != connected):
+        if(is_con):
+            connection_py_open()
+        else:
+            connection_py_close()
 
 def connection_py_open():
     param_hu.state_hu["pywardium"]["http_connected"] = True
