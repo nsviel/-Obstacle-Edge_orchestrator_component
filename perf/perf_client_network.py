@@ -38,7 +38,7 @@ def thread_perf_server():
         # iperf
         process_iperf(ip, port)
         perf_client_iperf.compute_net_state(list_bandwidth, list_reliability, list_jitter)
-
+        
         # Ping
         perf_client_ping.ping(ip, list_latency)
 

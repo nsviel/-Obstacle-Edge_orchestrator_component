@@ -11,6 +11,8 @@ def addLog(type, message):
         print("[\033[1;32mOK\033[0m]    "+ message)
     elif(type == "error"):
         print("[\033[1;31merror\033[0m] "+ message)
+    elif(type == "com"):
+        print("[\033[1;30mPOST\033[0m]  "+ message)
     time.sleep(0.05)
 
 def addPost(dest, c1, c2, c3):
@@ -50,4 +52,4 @@ def shutdown():
     time.sleep(1)
 
 def fatal_error():
-    print("[\033[1;31m--- Fatal error ---\033[0m]")
+    print("\033[1;31m--- Fatal error ---\033[0m")

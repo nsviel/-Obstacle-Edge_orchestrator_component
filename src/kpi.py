@@ -14,7 +14,7 @@ import pymongo
 
 def format_state_kpi():
     # Load kpi state file
-    param_hu.state_kpi = parser_json.load_data_from_file(param_hu.path_state_kpi)
+    param_hu.state_kpi = parser_json.load_state(param_hu.path_state_kpi)
 
     # Add values
     param_hu.state_kpi["timestamp"] = datetime.datetime.now().timestamp()

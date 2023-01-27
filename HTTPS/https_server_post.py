@@ -46,6 +46,7 @@ def manage_hu_param(self):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
         command.manage_command(lvl1, lvl2, lvl3)
+        terminal.addPost("hu", lvl1, lvl2, lvl3)
 
 def manage_py_param(self):
     payload = https_server_fct.retrieve_post_data(self)
@@ -57,6 +58,7 @@ def manage_ve_param(self):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
         https_server_forward.forward_ve_post(lvl2, lvl3)
+        terminal.addPost("ve", lvl1, lvl2, lvl3)
 
 def manage_ai_param(self):
     payload = https_server_fct.retrieve_post_data(self)
@@ -64,6 +66,7 @@ def manage_ai_param(self):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
         https_server_forward.forward_ai_post(lvl2, lvl3)
+        terminal.addPost("ai", lvl1, lvl2, lvl3)
 
 def manage_hu_state(self):
     payload = https_server_fct.retrieve_post_data(self)
@@ -71,6 +74,7 @@ def manage_hu_state(self):
         data = json.loads(payload)
         param_hu.state_hu = data
         parser_json.upload_state()
+        terminal.addLog("com", "New state received")
 
 def manage_py_state(self):
     payload = https_server_fct.retrieve_post_data(self)

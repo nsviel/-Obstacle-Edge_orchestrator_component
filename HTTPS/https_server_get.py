@@ -26,15 +26,15 @@ def manage_get(self):
         manage_image(self)
 
 def manage_hu_state(self):
-    data = parser_json.load_data_from_file_utf8(param_hu.path_state_hu)
+    data = parser_json.load_state_utf8(param_hu.path_state_hu)
     https_server_fct.send_get_response(self, data, "application/json")
 
 def manage_py_state(self):
-    data = parser_json.load_data_from_file_utf8(param_hu.path_state_py)
+    data = parser_json.load_state_utf8(param_hu.path_state_py)
     https_server_fct.send_get_response(self, data, "application/json")
 
 def manage_perf_state(self):
-    data = parser_json.load_data_from_file_utf8(param_hu.path_state_perf)
+    data = parser_json.load_state_utf8(param_hu.path_state_perf)
     https_server_fct.send_get_response(self, data, "application/json")
 
 def manage_image(self):
