@@ -5,7 +5,7 @@ from src.misc import signal
 
 
 signal.system_clear()
-signal.system_information("Hubium")
+signal.system_information("Edge Orchestrator")
 #-------------
 
 loop.start()

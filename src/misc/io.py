@@ -3,7 +3,6 @@ from scapy.all import *
 from pathlib import Path
 
 import os, os.path
-import pcapy
 import json
 
 

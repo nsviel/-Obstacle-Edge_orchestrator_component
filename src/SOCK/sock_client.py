@@ -10,22 +10,19 @@ def connection():
     param_hu.sock_client_ok = True
 
 def send_packet_l1(packet):
-    # Send packet to Controlium
-    [ip, port] = sock_client_fct.network_info("co", "l1")
-
     # We retrieve only the data from the packet
     packet = packet[len(packet) - 1206:]
 
-    if(1):#len(packet) == 1206):
-        sock_client_fct.send_packet_add(ip, port, packet)
+    # -> Send packet to Controlium
+    [ip, port] = sock_client_fct.network_info("co", "l1")
+    sock_client_fct.send_packet_add(ip, port, packet)
 
-        # Send packet to Velodium
-        [ip, port] = sock_client_fct.network_info("ve", "")
-        try:
-            sock_client_fct.send_packet_add(ip, port, packet)
-            param_hu.state_hu["velodium"]["sock_connected"] = True
-        except:
-            param_hu.state_hu["velodium"]["sock_connected"] = False
+    # -> Send packet to Velodium
+    [ip, port] = sock_client_fct.network_info("ve", "")
+    try:
+        sock_client_fct.send_packet_add(ip, port, packet)
+    except:
+        param_hu.state_hu["velodium"]["sock_connected"] = False
 
 def send_packet_l2(packet):
     [ip, port] = sock_client_fct.network_info("co", "l2")

@@ -5,25 +5,25 @@
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         },
         "latency": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 0.037,
+            "min": 0.022,
+            "max": 0.04,
+            "mean": 0.0305
         },
         "jitter": {
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         },
         "reliability": {
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         },
         "interruption": {
             "value": 0,
@@ -41,10 +41,10 @@
             "mean": 0.0
         },
         "latency": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 0.034,
+            "min": 0.023,
+            "max": 0.051,
+            "mean": 0.033900000000000007
         },
         "jitter": {
             "value": 0,

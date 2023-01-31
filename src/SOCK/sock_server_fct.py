@@ -33,7 +33,7 @@ def thread_socket_l2_server():
 
     while param_hu.run_thread_socket:
         try:
-            data, (address, port) = param_hu.sock_server_l2.recvfrom(4096)
+            data, (address, port) = param_hu.sock_server_l2.recvfrom(1500)
             param_hu.state_hu["pywardium"]["sock_l2_connected"] = True
             process_l2_data(data)
         except:
