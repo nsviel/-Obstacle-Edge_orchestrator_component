@@ -1,18 +1,16 @@
 #---------------------------------------------
-from param import param_hu
-
-from HTTPS import https_server
-from MQTT import mqtt_client
-from SOCK import sock_server
-from SOCK import sock_client
-from perf import perf_server_network
-from perf import perf_client_network
-
-from src import connection
-from src import state
-from src import parser_json
-from src import data
-from src import terminal
+from src.param import param_hu
+from src.HTTPS import https_server
+from src.MQTT import mqtt_client
+from src.SOCK import sock_server
+from src.SOCK import sock_client
+from src.perf import perf_server_network
+from src.perf import perf_client_network
+from src.misc import connection
+from src.misc import state
+from src.misc import parser_json
+from src.misc import data
+from src.misc import terminal
 
 import time
 
