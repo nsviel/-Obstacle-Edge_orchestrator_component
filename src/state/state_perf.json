@@ -5,25 +5,25 @@
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         },
         "latency": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 0.535,
+            "min": 0.292,
+            "max": 0.588,
+            "mean": 0.48819999999999997
         },
         "jitter": {
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         },
         "reliability": {
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0.0
         },
         "interruption": {
             "value": 0,
@@ -41,10 +41,10 @@
             "mean": 0.0
         },
         "latency": {
-            "value": 0.082,
-            "min": 0.042,
-            "max": 0.082,
-            "mean": 0.06725
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "jitter": {
             "value": 0,
@@ -60,8 +60,8 @@
         }
     },
     "end_to_end": {
-        "time_slam": 0,
+        "time_slam": 72.0,
         "time_ai": 0,
-        "time_total": 0
+        "time_total": 72.0
     }
 }

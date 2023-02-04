@@ -49,3 +49,4 @@ def end():
     https_server.stop_daemon()
     perf_server_network.stop_daemon()
     perf_client_network.stop_daemon()
+    terminal.delai()
