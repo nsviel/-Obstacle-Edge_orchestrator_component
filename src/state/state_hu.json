@@ -1,10 +1,10 @@
 {
     "self": {
-        "ip": "127.0.0.1",
-        "nb_thread": 8,
+        "ip": "192.168.152.67",
+        "nb_thread": 11,
         "country": "France",
         "edge_id": 0,
-        "lidar_main": "lidar_2",
+        "lidar_main": "lidar_1",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "http_server_port": 443
@@ -14,16 +14,16 @@
         "iperf_port": 6969
     },
     "pywardium": {
-        "ip": "192.168.2.1",
+        "ip": "127.0.0.1",
         "add": "localhost",
         "http_connected": true,
         "http_server_port": 314,
         "sock_l1_connected": false,
-        "sock_l2_connected": true,
+        "sock_l2_connected": false,
         "iperf_port": 6970
     },
     "controlium": {
-        "ip": "127.0.0.1",
+        "ip": "192.168.152.67",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
@@ -45,7 +45,7 @@
         "broker_connected": true,
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
-        "mqtt_client": "P2_module",
+        "mqtt_client": "ai_modulem",
         "mqtt_topic": "alarmes/lidar"
     },
     "valeo": {

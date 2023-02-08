@@ -6,7 +6,9 @@ from src.MQTT import mqtt_client
 
 def manage_command(lvl1, lvl2, lvl3):
     # 3 level command
-    if(lvl1 != None and lvl1 != "null"):
+    if(lvl1 == "mongo"):
+        param_hu.state_perf[lvl1][lvl2] = lvl3
+    elif(lvl1 != None and lvl1 != "null"):
         param_hu.state_hu[lvl1][lvl2] = lvl3
         if(lvl1 == "sncf"):
             mqtt_client.mqtt_disconnection()

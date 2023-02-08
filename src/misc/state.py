@@ -17,6 +17,7 @@ def load_json_file():
     param_hu.state_hu = parser_json.load_state(param_hu.path_state_hu)
     param_hu.state_py = parser_json.load_state(param_hu.path_state_py)
     param_hu.state_perf = parser_json.load_state(param_hu.path_state_perf)
+    param_hu.state_kpi = parser_json.load_state(param_hu.path_state_kpi)
 
 def init_state_py():
     param_hu.state_hu["self"]["ip"] = connection.get_ip_adress()
@@ -38,6 +39,9 @@ def init_state_py():
     param_hu.state_hu["sncf"]["broker_connected"] = False
 
 def init_state_perf():
+    param_hu.state_perf["mongo"]["connected"] = False
+    param_hu.state_kpi["ID"] = 0
+
     param_hu.state_perf["local_cloud"]["time"] = 0
     param_hu.state_perf["local_cloud"]["bandwidth"]["value"] = 0
     param_hu.state_perf["local_cloud"]["bandwidth"]["min"] = 0
@@ -115,6 +119,15 @@ def load_config_file():
     param_hu.state_hu["valeo"]["ip"] = config["valeo"]["ip"]
     param_hu.state_hu["edge"]["ip"] = config["edge"]["ip"]
 
+    param_hu.state_perf["mongo"]["ip"] = config["perf"]["mongo_ip"]
+    param_hu.state_perf["mongo"]["port"] = config["perf"]["mongo_port"]
+    param_hu.state_perf["mongo"]["database"] = config["perf"]["mongo_database"]
+    param_hu.state_perf["mongo"]["collection"] = config["perf"]["mongo_collection"]
+    param_hu.state_perf["mongo"]["username"] = config["perf"]["mongo_username"]
+    param_hu.state_perf["mongo"]["password"] = config["perf"]["mongo_password"]
+    param_hu.state_perf["mongo"]["nb_data"] = config["perf"]["mongo_nb_data"]
+
 def upload_state():
     parser_json.upload_file(param_hu.path_state_hu, param_hu.state_hu)
     parser_json.upload_file(param_hu.path_state_perf, param_hu.state_perf)
+    parser_json.upload_file(param_hu.path_state_kpi, param_hu.state_kpi)

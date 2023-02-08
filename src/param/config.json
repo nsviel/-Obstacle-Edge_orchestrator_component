@@ -7,6 +7,13 @@
         "http_server_port": 443
     },
     "perf": {
+      "mongo_ip": "localhost",
+      "mongo_port": 27017,
+      "mongo_database": "test_db",
+      "mongo_collection": "test_collection_1",
+      "mongo_username": "",
+      "mongo_password": "",
+      "mongo_nb_data": 50,
       "iperf_activated": false,
       "iperf_port": 6969
     },

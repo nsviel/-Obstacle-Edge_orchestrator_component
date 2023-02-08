@@ -1,4 +1,14 @@
 {
+    "mongo": {
+        "ip": "localhost",
+        "port": 27017,
+        "database": "test_db",
+        "collection": "test_collection_1",
+        "username": "",
+        "password": "",
+        "nb_data": 50,
+        "connected": true
+    },
     "local_cloud": {
         "time": 0,
         "bandwidth": {
@@ -8,10 +18,10 @@
             "mean": 0.0
         },
         "latency": {
-            "value": 0.535,
-            "min": 0.292,
-            "max": 0.588,
-            "mean": 0.48819999999999997
+            "value": 0.031,
+            "min": 0.031,
+            "max": 0.105,
+            "mean": 0.0486
         },
         "jitter": {
             "value": 0,
@@ -41,10 +51,10 @@
             "mean": 0.0
         },
         "latency": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 0.035,
+            "min": 0.02,
+            "max": 0.043,
+            "mean": 0.033900000000000007
         },
         "jitter": {
             "value": 0,
@@ -60,8 +70,8 @@
         }
     },
     "end_to_end": {
-        "time_slam": 72.0,
+        "time_slam": 0,
         "time_ai": 0,
-        "time_total": 72.0
+        "time_total": 0
     }
 }
