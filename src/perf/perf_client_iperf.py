@@ -32,7 +32,7 @@ def print_result(result):
 
 def parse_result(result):
     if(result != None and result.error == None):
-        param_hu.state_perf["cloud_local"]["time"] = result.time
+        param_hu.state_perf["cloud_local"]["timestamp"] = result.time
         param_hu.state_perf["cloud_local"]["bandwidth"]["value"] = result.Mbps
         param_hu.state_perf["cloud_local"]["reliability"]["value"] = 100 - result.lost_percent
         param_hu.state_perf["cloud_local"]["jitter"]["value"] = result.jitter_ms

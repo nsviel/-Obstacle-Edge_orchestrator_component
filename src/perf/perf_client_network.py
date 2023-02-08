@@ -33,7 +33,7 @@ def thread_perf_server():
         # Get the actual perf json from Pywardium
         ip = param_hu.state_py["self"]["ip"]
         port = param_hu.state_py["perf"]["iperf_port"]
-        
+
         # Update from py perf state
         update_perf_from_py()
 
@@ -63,8 +63,10 @@ def process_iperf(ip, port):
 
 def update_perf_from_py():
     py_state_perf = https_client_get.get_state_data("perf")
+    if(py_state_perf == None):
+        return
 
-    param_hu.state_perf["local_cloud"]["time"] = py_state_perf["local_cloud"]["time"]
+    param_hu.state_perf["local_cloud"]["timestamp"] = py_state_perf["local_cloud"]["timestamp"]
 
     param_hu.state_perf["local_cloud"]["bandwidth"]["value"] = py_state_perf["local_cloud"]["bandwidth"]["value"]
     param_hu.state_perf["local_cloud"]["bandwidth"]["min"] = py_state_perf["local_cloud"]["bandwidth"]["min"]

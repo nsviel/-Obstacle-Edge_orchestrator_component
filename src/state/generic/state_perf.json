@@ -10,7 +10,7 @@
         "connected": false
     },
     "local_cloud": {
-        "time": 0,
+        "timestamp": 0,
         "bandwidth": {
             "value": 0,
             "min": 0,
@@ -43,7 +43,7 @@
         }
     },
     "cloud_local": {
-        "time": 0,
+        "timestamp": 0,
         "bandwidth": {
             "value": 0,
             "min": 0,
