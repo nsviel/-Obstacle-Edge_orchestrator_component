@@ -64,10 +64,10 @@ def get_collection(url, database_name, collection_name, username, password):
     else:
         server_url = "mongodb://" + url + "/"
 
-    # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
+    # Create a connection using MongoClient
     client = MongoClient(server_url, connectTimeoutMS=1000, serverSelectionTimeoutMS=1000, waitQueueTimeoutMS=1000)
 
-    # Create the database for our example (we will use the same database throughout the tutorial
+    # Create the database
     database = client[database_name]
 
     return database[collection_name]

@@ -15,6 +15,21 @@ def addLog(type, message):
         print("[\033[1;30mPOST\033[0m]  "+ message)
     time.sleep(0.05)
 
+def addConnection(dest, state):
+    if(dest == "hu"):
+        dest = "Edge AI module"
+    elif(dest == "py"):
+        dest = "Train module"
+    elif(dest == "ve"):
+        dest = "Data processing component"
+    elif(dest == "ai"):
+        dest = "AI component"
+
+    if(state == "on"):
+        print("[\033[1;36mCON\033[0m]   Connection \033[1;32mON\033[0m  - "+ dest)
+    elif(state == "off"):
+        print("[\033[1;36mCON\033[0m]   Connection \033[1;31mOFF\033[0m - "+ dest)
+
 def addPost(dest, c1, c2, c3):
     if(dest == "hu"):
         message = "Received [%s, %s, %s]"%(c1, c2, c3)

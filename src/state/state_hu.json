@@ -1,7 +1,7 @@
 {
     "self": {
         "ip": "192.168.152.67",
-        "nb_thread": 10,
+        "nb_thread": 7,
         "country": "France",
         "edge_id": 0,
         "lidar_main": "lidar_1",
@@ -12,7 +12,7 @@
     "pywardium": {
         "ip": "127.0.0.1",
         "add": "localhost",
-        "http_connected": false,
+        "http_connected": true,
         "http_server_port": 314,
         "sock_l1_connected": false,
         "sock_l2_connected": false

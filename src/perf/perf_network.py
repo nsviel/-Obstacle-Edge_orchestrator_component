@@ -19,20 +19,16 @@ def stop_daemon():
     param_hu.thread_perf = False
 
 def thread_perf():
-    list_throughput = []
     list_reliability = []
     list_latency = []
 
     param_hu.thread_perf = True
     while param_hu.thread_perf :
-        # Get the actual perf json from Pywardium
-        ip = param_hu.state_py["self"]["ip"]
-
         # Update from py perf state
         update_perf_from_py()
 
         # Ping
-        perf_ping.ping(ip, list_latency)
+        perf_ping.compute_ping(list_latency, list_reliability)
 
         # System time retrieving
         perf_module.ask_for_time()
