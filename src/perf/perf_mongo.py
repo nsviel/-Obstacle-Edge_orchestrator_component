@@ -18,8 +18,6 @@ def format_state_kpi():
 
     param_hu.state_kpi["timestamp"] = datetime.datetime.now().timestamp()
     param_hu.state_kpi["uplink_throughput_Mbs"] = param_hu.state_py["lidar_1"]["throughput"]["value"]
-    param_hu.state_kpi["uplink_bandwidth_Mbs"] = param_hu.state_perf["local_cloud"]["bandwidth"]["value"]
-    param_hu.state_kpi["downlink_bandwidth_Mbs"] = param_hu.state_perf["cloud_local"]["bandwidth"]["value"]
     param_hu.state_kpi["uplink_cloud_end_to_end_latency_ms"] = param_hu.state_perf["local_cloud"]["latency"]["value"]
     param_hu.state_kpi["downlink_cloud_end_to_end_latency_ms"] = param_hu.state_perf["cloud_local"]["latency"]["value"]
     param_hu.state_kpi["uplink_reliability_%"] = param_hu.state_perf["local_cloud"]["reliability"]["value"]
@@ -41,7 +39,7 @@ def send_kpi_to_mongodb():
 
     #database_name = "20221107_5gmed_UC3_P2"
     #collection_name = "ServiceKpis"
-    
+
     try:
         # Get collection pointer
         url = ip + ":" + str(port)

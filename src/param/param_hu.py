@@ -11,10 +11,7 @@ state_pred = {}
 run_loop = True
 run_thread_con = False
 run_thread_socket = False
-run_thread_perf_client = False
-run_thread_perf_server = False
-process_server_iperf = None
-process_client_iperf = None
+run_thread_perf = False
 
 # Socket
 sock_server_l1 = None

@@ -13,14 +13,11 @@
       "mongo_collection": "test_collection_1",
       "mongo_username": "",
       "mongo_password": "",
-      "mongo_nb_data": 50,
-      "iperf_activated": false,
-      "iperf_port": 6969
+      "mongo_nb_data": 50
     },
     "pywardium": {
         "ip": "127.0.0.1",
-        "http_server_port": 314,
-        "iperf_port": 6970
+        "http_server_port": 314
     },
     "controlium": {
         "ip": "127.0.0.1",

@@ -6,6 +6,8 @@ import datetime
 import os
 
 
+#TODO: refaire cette function
+
 def ping(ip, list_latency):
     # Retrieve latency
     os.system("ping -c 1 -t 1 " + ip + " > src/perf/ping 2>/dev/null")

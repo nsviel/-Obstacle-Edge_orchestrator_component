@@ -43,18 +43,14 @@ def init_state_perf():
     param_hu.state_kpi["ID"] = 0
 
     param_hu.state_perf["local_cloud"]["timestamp"] = 0
-    param_hu.state_perf["local_cloud"]["bandwidth"]["value"] = 0
-    param_hu.state_perf["local_cloud"]["bandwidth"]["min"] = 0
-    param_hu.state_perf["local_cloud"]["bandwidth"]["max"] = 0
-    param_hu.state_perf["local_cloud"]["bandwidth"]["mean"] = 0
+    param_hu.state_perf["local_cloud"]["throughput"]["value"] = 0
+    param_hu.state_perf["local_cloud"]["throughput"]["min"] = 0
+    param_hu.state_perf["local_cloud"]["throughput"]["max"] = 0
+    param_hu.state_perf["local_cloud"]["throughput"]["mean"] = 0
     param_hu.state_perf["local_cloud"]["latency"]["value"] = 0
     param_hu.state_perf["local_cloud"]["latency"]["min"] = 0
     param_hu.state_perf["local_cloud"]["latency"]["max"] = 0
     param_hu.state_perf["local_cloud"]["latency"]["mean"] = 0
-    param_hu.state_perf["local_cloud"]["jitter"]["value"] = 0
-    param_hu.state_perf["local_cloud"]["jitter"]["min"] = 0
-    param_hu.state_perf["local_cloud"]["jitter"]["max"] = 0
-    param_hu.state_perf["local_cloud"]["jitter"]["mean"] = 0
     param_hu.state_perf["local_cloud"]["reliability"]["value"] = 0
     param_hu.state_perf["local_cloud"]["reliability"]["min"] = 0
     param_hu.state_perf["local_cloud"]["reliability"]["max"] = 0
@@ -65,18 +61,10 @@ def init_state_perf():
     param_hu.state_perf["local_cloud"]["interruption"]["mean"] = 0
 
     param_hu.state_perf["cloud_local"]["timestamp"] = 0
-    param_hu.state_perf["cloud_local"]["bandwidth"]["value"] = 0
-    param_hu.state_perf["cloud_local"]["bandwidth"]["min"] = 0
-    param_hu.state_perf["cloud_local"]["bandwidth"]["max"] = 0
-    param_hu.state_perf["cloud_local"]["bandwidth"]["mean"] = 0
     param_hu.state_perf["cloud_local"]["latency"]["value"] = 0
     param_hu.state_perf["cloud_local"]["latency"]["min"] = 0
     param_hu.state_perf["cloud_local"]["latency"]["max"] = 0
     param_hu.state_perf["cloud_local"]["latency"]["mean"] = 0
-    param_hu.state_perf["cloud_local"]["jitter"]["value"] = 0
-    param_hu.state_perf["cloud_local"]["jitter"]["min"] = 0
-    param_hu.state_perf["cloud_local"]["jitter"]["max"] = 0
-    param_hu.state_perf["cloud_local"]["jitter"]["mean"] = 0
     param_hu.state_perf["cloud_local"]["reliability"]["value"] = 0
     param_hu.state_perf["cloud_local"]["reliability"]["min"] = 0
     param_hu.state_perf["cloud_local"]["reliability"]["max"] = 0
@@ -94,11 +82,8 @@ def load_config_file():
     param_hu.state_hu["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
     param_hu.state_hu["self"]["http_server_port"] = config["self"]["http_server_port"]
 
-    param_hu.state_hu["perf"]["iperf_port"] = config["perf"]["iperf_port"]
-
     param_hu.state_hu["pywardium"]["ip"] = config["pywardium"]["ip"]
     param_hu.state_hu["pywardium"]["http_server_port"] = config["pywardium"]["http_server_port"]
-    param_hu.state_hu["pywardium"]["iperf_port"] = config["pywardium"]["iperf_port"]
 
     param_hu.state_hu["controlium"]["ip"] = config["controlium"]["ip"]
     param_hu.state_hu["controlium"]["sock_server_l1_port"] = config["controlium"]["sock_server_l1_port"]

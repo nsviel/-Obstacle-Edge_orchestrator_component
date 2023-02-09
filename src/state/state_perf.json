@@ -11,19 +11,13 @@
     },
     "local_cloud": {
         "timestamp": 0,
-        "bandwidth": {
+        "throughput": {
             "value": 0,
             "min": 0,
             "max": 0,
             "mean": 0
         },
         "latency": {
-            "value": 0.041,
-            "min": 0.033,
-            "max": 0.109,
-            "mean": 0
-        },
-        "jitter": {
             "value": 0,
             "min": 0,
             "max": 0,
@@ -36,37 +30,25 @@
             "mean": 0
         },
         "interruption": {
-            "value": 3.016624,
-            "min": 3.016624,
-            "max": 80.568887,
-            "mean": 42
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         }
     },
     "cloud_local": {
         "timestamp": 0,
-        "bandwidth": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0.0
-        },
         "latency": {
-            "value": 0.076,
-            "min": 0.032,
-            "max": 0.112,
-            "mean": 0.06920000000000001
-        },
-        "jitter": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0.0
+            "value": 0.078,
+            "min": 0.076,
+            "max": 0.09,
+            "mean": 0.0837142857142857
         },
         "reliability": {
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0.0
+            "mean": 0
         }
     },
     "end_to_end": {

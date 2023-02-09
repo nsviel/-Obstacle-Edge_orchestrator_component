@@ -1,11 +1,10 @@
 #---------------------------------------------
 from src.param import param_hu
 from src.HTTPS import https_client_get
-from src.perf import perf_client_ping
-from src.perf import perf_client_iperf
-from src.perf import perf_client_module
-from src.misc import parser_json
+from src.perf import perf_ping
+from src.perf import perf_module
 from src.perf import perf_mongo
+from src.misc import parser_json
 
 import multiprocessing as mp
 import threading
@@ -13,53 +12,38 @@ import time
 
 
 def start_daemon():
-    thread_con = threading.Thread(target = thread_perf_server)
+    thread_con = threading.Thread(target = thread_perf)
     thread_con.start()
 
 def stop_daemon():
-    param_hu.run_thread_perf_client = False
-    if(param_hu.state_hu["perf"]["iperf_activated"]):
-        param_hu.process_client_iperf.terminate()
-        param_hu.process_client_iperf.join()
+    param_hu.thread_perf = False
 
-def thread_perf_server():
-    list_bandwidth = []
+def thread_perf():
+    list_throughput = []
     list_reliability = []
-    list_jitter = []
     list_latency = []
 
-    param_hu.run_thread_perf_client = True
-    while param_hu.run_thread_perf_client :
+    param_hu.thread_perf = True
+    while param_hu.thread_perf :
         # Get the actual perf json from Pywardium
         ip = param_hu.state_py["self"]["ip"]
-        port = param_hu.state_py["perf"]["iperf_port"]
 
         # Update from py perf state
         update_perf_from_py()
 
-        # iperf
-        process_iperf(ip, port)
-        perf_client_iperf.compute_net_state(list_bandwidth, list_reliability, list_jitter)
-
         # Ping
-        perf_client_ping.ping(ip, list_latency)
+        perf_ping.ping(ip, list_latency)
 
-        # Time
-        perf_client_module.ask_for_time()
+        # System time retrieving
+        perf_module.ask_for_time()
 
-        # Make KPI stuff
+        # Make mongo stuff
         perf_mongo.format_state_kpi()
         perf_mongo.send_kpi_to_mongodb()
 
         # Update state file and sleep one second
         parser_json.upload_file(param_hu.path_state_perf, param_hu.state_perf)
         time.sleep(1)
-
-def process_iperf(ip, port):
-    if(param_hu.state_hu["perf"]["iperf_activated"]):
-        param_hu.process_client_iperf = mp.Process(target = perf_client_iperf.process_perf_client, args = (ip, port))
-        param_hu.process_client_iperf.start()
-        param_hu.process_client_iperf.join()
 
 def update_perf_from_py():
     py_state_perf = https_client_get.get_state_data("perf")
@@ -68,20 +52,15 @@ def update_perf_from_py():
 
     param_hu.state_perf["local_cloud"]["timestamp"] = py_state_perf["local_cloud"]["timestamp"]
 
-    param_hu.state_perf["local_cloud"]["bandwidth"]["value"] = py_state_perf["local_cloud"]["bandwidth"]["value"]
-    param_hu.state_perf["local_cloud"]["bandwidth"]["min"] = py_state_perf["local_cloud"]["bandwidth"]["min"]
-    param_hu.state_perf["local_cloud"]["bandwidth"]["max"] = py_state_perf["local_cloud"]["bandwidth"]["max"]
-    param_hu.state_perf["local_cloud"]["bandwidth"]["mean"] = py_state_perf["local_cloud"]["bandwidth"]["mean"]
+    param_hu.state_perf["local_cloud"]["throughput"]["value"] = py_state_perf["local_cloud"]["throughput"]["value"]
+    param_hu.state_perf["local_cloud"]["throughput"]["min"] = py_state_perf["local_cloud"]["throughput"]["min"]
+    param_hu.state_perf["local_cloud"]["throughput"]["max"] = py_state_perf["local_cloud"]["throughput"]["max"]
+    param_hu.state_perf["local_cloud"]["throughput"]["mean"] = py_state_perf["local_cloud"]["throughput"]["mean"]
 
     param_hu.state_perf["local_cloud"]["reliability"]["value"] = py_state_perf["local_cloud"]["reliability"]["value"]
     param_hu.state_perf["local_cloud"]["reliability"]["min"] = py_state_perf["local_cloud"]["reliability"]["min"]
     param_hu.state_perf["local_cloud"]["reliability"]["max"] = py_state_perf["local_cloud"]["reliability"]["max"]
     param_hu.state_perf["local_cloud"]["reliability"]["mean"] = py_state_perf["local_cloud"]["reliability"]["mean"]
-
-    param_hu.state_perf["local_cloud"]["jitter"]["value"] = py_state_perf["local_cloud"]["jitter"]["value"]
-    param_hu.state_perf["local_cloud"]["jitter"]["min"] = py_state_perf["local_cloud"]["jitter"]["min"]
-    param_hu.state_perf["local_cloud"]["jitter"]["max"] = py_state_perf["local_cloud"]["jitter"]["max"]
-    param_hu.state_perf["local_cloud"]["jitter"]["mean"] = py_state_perf["local_cloud"]["jitter"]["mean"]
 
     param_hu.state_perf["local_cloud"]["interruption"]["value"] = py_state_perf["local_cloud"]["interruption"]["value"]
     param_hu.state_perf["local_cloud"]["interruption"]["min"] = py_state_perf["local_cloud"]["interruption"]["min"]
