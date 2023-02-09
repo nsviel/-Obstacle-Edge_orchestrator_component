@@ -1,4 +1,4 @@
-# [Obstacle System] Edge Module
+# [Obstacle] Edge Orchestrator Module
 
 ## Summary
 
