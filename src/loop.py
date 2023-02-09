@@ -37,7 +37,7 @@ def init():
     terminal.addLine()
 
 def loop():
-    time.sleep(1)
+    time.sleep(param_hu.tic_loop)
 
 def end():
     terminal.shutdown()

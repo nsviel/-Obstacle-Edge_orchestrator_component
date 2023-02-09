@@ -39,7 +39,7 @@ def thread_perf():
 
         # Update state file and sleep one second
         parser_json.upload_file(param_hu.path_state_perf, param_hu.state_perf)
-        time.sleep(1)
+        time.sleep(param_hu.tic_network)
 
 def update_perf_from_py():
     py_state_perf = https_client_get.get_state_data("perf")

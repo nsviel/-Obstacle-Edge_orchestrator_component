@@ -28,8 +28,14 @@ http_server_ip = "";
 mqtt_client  = None
 mqtt_msg = 'hello world'
 
+# Tic delay
+tic_loop = 1
+tic_message = 0.05
+tic_connection = 0.5
+tic_network = 0.5
+
 # State file
-path_config = "src/param/config.json"
+path_config = "config.json"
 path_state_hu = "src/state/state_hu.json"
 path_state_py = "src/state/state_py.json"
 path_state_perf = "src/state/state_perf.json"

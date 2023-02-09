@@ -81,6 +81,8 @@ def load_config_file():
     param_hu.state_hu["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]
     param_hu.state_hu["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
     param_hu.state_hu["self"]["http_server_port"] = config["self"]["http_server_port"]
+    param_hu.tic_connection = config["self"]["tic_connection"]
+    param_hu.tic_network = config["self"]["tic_network"]
 
     param_hu.state_hu["pywardium"]["ip"] = config["pywardium"]["ip"]
     param_hu.state_hu["pywardium"]["http_server_port"] = config["pywardium"]["http_server_port"]

@@ -1,6 +1,8 @@
 #---------------------------------------------
 # Terminal output functions
 #---------------------------------------------
+from src.param import param_hu
+
 import time
 
 
@@ -13,7 +15,7 @@ def addLog(type, message):
         print("[\033[1;31merror\033[0m] "+ message)
     elif(type == "com"):
         print("[\033[1;30mPOST\033[0m]  "+ message)
-    time.sleep(0.05)
+    time.sleep(param_hu.tic_message)
 
 def addConnection(dest, state):
     if(dest == "hu"):
@@ -37,7 +39,7 @@ def addPost(dest, c1, c2, c3):
         message = "To %s [%s, %s, %s]"%(dest, c1, c2, c3)
 
     print("[\033[1;30mPOST\033[0m]  " + message)
-    time.sleep(0.05)
+    time.sleep(param_hu.tic_message)
 
 def addDaemon(type, status, message):
     if(type == "#"):
@@ -52,7 +54,7 @@ def addDaemon(type, status, message):
     elif(status == "OFF"):
         print("\033[1;31m"+status+"\033[0m - "+message)
 
-    time.sleep(0.05)
+    time.sleep(param_hu.tic_message)
 
 def addLine():
     print("")
