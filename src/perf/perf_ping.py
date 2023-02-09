@@ -17,8 +17,8 @@ def compute_ping(list_latency, list_reliability):
 
 def make_ping():
     ip = param_hu.state_hu["pywardium"]["ip"]
-    os.system("ping -c 50 -i 0.002 -t 1 " + ip + " > src/perf/ping 2>/dev/null")
-    with open('src/perf/ping', 'r') as file:
+    os.system("ping -c 50 -i 0.002 -t 1 " + ip + " > src/state/ping.txt 2>/dev/null")
+    with open('src/state/ping.txt', 'r') as file:
         data = file.read().rstrip()
     return data
 
