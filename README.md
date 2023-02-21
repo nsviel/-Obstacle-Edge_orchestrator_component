@@ -1,8 +1,8 @@
 # [Obstacle] Edge Orchestrator Component
 
-## Screenshot
+Installed on the Edge server, it receives the data sent by the Data acquisition module. It is also reponsible of info and data transmission amongst the other components and the Control interface module.
 
-![goh](https://user-images.githubusercontent.com/80487132/220341282-5778d35e-413b-4078-afbf-3dc6b1a09cbc.png)
+![edge](https://user-images.githubusercontent.com/80487132/220367354-7539ae2f-3be6-4d10-97af-6defc2d1c21e.png)
 
 ## Installation and execution
 
@@ -43,12 +43,11 @@ cd docker
 
 </details>
 
-<details><summary>Links</summary>
+## System
 
-Full system repository: [link](https://github.com/nsviel/Obstacle_System)<br />
-- [ ] Data acquisition module: [link](https://github.com/nsviel/Obstacle-Data_Acquisition_Module)
-- [ ] Control Interface module: [link](https://github.com/nsviel/Obstacle-Control_Interface_Module)
-- [x] Edge orchestrator module
-  - [ ] Data processing component: [link](https://github.com/nsviel/Velodium)
-
-</details>
+Full system repository ( [link](https://github.com/nsviel/Obstacle_System) )
+- [ ] Data acquisition module ( [link](https://github.com/nsviel/Obstacle-Data_Acquisition_Module) )
+- [x] Edge server module
+  - [x] Edge orchestrator component
+  - [ ] Data processing component ( [link](https://github.com/nsviel/Velodium) )
+- [ ] Control Interface module ( [link](https://github.com/nsviel/Obstacle-Control_Interface_Module) )
