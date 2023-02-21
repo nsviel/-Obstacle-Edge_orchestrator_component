@@ -1,4 +1,4 @@
-# [Obstacle] Edge Orchestrator Module
+# [Obstacle] Edge Orchestrator Component
 
 ## Screenshot
 
