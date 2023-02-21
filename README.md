@@ -8,16 +8,16 @@
 
 <details><summary>Installation</summary>
 
-Simply run the script file
+>Simply run the script file 
 ```
 ./install.sh
 ```
-In the program directory.
+>in the program directory.
 
 </details>
 <details><summary>Execution</summary>
 
-Simply run by the command
+>Simply run by the command
 ```
 ./run.sh
 ```
@@ -25,7 +25,7 @@ Simply run by the command
 </details>
 <details><summary>Docker</summary>
 
-You can use a docker image with:
+>You can use a docker image with:
 
 ```
 cd docker
