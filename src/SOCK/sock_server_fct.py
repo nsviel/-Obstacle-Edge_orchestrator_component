@@ -16,10 +16,10 @@ def thread_socket_l1_server():
     while param_hu.run_thread_socket:
         try:
             data, (address, port) = param_hu.sock_server_l1.recvfrom(4096)
-            param_hu.state_hu["pywardium"]["sock_l1_connected"] = True
+            param_hu.state_hu["module_capture"]["sock_l1_connected"] = True
             process_l1_data(data)
         except:
-            param_hu.state_hu["pywardium"]["sock_l1_connected"] = False
+            param_hu.state_hu["module_capture"]["sock_l1_connected"] = False
 
     param_hu.sock_server_l1.close()
 
@@ -34,10 +34,10 @@ def thread_socket_l2_server():
     while param_hu.run_thread_socket:
         try:
             data, (address, port) = param_hu.sock_server_l2.recvfrom(1500)
-            param_hu.state_hu["pywardium"]["sock_l2_connected"] = True
+            param_hu.state_hu["module_capture"]["sock_l2_connected"] = True
             process_l2_data(data)
         except:
-            param_hu.state_hu["pywardium"]["sock_l2_connected"] = False
+            param_hu.state_hu["module_capture"]["sock_l2_connected"] = False
 
     param_hu.sock_server_l2.close()
 

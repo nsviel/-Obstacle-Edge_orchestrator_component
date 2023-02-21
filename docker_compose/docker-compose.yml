@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  hubium:
-    image: "hubium"
+  edge:
+    image: "edge"
     network_mode: host
     tty: true        # docker run -t
     container_name: hu
@@ -14,8 +14,8 @@ services:
     #  - 443:443
     #  - 6969:6965
 
-  velodium:
-    image: "velodium"
+  component_process:
+    image: "component_process"
     container_name: ve
     network_mode: host
     environment:

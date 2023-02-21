@@ -5,7 +5,7 @@ from src.HTTPS import https_client_get
 import json
 def ask_for_time():
     time_slam = https_client_get.send_command("ve", "/time_slam")
-    time_pred = https_client_get.send_command("ai", "/time_pred")
+    time_pred = https_client_get.send_command("component_ai", "/time_pred")
 
     if(time_slam != None and time_slam != ""):
         time_slam = float(time_slam.decode("utf-8"))

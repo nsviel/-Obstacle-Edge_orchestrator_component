@@ -17,35 +17,35 @@
       "mongo_password": "",
       "mongo_nb_data": 50
     },
-    "pywardium": {
+    "module_capture": {
         "ip": "127.0.0.1",
         "http_server_port": 314
     },
-    "controlium": {
+    "module_interface": {
         "ip": "127.0.0.1",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
-    "sncf": {
+    "train_operator": {
         "add": "MINES_Nathan",
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
         "mqtt_client": "P2_module",
         "mqtt_topic": "alarmes/lidar"
     },
-    "velodium": {
+    "component_process": {
         "ip": "127.0.0.1",
         "sock_server_port": 2370,
         "http_server_port": 8888
     },
-    "ai": {
+    "component_ai": {
         "ip": "127.0.0.1",
         "http_server_port": 8080
     },
-    "valeo": {
+    "cloud_car": {
         "ip": "127.0.0.1"
     },
-    "edge": {
+    "edge_next": {
         "ip": "99.99.99.99",
         "country": "Spain",
         "edge_id": 1

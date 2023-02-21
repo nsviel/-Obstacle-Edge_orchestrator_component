@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd ..
-sudo docker build -t hubium .
+sudo docker build -t edge .

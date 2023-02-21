@@ -11,9 +11,9 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/*
 
 # Program parameters
-COPY . /app/hubium
-VOLUME /app/hubium/data
-WORKDIR /app/hubium
+COPY . /app/edge
+VOLUME /app/data
+WORKDIR /app/edge
 
 # Open port
 # Sock server Lidar 1

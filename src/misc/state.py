@@ -26,17 +26,17 @@ def init_state_py():
     param_hu.state_hu["data"]["nb_frame"] = 0
     param_hu.state_hu["data"]["nb_prediction"] = 0
 
-    param_hu.state_hu["ai"]["http_connected"] = False
-    param_hu.state_hu["velodium"]["sock_connected"] = False
-    param_hu.state_hu["pywardium"]["http_connected"] = False
-    param_hu.state_hu["pywardium"]["sock_l1_connected"] = False
-    param_hu.state_hu["pywardium"]["sock_l2_connected"] = False
-    param_hu.state_hu["velodium"]["sock_connected"] = False
-    param_hu.state_hu["velodium"]["http_connected"] = False
-    param_hu.state_hu["valeo"]["http_connected"] = False
-    param_hu.state_hu["edge"]["http_connected"] = False
-    param_hu.state_hu["edge"]["sock_connected"] = False
-    param_hu.state_hu["sncf"]["broker_connected"] = False
+    param_hu.state_hu["component_ai"]["http_connected"] = False
+    param_hu.state_hu["component_process"]["sock_connected"] = False
+    param_hu.state_hu["module_capture"]["http_connected"] = False
+    param_hu.state_hu["module_capture"]["sock_l1_connected"] = False
+    param_hu.state_hu["module_capture"]["sock_l2_connected"] = False
+    param_hu.state_hu["component_process"]["sock_connected"] = False
+    param_hu.state_hu["component_process"]["http_connected"] = False
+    param_hu.state_hu["cloud_car"]["http_connected"] = False
+    param_hu.state_hu["edge_next"]["http_connected"] = False
+    param_hu.state_hu["edge_next"]["sock_connected"] = False
+    param_hu.state_hu["train_operator"]["broker_connected"] = False
 
 def init_state_perf():
     param_hu.state_perf["mongo"]["connected"] = False
@@ -84,27 +84,27 @@ def load_config_file():
     param_hu.tic_connection = config["self"]["tic_connection"]
     param_hu.tic_network = config["self"]["tic_network"]
 
-    param_hu.state_hu["pywardium"]["ip"] = config["pywardium"]["ip"]
-    param_hu.state_hu["pywardium"]["http_server_port"] = config["pywardium"]["http_server_port"]
+    param_hu.state_hu["module_capture"]["ip"] = config["module_capture"]["ip"]
+    param_hu.state_hu["module_capture"]["http_server_port"] = config["module_capture"]["http_server_port"]
 
-    param_hu.state_hu["controlium"]["ip"] = config["controlium"]["ip"]
-    param_hu.state_hu["controlium"]["sock_server_l1_port"] = config["controlium"]["sock_server_l1_port"]
-    param_hu.state_hu["controlium"]["sock_server_l2_port"] = config["controlium"]["sock_server_l2_port"]
+    param_hu.state_hu["module_interface"]["ip"] = config["module_interface"]["ip"]
+    param_hu.state_hu["module_interface"]["sock_server_l1_port"] = config["module_interface"]["sock_server_l1_port"]
+    param_hu.state_hu["module_interface"]["sock_server_l2_port"] = config["module_interface"]["sock_server_l2_port"]
 
-    param_hu.state_hu["sncf"]["broker_ip"] = config["sncf"]["broker_ip"]
-    param_hu.state_hu["sncf"]["broker_port"] = config["sncf"]["broker_port"]
-    param_hu.state_hu["sncf"]["mqtt_client"] = config["sncf"]["mqtt_client"]
-    param_hu.state_hu["sncf"]["mqtt_topic"] = config["sncf"]["mqtt_topic"]
+    param_hu.state_hu["train_operator"]["broker_ip"] = config["train_operator"]["broker_ip"]
+    param_hu.state_hu["train_operator"]["broker_port"] = config["train_operator"]["broker_port"]
+    param_hu.state_hu["train_operator"]["mqtt_client"] = config["train_operator"]["mqtt_client"]
+    param_hu.state_hu["train_operator"]["mqtt_topic"] = config["train_operator"]["mqtt_topic"]
 
-    param_hu.state_hu["velodium"]["ip"] = config["velodium"]["ip"]
-    param_hu.state_hu["velodium"]["sock_server_port"] = config["velodium"]["sock_server_port"]
-    param_hu.state_hu["velodium"]["http_server_port"] = config["velodium"]["http_server_port"]
+    param_hu.state_hu["component_process"]["ip"] = config["component_process"]["ip"]
+    param_hu.state_hu["component_process"]["sock_server_port"] = config["component_process"]["sock_server_port"]
+    param_hu.state_hu["component_process"]["http_server_port"] = config["component_process"]["http_server_port"]
 
-    param_hu.state_hu["ai"]["ip"] = config["ai"]["ip"]
-    param_hu.state_hu["ai"]["http_server_port"] = config["ai"]["http_server_port"]
+    param_hu.state_hu["component_ai"]["ip"] = config["component_ai"]["ip"]
+    param_hu.state_hu["component_ai"]["http_server_port"] = config["component_ai"]["http_server_port"]
 
-    param_hu.state_hu["valeo"]["ip"] = config["valeo"]["ip"]
-    param_hu.state_hu["edge"]["ip"] = config["edge"]["ip"]
+    param_hu.state_hu["cloud_car"]["ip"] = config["cloud_car"]["ip"]
+    param_hu.state_hu["edge_next"]["ip"] = config["edge_next"]["ip"]
 
     param_hu.state_perf["mongo"]["ip"] = config["perf"]["mongo_ip"]
     param_hu.state_perf["mongo"]["port"] = config["perf"]["mongo_port"]
