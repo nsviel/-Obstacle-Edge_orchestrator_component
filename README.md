@@ -50,4 +50,5 @@ Full system repository ( [link](https://github.com/nsviel/Obstacle_System) )
 - [x] Edge server module
   - [x] Edge orchestrator component
   - [ ] Data processing component ( [link](https://github.com/nsviel/Velodium) )
+  - [ ] AI component
 - [ ] Control Interface module ( [link](https://github.com/nsviel/Obstacle-Control_Interface_Module) )
