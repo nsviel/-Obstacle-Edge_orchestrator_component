@@ -1,15 +1,15 @@
 #---------------------------------------------
 # Possible POST command:
 # - /sncf_param
-# - /hu_param
-# - /py_param
-# - /ve_param
+# - /edge_param
+# - /capture_param
+# - /processing_param
 # - /ai_param
-# - /hu_state
-# - /py_state
+# - /edge_state
+# - /capture_state
 #---------------------------------------------
 
-from src.param import param_hu
+from src.param import param_edge
 from src.HTTPS import https_client_post
 from src.HTTPS import https_server_fct
 from src.HTTPS import https_server_forward
@@ -24,60 +24,60 @@ def manage_post(self):
     command = str(self.path)
     if(command == '/sncf_param'):
         manage_sncf_param(self)
-    elif(command == '/hu_param'):
-        manage_hu_param(self)
-    elif(command == '/py_param'):
-        manage_py_param(self)
-    elif(command == '/ve_param'):
-        manage_ve_param(self)
+    elif(command == '/edge_param'):
+        manage_edge_param(self)
+    elif(command == '/capture_param'):
+        manage_capture_param(self)
+    elif(command == '/processing_param'):
+        manage_processing_param(self)
     elif(command == '/ai_param'):
         manage_ai_param(self)
-    elif(command == '/hu_state'):
-        manage_hu_state(self)
-    elif(command == '/py_state'):
-        manage_py_state(self)
+    elif(command == '/edge_state'):
+        manage_edge_state(self)
+    elif(command == '/capture_state'):
+        manage_capture_state(self)
 
 def manage_sncf_param(self):
     pass
 
-def manage_hu_param(self):
-    payload = https_server_fct.retrieve_post_data(self)
+def manage_edge_param(self):
+    payload = https_server_fct.retrieprocessing_post_data(self)
     if(payload != None):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
         command.manage_command(lvl1, lvl2, lvl3)
-        terminal.addPost("hu", lvl1, lvl2, lvl3)
+        terminal.addPost("edge", lvl1, lvl2, lvl3)
 
-def manage_py_param(self):
-    payload = https_server_fct.retrieve_post_data(self)
-    https_client_post.post_param_payload("py", payload)
+def manage_capture_param(self):
+    payload = https_server_fct.retrieprocessing_post_data(self)
+    https_client_post.post_param_payload("capture", payload)
 
-def manage_ve_param(self):
-    payload = https_server_fct.retrieve_post_data(self)
+def manage_processing_param(self):
+    payload = https_server_fct.retrieprocessing_post_data(self)
     if(payload != None):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
-        https_server_forward.forward_ve_post(lvl2, lvl3)
-        terminal.addPost("ve", lvl1, lvl2, lvl3)
+        https_server_forward.forward_processing_post(lvl2, lvl3)
+        terminal.addPost("processing", lvl1, lvl2, lvl3)
 
 def manage_ai_param(self):
-    payload = https_server_fct.retrieve_post_data(self)
+    payload = https_server_fct.retrieprocessing_post_data(self)
     if(payload != None):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
         https_server_forward.forward_ai_post(lvl2, lvl3)
         terminal.addPost("component_ai", lvl1, lvl2, lvl3)
 
-def manage_hu_state(self):
-    payload = https_server_fct.retrieve_post_data(self)
+def manage_edge_state(self):
+    payload = https_server_fct.retrieprocessing_post_data(self)
     if(payload != None):
         data = json.loads(payload)
-        param_hu.state_hu = data
+        param_edge.state_edge = data
         parser_json.upload_state()
         terminal.addLog("com", "New state received")
 
-def manage_py_state(self):
-    payload = https_server_fct.retrieve_post_data(self)
+def manage_capture_state(self):
+    payload = https_server_fct.retrieprocessing_post_data(self)
     if(payload != None):
         data = json.loads(payload)
-        https_client_post.post_state("py", data)
+        https_client_post.post_state("capture", data)

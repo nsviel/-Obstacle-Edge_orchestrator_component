@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_hu
+from src.param import param_edge
 from src.misc import parser_json
 
 import datetime
@@ -7,7 +7,7 @@ import datetime
 
 def format_prediction():
     # Load unformatted prediction
-    path = param_hu.path_generic + "pred_thresh_0.1_frame_5.json"
+    path = param_edge.path_generic + "pred_thresh_0.1_frame_5.json"
     json = parser_json.load_data_from_file(path)
 
     # Format prediction
@@ -30,4 +30,4 @@ def format_prediction():
     }
 
     # Save formatted prediction into state file
-    parser_json.upload_file(param_hu.path_state_pred, pred)
+    parser_json.upload_file(param_edge.path_state_pred, pred)

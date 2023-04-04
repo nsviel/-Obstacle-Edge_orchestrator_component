@@ -1,26 +1,26 @@
 #---------------------------------------------
-from src.param import param_hu
+from src.param import param_edge
 
 import http.client
 
 
 def network_info(dest):
-    if(dest == "py" or dest == "perf"):
-        ip = param_hu.state_hu["module_capture"]["ip"]
-        port = param_hu.state_hu["module_capture"]["http_server_port"]
-        connected = param_hu.state_hu["module_capture"]["http_connected"]
-    elif(dest == "ve"):
-        ip = param_hu.state_hu["component_process"]["ip"]
-        port = param_hu.state_hu["component_process"]["http_server_port"]
-        connected = param_hu.state_hu["component_process"]["http_connected"]
+    if(dest == "capture" or dest == "network"):
+        ip = param_edge.state_edge["module_capture"]["ip"]
+        port = param_edge.state_edge["module_capture"]["http_server_port"]
+        connected = param_edge.state_edge["module_capture"]["http_connected"]
+    elif(dest == "processing"):
+        ip = param_edge.state_edge["component_process"]["ip"]
+        port = param_edge.state_edge["component_process"]["http_server_port"]
+        connected = param_edge.state_edge["component_process"]["http_connected"]
     elif(dest == "component_ai"):
-        ip = param_hu.state_hu["component_ai"]["ip"]
-        port = param_hu.state_hu["component_ai"]["http_server_port"]
-        connected = param_hu.state_hu["component_ai"]["http_connected"]
-    elif(dest == "ed"):
-        ip = param_hu.state_hu["edge_next"]["ip"]
-        port = param_hu.state_hu["self"]["http_server_port"]
-        connected = param_hu.state_hu["edge_next"]["http_connected"]
+        ip = param_edge.state_edge["component_ai"]["ip"]
+        port = param_edge.state_edge["component_ai"]["http_server_port"]
+        connected = param_edge.state_edge["component_ai"]["http_connected"]
+    elif(dest == "edgenext"):
+        ip = param_edge.state_edge["edge_next"]["ip"]
+        port = param_edge.state_edge["self"]["http_server_port"]
+        connected = param_edge.state_edge["edge_next"]["http_connected"]
 
     return [ip, port, connected]
 

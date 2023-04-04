@@ -1,7 +1,7 @@
 #---------------------------------------------
 # Terminal output functions
 #---------------------------------------------
-from src.param import param_hu
+from src.param import param_edge
 
 import time
 
@@ -15,14 +15,14 @@ def addLog(type, message):
         print("[\033[1;31merror\033[0m] "+ message)
     elif(type == "com"):
         print("[\033[1;30mPOST\033[0m]  "+ message)
-    time.sleep(param_hu.tic_message)
+    time.sleep(param_edge.tic_message)
 
 def addConnection(dest, state):
-    if(dest == "hu"):
+    if(dest == "edge"):
         dest = "Edge AI module"
-    elif(dest == "py"):
+    elif(dest == "capture"):
         dest = "Train module"
-    elif(dest == "ve"):
+    elif(dest == "processing"):
         dest = "Data processing component"
     elif(dest == "component_ai"):
         dest = "AI component"
@@ -33,13 +33,13 @@ def addConnection(dest, state):
         print("[\033[1;36mCON\033[0m]   Connection \033[1;31mOFF\033[0m - "+ dest)
 
 def addPost(dest, c1, c2, c3):
-    if(dest == "hu"):
+    if(dest == "edge"):
         message = "Received [%s, %s, %s]"%(c1, c2, c3)
     else:
         message = "To %s [%s, %s, %s]"%(dest, c1, c2, c3)
 
     print("[\033[1;30mPOST\033[0m]  " + message)
-    time.sleep(param_hu.tic_message)
+    time.sleep(param_edge.tic_message)
 
 def addDaemon(type, status, message):
     if(type == "#"):
@@ -54,7 +54,7 @@ def addDaemon(type, status, message):
     elif(status == "OFF"):
         print("\033[1;31m"+status+"\033[0m - "+message)
 
-    time.sleep(param_hu.tic_message)
+    time.sleep(param_edge.tic_message)
 
 def addLine():
     print("")

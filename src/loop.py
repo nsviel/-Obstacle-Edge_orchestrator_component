@@ -1,10 +1,10 @@
 #---------------------------------------------
-from src.param import param_hu
+from src.param import param_edge
 from src.HTTPS import https_server
 from src.MQTT import mqtt_client
 from src.SOCK import sock_server
 from src.SOCK import sock_client
-from src.perf import perf_network
+from src.network import perf_network
 from src.misc import connection
 from src.misc import state
 from src.misc import parser_json
@@ -19,7 +19,7 @@ def start():
     init()
 
     # Start main loop program
-    while param_hu.run_loop:
+    while param_edge.run_loop:
         loop()
 
     # Join threads
@@ -37,11 +37,11 @@ def init():
     terminal.addLine()
 
 def loop():
-    time.sleep(param_hu.tic_loop)
+    time.sleep(param_edge.tic_loop)
 
 def end():
     terminal.shutdown()
-    parser_json.upload_file(param_hu.path_state_hu, param_hu.state_hu)
+    parser_json.upload_file(param_edge.path_state_edge, param_edge.state_edge)
     connection.stop_daemon()
     sock_server.stop_daemon()
     https_server.stop_daemon()

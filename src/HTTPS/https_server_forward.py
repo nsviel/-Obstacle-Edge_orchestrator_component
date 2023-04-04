@@ -10,20 +10,20 @@ from src.HTTPS import https_client_post
 # - /view_top
 # - /view_oblique
 #---------------------------------------------
-def forward_ve_post(option, value):
+def forward_processing_post(option, value):
     if(option == "slam"):
         if(str(value) == "True"):
-            https_client_get.send_command("ve", "/slam_on")
+            https_client_get.send_command("processing", "/slam_on")
         if(str(value) == "False"):
-            https_client_get.send_command("ve", "/slam_off")
+            https_client_get.send_command("processing", "/slam_off")
     elif(option == "view"):
         if(value == "Top"):
-            https_client_get.send_command("ve", "/view_top")
+            https_client_get.send_command("processing", "/view_top")
         if(value == "Oblique"):
-            https_client_get.send_command("ve", "/view_oblique")
+            https_client_get.send_command("processing", "/view_oblique")
     elif(value == "reset"):
         if(value == "reset"):
-            https_client_get.send_command("ve", "/reset")
+            https_client_get.send_command("processing", "/reset")
 
 #---------------------------------------------
 # Possible POST commands:

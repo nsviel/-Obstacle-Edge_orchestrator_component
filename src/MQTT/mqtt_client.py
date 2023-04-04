@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_hu
+from src.param import param_edge
 from src.MQTT import mqtt_class
 from src.misc import parser_json
 from src.misc import signal
@@ -8,7 +8,7 @@ import paho.mqtt.client as mqtt
 
 
 def test_sncf_connection():
-    connected = param_hu.state_hu["train_operator"]["broker_connected"]
+    connected = param_edge.state_edge["train_operator"]["broker_connected"]
     if(connected == False):
         try:
             create_client()
@@ -17,18 +17,18 @@ def test_sncf_connection():
             mqtt_disconnection()
 
 def create_client():
-    client_name = param_hu.state_hu["train_operator"]["mqtt_client"]
+    client_name = param_edge.state_edge["train_operator"]["mqtt_client"]
     client = mqtt.Client(client_name)
     client.on_connect = mqtt_class.on_connection
     client.on_disconnect = mqtt_class.on_disconnect
-    param_hu.mqtt_client = client
+    param_edge.mqtt_client = client
 
 def mqtt_connection():
-    ip = param_hu.state_hu["train_operator"]["broker_ip"]
-    port = param_hu.state_hu["train_operator"]["broker_port"]
-    param_hu.mqtt_client.connect(ip, port)
-    param_hu.state_hu["train_operator"]["broker_connected"] = True
-    param_hu.mqtt_client.loop_start()
+    ip = param_edge.state_edge["train_operator"]["broker_ip"]
+    port = param_edge.state_edge["train_operator"]["broker_port"]
+    param_edge.mqtt_client.connect(ip, port)
+    param_edge.state_edge["train_operator"]["broker_connected"] = True
+    param_edge.mqtt_client.loop_start()
 
 def mqtt_disconnection():
-    param_hu.mqtt_client.disconnect()
+    param_edge.mqtt_client.disconnect()

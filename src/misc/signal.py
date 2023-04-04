@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.misc import connection
-from src.param import param_hu
+from src.param import param_edge
 
 import socket
 import platform
@@ -12,7 +12,7 @@ import sys
 
 # Manage Ctrl+C input
 def handler(signum, frame):
-    param_hu.run_loop = False
+    param_edge.run_loop = False
 
 signal.signal(signal.SIGINT, handler)
 

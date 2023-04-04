@@ -1,10 +1,10 @@
 #---------------------------------------------
 # Possible GET command:
 # - /test_http_conn
-# - /py_state
+# - /capture_state
 #---------------------------------------------
 
-from src.param import param_hu
+from src.param import param_edge
 from src.HTTPS import https_client_fct
 from src.misc import parser_json
 
@@ -18,11 +18,11 @@ def get_state(dest):
 
     if(data != None):
         try:
-            if(dest == "py"):
-                parser_json.update_state_file(param_hu.path_state_py, data)
-                param_hu.state_py = json.loads(data)
-            elif(dest == "perf"):
-                param_hu.state_perf = json.loads(data)
+            if(dest == "capture"):
+                parser_json.update_state_file(param_edge.path_state_capture, data)
+                param_edge.state_capture = json.loads(data)
+            elif(dest == "network"):
+                param_edge.state_network = json.loads(data)
         except:
             print("[\033[1;31merror\033[0m] GET \033[1;32m%s\033[0m state failed"% dest)
 
@@ -33,10 +33,10 @@ def get_state_data(dest):
 
     if(data != None):
         try:
-            if(dest == "py"):
-                parser_json.update_state_file(param_hu.path_state_py, data)
+            if(dest == "capture"):
+                parser_json.update_state_file(param_edge.path_state_capture, data)
                 return json.loads(data)
-            elif(dest == "perf"):
+            elif(dest == "network"):
                 return json.loads(data)
         except:
             print("[\033[1;31merror\033[0m] GET \033[1;32m%s\033[0m state failed"% dest)

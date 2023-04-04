@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_hu
+from src.param import param_edge
 from src.SOCK import sock_server_fct
 from src.misc import connection
 from src.misc import terminal
@@ -16,7 +16,7 @@ def start_daemon():
     terminal.addDaemon("#", "ON", "Socket server")
 
 def stop_daemon():
-    param_hu.run_thread_socket = False
+    param_edge.run_thread_socket = False
     terminal.addDaemon("#", "OFF", "Socket server")
 
 def restart_daemon():
@@ -26,8 +26,8 @@ def restart_daemon():
     start_daemon()
 
 def check_port():
-    l1_port = param_hu.state_hu["self"]["sock_server_l1_port"]
-    l2_port = param_hu.state_hu["self"]["sock_server_l2_port"]
+    l1_port = param_edge.state_edge["self"]["sock_server_l1_port"]
+    l2_port = param_edge.state_edge["self"]["sock_server_l2_port"]
     connection.check_port_open(l1_port)
     connection.check_port_open(l2_port)
     if(l1_port == l2_port):

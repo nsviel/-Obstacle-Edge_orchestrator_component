@@ -1,9 +1,9 @@
 #---------------------------------------------
 
 # State
-state_hu = {}
-state_py = {}
-state_perf = {}
+state_edge = {}
+state_capture = {}
+state_network = {}
 state_kpi = {}
 state_pred = {}
 
@@ -36,9 +36,9 @@ tic_network = 0.5
 
 # State file
 path_config = "config.json"
-path_state_hu = "src/state/state_hu.json"
-path_state_py = "src/state/state_py.json"
-path_state_perf = "src/state/state_perf.json"
+path_state_edge = "src/state/state_edge.json"
+path_state_capture = "src/state/state_capture.json"
+path_state_network = "src/state/state_network.json"
 path_state_kpi = "src/state/state_kpi.json"
 path_state_pred = "src/state/state_pred.json"
 

@@ -1,8 +1,8 @@
 #---------------------------------------------
 # Possible POST command:
-# - /py_state
-# - /py_param
-# - /ve_param
+# - /capture_state
+# - /capture_param
+# - /processing_param
 # - /ai_param
 #---------------------------------------------
 
