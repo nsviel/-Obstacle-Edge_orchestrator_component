@@ -1,9 +1,9 @@
 #---------------------------------------------
 from src.param import param_edge
 from src.HTTPS import https_client_get
-from src.network import perf_ping
-from src.network import perf_module
-from src.network import perf_mongo
+from src.network import network_ping
+from src.network import network_module
+from src.network import network_mongo
 from src.misc import parser_json
 
 import multiprocessing as mp
@@ -28,14 +28,14 @@ def thread_perf():
         update_perf_from_py()
 
         # Ping
-        perf_ping.compute_ping(list_latency, list_reliability)
+        network_ping.compute_ping(list_latency, list_reliability)
 
         # System time retrieving
-        perf_module.ask_for_time()
+        network_module.ask_for_time()
 
         # Make mongo stuff
-        perf_mongo.format_state_kpi()
-        perf_mongo.send_kpi_to_mongodb()
+        network_mongo.format_state_kpi()
+        network_mongo.send_kpi_to_mongodb()
 
         # Update state file and sleep one second
         parser_json.upload_file(param_edge.path_state_network, param_edge.state_network)

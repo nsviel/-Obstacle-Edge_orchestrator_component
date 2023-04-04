@@ -4,7 +4,7 @@ from src.HTTPS import https_server
 from src.MQTT import mqtt_client
 from src.SOCK import sock_server
 from src.SOCK import sock_client
-from src.network import perf_network
+from src.network import network_manager
 from src.misc import connection
 from src.misc import state
 from src.misc import parser_json
@@ -32,7 +32,7 @@ def init():
     connection.start_daemon()
     sock_server.start_daemon()
     https_server.start_daemon()
-    perf_network.start_daemon()
+    network_manager.start_daemon()
     terminal.addLog("OK", "Program initialized...")
     terminal.addLine()
 
@@ -45,5 +45,5 @@ def end():
     connection.stop_daemon()
     sock_server.stop_daemon()
     https_server.stop_daemon()
-    perf_network.stop_daemon()
+    network_manager.stop_daemon()
     terminal.delai()

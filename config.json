@@ -8,7 +8,7 @@
         "tic_connection": 0.5,
         "tic_network": 0.5
     },
-    "perf": {
+    "network": {
       "mongo_ip": "localhost",
       "mongo_port": 27017,
       "mongo_database": "test_db",
