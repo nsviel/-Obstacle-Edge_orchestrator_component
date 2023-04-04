@@ -10,7 +10,7 @@
         "connected": false
     },
     "local_cloud": {
-        "timestamp": 0,
+        "timestamp": 1680621183.0628586,
         "throughput": {
             "value": 0,
             "min": 0,
@@ -18,16 +18,16 @@
             "mean": 0
         },
         "latency": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 0.024,
+            "min": 0.024,
+            "max": 0.081,
+            "mean": 0.049300000000000004
         },
         "reliability": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 100.0,
+            "min": 100.0,
+            "max": 100.0,
+            "mean": 100.0
         },
         "interruption": {
             "value": 0,
@@ -37,23 +37,23 @@
         }
     },
     "cloud_local": {
-        "timestamp": 1680619611.9709842,
+        "timestamp": 1680621183.4882727,
         "latency": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 0.014,
+            "min": 0.014,
+            "max": 0.054,
+            "mean": 0.0225
         },
         "reliability": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 100.0,
+            "min": 100.0,
+            "max": 100.0,
+            "mean": 100.0
         }
     },
     "end_to_end": {
-        "time_slam": 0,
+        "time_slam": 74.0,
         "time_ai": 0,
-        "time_total": 0
+        "time_total": 74.0
     }
 }
