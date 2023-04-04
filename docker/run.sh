@@ -1,6 +1,6 @@
 #!/bin/sh
 
-docker run -it \
+sudo docker run -it \
      --network host \
      -p 344:345 \
      -p 345:345 \
