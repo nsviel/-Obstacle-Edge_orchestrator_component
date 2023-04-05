@@ -20,10 +20,12 @@ def manage_get(self):
         manage_edge_state(self)
     elif(command == '/capture_state'):
         manage_capture_state(self)
-    elif(command == '/perf_state'):
+    elif(command == '/network_state'):
         manage_perf_state(self)
     elif(command == '/image'):
         manage_image(self)
+    else:
+        print("[error] HTTP GET command not known")
 
 def manage_edge_state(self):
     data = parser_json.load_state_utf8(param_edge.path_state_edge)

@@ -36,6 +36,8 @@ def manage_post(self):
         manage_edge_state(self)
     elif(command == '/capture_state'):
         manage_capture_state(self)
+    else:
+        print("[error] HTTP POST command not known")
 
 def manage_sncf_param(self):
     pass

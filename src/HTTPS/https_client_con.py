@@ -62,7 +62,7 @@ test_capture_con.edge_has_been_deco = True
 
 def connection_capture_open():
     param_edge.state_edge["module_capture"]["http_connected"] = True
-    https_client_post.post_param_value("capture", "module_edge", "ip", param_edge.state_edge["self"]["ip"])
+    https_client_post.post_param_value("capture", "edge", "ip", param_edge.state_edge["self"]["ip"])
 
 def connection_capture_close():
     param_edge.state_edge["module_capture"]["http_connected"] = False

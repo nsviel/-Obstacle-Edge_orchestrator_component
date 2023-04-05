@@ -47,7 +47,7 @@
         "http_connected": false,
         "ip": "127.0.0.1"
     },
-    "edge": {
+    "edge_next": {
         "add": "black_hole",
         "ip": "99.99.99.99",
         "country": "Spain",
