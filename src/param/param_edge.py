@@ -36,11 +36,11 @@ tic_network = 0.5
 
 # State file
 path_config = "config.json"
-path_state_edge = "src/state/state_edge.json"
-path_state_capture = "src/state/state_capture.json"
-path_state_network = "src/state/state_network.json"
-path_state_kpi = "src/state/state_kpi.json"
-path_state_pred = "src/state/state_pred.json"
+path_state_edge = "src/state/system/state_edge.json"
+path_state_capture = "src/state/system/state_capture.json"
+path_state_network = "src/state/system/state_network.json"
+path_state_kpi = "src/state/system/state_kpi.json"
+path_state_pred = "src/state/system/state_pred.json"
 
 # Data dir
 path_data_dir =  "../data"

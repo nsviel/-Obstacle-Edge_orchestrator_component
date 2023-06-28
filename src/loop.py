@@ -6,7 +6,7 @@ from src.connection.SOCK import sock_server
 from src.connection.SOCK import sock_client
 from src.network import network_manager
 from src.connection import connection
-from src.loop import state
+from src.state import state
 from src.utils import parser_json
 from src.utils import data
 from src.utils import terminal

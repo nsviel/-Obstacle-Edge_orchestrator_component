@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #---------------------------------------------
-from src.loop import loop
+from src import loop
 from src.utils import signal
 
 
