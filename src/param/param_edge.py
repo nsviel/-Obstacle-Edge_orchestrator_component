@@ -1,7 +1,7 @@
 #---------------------------------------------
 
 # State
-state_edge = {}
+state_edge_1 = {}
 state_capture = {}
 state_network = {}
 state_kpi = {}
@@ -36,9 +36,10 @@ tic_network = 0.5
 
 # State file
 path_config = "config.json"
-path_state_edge = "src/state/system/state_edge.json"
+path_state_edge_1 = "src/state/system/state_edge_1.json"
+path_state_edge_2 = "src/state/system/state_edge_2.json"
 path_state_capture = "src/state/system/state_capture.json"
-path_state_network = "src/state/system/state_network.json"
+path_state_network = "src/state/system/state_perf.json"
 path_state_kpi = "src/state/system/state_kpi.json"
 path_state_pred = "src/state/system/state_pred.json"
 

@@ -26,8 +26,8 @@ def restart_daemon():
     start_daemon()
 
 def check_port():
-    l1_port = param_edge.state_edge["self"]["sock_server_l1_port"]
-    l2_port = param_edge.state_edge["self"]["sock_server_l2_port"]
+    l1_port = param_edge.state_edge_1["self"]["sock_server_l1_port"]
+    l2_port = param_edge.state_edge_1["self"]["sock_server_l2_port"]
     connection.check_port_open(l1_port)
     connection.check_port_open(l2_port)
     if(l1_port == l2_port):

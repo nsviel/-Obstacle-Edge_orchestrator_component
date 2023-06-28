@@ -9,7 +9,7 @@ def manage_command(lvl1, lvl2, lvl3):
     if(lvl1 == "mongo"):
         param_edge.state_network[lvl1][lvl2] = lvl3
     elif(lvl1 != None and lvl1 != "null"):
-        param_edge.state_edge[lvl1][lvl2] = lvl3
+        param_edge.state_edge_1[lvl1][lvl2] = lvl3
         if(lvl1 == "train_operator"):
             mqtt_client.mqtt_disconnection()
     # Direct command

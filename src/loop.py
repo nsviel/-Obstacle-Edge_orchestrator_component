@@ -41,7 +41,7 @@ def loop():
 
 def end():
     terminal.shutdown()
-    parser_json.upload_file(param_edge.path_state_edge, param_edge.state_edge)
+    parser_json.upload_file(param_edge.path_state_edge_1, param_edge.state_edge_1)
     connection.stop_daemon()
     sock_server.stop_daemon()
     https_server.stop_daemon()

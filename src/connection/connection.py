@@ -61,13 +61,13 @@ def get_ip_adress():
     return IP
 
 def update_nb_thread():
-    param_edge.state_edge["self"]["nb_thread"] = threading.active_count()
+    param_edge.state_edge_1["self"]["nb_thread"] = threading.active_count()
 import os
 
 def update_data():
     path = param_edge.path_frame_dir + "/"
     nb_file = len([f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))])
-    param_edge.state_edge["data"]["nb_frame"] = nb_file
+    param_edge.state_edge_1["data"]["nb_frame"] = nb_file
 
 def check_port_open(port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

@@ -74,7 +74,7 @@ def manage_edge_state(self):
     payload = https_server_fct.retrieprocessing_post_data(self)
     if(payload != None):
         data = json.loads(payload)
-        param_edge.state_edge = data
+        param_edge.state_edge_1 = data
         parser_json.upload_state()
         terminal.addLog("com", "New state received")
 

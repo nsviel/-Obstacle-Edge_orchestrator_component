@@ -14,12 +14,12 @@ def test_processing_con():
         test_processing_con.edge_has_been_co = True
         test_processing_con.edge_has_been_deco = False
         terminal.addConnection("processing", "on")
-        param_edge.state_edge["component_process"]["http_connected"] = True
+        param_edge.state_edge_1["component_process"]["http_connected"] = True
     elif(connected == False and test_processing_con.edge_has_been_co):
         test_processing_con.edge_has_been_co = False
         test_processing_con.edge_has_been_deco = True
         terminal.addConnection("processing", "off")
-        param_edge.state_edge["component_process"]["http_connected"] = False
+        param_edge.state_edge_1["component_process"]["http_connected"] = False
 
 test_processing_con.edge_has_been_co = False
 test_processing_con.edge_has_been_deco = True
@@ -32,12 +32,12 @@ def test_ai_con():
         test_ai_con.edge_has_been_co = True
         test_ai_con.edge_has_been_deco = False
         terminal.addConnection("processing", "on")
-        param_edge.state_edge["component_ai"]["http_connected"] = True
+        param_edge.state_edge_1["component_ai"]["http_connected"] = True
     elif(connected == False and test_ai_con.edge_has_been_co):
         test_ai_con.edge_has_been_co = False
         test_ai_con.edge_has_been_deco = True
         terminal.addConnection("processing", "off")
-        param_edge.state_edge["component_ai"]["http_connected"] = False
+        param_edge.state_edge_1["component_ai"]["http_connected"] = False
 
 test_ai_con.edge_has_been_co = False
 test_ai_con.edge_has_been_deco = True
@@ -61,13 +61,13 @@ test_capture_con.edge_has_been_co = False
 test_capture_con.edge_has_been_deco = True
 
 def connection_capture_open():
-    param_edge.state_edge["module_capture"]["http_connected"] = True
-    https_client_post.post_param_value("capture", "edge", "ip", param_edge.state_edge["self"]["ip"])
+    param_edge.state_edge_1["module_capture"]["http_connected"] = True
+    https_client_post.post_param_value("capture", "edge", "ip", param_edge.state_edge_1["self"]["ip"])
 
 def connection_capture_close():
-    param_edge.state_edge["module_capture"]["http_connected"] = False
-    param_edge.state_edge["module_capture"]["sock_l1_connected"] = False
-    param_edge.state_edge["module_capture"]["sock_l2_connected"] = False
+    param_edge.state_edge_1["module_capture"]["http_connected"] = False
+    param_edge.state_edge_1["module_capture"]["sock_l1_connected"] = False
+    param_edge.state_edge_1["module_capture"]["sock_l2_connected"] = False
 
 #Test module_capture HTTP connection
 def test_ed_con():
@@ -88,9 +88,9 @@ test_ed_con.edge_has_been_co = False
 test_ed_con.edge_has_been_deco = True
 
 def connection_ed_open():
-    param_edge.state_edge["edge_next"]["http_connected"] = True
+    param_edge.state_edge_1["edge_next"]["http_connected"] = True
 
 def connection_ed_close():
-    param_edge.state_edge["edge_next"]["http_connected"] = False
-    param_edge.state_edge["edge_next"]["sock_l1_connected"] = False
-    param_edge.state_edge["edge_next"]["sock_l2_connected"] = False
+    param_edge.state_edge_1["edge_next"]["http_connected"] = False
+    param_edge.state_edge_1["edge_next"]["sock_l1_connected"] = False
+    param_edge.state_edge_1["edge_next"]["sock_l2_connected"] = False
