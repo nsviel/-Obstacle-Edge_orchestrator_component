@@ -4,7 +4,7 @@ from src.connection.HTTPS import https_server
 from src.connection.MQTT import mqtt_client
 from src.connection.SOCK import sock_server
 from src.connection.SOCK import sock_client
-from src.network import network_manager
+from src.perf import network_manager
 from src.connection import connection
 from src.state import state
 from src.utils import parser_json
