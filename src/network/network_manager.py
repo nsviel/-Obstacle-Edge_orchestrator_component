@@ -1,10 +1,10 @@
 #---------------------------------------------
 from src.param import param_edge
-from src.HTTPS import https_client_get
+from src.connection.HTTPS import https_client_get
 from src.network import network_ping
 from src.network import network_module
 from src.network import network_mongo
-from src.misc import parser_json
+from src.utils import parser_json
 
 import multiprocessing as mp
 import threading

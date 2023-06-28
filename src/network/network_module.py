@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_edge
-from src.HTTPS import https_client_get
+from src.connection.HTTPS import https_client_get
 
 import json
 def ask_for_time():

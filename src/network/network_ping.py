@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_edge
-from src.misc import specific
+from src.utils import specific
 
 import datetime
 import time

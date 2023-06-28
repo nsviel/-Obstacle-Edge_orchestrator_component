@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_edge
-from src.misc import parser_json
+from src.utils import parser_json
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 
