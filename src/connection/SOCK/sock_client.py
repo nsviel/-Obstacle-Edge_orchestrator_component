@@ -5,7 +5,7 @@ from src.connection.SOCK import sock_client_fct
 import socket
 
 
-def connection():
+def create_socket():
     param_edge.sock_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     param_edge.sock_client_ok = True
 

@@ -18,6 +18,7 @@ import time
 daemon_connection = connection.Connection()
 daemon_socket_l1 = sock_server_l1.Socket_l1()
 daemon_socket_l2 = sock_server_l2.Socket_l2()
+daemon_network = network_manager.Network()
 
 def start():
     # Init variables
@@ -33,12 +34,12 @@ def start():
 def init():
     data.check_directories()
     state.load_configuration()
-    sock_client.connection()
+    sock_client.create_socket()
     daemon_connection.start_daemon()
     daemon_socket_l1.start_daemon()
     daemon_socket_l2.start_daemon()
+    daemon_network.start_daemon()
     https_server.start_daemon()
-    network_manager.start_daemon()
     terminal.addLog("OK", "Program initialized...")
     terminal.addLine()
 
@@ -51,6 +52,7 @@ def end():
     daemon_connection.stop_daemon()
     daemon_socket_l1.stop_daemon()
     daemon_socket_l2.stop_daemon()
+    daemon_network.stop_daemon()
+    mqtt_client.mqtt_disconnection()
     https_server.stop_daemon()
-    network_manager.stop_daemon()
     terminal.delai()
