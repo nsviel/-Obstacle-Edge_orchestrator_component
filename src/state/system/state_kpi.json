@@ -1,7 +1,7 @@
 {
     "service": "UC3_P2",
-    "timestamp": 1687968949.192394,
-    "ID": 1,
+    "timestamp": 1689152959.089229,
+    "ID": 3,
     "uplink_data_rate_Mbs": 0,
     "uplink_cloud_end_to_end_latency_ms": 0,
     "downlink_cloud_end_to_end_latency_ms": 0,

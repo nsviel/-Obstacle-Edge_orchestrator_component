@@ -2,7 +2,8 @@
 from src.param import param_edge
 from src.connection.HTTPS import https_server
 from src.connection.MQTT import mqtt_client
-from src.connection.SOCK import sock_server
+from src.connection.SOCK import sock_server_l1
+from src.connection.SOCK import sock_server_l2
 from src.connection.SOCK import sock_client
 from src.perf import network_manager
 from src.connection import connection
@@ -13,6 +14,10 @@ from src.utils import terminal
 
 import time
 
+
+daemon_connection = connection.Connection()
+daemon_socket_l1 = sock_server_l1.Socket_l1()
+daemon_socket_l2 = sock_server_l2.Socket_l2()
 
 def start():
     # Init variables
@@ -29,8 +34,9 @@ def init():
     data.check_directories()
     state.load_configuration()
     sock_client.connection()
-    connection.start_daemon()
-    sock_server.start_daemon()
+    daemon_connection.start_daemon()
+    daemon_socket_l1.start_daemon()
+    daemon_socket_l2.start_daemon()
     https_server.start_daemon()
     network_manager.start_daemon()
     terminal.addLog("OK", "Program initialized...")
@@ -42,8 +48,9 @@ def loop():
 def end():
     terminal.shutdown()
     parser_json.upload_file(param_edge.path_state_edge_1, param_edge.state_edge_1)
-    connection.stop_daemon()
-    sock_server.stop_daemon()
+    daemon_connection.stop_daemon()
+    daemon_socket_l1.stop_daemon()
+    daemon_socket_l2.stop_daemon()
     https_server.stop_daemon()
     network_manager.stop_daemon()
     terminal.delai()

@@ -10,25 +10,15 @@ from src.utils import parser_json
 from src.utils import io
 from src.utils import prediction
 from src.utils import terminal
+from src.utils import daemon
 
-import threading
-import time
 import socket
+import threading
 import os, os.path
 
 
-def start_daemon():
-    thread_con = threading.Thread(target = thread_test_connection)
-    thread_con.start()
-    terminal.addDaemon("#", "ON", "Connection tests")
-
-def stop_daemon():
-    param_edge.run_thread_con = False
-    terminal.addDaemon("#", "OFF", "Connection tests")
-
-def thread_test_connection():
-    param_edge.run_thread_con = True
-    while param_edge.run_thread_con:
+class Connection(daemon.Daemon):
+    def thread_function(self):
         # Test connection
         mqtt_client.test_sncf_connection()
         https_client_con.test_processing_con()
@@ -44,8 +34,8 @@ def thread_test_connection():
         update_nb_thread()
         update_data()
 
-        # Wait for 1 second
-        time.sleep(param_edge.tic_connection)
+    name = "Connection";
+    run_sleep = 0.5;
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

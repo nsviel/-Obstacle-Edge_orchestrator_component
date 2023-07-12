@@ -1,7 +1,7 @@
 {
     "self": {
-        "ip": "192.168.154.127",
-        "nb_thread": 9,
+        "ip": "192.168.152.40",
+        "nb_thread": 8,
         "country": "France",
         "edge_id": 0,
         "lidar_main": "lidar_1",
