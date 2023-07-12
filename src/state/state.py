@@ -14,29 +14,27 @@ def load_configuration():
     terminal.addLog("#", "Configuration loaded")
 
 def load_json_file():
-    param_edge.state_edge_1 = parser_json.load_state(param_edge.path_state_edge_1)
+    param_edge.state_edge = parser_json.load_state(param_edge.path_state_edge_1)
     param_edge.state_capture = parser_json.load_state(param_edge.path_state_capture)
     param_edge.state_network = parser_json.load_state(param_edge.path_state_network)
     param_edge.state_kpi = parser_json.load_state(param_edge.path_state_kpi)
 
 def init_state_capture():
-    param_edge.state_edge_1["self"]["ip"] = connection.get_ip_adress()
-    param_edge.state_edge_1["self"]["lidar_main"] = "lidar_1"
-    param_edge.state_edge_1["self"]["nb_thread"] = 0
-    param_edge.state_edge_1["data"]["nb_frame"] = 0
-    param_edge.state_edge_1["data"]["nb_prediction"] = 0
+    param_edge.state_edge["self"]["ip"] = connection.get_ip_adress()
+    param_edge.state_edge["self"]["lidar_main"] = "lidar_1"
+    param_edge.state_edge["self"]["nb_thread"] = 0
+    param_edge.state_edge["data"]["nb_frame"] = 0
+    param_edge.state_edge["data"]["nb_prediction"] = 0
 
-    param_edge.state_edge_1["component_ai"]["http_connected"] = False
-    param_edge.state_edge_1["component_process"]["sock_connected"] = False
-    param_edge.state_edge_1["module_capture"]["http_connected"] = False
-    param_edge.state_edge_1["module_capture"]["sock_l1_connected"] = False
-    param_edge.state_edge_1["module_capture"]["sock_l2_connected"] = False
-    param_edge.state_edge_1["component_process"]["sock_connected"] = False
-    param_edge.state_edge_1["component_process"]["http_connected"] = False
-    param_edge.state_edge_1["cloud_car"]["http_connected"] = False
-    param_edge.state_edge_1["edge_next"]["http_connected"] = False
-    param_edge.state_edge_1["edge_next"]["sock_connected"] = False
-    param_edge.state_edge_1["train_operator"]["broker_connected"] = False
+    param_edge.state_edge["component_ai"]["http_connected"] = False
+    param_edge.state_edge["component_process"]["sock_connected"] = False
+    param_edge.state_edge["module_capture"]["http_connected"] = False
+    param_edge.state_edge["module_capture"]["sock_l1_connected"] = False
+    param_edge.state_edge["module_capture"]["sock_l2_connected"] = False
+    param_edge.state_edge["component_process"]["sock_connected"] = False
+    param_edge.state_edge["component_process"]["http_connected"] = False
+    param_edge.state_edge["cloud_car"]["http_connected"] = False
+    param_edge.state_edge["cloud_operator"]["broker_connected"] = False
 
 def init_state_network():
     param_edge.state_network["mongo"]["connected"] = False
@@ -76,35 +74,29 @@ def init_state_network():
 
 def load_config_file():
     config = parser_json.load_data_from_file(param_edge.path_config)
-    param_edge.state_edge_1["self"]["country"] = config["self"]["country"]
-    param_edge.state_edge_1["self"]["edge_id"] = config["self"]["edge_id"]
-    param_edge.state_edge_1["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]
-    param_edge.state_edge_1["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
-    param_edge.state_edge_1["self"]["http_server_port"] = config["self"]["http_server_port"]
     param_edge.tic_connection = config["self"]["tic_connection"]
     param_edge.tic_network = config["self"]["tic_network"]
 
-    param_edge.state_edge_1["module_capture"]["ip"] = config["module_capture"]["ip"]
-    param_edge.state_edge_1["module_capture"]["http_server_port"] = config["module_capture"]["http_server_port"]
-
-    param_edge.state_edge_1["module_interface"]["ip"] = config["module_interface"]["ip"]
-    param_edge.state_edge_1["module_interface"]["sock_server_l1_port"] = config["module_interface"]["sock_server_l1_port"]
-    param_edge.state_edge_1["module_interface"]["sock_server_l2_port"] = config["module_interface"]["sock_server_l2_port"]
-
-    param_edge.state_edge_1["train_operator"]["broker_ip"] = config["train_operator"]["broker_ip"]
-    param_edge.state_edge_1["train_operator"]["broker_port"] = config["train_operator"]["broker_port"]
-    param_edge.state_edge_1["train_operator"]["mqtt_client"] = config["train_operator"]["mqtt_client"]
-    param_edge.state_edge_1["train_operator"]["mqtt_topic"] = config["train_operator"]["mqtt_topic"]
-
-    param_edge.state_edge_1["component_process"]["ip"] = config["component_process"]["ip"]
-    param_edge.state_edge_1["component_process"]["sock_server_port"] = config["component_process"]["sock_server_port"]
-    param_edge.state_edge_1["component_process"]["http_server_port"] = config["component_process"]["http_server_port"]
-
-    param_edge.state_edge_1["component_ai"]["ip"] = config["component_ai"]["ip"]
-    param_edge.state_edge_1["component_ai"]["http_server_port"] = config["component_ai"]["http_server_port"]
-
-    param_edge.state_edge_1["cloud_car"]["ip"] = config["cloud_car"]["ip"]
-    param_edge.state_edge_1["edge_next"]["ip"] = config["edge_next"]["ip"]
+    param_edge.state_edge["self"]["country"] = config["self"]["country"]
+    param_edge.state_edge["self"]["edge_id"] = config["self"]["edge_id"]
+    param_edge.state_edge["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]
+    param_edge.state_edge["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
+    param_edge.state_edge["self"]["http_server_port"] = config["self"]["http_server_port"]
+    param_edge.state_edge["module_capture"]["ip"] = config["module_capture"]["ip"]
+    param_edge.state_edge["module_capture"]["http_server_port"] = config["module_capture"]["http_server_port"]
+    param_edge.state_edge["module_interface"]["ip"] = config["module_interface"]["ip"]
+    param_edge.state_edge["module_interface"]["sock_server_l1_port"] = config["module_interface"]["sock_server_l1_port"]
+    param_edge.state_edge["module_interface"]["sock_server_l2_port"] = config["module_interface"]["sock_server_l2_port"]
+    param_edge.state_edge["cloud_operator"]["broker_ip"] = config["cloud_operator"]["broker_ip"]
+    param_edge.state_edge["cloud_operator"]["broker_port"] = config["cloud_operator"]["broker_port"]
+    param_edge.state_edge["cloud_operator"]["mqtt_client"] = config["cloud_operator"]["mqtt_client"]
+    param_edge.state_edge["cloud_operator"]["mqtt_topic"] = config["cloud_operator"]["mqtt_topic"]
+    param_edge.state_edge["component_process"]["ip"] = config["component_process"]["ip"]
+    param_edge.state_edge["component_process"]["sock_server_port"] = config["component_process"]["sock_server_port"]
+    param_edge.state_edge["component_process"]["http_server_port"] = config["component_process"]["http_server_port"]
+    param_edge.state_edge["component_ai"]["ip"] = config["component_ai"]["ip"]
+    param_edge.state_edge["component_ai"]["http_server_port"] = config["component_ai"]["http_server_port"]
+    param_edge.state_edge["cloud_car"]["ip"] = config["cloud_car"]["ip"]
 
     param_edge.state_network["mongo"]["ip"] = config["network"]["mongo_ip"]
     param_edge.state_network["mongo"]["port"] = config["network"]["mongo_port"]
@@ -115,6 +107,6 @@ def load_config_file():
     param_edge.state_network["mongo"]["nb_data"] = config["network"]["mongo_nb_data"]
 
 def upload_state():
-    parser_json.upload_file(param_edge.path_state_edge_1, param_edge.state_edge_1)
+    parser_json.upload_file(param_edge.path_state_edge_1, param_edge.state_edge)
     parser_json.upload_file(param_edge.path_state_network, param_edge.state_network)
     parser_json.upload_file(param_edge.path_state_kpi, param_edge.state_kpi)

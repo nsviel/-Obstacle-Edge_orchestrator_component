@@ -20,7 +20,7 @@ class S(http.server.BaseHTTPRequestHandler):
         return
 
 def start_daemon(server_class=http.server.HTTPServer, handler_class=S):
-    address = ("", param_edge.state_edge_1["self"]["http_server_port"])
+    address = ("", param_edge.state_edge["self"]["http_server_port"])
 
     try:
         param_edge.https_server = http.server.ThreadingHTTPServer(address, handler_class)

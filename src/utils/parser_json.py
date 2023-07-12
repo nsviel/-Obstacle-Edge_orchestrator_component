@@ -49,7 +49,7 @@ def upload_file(path, data):
 
 def upload_state():
     file = open(param_edge.path_state_edge_1, "w")
-    json.dump(param_edge.state_edge_1, file, indent=4)
+    json.dump(param_edge.state_edge, file, indent=4)
 
 def update_state_file(path, data):
     if(len(data) != 0):

@@ -26,7 +26,7 @@
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
-    "train_operator": {
+    "cloud_operator": {
         "add": "MINES_Nathan",
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
@@ -44,10 +44,5 @@
     },
     "cloud_car": {
         "ip": "127.0.0.1"
-    },
-    "edge_next": {
-        "ip": "99.99.99.99",
-        "country": "Spain",
-        "edge_id": 1
     }
 }

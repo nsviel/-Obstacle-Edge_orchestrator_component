@@ -35,7 +35,7 @@
         "http_connected": false,
         "http_server_port": 8080
     },
-    "train_operator": {
+    "cloud_operator": {
         "add": "localhost",
         "broker_connected": true,
         "broker_ip": "127.0.0.1",
@@ -46,16 +46,6 @@
     "cloud_car": {
         "http_connected": false,
         "ip": "127.0.0.1"
-    },
-    "edge_next": {
-        "add": "black_hole",
-        "ip": "99.99.99.99",
-        "country": "Spain",
-        "edge_id": 1,
-        "http_connected": false,
-        "sock_connected": false,
-        "sock_l1_connected": false,
-        "sock_l2_connected": false
     },
     "data": {
         "nb_frame": 0,

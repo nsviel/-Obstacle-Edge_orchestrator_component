@@ -5,22 +5,21 @@ import http.client
 
 
 def network_info(dest):
+    ip = ""
+    port = 0
+    connected = False
     if(dest == "capture" or dest == "network"):
-        ip = param_edge.state_edge_1["module_capture"]["ip"]
-        port = param_edge.state_edge_1["module_capture"]["http_server_port"]
-        connected = param_edge.state_edge_1["module_capture"]["http_connected"]
+        ip = param_edge.state_edge["module_capture"]["ip"]
+        port = param_edge.state_edge["module_capture"]["http_server_port"]
+        connected = param_edge.state_edge["module_capture"]["http_connected"]
     elif(dest == "processing"):
-        ip = param_edge.state_edge_1["component_process"]["ip"]
-        port = param_edge.state_edge_1["component_process"]["http_server_port"]
-        connected = param_edge.state_edge_1["component_process"]["http_connected"]
+        ip = param_edge.state_edge["component_process"]["ip"]
+        port = param_edge.state_edge["component_process"]["http_server_port"]
+        connected = param_edge.state_edge["component_process"]["http_connected"]
     elif(dest == "component_ai"):
-        ip = param_edge.state_edge_1["component_ai"]["ip"]
-        port = param_edge.state_edge_1["component_ai"]["http_server_port"]
-        connected = param_edge.state_edge_1["component_ai"]["http_connected"]
-    elif(dest == "edgenext"):
-        ip = param_edge.state_edge_1["edge_next"]["ip"]
-        port = param_edge.state_edge_1["self"]["http_server_port"]
-        connected = param_edge.state_edge_1["edge_next"]["http_connected"]
+        ip = param_edge.state_edge["component_ai"]["ip"]
+        port = param_edge.state_edge["component_ai"]["http_server_port"]
+        connected = param_edge.state_edge["component_ai"]["http_connected"]
 
     return [ip, port, connected]
 
