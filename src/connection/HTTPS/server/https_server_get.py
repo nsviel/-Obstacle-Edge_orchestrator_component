@@ -1,9 +1,11 @@
 #---------------------------------------------
 # Possible GET command:
-# - /test_http_conn
-# - /edge_state
-# - /capture_state
-# - /image
+# - /http_ping
+# - /get_state_edge
+# - /get_state_ground
+# - /get_state_cloud
+# - /get_state_network
+# - /get_image
 #---------------------------------------------
 
 from src.param import param_edge
@@ -14,32 +16,22 @@ from src.utils import io
 
 def manage_get(self):
     command = str(self.path)
-    if(command == '/test_http_conn'):
+    if(command == '/http_ping'):
         self.send_response(200)
-    elif(command == '/edge_state'):
-        manage_edge_state(self)
-    elif(command == '/capture_state'):
-        manage_capture_state(self)
-    elif(command == '/network_state'):
-        manage_perf_state(self)
-    elif(command == '/image'):
-        manage_image(self)
+    elif(command == '/get_state_edge'):
+        https_server_fct.send_get_response(self, param_edge.state_edge, "application/json")
+    elif(command == '/get_state_ground'):
+        https_server_fct.send_get_response(self, param_edge.state_ground, "application/json")
+    elif(command == '/get_state_cloud'):
+        https_server_fct.send_get_response(self, param_edge.state_cloud, "application/json")
+    elif(command == '/get_state_network'):
+        https_server_fct.send_get_response(self, param_edge.state_network, "application/json")
+    elif(command == '/get_image'):
+        get_image(self)
     else:
-        print("[error] HTTP GET command not known")
+        print("[error] HTTP GET command not known [%s]"% command)
 
-def manage_edge_state(self):
-    data = parser_json.load_state_utf8(param_edge.path_state_current + "state_edge.json")
-    https_server_fct.send_get_response(self, data, "application/json")
-
-def manage_capture_state(self):
-    data = parser_json.load_state_utf8(param_edge.path_state_current + "state_ground.json")
-    https_server_fct.send_get_response(self, data, "application/json")
-
-def manage_perf_state(self):
-    data = parser_json.load_state_utf8(param_edge.path_state_current + "state_network.json")
-    https_server_fct.send_get_response(self, data, "application/json")
-
-def manage_image(self):
+def get_image(self):
     if(io.is_file_exist(param_edge.path_image)):
         try:
             data = io.load_binary(param_edge.path_image)

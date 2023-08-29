@@ -11,6 +11,7 @@ import hashlib
 import argparse
 import time
 import pymongo
+import copy
 
 
 def format_state_kpi():
@@ -35,7 +36,6 @@ def send_kpi_to_mongodb():
 
     #database_name = "20221107_5gmed_UC3_P2"
     #collection_name = "ServiceKpis"
-
     try:
         # Get collection pointer
         url = ip + ":" + str(port)
@@ -45,7 +45,8 @@ def send_kpi_to_mongodb():
         control_collection_nbData(collection, nb_kept_data)
 
         # Insert kpi json into collection
-        collection.insert_one(param_edge.state_kpi)
+        kpi = copy.deepcopy(param_edge.state_kpi)
+        collection.insert_one(kpi)
 
         # Update connection info
         param_edge.state_network["mongodb"]["connected"] = True

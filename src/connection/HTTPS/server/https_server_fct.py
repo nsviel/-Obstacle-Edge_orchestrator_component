@@ -9,7 +9,7 @@ def send_get_response(self, data, type):
     except:
         pass
 
-def retrieprocessing_post_data(self):
+def retrieve_post_data(self):
     data = None
     self.send_response(200)
     try:

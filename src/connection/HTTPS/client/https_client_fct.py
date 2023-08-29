@@ -14,6 +14,7 @@ def network_info(dest):
         connected = param_edge.state_ground["capture"]["http"]["connected"]
     elif(dest == "slam"):
         ip = param_edge.state_edge["hub"]["info"]["ip"]
+        #print(param_edge.state_edge)
         port = param_edge.state_edge["slam"]["http"]["server_port"]
         connected = param_edge.state_edge["slam"]["http"]["connected"]
     elif(dest == "ai"):
