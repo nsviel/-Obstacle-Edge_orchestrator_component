@@ -15,7 +15,7 @@ def network_info(dest, lidar):
             port = param_edge.state_control["control"]["socket"]["server_l1_port"]
         if(lidar == "l2"):
             port = param_edge.state_control["control"]["socket"]["server_l2_port"]
-    elif(dest == "processing"):
+    elif(dest == "slam"):
         ip = param_edge.state_edge["slam"]["ip"]
         port = param_edge.state_edge["slam"]["socket"]["server_port"]
 

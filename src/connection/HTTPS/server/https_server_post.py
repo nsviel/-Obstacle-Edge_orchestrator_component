@@ -10,9 +10,9 @@
 #---------------------------------------------
 
 from src.param import param_edge
-from src.connection.HTTPS import https_client_post
-from src.connection.HTTPS import https_server_fct
-from src.connection.HTTPS import https_server_forward
+from src.connection.HTTPS.client import https_client_post
+from src.connection.HTTPS.server import https_server_fct
+from src.connection.HTTPS.server import https_server_forward
 from src.utils import parser_json
 from src.utils import command
 from src.utils import terminal
@@ -60,7 +60,7 @@ def manage_processing_param(self):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
         https_server_forward.forward_processing_post(lvl2, lvl3)
-        terminal.addPost("processing", lvl1, lvl2, lvl3)
+        terminal.addPost("slam", lvl1, lvl2, lvl3)
 
 def manage_ai_param(self):
     payload = https_server_fct.retrieprocessing_post_data(self)

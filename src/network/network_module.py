@@ -1,10 +1,10 @@
 #---------------------------------------------
 from src.param import param_edge
-from src.connection.HTTPS import https_client_get
+from src.connection.HTTPS.client import https_client_get
 
 import json
 def ask_for_time():
-    time_slam = https_client_get.send_command("processing", "/time_slam")
+    time_slam = https_client_get.send_command("slam", "/time_slam")
     time_pred = https_client_get.send_command("ai", "/time_pred")
 
     if(time_slam != None and time_slam != ""):

@@ -6,7 +6,7 @@
 # - /ai_param
 #---------------------------------------------
 
-from src.connection.HTTPS import https_client_fct
+from src.connection.HTTPS.client import https_client_fct
 
 import json
 

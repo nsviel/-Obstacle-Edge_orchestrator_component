@@ -12,7 +12,7 @@ def network_info(dest):
         ip = param_edge.state_ground["capture"]["info"]["ip"]
         port = param_edge.state_ground["capture"]["http"]["server_port"]
         connected = param_edge.state_ground["capture"]["http"]["connected"]
-    elif(dest == "processing"):
+    elif(dest == "slam"):
         ip = param_edge.state_edge["hub"]["info"]["ip"]
         port = param_edge.state_edge["slam"]["http"]["server_port"]
         connected = param_edge.state_edge["slam"]["http"]["connected"]

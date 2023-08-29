@@ -22,7 +22,7 @@ def addConnection(dest, state):
         dest = "Edge AI module"
     elif(dest == "capture"):
         dest = "Train module"
-    elif(dest == "processing"):
+    elif(dest == "slam"):
         dest = "Data processing component"
     elif(dest == "ai"):
         dest = "AI component"

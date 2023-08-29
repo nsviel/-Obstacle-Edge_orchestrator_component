@@ -7,7 +7,7 @@
 #---------------------------------------------
 
 from src.param import param_edge
-from src.connection.HTTPS import https_server_fct
+from src.connection.HTTPS.server import https_server_fct
 from src.utils import parser_json
 from src.utils import io
 

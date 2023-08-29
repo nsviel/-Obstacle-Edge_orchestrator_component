@@ -18,7 +18,7 @@ def send_packet_l1(packet):
     sock_client_fct.send_packet_add(ip, port, packet)
 
     # -> Send packet to Velodium
-    [ip, port] = sock_client_fct.network_info("processing", "")
+    [ip, port] = sock_client_fct.network_info("slam", "")
     try:
         sock_client_fct.send_packet_add(ip, port, packet)
     except:

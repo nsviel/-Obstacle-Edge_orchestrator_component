@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_edge
-from src.connection.HTTPS import https_client_get
+from src.connection.HTTPS.client import https_client_get
 from src.network import network_ping
 from src.network import network_module
 from src.network import network_mongo

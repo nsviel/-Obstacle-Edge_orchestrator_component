@@ -1,6 +1,6 @@
 #---------------------------------------------
-from src.connection.HTTPS import https_client_get
-from src.connection.HTTPS import https_client_post
+from src.connection.HTTPS.client import https_client_get
+from src.connection.HTTPS.client import https_client_post
 
 
 #---------------------------------------------
@@ -13,17 +13,17 @@ from src.connection.HTTPS import https_client_post
 def forward_processing_post(option, value):
     if(option == "slam"):
         if(str(value) == "True"):
-            https_client_get.send_command("processing", "/slam_on")
+            https_client_get.send_command("slam", "/slam_on")
         if(str(value) == "False"):
-            https_client_get.send_command("processing", "/slam_off")
+            https_client_get.send_command("slam", "/slam_off")
     elif(option == "view"):
         if(value == "Top"):
-            https_client_get.send_command("processing", "/view_top")
+            https_client_get.send_command("slam", "/view_top")
         if(value == "Oblique"):
-            https_client_get.send_command("processing", "/view_oblique")
+            https_client_get.send_command("slam", "/view_oblique")
     elif(value == "reset"):
         if(value == "reset"):
-            https_client_get.send_command("processing", "/reset")
+            https_client_get.send_command("slam", "/reset")
 
 #---------------------------------------------
 # Possible POST commands:

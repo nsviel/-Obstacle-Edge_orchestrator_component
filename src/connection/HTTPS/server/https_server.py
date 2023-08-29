@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_edge
-from src.connection.HTTPS import https_server_get
-from src.connection.HTTPS import https_server_post
+from src.connection.HTTPS.server import https_server_get
+from src.connection.HTTPS.server import https_server_post
 from src.utils import terminal
 
 import http.server
@@ -19,7 +19,7 @@ class S(http.server.BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
-def start_daemon(server_class=http.server.HTTPServer, handler_class=S):
+def start_server(server_class=http.server.HTTPServer, handler_class=S):
     address = ("", param_edge.state_edge["hub"]["http"]["server_port"])
 
     try:
@@ -33,7 +33,7 @@ def start_daemon(server_class=http.server.HTTPServer, handler_class=S):
         terminal.fatal_error()
         os.system("sudo kill -9 $(ps -A | grep python | awk '{print $1}')")
 
-def stop_daemon():
+def stop_server():
     param_edge.https_server.shutdown()
     param_edge.http_server_daemon.join()
     terminal.addDaemon("#", "OFF", "HTTPS server")

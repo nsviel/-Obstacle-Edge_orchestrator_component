@@ -1,8 +1,8 @@
 #---------------------------------------------
 from src.param import param_edge
 
-from src.connection.HTTPS import https_client_con
-from src.connection.HTTPS import https_client_get
+from src.connection.HTTPS.client import https_client_con
+from src.connection.HTTPS.client import https_client_get
 from src.connection.MQTT import mqtt_client
 from src.connection.SOCK import sock_client
 
@@ -21,7 +21,7 @@ class Connection(daemon.Daemon):
     def thread_function(self):
         # Test connection
         mqtt_client.test_sncf_connection()
-        https_client_con.test_processing_con()
+        https_client_con.test_slam_con()
         https_client_con.test_ai_con()
         https_client_con.test_capture_con()
         https_client_con.test_ed_con()
