@@ -2,7 +2,7 @@
 
 # State
 state_edge = {}
-state_capture = {}
+state_ground = {}
 state_network = {}
 state_control = {}
 state_cloud = {}

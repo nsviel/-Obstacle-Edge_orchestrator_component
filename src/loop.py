@@ -5,7 +5,7 @@ from src.connection.MQTT import mqtt_client
 from src.connection.SOCK import sock_server_l1
 from src.connection.SOCK import sock_server_l2
 from src.connection.SOCK import sock_client
-from src.perf import network_manager
+from src.network import network_manager
 from src.connection import connection
 from src.state import state
 from src.utils import parser_json

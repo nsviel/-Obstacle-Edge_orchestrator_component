@@ -1,9 +1,9 @@
 #---------------------------------------------
 from src.param import param_edge
 from src.connection.HTTPS import https_client_get
-from src.perf import network_ping
-from src.perf import network_module
-from src.perf import network_mongo
+from src.network import network_ping
+from src.network import network_module
+from src.network import network_mongo
 from src.utils import parser_json
 from src.base import daemon
 
@@ -28,7 +28,7 @@ class Network(daemon.Daemon):
         network_mongo.send_kpi_to_mongodb()
 
         # Update state file and sleep one second
-        parser_json.upload_file(param_edge.path_state_network, param_edge.state_network)
+        parser_json.upload_file(param_edge.path_state_current + "state_network.json", param_edge.state_network)
 
     def update_perf_from_py(self):
         capture_state_network = https_client_get.get_state_data("network")

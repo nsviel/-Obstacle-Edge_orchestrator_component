@@ -14,9 +14,6 @@ import pymongo
 
 
 def format_state_kpi():
-    path_state_kpi = param_edge.path_state_current + "state_kpi.json"
-    param_edge.state_kpi = parser_json.load_state(path_state_kpi)
-
     param_edge.state_kpi["timestamp"] = datetime.datetime.now().timestamp()
     param_edge.state_kpi["uplink_throughput_Mbs"] = param_edge.state_ground["lidar_1"]["throughput"]["value"]
     param_edge.state_kpi["uplink_cloud_end_to_end_latency_ms"] = param_edge.state_network["local_cloud"]["latency"]["value"]
@@ -27,16 +24,14 @@ def format_state_kpi():
     param_edge.state_kpi["time_for_service_warning_ms"] = param_edge.state_network["time"]["total"]
     param_edge.state_kpi["ID"] = param_edge.state_kpi["ID"] + 1
 
-    parser_json.upload_file(path_state_kpi, param_edge.state_kpi)
-
 def send_kpi_to_mongodb():
-    ip = param_edge.state_network["mongo"]["ip"]
-    port = param_edge.state_network["mongo"]["port"]
-    database_name = param_edge.state_network["mongo"]["database"]
-    collection_name = param_edge.state_network["mongo"]["collection"]
-    username = param_edge.state_network["mongo"]["username"]
-    password = param_edge.state_network["mongo"]["password"]
-    nb_kept_data = param_edge.state_network["mongo"]["nb_data"]
+    ip = param_edge.state_network["mongodb"]["ip"]
+    port = param_edge.state_network["mongodb"]["port"]
+    database_name = param_edge.state_network["mongodb"]["database"]
+    collection_name = param_edge.state_network["mongodb"]["collection"]
+    username = param_edge.state_network["mongodb"]["username"]
+    password = param_edge.state_network["mongodb"]["password"]
+    nb_kept_data = param_edge.state_network["mongodb"]["nb_data"]
 
     #database_name = "20221107_5gmed_UC3_P2"
     #collection_name = "ServiceKpis"
@@ -53,9 +48,9 @@ def send_kpi_to_mongodb():
         collection.insert_one(param_edge.state_kpi)
 
         # Update connection info
-        param_edge.state_network["mongo"]["connected"] = True
+        param_edge.state_network["mongodb"]["connected"] = True
     except:
-        param_edge.state_network["mongo"]["connected"] = False
+        param_edge.state_network["mongodb"]["connected"] = False
         pass
 
 def get_collection(url, database_name, collection_name, username, password):

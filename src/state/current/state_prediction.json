@@ -1,17 +1,25 @@
 {
-    "Timestamp": 1693318389,
-    "Position": {
-        "Longitude": 23.843,
-        "Latitude": 8.485,
-        "Speed": 50,
-        "Direction": "ToFrance"
+    "operator": {
+        "info": {
+            "ip": "127.0.0.1",
+            "add": "localhost",
+            "status": "Offline"
+        },
+        "broker": {
+            "client": "P2_module",
+            "topic": "alarmes/lidar",
+            "port": 1883,
+            "connected": false
+        }
     },
-    "Label": "Bus",
-    "Dimension": {
-        "Width": 9.918,
-        "Length": 2.758,
-        "Heigth": 3.407,
-        "Direction": 7.958
-    },
-    "Accuracy": 0.71
+    "car": {
+        "info": {
+            "ip": "127.0.0.1",
+            "add": "localhost",
+            "status": "Offline"
+        },
+        "http": {
+            "connected": false
+        }
+    }
 }

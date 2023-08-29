@@ -19,7 +19,7 @@
             "connected": false,
             "server_port": 443
         },
-        "nb_thread": 5
+        "nb_thread": 7
     },
     "slam": {
         "info": {
