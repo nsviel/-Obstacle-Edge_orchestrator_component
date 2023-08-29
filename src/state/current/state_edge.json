@@ -25,7 +25,7 @@
             "capture_l2_connected": false,
             "capture_http_connected": false
         },
-        "nb_thread": 8
+        "nb_thread": 7
     },
     "slam": {
         "info": {

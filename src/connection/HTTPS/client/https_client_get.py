@@ -1,6 +1,6 @@
 #---------------------------------------------
 # Possible GET command:
-# - /test_http_conn
+# - /http_ping
 # - /capture_state
 #---------------------------------------------
 
@@ -19,7 +19,7 @@ def get_state(dest):
     if(data != None):
         try:
             if(dest == "capture"):
-                parser_json.update_state_file(param_edge.path_state_ground, data)
+                #parser_json.update_state_file(param_edge.path_state_ground, data)
                 param_edge.state_ground = json.loads(data)
             elif(dest == "network"):
                 param_edge.state_network = json.loads(data)
@@ -34,7 +34,7 @@ def get_state_data(dest):
     if(data != None):
         try:
             if(dest == "capture"):
-                parser_json.update_state_file(param_edge.path_state_ground, data)
+                #parser_json.update_state_file(param_edge.path_state_ground, data)
                 return json.loads(data)
             elif(dest == "network"):
                 return json.loads(data)
