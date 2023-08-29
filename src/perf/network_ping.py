@@ -16,7 +16,7 @@ def compute_ping(list_latency, list_reliability):
     compute_reliability(data, list_reliability)
 
 def make_ping():
-    ip = param_edge.state_edge["module_capture"]["ip"]
+    ip = param_edge.state_edge["capture"]["ip"]
     os.system("ping -c 50 -i 0.002 -t 1 " + ip + " > src/state/ping/ping.txt 2>/dev/null")
     with open('src/state/ping/ping.txt', 'r') as file:
         data = file.read().rstrip()
@@ -27,7 +27,7 @@ def compute_timestamp():
     param_edge.state_network["cloud_local"]["timestamp"] = timestamp
 
 def compute_latency(data, list_latency):
-    if(param_edge.state_edge["module_capture"]["http_connected"] == True):
+    if(param_edge.state_edge["capture"]["http_connected"] == True):
         id_b = data.find("time=") + 5
         id_e = data.find(" ms")
         latency = float(data[id_b:id_e])
@@ -39,7 +39,7 @@ def compute_latency(data, list_latency):
         param_edge.state_network["cloud_local"]["latency"]["mean"] = specific.mean(list_latency)
 
 def compute_reliability(data, list_reliability):
-    if(param_edge.state_edge["module_capture"]["http_connected"] == True):
+    if(param_edge.state_edge["capture"]["http_connected"] == True):
         packetloss = float([x for x in data.split('\n') if x.find('packet loss') != -1][0].split('%')[0].split(' ')[-1])
         reliability = 100 - packetloss
         specific.list_stack(list_reliability, reliability, 10)

@@ -24,7 +24,7 @@ def addConnection(dest, state):
         dest = "Train module"
     elif(dest == "processing"):
         dest = "Data processing component"
-    elif(dest == "component_ai"):
+    elif(dest == "ai"):
         dest = "AI component"
 
     if(state == "on"):

@@ -5,7 +5,7 @@ from src.perf import network_ping
 from src.perf import network_module
 from src.perf import network_mongo
 from src.utils import parser_json
-from src.utils import daemon
+from src.base import daemon
 
 import multiprocessing as mp
 import threading

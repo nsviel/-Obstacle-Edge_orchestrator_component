@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_edge
 from src.utils import terminal
-from src.utils import daemon
+from src.base import daemon
 from src.connection.SOCK import sock_client
 
 import socket
@@ -18,10 +18,10 @@ class Socket_l1(daemon.Daemon):
     def thread_function(self):
         try:
             data, (address, port) = param_edge.sock_server_l1.recvfrom(4096)
-            param_edge.state_edge["module_capture"]["sock_l1_connected"] = True
+            param_edge.state_edge["capture"]["sock_l1_connected"] = True
             process_data(data)
         except:
-            param_edge.state_edge["module_capture"]["sock_l1_connected"] = False
+            param_edge.state_edge["capture"]["sock_l1_connected"] = False
 
     def process_data(data):
         if(param_edge.state_edge["self"]["lidar_main"] == "lidar_1"):

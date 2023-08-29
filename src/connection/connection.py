@@ -10,7 +10,7 @@ from src.utils import parser_json
 from src.utils import io
 from src.utils import prediction
 from src.utils import terminal
-from src.utils import daemon
+from src.base import daemon
 
 import socket
 import threading

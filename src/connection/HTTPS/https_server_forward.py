@@ -32,6 +32,6 @@ def forward_processing_post(option, value):
 #---------------------------------------------
 def forward_ai_post(option, value):
     if(option == "lidar_height"):
-        https_client_post.post_command("component_ai", "/lidar_height", value)
+        https_client_post.post_command("ai", "/lidar_height", value)
     if(option == "threshold"):
-        https_client_post.post_command("component_ai", "/threshold", value)
+        https_client_post.post_command("ai", "/threshold", value)

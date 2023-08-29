@@ -13,7 +13,7 @@
         "iperf_activated": true,
         "iperf_port": 6969
     },
-    "module_capture": {
+    "capture": {
         "ip": "127.0.0.1",
         "add": "localhost",
         "http_connected": true,
@@ -22,24 +22,24 @@
         "sock_l2_connected": false,
         "iperf_port": 6970
     },
-    "module_interface": {
+    "control": {
         "ip": "192.168.1.221",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
-    "component_process": {
+    "slam": {
         "ip": "127.0.0.1",
         "http_connected": false,
         "http_server_port": 8888,
         "sock_connected": true,
         "sock_server_port": 2370
     },
-    "component_ai": {
+    "ai": {
         "ip": "127.0.0.1",
         "http_connected": false,
         "http_server_port": 8080
     },
-    "cloud_operator": {
+    "operator": {
         "add": "localhost",
         "broker_connected": true,
         "broker_ip": "127.0.0.1",
@@ -47,7 +47,7 @@
         "mqtt_client": "P2_module",
         "mqtt_topic": "alarmes/lidar"
     },
-    "cloud_car": {
+    "car": {
         "http_connected": false,
         "ip": "127.0.0.1"
     },

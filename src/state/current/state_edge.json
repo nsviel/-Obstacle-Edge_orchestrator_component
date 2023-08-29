@@ -1,0 +1,57 @@
+{
+    "hub": {
+        "info": {
+            "ip": "127.0.0.1",
+            "add": "localhost",
+            "status": "Offline",
+            "edge_id": 0,
+            "country": "France",
+            "nb_thread": 0
+        },
+        "socket": {
+            "l1_connected": false,
+            "l2_connected": false,
+            "server_l1_port": 344,
+            "server_l2_port": 345,
+            "lidar_main": "lidar_1"
+        },
+        "http": {
+            "connected": false,
+            "server_port": 443
+        }
+    },
+    "slam": {
+        "info": {
+            "status": "Offline"
+        },
+        "socket": {
+            "connected": false,
+            "server_port": 2370
+        },
+        "http": {
+            "connected": false,
+            "server_port": 8888
+        },
+        "parameter": {
+            "with_slam": 0,
+            "cam_view": 0
+        }
+    },
+    "ai": {
+        "info": {
+            "status": "Offline"
+        },
+        "http": {
+            "connected": false,
+            "server_port": 8080
+        },
+        "parameter": {
+            "lidar_height": 2,
+            "threshold": 0.2
+        }
+    },
+    "data": {
+        "nb_frame": 0,
+        "nb_prediction": 0
+    }
+}

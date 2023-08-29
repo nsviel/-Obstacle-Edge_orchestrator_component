@@ -5,7 +5,7 @@ from src.utils import signal
 
 
 signal.system_clear()
-signal.system_information("Edge Orchestrator")
+signal.system_information("Edge hub")
 #-------------
 
 loop.start()

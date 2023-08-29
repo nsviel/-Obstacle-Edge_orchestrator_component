@@ -20,7 +20,7 @@ def get_state(dest):
         try:
             if(dest == "capture"):
                 parser_json.update_state_file(param_edge.path_state_capture, data)
-                param_edge.state_capture = json.loads(data)
+                param_edge.state_ground = json.loads(data)
             elif(dest == "network"):
                 param_edge.state_network = json.loads(data)
         except:

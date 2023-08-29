@@ -68,7 +68,7 @@ def manage_ai_param(self):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
         https_server_forward.forward_ai_post(lvl2, lvl3)
-        terminal.addPost("component_ai", lvl1, lvl2, lvl3)
+        terminal.addPost("ai", lvl1, lvl2, lvl3)
 
 def manage_edge_state(self):
     payload = https_server_fct.retrieprocessing_post_data(self)

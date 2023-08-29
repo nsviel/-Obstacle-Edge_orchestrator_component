@@ -14,8 +14,8 @@ services:
     #  - 443:443
     #  - 6969:6965
 
-  component_process:
-    image: "component_process"
+  slam:
+    image: "slam"
     container_name: ve
     network_mode: host
     environment:

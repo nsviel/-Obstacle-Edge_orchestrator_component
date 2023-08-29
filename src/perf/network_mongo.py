@@ -17,7 +17,7 @@ def format_state_kpi():
     param_edge.state_kpi = parser_json.load_state(param_edge.path_state_kpi)
 
     param_edge.state_kpi["timestamp"] = datetime.datetime.now().timestamp()
-    param_edge.state_kpi["uplink_throughput_Mbs"] = param_edge.state_capture["lidar_1"]["throughput"]["value"]
+    param_edge.state_kpi["uplink_throughput_Mbs"] = param_edge.state_ground["lidar_1"]["throughput"]["value"]
     param_edge.state_kpi["uplink_cloud_end_to_end_latency_ms"] = param_edge.state_network["local_cloud"]["latency"]["value"]
     param_edge.state_kpi["downlink_cloud_end_to_end_latency_ms"] = param_edge.state_network["cloud_local"]["latency"]["value"]
     param_edge.state_kpi["uplink_reliability_%"] = param_edge.state_network["local_cloud"]["reliability"]["value"]
