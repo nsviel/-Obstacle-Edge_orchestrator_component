@@ -10,6 +10,7 @@ from src.utils import parser_json
 from src.utils import io
 from src.utils import prediction
 from src.utils import terminal
+from src.state import state
 from src.base import daemon
 
 import socket
@@ -28,7 +29,7 @@ class Connection(daemon.Daemon):
 
         # Update state file
         https_client_get.get_state("capture")
-        #parser_json.upload_state()
+        state.upload_states()
         sock_client.reset_connnection()
         prediction.format_prediction()
         update_nb_thread()
