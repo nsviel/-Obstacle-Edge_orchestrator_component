@@ -43,7 +43,7 @@ path_data_dir =  "../data"
 path_image_dir = "../data/image"
 path_frame_dir = "../data/frames"
 path_predi_dir = "../data/prediction"
-path_generic = "src/param/texture/"
+path_generic = "src/param/generic/"
 
 # Data file
 path_geoloc = "../data/geo.dat"

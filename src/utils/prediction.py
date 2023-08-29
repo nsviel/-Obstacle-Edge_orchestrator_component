@@ -30,4 +30,4 @@ def format_prediction():
     }
 
     # Save formatted prediction into state file
-    parser_json.upload_file(param_edge.path_state_pred, pred)
+    parser_json.upload_file(param_edge.path_state_current + "state_prediction.json", pred)

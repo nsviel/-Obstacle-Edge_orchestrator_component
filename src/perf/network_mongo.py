@@ -14,7 +14,8 @@ import pymongo
 
 
 def format_state_kpi():
-    param_edge.state_kpi = parser_json.load_state(param_edge.path_state_kpi)
+    path_state_kpi = param_edge.path_state_current + "state_kpi.json"
+    param_edge.state_kpi = parser_json.load_state(path_state_kpi)
 
     param_edge.state_kpi["timestamp"] = datetime.datetime.now().timestamp()
     param_edge.state_kpi["uplink_throughput_Mbs"] = param_edge.state_ground["lidar_1"]["throughput"]["value"]
@@ -26,7 +27,7 @@ def format_state_kpi():
     param_edge.state_kpi["time_for_service_warning_ms"] = param_edge.state_network["time"]["total"]
     param_edge.state_kpi["ID"] = param_edge.state_kpi["ID"] + 1
 
-    parser_json.upload_file(param_edge.path_state_kpi, param_edge.state_kpi)
+    parser_json.upload_file(path_state_kpi, param_edge.state_kpi)
 
 def send_kpi_to_mongodb():
     ip = param_edge.state_network["mongo"]["ip"]

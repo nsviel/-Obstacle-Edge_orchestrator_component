@@ -75,7 +75,7 @@ def manage_edge_state(self):
     if(payload != None):
         data = json.loads(payload)
         param_edge.state_edge = data
-        parser_json.upload_state()
+        #parser_json.upload_state()
         terminal.addLog("com", "New state received")
 
 def manage_capture_state(self):

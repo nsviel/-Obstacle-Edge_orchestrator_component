@@ -28,7 +28,7 @@ class Connection(daemon.Daemon):
 
         # Update state file
         https_client_get.get_state("capture")
-        parser_json.upload_state()
+        #parser_json.upload_state()
         sock_client.reset_connnection()
         prediction.format_prediction()
         update_nb_thread()

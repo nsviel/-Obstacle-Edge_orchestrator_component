@@ -1,0 +1,25 @@
+{
+    "operator": {
+        "info": {
+            "ip": "127.0.0.1",
+            "add": "localhost",
+            "status": "Offline"
+        },
+        "broker": {
+            "client": "P2_module",
+            "topic": "alarmes/lidar",
+            "port": 1883,
+            "connected": false
+        }
+    },
+    "car": {
+        "info": {
+            "ip": "127.0.0.1",
+            "add": "localhost",
+            "status": "Offline"
+        },
+        "http": {
+            "connected": false
+        }
+    }
+}
