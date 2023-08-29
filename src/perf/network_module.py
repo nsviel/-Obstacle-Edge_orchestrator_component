@@ -9,13 +9,13 @@ def ask_for_time():
 
     if(time_slam != None and time_slam != ""):
         time_slam = float(time_slam.decode("utf-8"))
-        param_edge.state_network["end_to_end"]["time_slam"] = time_slam
+        param_edge.state_network["time"]["slam"] = time_slam
 
     if(time_pred != None and time_pred != ""):
         time_pred = float(time_pred.decode("utf-8"))
-        param_edge.state_network["end_to_end"]["time_ai"] = time_pred
+        param_edge.state_network["time"]["ai"] = time_pred
 
-    t1 = param_edge.state_network["end_to_end"]["time_slam"]
-    t2 = param_edge.state_network["end_to_end"]["time_ai"]
+    t1 = param_edge.state_network["time"]["slam"]
+    t2 = param_edge.state_network["time"]["ai"]
     duration = t1 + t2
-    param_edge.state_network["end_to_end"]["time_total"] = duration
+    param_edge.state_network["time"]["total"] = duration

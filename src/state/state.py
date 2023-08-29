@@ -16,7 +16,7 @@ def load_json_file():
     param_edge.state_network = parser_json.load_state(param_edge.path_state_initial + "state_network.json")
     param_edge.state_cloud = parser_json.load_state(param_edge.path_state_initial + "state_cloud.json")
 
-def upload_state():
+def upload_states():
     parser_json.upload_file(param_edge.path_state_current + "state_ground.json", param_edge.state_ground)
     parser_json.upload_file(param_edge.path_state_current + "state_edge.json", param_edge.state_edge)
     parser_json.upload_file(param_edge.path_state_current + "state_control.json", param_edge.state_control)

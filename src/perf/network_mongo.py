@@ -23,7 +23,7 @@ def format_state_kpi():
     param_edge.state_kpi["uplink_reliability_%"] = param_edge.state_network["local_cloud"]["reliability"]["value"]
     param_edge.state_kpi["downlink_reliability_%"] = param_edge.state_network["cloud_local"]["reliability"]["value"]
     param_edge.state_kpi["mobility_interruption_time_s"] = param_edge.state_network["local_cloud"]["interruption"]["value"]
-    param_edge.state_kpi["time_for_service_warning_ms"] = param_edge.state_network["end_to_end"]["time_total"]
+    param_edge.state_kpi["time_for_service_warning_ms"] = param_edge.state_network["time"]["total"]
     param_edge.state_kpi["ID"] = param_edge.state_kpi["ID"] + 1
 
     parser_json.upload_file(param_edge.path_state_kpi, param_edge.state_kpi)

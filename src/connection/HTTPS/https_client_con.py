@@ -61,13 +61,13 @@ test_capture_con.edge_has_been_co = False
 test_capture_con.edge_has_been_deco = True
 
 def connection_capture_open():
-    param_edge.state_edge["capture"]["http_connected"] = True
-    https_client_post.post_param_value("capture", "edge", "ip", param_edge.state_edge["self"]["ip"])
+    param_edge.state_ground["capture"]["http"]["connected"] = True
+    https_client_post.post_param_value("capture", "edge", "ip", param_edge.state_edge["hub"]["ip"])
 
 def connection_capture_close():
-    param_edge.state_edge["capture"]["http_connected"] = False
-    param_edge.state_edge["capture"]["sock_l1_connected"] = False
-    param_edge.state_edge["capture"]["sock_l2_connected"] = False
+    param_edge.state_ground["capture"]["http"]["connected"] = False
+    param_edge.state_ground["capture"]["socket"]["l1_connected"] = False
+    param_edge.state_ground["capture"]["socket"]["l2_connected"] = False
 
 #Test module_capture HTTP connection
 def test_ed_con():
@@ -92,5 +92,5 @@ def connection_ed_open():
 
 def connection_ed_close():
     pass#param_edge.state_edge["edge_next"]["http_connected"] = False
-    pass#param_edge.state_edge["edge_next"]["sock_l1_connected"] = False
-    pass#param_edge.state_edge["edge_next"]["sock_l2_connected"] = False
+    pass#param_edge.state_edge["edge_next"]["socket"]["l1_connected"] = False
+    pass#param_edge.state_edge["edge_next"]["socket"]["l2_connected"] = False

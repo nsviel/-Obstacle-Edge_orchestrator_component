@@ -5,7 +5,7 @@ from src.utils import parser_json
 
 
 def publish_test():
-    topic = param_edge.state_edge["operator"]["mqtt_topic"]
+    topic = param_edge.state_cloud["operator"]["mqtt_topic"]
     msg = param_edge.mqtt_message
     result = param_edge.mqtt_client.publish(topic, msg)
     if(success[0] == 0):
@@ -14,9 +14,9 @@ def publish_test():
         terminal.addLog("error", "Failed to send message to topic '%s'" % topic)
 
 def publish_false_alarm():
-    connected = param_edge.state_edge["operator"]["broker"]["connected"]
+    connected = param_edge.state_cloud["operator"]["broker"]["connected"]
     path_false_alarm = param_edge.path_generic + "prediction.json"
-    topic = param_edge.state_edge["operator"]["mqtt_topic"]
+    topic = param_edge.state_cloud["operator"]["mqtt_topic"]
 
     if(connected):
         msg = parser_json.load_data_from_file_b(path_false_alarm)

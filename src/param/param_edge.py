@@ -4,8 +4,8 @@
 state_edge = {}
 state_capture = {}
 state_network = {}
-state_kpi = {}
-state_pred = {}
+state_control = {}
+state_cloud = {}
 
 # Thread
 run_loop = True
@@ -43,7 +43,7 @@ path_data_dir =  "../data"
 path_image_dir = "../data/image"
 path_frame_dir = "../data/frames"
 path_predi_dir = "../data/prediction"
-path_generic = "src/param/generic/"
+path_generic = "src/param/texture/"
 
 # Data file
 path_geoloc = "../data/geo.dat"

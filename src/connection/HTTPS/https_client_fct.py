@@ -9,16 +9,16 @@ def network_info(dest):
     port = 0
     connected = False
     if(dest == "capture" or dest == "network"):
-        ip = param_edge.state_edge["capture"]["ip"]
-        port = param_edge.state_edge["capture"]["http_server_port"]
-        connected = param_edge.state_edge["capture"]["http_connected"]
+        ip = param_edge.state_ground["capture"]["info"]["ip"]
+        port = param_edge.state_ground["capture"]["http"]["server_port"]
+        connected = param_edge.state_ground["capture"]["http"]["connected"]
     elif(dest == "processing"):
-        ip = param_edge.state_edge["slam"]["ip"]
-        port = param_edge.state_edge["slam"]["http_server_port"]
+        ip = param_edge.state_edge["hub"]["info"]["ip"]
+        port = param_edge.state_edge["slam"]["http"]["server_port"]
         connected = param_edge.state_edge["slam"]["http"]["connected"]
     elif(dest == "ai"):
-        ip = param_edge.state_edge["ai"]["ip"]
-        port = param_edge.state_edge["ai"]["http_server_port"]
+        ip = param_edge.state_edge["hub"]["info"]["ip"]
+        port = param_edge.state_edge["ai"]["http"]["server_port"]
         connected = param_edge.state_edge["ai"]["http"]["connected"]
 
     return [ip, port, connected]

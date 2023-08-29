@@ -28,7 +28,7 @@ def manage_get(self):
         print("[error] HTTP GET command not known")
 
 def manage_edge_state(self):
-    data = parser_json.load_state_utf8(param_edge.path_state_edge_1)
+    data = parser_json.load_state_utf8(param_edge.path_state_edge)
     https_server_fct.send_get_response(self, data, "application/json")
 
 def manage_capture_state(self):

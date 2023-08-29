@@ -22,7 +22,7 @@ def send_packet_l1(packet):
     try:
         sock_client_fct.send_packet_add(ip, port, packet)
     except:
-        param_edge.state_edge["slam"]["sock_connected"] = False
+        param_edge.state_edge["slam"]["socket"]["connected"] = False
 
 def send_packet_l2(packet):
     [ip, port] = sock_client_fct.network_info("co", "l2")
@@ -33,4 +33,4 @@ def send_packet_l2(packet):
     sock_client_fct.send_packet_add(ip, port, packet)
 
 def reset_connnection():
-    param_edge.state_edge["slam"]["sock_connected"] = False
+    param_edge.state_edge["slam"]["socket"]["connected"] = False

@@ -51,7 +51,7 @@ def get_ip_adress():
     return IP
 
 def update_nb_thread():
-    param_edge.state_edge["self"]["nb_thread"] = threading.active_count()
+    param_edge.state_edge["hub"]["nb_thread"] = threading.active_count()
 import os
 
 def update_data():

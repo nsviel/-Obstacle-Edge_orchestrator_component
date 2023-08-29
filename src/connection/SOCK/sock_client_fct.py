@@ -10,13 +10,13 @@ def send_packet_add(ip, port, packet):
 
 def network_info(dest, lidar):
     if(dest == "co"):
-        ip = param_edge.state_edge["control"]["ip"]
+        ip = param_edge.state_control["control"]["info"]["ip"]
         if(lidar == "l1"):
-            port = param_edge.state_edge["control"]["socket"]["server_l1_port"]
+            port = param_edge.state_control["control"]["socket"]["server_l1_port"]
         if(lidar == "l2"):
-            port = param_edge.state_edge["control"]["socket"]["server_l2_port"]
+            port = param_edge.state_control["control"]["socket"]["server_l2_port"]
     elif(dest == "processing"):
         ip = param_edge.state_edge["slam"]["ip"]
-        port = param_edge.state_edge["slam"]["sock_server_port"]
+        port = param_edge.state_edge["slam"]["socket"]["server_port"]
 
     return [ip, port]

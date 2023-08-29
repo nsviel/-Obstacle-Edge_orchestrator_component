@@ -9,7 +9,7 @@ import socket
 
 class Socket_l1(daemon.Daemon):
     def thread_init(self):
-        port = param_edge.state_edge["self"]["sock_server_l1_port"]
+        port = param_edge.state_edge["hub"]["socket"]["server_l1_port"]
         param_edge.sock_server_l1 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         param_edge.sock_server_l1.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         param_edge.sock_server_l1.bind(("", port))
@@ -18,15 +18,15 @@ class Socket_l1(daemon.Daemon):
     def thread_function(self):
         try:
             data, (address, port) = param_edge.sock_server_l1.recvfrom(4096)
-            param_edge.state_edge["capture"]["sock_l1_connected"] = True
+            param_edge.state_ground["capture"]["socket"]["l1_connected"] = True
             process_data(data)
         except:
-            param_edge.state_edge["capture"]["sock_l1_connected"] = False
+            param_edge.state_ground["capture"]["socket"]["l1_connected"] = False
 
     def process_data(data):
-        if(param_edge.state_edge["self"]["lidar_main"] == "lidar_1"):
+        if(param_edge.state_edge["hub"]["lidar_main"] == "lidar_1"):
             sock_client.send_packet_l1(data)
-        elif(param_edge.state_edge["self"]["lidar_main"] == "lidar_2"):
+        elif(param_edge.state_edge["hub"]["lidar_main"] == "lidar_2"):
             sock_client.send_packet_l2(data)
 
     def thread_end(self):

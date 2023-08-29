@@ -48,7 +48,7 @@ def loop():
 
 def end():
     terminal.shutdown()
-    parser_json.upload_file(param_edge.path_state_edge_1, param_edge.state_edge)
+    state.upload_states()
     daemon_connection.stop_daemon()
     daemon_socket_l1.stop_daemon()
     daemon_socket_l2.stop_daemon()
