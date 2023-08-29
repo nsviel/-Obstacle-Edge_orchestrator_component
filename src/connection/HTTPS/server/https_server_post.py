@@ -21,6 +21,8 @@ import json
 
 
 def manage_post(self):
+    pass
+def ee():
     command = str(self.path)
     payload = https_server_fct.retrieve_post_data(self)
     if(payload == None):
@@ -31,6 +33,7 @@ def manage_post(self):
         param_edge.state_ground = json.loads(payload)
         https_client_post.post_state("ground", param_edge.state_ground)
     elif(command == '/post_state_edge'):
+        print(payload)
         param_edge.state_edge = json.loads(payload)
     elif(command == '/post_state_cloud'):
         param_edge.state_cloud = json.loads(payload)
@@ -59,3 +62,5 @@ def manage_post(self):
         terminal.addPost("ai", lvl1, lvl2, lvl3)
     else:
         print("[error] HTTP POST not known [%s]"% command)
+
+    #print(param_edge.state_edge)

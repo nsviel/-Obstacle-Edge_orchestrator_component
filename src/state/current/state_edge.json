@@ -9,28 +9,33 @@
             "nb_thread": 8
         },
         "socket": {
-            "l1_connected": false,
-            "l2_connected": false,
             "server_l1_port": 344,
             "server_l2_port": 345,
             "lidar_main": "lidar_1"
         },
         "http": {
-            "connected": false,
             "server_port": 443
         },
-        "nb_thread": 6
+        "interface": {
+            "ai_http_connected": false,
+            "slam_sock_connected": false,
+            "slam_http_connected": false,
+            "operator_broker_connected": false,
+            "capture_l1_connected": false,
+            "capture_l2_connected": false,
+            "capture_http_connected": false
+        },
+        "nb_thread": 8
     },
     "slam": {
         "info": {
             "status": "Offline"
         },
         "socket": {
-            "connected": false,
-            "server_port": 2370
+            "server_port": 2370,
+            "connected": false
         },
         "http": {
-            "connected": false,
             "server_port": 8888
         },
         "parameter": {
@@ -43,7 +48,6 @@
             "status": "Offline"
         },
         "http": {
-            "connected": false,
             "server_port": 8080
         },
         "parameter": {

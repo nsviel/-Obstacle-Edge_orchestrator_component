@@ -8,7 +8,7 @@ import paho.mqtt.client as mqtt
 
 
 def test_sncf_connection():
-    connected = param_edge.state_cloud["operator"]["broker"]["connected"]
+    connected = param_edge.state_edge["hub"]["interface"]["operator_broker_connected"]
     if(connected == False):
         try:
             create_client()
@@ -27,7 +27,7 @@ def mqtt_connection():
     ip = param_edge.state_cloud["operator"]["broker"]["ip"]
     port = param_edge.state_cloud["operator"]["broker"]["port"]
     param_edge.mqtt_client.connect(ip, port)
-    param_edge.state_cloud["operator"]["broker"]["connected"] = True
+    param_edge.state_edge["hub"]["interface"]["operator_broker_connected"] = True
     param_edge.mqtt_client.loop_start()
 
 def mqtt_disconnection():

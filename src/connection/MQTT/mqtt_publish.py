@@ -14,7 +14,7 @@ def publish_test():
         terminal.addLog("error", "Failed to send message to topic '%s'" % topic)
 
 def publish_false_alarm():
-    connected = param_edge.state_cloud["operator"]["broker"]["connected"]
+    connected = param_edge.state_edge["hub"]["interface"]["operator_broker_connected"]
     path_false_alarm = param_edge.path_generic + "prediction.json"
     topic = param_edge.state_cloud["operator"]["mqtt_topic"]
 

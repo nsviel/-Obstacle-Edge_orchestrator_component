@@ -12,6 +12,7 @@ from src.param import param_edge
 from src.connection.HTTPS.server import https_server_fct
 from src.utils import parser_json
 from src.utils import io
+import json
 
 
 def manage_get(self):
@@ -19,13 +20,17 @@ def manage_get(self):
     if(command == '/http_ping'):
         self.send_response(200)
     elif(command == '/get_state_edge'):
-        https_server_fct.send_get_response(self, param_edge.state_edge, "application/json")
+        state = parser_json.load_state_utf8(param_edge.path_state_current + "state_edge.json")
+        https_server_fct.send_get_response(self, state, "application/json")
     elif(command == '/get_state_ground'):
-        https_server_fct.send_get_response(self, param_edge.state_ground, "application/json")
+        state = parser_json.load_state_utf8(param_edge.path_state_current + "state_ground.json")
+        https_server_fct.send_get_response(self, state, "application/json")
     elif(command == '/get_state_cloud'):
-        https_server_fct.send_get_response(self, param_edge.state_cloud, "application/json")
+        state = parser_json.load_state_utf8(param_edge.path_state_current + "state_cloud.json")
+        https_server_fct.send_get_response(self, state, "application/json")
     elif(command == '/get_state_network'):
-        https_server_fct.send_get_response(self, param_edge.state_network, "application/json")
+        state = parser_json.load_state_utf8(param_edge.path_state_current + "state_network.json")
+        https_server_fct.send_get_response(self, state, "application/json")
     elif(command == '/get_image'):
         get_image(self)
     else:

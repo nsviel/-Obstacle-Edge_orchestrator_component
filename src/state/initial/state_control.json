@@ -9,12 +9,17 @@
     "socket":{
       "server_l1_port": 321,
       "server_l2_port": 322
+    },
+    "interface":{
+      "ssd_connected": false,
+      "edge_http_connected": false,
+      "edge_sock_l1_connected": false,
+      "edge_sock_l2_connected": false
     }
   },
   "ssd": {
     "info":{
       "status": "Offline",
-      "connected": false,
       "activated": false,
       "space_total": 0,
       "space_used": 0

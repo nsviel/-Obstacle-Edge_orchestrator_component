@@ -8,8 +8,7 @@
       "broker":{
         "client": "P2_module",
         "topic": "alarmes/lidar",
-        "port": 1883,
-        "connected": false
+        "port": 1883
       }
   },
   "car": {

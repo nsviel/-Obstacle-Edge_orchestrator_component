@@ -8,12 +8,9 @@
       },
       "socket":{
         "server_l1_port": 8308,
-        "server_l2_port": 8309,
-        "l1_connected": false,
-        "l2_connected": false
+        "server_l2_port": 8309
       },
       "http":{
-        "connected": false,
         "server_port": 314
       }
     },

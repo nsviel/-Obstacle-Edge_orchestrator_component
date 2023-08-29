@@ -13,7 +13,6 @@
             "l2_connected": false
         },
         "http": {
-            "connected": false,
             "server_port": 314
         }
     },
