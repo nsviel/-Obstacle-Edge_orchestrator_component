@@ -37,7 +37,7 @@ def manage_post(self):
     elif(command == '/capture_state'):
         manage_capture_state(self)
     else:
-        print("[error] HTTP POST command not known")
+        print("[error] HTTP POST command not known [%s]"% command)
 
 def manage_sncf_param(self):
     pass
