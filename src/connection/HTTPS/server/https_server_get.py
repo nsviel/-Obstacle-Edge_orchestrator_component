@@ -20,16 +20,16 @@ def manage_get(self):
     if(command == '/http_ping'):
         self.send_response(200)
     elif(command == '/get_state_edge'):
-        state = parser_json.load_state_utf8(param_edge.path_state_current + "state_edge.json")
+        state = parser_json.load_state(param_edge.path_state_current + "state_edge.json")
         https_server_fct.send_get_response(self, state, "application/json")
     elif(command == '/get_state_ground'):
-        state = parser_json.load_state_utf8(param_edge.path_state_current + "state_ground.json")
+        state = parser_json.load_state(param_edge.path_state_current + "state_ground.json")
         https_server_fct.send_get_response(self, state, "application/json")
     elif(command == '/get_state_cloud'):
-        state = parser_json.load_state_utf8(param_edge.path_state_current + "state_cloud.json")
+        state = parser_json.load_state(param_edge.path_state_current + "state_cloud.json")
         https_server_fct.send_get_response(self, state, "application/json")
     elif(command == '/get_state_network'):
-        state = parser_json.load_state_utf8(param_edge.path_state_current + "state_network.json")
+        state = parser_json.load_state(param_edge.path_state_current + "state_network.json")
         https_server_fct.send_get_response(self, state, "application/json")
     elif(command == '/get_image'):
         get_image(self)
