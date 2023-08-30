@@ -19,9 +19,14 @@ import os, os.path
 
 
 class Connection(daemon.Daemon):
+    def __init__(self):
+        self.name = "Connection";
+        self.run_sleep = 0.5;
+        self.mqtt = mqtt_client.MQTT_client()
+
     def thread_function(self):
         # Test connection
-        mqtt_client.test_connection_operator()
+        self.mqtt.test_connection_operator()
         https_client_con.test_connection_slam()
         https_client_con.test_connection_ai()
         https_client_con.test_connection_ground()
@@ -34,8 +39,8 @@ class Connection(daemon.Daemon):
         update_nb_thread()
         update_data()
 
-    name = "Connection";
-    run_sleep = 0.5;
+    def thread_end(self):
+        self.mqtt.mqtt_disconnection()
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

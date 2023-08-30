@@ -22,7 +22,7 @@
             "add": "lidar_1_static",
             "status": "Offline",
             "connected": false,
-            "activated": true,
+            "activated": false,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
         },
@@ -50,7 +50,7 @@
             "add": "lidar_2_static",
             "status": "Offline",
             "connected": false,
-            "activated": true,
+            "activated": false,
             "port": 2369,
             "device": "enxf8e43b6cdf6c"
         },

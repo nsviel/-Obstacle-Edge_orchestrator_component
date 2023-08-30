@@ -1,11 +1,10 @@
 #---------------------------------------------
 from src.param import param_edge
-from src.connection.MQTT import mqtt_publish
-from src.connection.MQTT import mqtt_client
+from src import loop
 
 
 def command_false_alarm():
-    mqtt_publish.publish_false_alarm()
+    loop.loop.daemons.daemon_connection.mqtt.publish_false_alarm()
 
 def command_broker_reset():
-    mqtt_client.mqtt_disconnection()
+    loop.loop.daemons.daemon_connection.mqtt.mqtt_disconnection()

@@ -9,7 +9,8 @@
         "socket": {
             "server_l1_port": 321,
             "server_l2_port": 322
-        }
+        },
+        "nb_thread": 6
     },
     "ssd": {
         "info": {
@@ -24,17 +25,20 @@
             "dir_l1": "/app/lidar_ssd/capture/lidar_1",
             "dir_l2": "/app/lidar_ssd/capture/lidar_2",
             "file_name_add": "",
-            "file_name": "_30-08-2023_14h52.pcap",
-            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_30-08-2023_14h52.pcap",
-            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_30-08-2023_14h52.pcap",
+            "file_name": "_30-08-2023_15h53.pcap",
+            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_30-08-2023_15h53.pcap",
+            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_30-08-2023_15h53.pcap",
             "bandwidth": 0
-        }
+        },
+        "space_used": 0,
+        "space_total": 0
     },
     "interface": {
         "edge": {
             "http_connected": true,
             "sock_l1_connected": false,
             "sock_l2_connected": false
-        }
+        },
+        "ssd_connected": false
     }
 }

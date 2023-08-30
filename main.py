@@ -8,7 +8,7 @@ signal.system_clear()
 signal.system_information("Edge hub")
 #-------------
 
-loop.start()
+loop.loop.start()
 
 #-------------
 print("-----------------------")

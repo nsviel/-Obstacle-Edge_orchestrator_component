@@ -6,7 +6,7 @@
             "status": "Offline",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 8
+            "nb_thread": 0
         },
         "socket": {
             "server_l1_port": 344,
@@ -16,7 +16,7 @@
         "http": {
             "server_port": 443
         },
-        "nb_thread": 7
+        "nb_thread": 8
     },
     "slam": {
         "info": {
@@ -49,12 +49,12 @@
         }
     },
     "data": {
-        "nb_frame": 9,
+        "nb_frame": 0,
         "nb_prediction": 0
     },
     "interface": {
         "operator": {
-            "broker_connected": false
+            "broker_connected": true
         },
         "capture": {
             "sock_l1_connected": false,
