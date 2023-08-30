@@ -6,7 +6,7 @@
             "status": "Offline",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 0
+            "nb_thread": 8
         },
         "socket": {
             "server_l1_port": 344,
@@ -49,7 +49,7 @@
         }
     },
     "data": {
-        "nb_frame": 0,
+        "nb_frame": 9,
         "nb_prediction": 0
     },
     "interface": {
@@ -59,7 +59,7 @@
         "capture": {
             "sock_l1_connected": false,
             "sock_l2_connected": false,
-            "http_connected": true
+            "http_connected": false
         }
     }
 }

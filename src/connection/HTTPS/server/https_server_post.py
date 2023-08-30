@@ -49,7 +49,3 @@ def manage_post(self):
             http_command.command_broker_reset()
     else:
         print("[error] HTTP POST not known [%s]"% command)
-
-    print(command)
-    #print(payload)
-    #print(param_edge.state_edge)

@@ -37,7 +37,7 @@ def manage_get(self):
         print("[error] HTTP GET command not known [%s]"% command)
 
 def get_image(self):
-    if(io.is_file_exist(param_edge.path_image)):
+    if(io.is_file_exist(param_edge.path_image) and param_edge.state_edge["slam"]["http"]["connected"]):
         try:
             data = io.load_binary(param_edge.path_image)
             https_server_fct.send_get_response(self, data, "image/bmp")

@@ -46,25 +46,18 @@ test_connection_ai.edge_has_been_deco = True
 def test_connection_ground():
     [ip, port, connected] = https_client_fct.network_info("ground")
     connected = https_client_fct.send_https_ping(ip, port)
+    param_edge.state_edge["interface"]["capture"]["http_connected"] = connected
     if(connected == True and test_connection_ground.edge_has_been_deco):
         test_connection_ground.edge_has_been_co = True
         test_connection_ground.edge_has_been_deco = False
         terminal.addConnection("ground", "on")
-        connection_capture_open()
+        https_client_post.post_state("edge", param_edge.state_edge)
     elif(connected == False and test_connection_ground.edge_has_been_co):
         test_connection_ground.edge_has_been_co = False
         test_connection_ground.edge_has_been_deco = True
         terminal.addConnection("ground", "off")
-        connection_capture_close()
+        param_edge.state_ground["capture"]["socket"]["l1_connected"] = False
+        param_edge.state_ground["capture"]["socket"]["l2_connected"] = False
 
 test_connection_ground.edge_has_been_co = False
 test_connection_ground.edge_has_been_deco = True
-
-def connection_capture_open():
-    param_edge.state_edge["interface"]["capture"]["http_connected"] = True
-    #https_client_post.post_param_value("capture", "edge", "ip", param_edge.state_edge["hub"]["ip"])
-
-def connection_capture_close():
-    param_edge.state_edge["interface"]["capture"]["http_connected"] = False
-    param_edge.state_ground["capture"]["socket"]["l1_connected"] = False
-    param_edge.state_ground["capture"]["socket"]["l2_connected"] = False
