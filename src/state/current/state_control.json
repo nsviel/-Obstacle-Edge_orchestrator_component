@@ -25,9 +25,9 @@
             "dir_l1": "/app/lidar_ssd/capture/lidar_1",
             "dir_l2": "/app/lidar_ssd/capture/lidar_2",
             "file_name_add": "",
-            "file_name": "_30-08-2023_12h09.pcap",
-            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_30-08-2023_12h09.pcap",
-            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_30-08-2023_12h09.pcap",
+            "file_name": "_30-08-2023_12h44.pcap",
+            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_30-08-2023_12h44.pcap",
+            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_30-08-2023_12h44.pcap",
             "bandwidth": 0
         },
         "space_used": 0,

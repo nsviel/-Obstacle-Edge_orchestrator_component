@@ -49,12 +49,12 @@ def test_connection_ground():
     if(connected == True and test_connection_ground.edge_has_been_deco):
         test_connection_ground.edge_has_been_co = True
         test_connection_ground.edge_has_been_deco = False
-        terminal.addConnection("capture", "on")
+        terminal.addConnection("ground", "on")
         connection_capture_open()
     elif(connected == False and test_connection_ground.edge_has_been_co):
         test_connection_ground.edge_has_been_co = False
         test_connection_ground.edge_has_been_deco = True
-        terminal.addConnection("capture", "off")
+        terminal.addConnection("ground", "off")
         connection_capture_close()
 
 test_connection_ground.edge_has_been_co = False
