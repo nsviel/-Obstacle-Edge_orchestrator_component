@@ -11,15 +11,15 @@ def network_info(dest):
     if(dest == "capture" or dest == "network"):
         ip = param_edge.state_ground["capture"]["info"]["ip"]
         port = param_edge.state_ground["capture"]["http"]["server_port"]
-        connected = param_edge.state_edge["hub"]["interface"]["capture_http_connected"]
+        connected = param_edge.state_edge["interface"]["capture"]["http_connected"]
     elif(dest == "slam"):
         ip = param_edge.state_edge["hub"]["info"]["ip"]
         port = param_edge.state_edge["slam"]["http"]["server_port"]
-        connected = param_edge.state_edge["hub"]["interface"]["slam_http_connected"]
+        connected = param_edge.state_edge["slam"]["http"]["connected"]
     elif(dest == "ai"):
         ip = param_edge.state_edge["hub"]["info"]["ip"]
         port = param_edge.state_edge["ai"]["http"]["server_port"]
-        connected = param_edge.state_edge["hub"]["interface"]["ai_http_connected"]
+        connected = param_edge.state_edge["ai"]["http"]["connected"]
 
     return [ip, port, connected]
 

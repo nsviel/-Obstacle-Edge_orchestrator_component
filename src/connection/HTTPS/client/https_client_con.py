@@ -14,12 +14,12 @@ def test_slam_con():
         test_slam_con.edge_has_been_co = True
         test_slam_con.edge_has_been_deco = False
         terminal.addConnection("slam", "on")
-        param_edge.state_edge["hub"]["interface"]["slam_http_connected"] = True
+        param_edge.state_edge["slam"]["http"]["connected"] = True
     elif(connected == False and test_slam_con.edge_has_been_co):
         test_slam_con.edge_has_been_co = False
         test_slam_con.edge_has_been_deco = True
         terminal.addConnection("slam", "off")
-        param_edge.state_edge["hub"]["interface"]["slam_http_connected"] = False
+        param_edge.state_edge["slam"]["http"]["connected"] = False
 
 test_slam_con.edge_has_been_co = False
 test_slam_con.edge_has_been_deco = True
@@ -32,12 +32,12 @@ def test_ai_con():
         test_ai_con.edge_has_been_co = True
         test_ai_con.edge_has_been_deco = False
         terminal.addConnection("slam", "on")
-        param_edge.state_edge["hub"]["interface"]["ai_http_connected"] = True
+        param_edge.state_edge["ai"]["http"]["connected"] = True
     elif(connected == False and test_ai_con.edge_has_been_co):
         test_ai_con.edge_has_been_co = False
         test_ai_con.edge_has_been_deco = True
         terminal.addConnection("slam", "off")
-        param_edge.state_edge["hub"]["interface"]["ai_http_connected"] = False
+        param_edge.state_edge["ai"]["http"]["connected"] = False
 
 test_ai_con.edge_has_been_co = False
 test_ai_con.edge_has_been_deco = True
@@ -61,11 +61,11 @@ test_capture_con.edge_has_been_co = False
 test_capture_con.edge_has_been_deco = True
 
 def connection_capture_open():
-    param_edge.state_edge["hub"]["interface"]["capture_http_connected"] = True
+    param_edge.state_edge["interface"]["capture"]["http_connected"] = True
     #https_client_post.post_param_value("capture", "edge", "ip", param_edge.state_edge["hub"]["ip"])
 
 def connection_capture_close():
-    param_edge.state_edge["hub"]["interface"]["capture_http_connected"] = False
+    param_edge.state_edge["interface"]["capture"]["http_connected"] = False
     param_edge.state_ground["capture"]["socket"]["l1_connected"] = False
     param_edge.state_ground["capture"]["socket"]["l2_connected"] = False
 

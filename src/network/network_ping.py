@@ -27,7 +27,7 @@ def compute_timestamp():
     param_edge.state_network["cloud_local"]["timestamp"] = timestamp
 
 def compute_latency(data, list_latency):
-    if(param_edge.state_edge["hub"]["interface"]["capture_http_connected"] == True):
+    if(param_edge.state_edge["interface"]["capture"]["http_connected"] == True):
         id_b = data.find("time=") + 5
         id_e = data.find(" ms")
         latency = float(data[id_b:id_e])
@@ -39,7 +39,7 @@ def compute_latency(data, list_latency):
         param_edge.state_network["cloud_local"]["latency"]["mean"] = specific.mean(list_latency)
 
 def compute_reliability(data, list_reliability):
-    if(param_edge.state_edge["hub"]["interface"]["capture_http_connected"] == True):
+    if(param_edge.state_edge["interface"]["capture"]["http_connected"] == True):
         packetloss = float([x for x in data.split('\n') if x.find('packet loss') != -1][0].split('%')[0].split(' ')[-1])
         reliability = 100 - packetloss
         specific.list_stack(list_reliability, reliability, 10)
