@@ -31,7 +31,7 @@ class Network(daemon.Daemon):
         parser_json.upload_file(param_edge.path_state_current + "state_network.json", param_edge.state_network)
 
     def update_perf_from_py(self):
-        capture_state_network = https_client_get.get_state_data("network")
+        capture_state_network = https_client_get.get_state("network")
         if(capture_state_network == None):
             return
 

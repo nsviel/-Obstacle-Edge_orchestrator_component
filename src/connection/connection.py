@@ -21,11 +21,10 @@ import os, os.path
 class Connection(daemon.Daemon):
     def thread_function(self):
         # Test connection
-        mqtt_client.test_sncf_connection()
-        https_client_con.test_slam_con()
-        https_client_con.test_ai_con()
-        https_client_con.test_capture_con()
-        https_client_con.test_ed_con()
+        mqtt_client.test_connection_operator()
+        https_client_con.test_connection_slam()
+        https_client_con.test_connection_ai()
+        https_client_con.test_connection_ground()
 
         # Update state file
         https_client_get.get_state("capture")

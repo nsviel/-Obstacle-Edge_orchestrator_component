@@ -13,17 +13,17 @@ from src.connection.HTTPS.client import https_client_post
 def forward_processing_post(option, value):
     if(option == "slam"):
         if(str(value) == "True"):
-            https_client_get.send_command("slam", "/slam_on")
+            https_client_get.send_command("slam", "slam_on")
         if(str(value) == "False"):
-            https_client_get.send_command("slam", "/slam_off")
+            https_client_get.send_command("slam", "slam_off")
     elif(option == "view"):
         if(value == "Top"):
-            https_client_get.send_command("slam", "/view_top")
+            https_client_get.send_command("slam", "view_top")
         if(value == "Oblique"):
-            https_client_get.send_command("slam", "/view_oblique")
+            https_client_get.send_command("slam", "view_oblique")
     elif(value == "reset"):
         if(value == "reset"):
-            https_client_get.send_command("slam", "/reset")
+            https_client_get.send_command("slam", "reset")
 
 #---------------------------------------------
 # Possible POST commands:
@@ -32,6 +32,6 @@ def forward_processing_post(option, value):
 #---------------------------------------------
 def forward_ai_post(option, value):
     if(option == "lidar_height"):
-        https_client_post.post_command("ai", "/lidar_height", value)
+        https_client_post.post_command("ai", "lidar_height")
     if(option == "threshold"):
-        https_client_post.post_command("ai", "/threshold", value)
+        https_client_post.post_command("ai", "threshold")

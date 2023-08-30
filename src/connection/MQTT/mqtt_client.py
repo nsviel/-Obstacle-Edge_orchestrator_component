@@ -7,7 +7,7 @@ from src.utils import signal
 import paho.mqtt.client as mqtt
 
 
-def test_sncf_connection():
+def test_connection_operator():
     connected = param_edge.state_edge["interface"]["operator"]["broker_connected"]
     if(connected == False):
         try:

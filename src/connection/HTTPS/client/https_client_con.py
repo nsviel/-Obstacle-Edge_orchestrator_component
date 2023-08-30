@@ -7,58 +7,58 @@ from src.utils import terminal
 
 
 #Test Velodium HTTP connection
-def test_slam_con():
+def test_connection_slam():
     [ip, port, connected] = https_client_fct.network_info("slam")
     connected = https_client_fct.send_https_ping(ip, port)
-    if(connected == True and test_slam_con.edge_has_been_deco):
-        test_slam_con.edge_has_been_co = True
-        test_slam_con.edge_has_been_deco = False
+    if(connected == True and test_connection_slam.edge_has_been_deco):
+        test_connection_slam.edge_has_been_co = True
+        test_connection_slam.edge_has_been_deco = False
         terminal.addConnection("slam", "on")
         param_edge.state_edge["slam"]["http"]["connected"] = True
-    elif(connected == False and test_slam_con.edge_has_been_co):
-        test_slam_con.edge_has_been_co = False
-        test_slam_con.edge_has_been_deco = True
+    elif(connected == False and test_connection_slam.edge_has_been_co):
+        test_connection_slam.edge_has_been_co = False
+        test_connection_slam.edge_has_been_deco = True
         terminal.addConnection("slam", "off")
         param_edge.state_edge["slam"]["http"]["connected"] = False
 
-test_slam_con.edge_has_been_co = False
-test_slam_con.edge_has_been_deco = True
+test_connection_slam.edge_has_been_co = False
+test_connection_slam.edge_has_been_deco = True
 
 #Test AI HTTP connection
-def test_ai_con():
+def test_connection_ai():
     [ip, port, connected] = https_client_fct.network_info("ai")
     connected = https_client_fct.send_https_ping(ip, port)
-    if(connected == True and test_ai_con.edge_has_been_deco):
-        test_ai_con.edge_has_been_co = True
-        test_ai_con.edge_has_been_deco = False
+    if(connected == True and test_connection_ai.edge_has_been_deco):
+        test_connection_ai.edge_has_been_co = True
+        test_connection_ai.edge_has_been_deco = False
         terminal.addConnection("slam", "on")
         param_edge.state_edge["ai"]["http"]["connected"] = True
-    elif(connected == False and test_ai_con.edge_has_been_co):
-        test_ai_con.edge_has_been_co = False
-        test_ai_con.edge_has_been_deco = True
+    elif(connected == False and test_connection_ai.edge_has_been_co):
+        test_connection_ai.edge_has_been_co = False
+        test_connection_ai.edge_has_been_deco = True
         terminal.addConnection("slam", "off")
         param_edge.state_edge["ai"]["http"]["connected"] = False
 
-test_ai_con.edge_has_been_co = False
-test_ai_con.edge_has_been_deco = True
+test_connection_ai.edge_has_been_co = False
+test_connection_ai.edge_has_been_deco = True
 
 #Test module_capture HTTP connection
-def test_capture_con():
-    [ip, port, connected] = https_client_fct.network_info("capture")
+def test_connection_ground():
+    [ip, port, connected] = https_client_fct.network_info("ground")
     connected = https_client_fct.send_https_ping(ip, port)
-    if(connected == True and test_capture_con.edge_has_been_deco):
-        test_capture_con.edge_has_been_co = True
-        test_capture_con.edge_has_been_deco = False
+    if(connected == True and test_connection_ground.edge_has_been_deco):
+        test_connection_ground.edge_has_been_co = True
+        test_connection_ground.edge_has_been_deco = False
         terminal.addConnection("capture", "on")
         connection_capture_open()
-    elif(connected == False and test_capture_con.edge_has_been_co):
-        test_capture_con.edge_has_been_co = False
-        test_capture_con.edge_has_been_deco = True
+    elif(connected == False and test_connection_ground.edge_has_been_co):
+        test_connection_ground.edge_has_been_co = False
+        test_connection_ground.edge_has_been_deco = True
         terminal.addConnection("capture", "off")
         connection_capture_close()
 
-test_capture_con.edge_has_been_co = False
-test_capture_con.edge_has_been_deco = True
+test_connection_ground.edge_has_been_co = False
+test_connection_ground.edge_has_been_deco = True
 
 def connection_capture_open():
     param_edge.state_edge["interface"]["capture"]["http_connected"] = True
@@ -68,29 +68,3 @@ def connection_capture_close():
     param_edge.state_edge["interface"]["capture"]["http_connected"] = False
     param_edge.state_ground["capture"]["socket"]["l1_connected"] = False
     param_edge.state_ground["capture"]["socket"]["l2_connected"] = False
-
-#Test module_capture HTTP connection
-def test_ed_con():
-    [ip, port, connected] = https_client_fct.network_info("edgenext")
-    connected = https_client_fct.send_https_ping(ip, port)
-    if(connected == True and test_ed_con.edge_has_been_deco):
-        test_ed_con.edge_has_been_co = True
-        test_ed_con.edge_has_been_deco = False
-        terminal.addConnection("slam", "on")
-        connection_ed_open()
-    elif(connected == False and test_ed_con.edge_has_been_co):
-        test_ed_con.edge_has_been_co = False
-        test_ed_con.edge_has_been_deco = True
-        terminal.addConnection("slam", "off")
-        connection_ed_close()
-
-test_ed_con.edge_has_been_co = False
-test_ed_con.edge_has_been_deco = True
-
-def connection_ed_open():
-    pass#param_edge.state_edge["edge_next"]["http_connected"] = True
-
-def connection_ed_close():
-    pass#param_edge.state_edge["edge_next"]["http_connected"] = False
-    pass#param_edge.state_edge["edge_next"]["socket"]["l1_connected"] = False
-    pass#param_edge.state_edge["edge_next"]["socket"]["l2_connected"] = False

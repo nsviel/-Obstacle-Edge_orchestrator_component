@@ -20,8 +20,8 @@ def addLog(type, message):
 def addConnection(dest, state):
     if(dest == "edge"):
         dest = "Edge"
-    elif(dest == "capture"):
-        dest = "Capture"
+    elif(dest == "ground"):
+        dest = "Ground"
     elif(dest == "slam"):
         dest = "SLAM"
     elif(dest == "ai"):
