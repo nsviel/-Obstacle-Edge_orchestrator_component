@@ -1,7 +1,6 @@
 #---------------------------------------------
 from src.param import param_edge
 from src.connection.HTTPS.server import https_server
-from src.connection.SOCK import sock_client
 from src.connection import connection
 from src.state import state
 from src.utils import data
@@ -25,7 +24,6 @@ class Loop():
     def init(self):
         data.check_directories()
         state.load_configuration()
-        sock_client.create_socket()
         self.daemons = daemon.Daemons()
         self.daemons.start_daemons()
         https_server.start_server()

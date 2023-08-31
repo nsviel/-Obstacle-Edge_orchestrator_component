@@ -4,7 +4,6 @@ from src.param import param_edge
 from src.connection.HTTPS.client import https_client_con
 from src.connection.HTTPS.client import https_client_get
 from src.connection.MQTT import mqtt_client
-from src.connection.SOCK import sock_client
 
 from src.utils import parser_json
 from src.utils import io
@@ -34,7 +33,6 @@ class Connection(daemon.Daemon):
         # Update state file
         https_client_get.get_state("ground")
         state.upload_states()
-        sock_client.reset_connnection()
         prediction.format_prediction()
         update_nb_thread()
         update_data()
@@ -56,7 +54,7 @@ def get_ip_adress():
     return IP
 
 def update_nb_thread():
-    param_edge.state_edge["hub"]["nb_thread"] = threading.active_count()
+    param_edge.state_edge["hub"]["info"]["nb_thread"] = threading.active_count()
 import os
 
 def update_data():

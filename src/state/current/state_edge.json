@@ -16,7 +16,7 @@
         "http": {
             "server_port": 443
         },
-        "nb_thread": 8
+        "nb_thread": 9
     },
     "slam": {
         "info": {
@@ -58,7 +58,7 @@
         },
         "capture": {
             "sock_l1_connected": false,
-            "sock_l2_connected": false,
+            "sock_l2_connected": true,
             "http_connected": true
         }
     }
