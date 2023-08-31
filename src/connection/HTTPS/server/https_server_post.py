@@ -12,6 +12,12 @@
 #       - reset
 # - /post_command_ground
 #       - reset
+# - /post_command_lidar_1
+#       - start
+#       - stop
+# - /post_command_lidar_2
+#       - start
+#       - stop
 #---------------------------------------------
 
 from src.param import param_edge
@@ -52,5 +58,15 @@ def manage_post(self):
     elif(command == '/post_command_ground'):
         if(payload == "reset"):
             https_client_post.post_command("ground", "reset")
+    elif(command == '/post_command_lidar_1'):
+        if(payload == "start"):
+            https_client_post.post_command("lidar_1", "start")
+        elif(payload == "stop"):
+            https_client_post.post_command("lidar_1", "stop")
+    elif(command == '/post_command_lidar_2'):
+        if(payload == "start"):
+            https_client_post.post_command("lidar_2", "start")
+        elif(payload == "stop"):
+            https_client_post.post_command("lidar_2", "stop")
     else:
         print("[error] HTTP POST not known [%s]"% command)

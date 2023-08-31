@@ -8,7 +8,7 @@ def network_info(dest):
     ip = ""
     port = 0
     connected = False
-    if(dest == "ground" or dest == "network" or dest == "edge"):
+    if(dest == "ground" or dest == "network" or dest == "edge" or dest == "lidar_1" or dest == "lidar_2"):
         ip = param_edge.state_ground["capture"]["info"]["ip"]
         port = param_edge.state_ground["capture"]["http"]["server_port"]
         connected = param_edge.state_edge["interface"]["capture"]["http_connected"]

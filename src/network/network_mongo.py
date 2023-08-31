@@ -16,13 +16,13 @@ import copy
 
 def format_state_kpi():
     param_edge.state_kpi["timestamp"] = datetime.datetime.now().timestamp()
-    param_edge.state_kpi["uplink_throughput_Mbs"] = param_edge.state_ground["lidar_1"]["throughput"]["value"]
+    param_edge.state_kpi["uplink_data_rate_Mbs"] = param_edge.state_ground["lidar_1"]["throughput"]["value"]
     param_edge.state_kpi["uplink_cloud_end_to_end_latency_ms"] = param_edge.state_network["local_cloud"]["latency"]["value"]
     param_edge.state_kpi["downlink_cloud_end_to_end_latency_ms"] = param_edge.state_network["cloud_local"]["latency"]["value"]
     param_edge.state_kpi["uplink_reliability_%"] = param_edge.state_network["local_cloud"]["reliability"]["value"]
     param_edge.state_kpi["downlink_reliability_%"] = param_edge.state_network["cloud_local"]["reliability"]["value"]
-    param_edge.state_kpi["mobility_interruption_time_s"] = param_edge.state_network["local_cloud"]["interruption"]["value"]
-    param_edge.state_kpi["time_for_service_warning_ms"] = param_edge.state_network["time"]["total"]
+    param_edge.state_kpi["time_mobility_interruption_s"] = param_edge.state_network["local_cloud"]["interruption"]["value"]
+    param_edge.state_kpi["time_service_warning_ms"] = param_edge.state_network["time"]["total"]
     param_edge.state_kpi["ID"] = param_edge.state_kpi["ID"] + 1
 
 def send_kpi_to_mongodb():

@@ -6,7 +6,7 @@
             "status": "Offline",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 7
+            "nb_thread": 9
         },
         "socket": {
             "server_l1_port": 344,

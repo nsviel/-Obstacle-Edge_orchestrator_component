@@ -7,9 +7,6 @@
     "downlink_cloud_end_to_end_latency_ms": 0,
     "uplink_reliability_%": 0,
     "downlink_reliability_%": 0,
-    "time_for_service_warning_ms": 0,
-    "mobility_interruption_time_s": 0,
-    "uplink_throughput_Mbs": 0,
-    "uplink_bandwidth_Mbs": 0,
-    "downlink_bandwidth_Mbs": 0
+    "time_service_warning_ms": 0,
+    "time_mobility_interruption_s": 0
 }

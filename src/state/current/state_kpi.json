@@ -1,15 +1,12 @@
 {
     "service": "UC3_P2",
-    "timestamp": 1693491922.291672,
-    "ID": 277,
+    "timestamp": 1693496802.329353,
+    "ID": 60,
     "uplink_data_rate_Mbs": 0,
-    "uplink_cloud_end_to_end_latency_ms": 0.044,
-    "downlink_cloud_end_to_end_latency_ms": 0.028,
+    "uplink_cloud_end_to_end_latency_ms": 0.086,
+    "downlink_cloud_end_to_end_latency_ms": 0.06,
     "uplink_reliability_%": 100.0,
     "downlink_reliability_%": 100.0,
-    "time_for_service_warning_ms": 0,
-    "mobility_interruption_time_s": 2.535844,
-    "uplink_throughput_Mbs": 0,
-    "uplink_bandwidth_Mbs": 0,
-    "downlink_bandwidth_Mbs": 0
+    "time_service_warning_ms": 0,
+    "time_mobility_interruption_s": 0
 }
