@@ -10,6 +10,8 @@
 # - /post_command_operator
 #       - false_alarm
 #       - reset
+# - /post_command_ground
+#       - reset
 #---------------------------------------------
 
 from src.param import param_edge
@@ -47,5 +49,8 @@ def manage_post(self):
             http_command.command_false_alarm()
         elif(payload == "reset"):
             http_command.command_broker_reset()
+    elif(command == '/post_command_ground'):
+        if(payload == "reset"):
+            https_client_post.post_command("ground", "reset")
     else:
         print("[error] HTTP POST not known [%s]"% command)

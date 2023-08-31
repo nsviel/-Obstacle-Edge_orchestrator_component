@@ -35,11 +35,7 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0,
-            "sent": 0
+            "value": 0
         }
     },
     "lidar_2": {
@@ -63,11 +59,7 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0,
-            "sent": 0
+            "value": 0
         }
     },
     "device": {

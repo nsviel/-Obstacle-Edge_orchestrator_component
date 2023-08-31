@@ -32,7 +32,7 @@ class Connection(daemon.Daemon):
         https_client_con.test_connection_ground()
 
         # Update state file
-        https_client_get.get_state("capture")
+        https_client_get.get_state("ground")
         state.upload_states()
         sock_client.reset_connnection()
         prediction.format_prediction()

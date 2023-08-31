@@ -14,6 +14,7 @@
 #---------------------------------------------
 
 from src.connection.HTTPS.client import https_client_fct
+from src.utils import terminal
 import json
 
 
