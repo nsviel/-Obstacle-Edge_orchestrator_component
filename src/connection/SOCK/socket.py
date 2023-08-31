@@ -21,42 +21,33 @@ class Socket():
         self.sock_server_l2.start_daemon()
 
         # Socket client
-        self.sock_client_l1 = socket_client.Socket_client()
-        self.sock_client_l2 = socket_client.Socket_client()
+        self.sock_client = socket_client.Socket_client()
 
     def callback_l1_packet(self, packet):
         param_edge.state_edge["interface"]["capture"]["sock_l1_connected"] = True
         main_source = param_edge.state_edge["hub"]["socket"]["lidar_main"]
         if(main_source == "lidar_1"):
-            self.sock_client_l1.send_packet(packet, "control", "lidar_1")
-            self.sock_client_l1.send_packet(packet, "slam", "")
+            self.sock_client.send_packet(packet, "control", "lidar_1")
+            self.sock_client.send_packet(packet, "slam", "")
+            if(param_edge.state_edge["slam"]["http"]["connected"]):
+                param_edge.state_edge["slam"]["socket"]["connected"] = True
         elif(main_source == "lidar_2"):
-            self.sock_client_l1.send_packet(packet, "control", "lidar_2")
+            self.sock_client.send_packet(packet, "control", "lidar_2")
     def callback_l1_deco(self):
         param_edge.state_edge["interface"]["capture"]["sock_l1_connected"] = False
     def callback_l2_packet(self, packet):
         param_edge.state_edge["interface"]["capture"]["sock_l2_connected"] = True
         main_source = param_edge.state_edge["hub"]["socket"]["lidar_main"]
         if(main_source == "lidar_2"):
-            self.sock_client_l2.send_packet(packet, "control", "lidar_1")
-            self.sock_client_l2.send_packet(packet, "slam", "")
+            self.sock_client.send_packet(packet, "control", "lidar_1")
+            self.sock_client.send_packet(packet, "slam", "lidar_1")
+            if(param_edge.state_edge["slam"]["http"]["connected"]):
+                param_edge.state_edge["slam"]["socket"]["connected"] = True
         elif(main_source == "lidar_1"):
-            self.sock_client_l2.send_packet(packet, "control", "lidar_2")
+            self.sock_client.send_packet(packet, "control", "lidar_2")
     def callback_l2_deco(self):
         param_edge.state_edge["interface"]["capture"]["sock_l2_connected"] = False
 
     def stop_daemons(self):
         self.sock_server_l1.stop_daemon()
         self.sock_server_l2.stop_daemon()
-
-def network_info(dest, source):
-    if(dest == "control"):
-        ip = param_edge.state_control["control"]["info"]["ip"]
-        if(source == "lidar_1"):
-            port = param_edge.state_control["control"]["socket"]["server_l1_port"]
-        if(source == "lidar_2"):
-            port = param_edge.state_control["control"]["socket"]["server_l2_port"]
-    elif(dest == "slam"):
-        ip = param_edge.state_edge["hub"]["info"]["ip"]
-        port = param_edge.state_edge["slam"]["socket"]["server_port"]
-    return [ip, port]
