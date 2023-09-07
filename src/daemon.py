@@ -1,14 +1,14 @@
 #---------------------------------------------
 from src.connection import connection
 from src.connection.SOCK import socket
-from src.network import network_manager
+from src.network import network
 
 
 class Daemons():
     def __init__(self):
         self.daemon_connection = connection.Connection()
         self.daemon_socket = socket.Socket()
-        self.daemon_network = network_manager.Network()
+        self.daemon_network = network.Network()
 
     def start_daemons(self):
         self.daemon_connection.start_daemon()

@@ -2,25 +2,30 @@
 from src.param import param_edge
 from src.utils import specific
 
+import subprocess
 import datetime
 import time
 import os
 
 
-#TODO: refaire cette function
-
-def compute_ping(list_latency, list_reliability):
+def compute_ping(self):
     data = make_ping()
-    compute_timestamp()
-    compute_latency(data, list_latency)
-    compute_reliability(data, list_reliability)
+    if(data != None):
+        compute_timestamp()
+        compute_latency(data, self.list_latency)
+        compute_reliability(data, self.list_reliability)
 
 def make_ping():
-    ip = param_edge.state_ground["capture"]["info"]["ip"]
-    os.system("ping -c 50 -i 0.002 -t 1 " + ip + " > src/state/ping/ping.txt 2>/dev/null")
-    with open('src/state/ping/ping.txt', 'r') as file:
-        data = file.read().rstrip()
-    return data
+    ip = param_edge.state_edge["hub"]["info"]["ip"]
+    try:
+        response = subprocess.check_output(
+            ['ping', '-c', '3', '-i', '0.002', ip],
+            stderr=subprocess.DEVNULL,
+            universal_newlines=True
+        )
+    except subprocess.CalledProcessError:
+        response = None
+    return response
 
 def compute_timestamp():
     timestamp = time.time()
@@ -28,15 +33,18 @@ def compute_timestamp():
 
 def compute_latency(data, list_latency):
     if(param_edge.state_edge["interface"]["capture"]["http_connected"] == True):
-        id_b = data.find("time=") + 5
-        id_e = data.find(" ms")
-        latency = float(data[id_b:id_e])
-        specific.list_stack(list_latency, latency, 10)
+        try:
+            id_b = data.find("time=") + 5
+            id_e = data.find(" ms")
+            latency = float(data[id_b:id_e])
+            specific.list_stack(list_latency, latency, 10)
 
-        param_edge.state_network["cloud_local"]["latency"]["value"] = latency
-        param_edge.state_network["cloud_local"]["latency"]["min"] = min(list_latency)
-        param_edge.state_network["cloud_local"]["latency"]["max"] = max(list_latency)
-        param_edge.state_network["cloud_local"]["latency"]["mean"] = specific.mean(list_latency)
+            param_edge.state_network["cloud_local"]["latency"]["value"] = latency
+            param_edge.state_network["cloud_local"]["latency"]["min"] = min(list_latency)
+            param_edge.state_network["cloud_local"]["latency"]["max"] = max(list_latency)
+            param_edge.state_network["cloud_local"]["latency"]["mean"] = specific.mean(list_latency)
+        except:
+            pass
 
 def compute_reliability(data, list_reliability):
     if(param_edge.state_edge["interface"]["capture"]["http_connected"] == True):

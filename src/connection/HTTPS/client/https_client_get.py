@@ -20,9 +20,11 @@ def get_state(dest):
             if(dest == "ground"):
                 param_edge.state_ground = json.loads(data)
             elif(dest == "network"):
-                param_edge.state_network = json.loads(data)
+                return json.loads(data)
+                #param_edge.state_network = json.loads(data)
         except:
             print("[\033[1;31merror\033[0m] GET \033[1;32m%s\033[0m state failed"% dest)
+    return None
 
 def send_command(dest, command):
     [ip, port, connected] = https_client_fct.network_info(dest)

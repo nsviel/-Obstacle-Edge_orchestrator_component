@@ -1,11 +1,11 @@
 {
     "mongodb": {
-        "ip": "127.0.0.1",
+        "ip": "10.17.216.35",
         "add": "-",
         "status": "Offline",
         "port": 27017,
-        "database": "test_db",
-        "collection": "test_collection_1",
+        "database": "07092023_5gmed_UC3_P2",
+        "collection": "kpis",
         "username": "",
         "password": "",
         "nb_data": 50,

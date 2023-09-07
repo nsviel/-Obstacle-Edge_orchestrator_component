@@ -24,7 +24,7 @@ def network_info(dest):
     return [ip, port, connected]
 
 def send_https_ping(ip, port):
-    client = http.client.HTTPConnection(ip, port, timeout=0.1)
+    client = http.client.HTTPConnection(ip, port, timeout=2)
     connected = False
     try:
         client.request("GET", "/http_ping")
@@ -37,7 +37,7 @@ def send_https_ping(ip, port):
 def send_https_post(ip, port, connected, command, payload):
     if(connected):
         try:
-            client = http.client.HTTPConnection(ip, port, timeout=1)
+            client = http.client.HTTPConnection(ip, port, timeout=2)
             header = {"Content-type": "application/json"}
             client.request("POST", command, payload, header)
             client.close()
@@ -48,7 +48,7 @@ def send_https_get(ip, port, connected, command):
     data = None
     if(connected):
         try:
-            client = http.client.HTTPConnection(ip, port, timeout=1)
+            client = http.client.HTTPConnection(ip, port, timeout=2)
             client.request("GET", command)
             response = client.getresponse()
             data = response.read()
