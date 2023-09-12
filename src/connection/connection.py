@@ -15,6 +15,7 @@ from src.base import daemon
 import socket
 import threading
 import os, os.path
+import requests
 
 
 class Connection(daemon.Daemon):
@@ -29,6 +30,7 @@ class Connection(daemon.Daemon):
         https_client_con.test_connection_slam()
         https_client_con.test_connection_ai()
         https_client_con.test_connection_ground()
+        self.get_geolocalization()
 
         # Update state file
         https_client_get.get_state("ground")
@@ -39,6 +41,13 @@ class Connection(daemon.Daemon):
 
     def thread_end(self):
         self.mqtt.mqtt_disconnection()
+
+    def get_geolocalization(self):
+        try:
+            response = requests.get('http://10.17.217.33:5000/get_gps')
+            gps_data = response.json()
+        except:
+            pass
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

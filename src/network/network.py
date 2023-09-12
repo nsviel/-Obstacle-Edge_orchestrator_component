@@ -42,24 +42,24 @@ class Network(daemon.Daemon):
         if(ground_state_network == None):
             return
 
-        param_edge.state_network["local_cloud"]["timestamp"] = ground_state_network["local_cloud"]["timestamp"]
+        param_edge.state_network["ground_to_edge"]["timestamp"] = ground_state_network["ground_to_edge"]["timestamp"]
 
-        param_edge.state_network["local_cloud"]["throughput"]["value"] = ground_state_network["local_cloud"]["throughput"]["value"]
-        param_edge.state_network["local_cloud"]["throughput"]["min"] = ground_state_network["local_cloud"]["throughput"]["min"]
-        param_edge.state_network["local_cloud"]["throughput"]["max"] = ground_state_network["local_cloud"]["throughput"]["max"]
-        param_edge.state_network["local_cloud"]["throughput"]["mean"] = ground_state_network["local_cloud"]["throughput"]["mean"]
+        param_edge.state_network["ground_to_edge"]["throughput"]["value"] = ground_state_network["ground_to_edge"]["throughput"]["value"]
+        param_edge.state_network["ground_to_edge"]["throughput"]["min"] = ground_state_network["ground_to_edge"]["throughput"]["min"]
+        param_edge.state_network["ground_to_edge"]["throughput"]["max"] = ground_state_network["ground_to_edge"]["throughput"]["max"]
+        param_edge.state_network["ground_to_edge"]["throughput"]["mean"] = ground_state_network["ground_to_edge"]["throughput"]["mean"]
 
-        param_edge.state_network["local_cloud"]["reliability"]["value"] = ground_state_network["local_cloud"]["reliability"]["value"]
-        param_edge.state_network["local_cloud"]["reliability"]["min"] = ground_state_network["local_cloud"]["reliability"]["min"]
-        param_edge.state_network["local_cloud"]["reliability"]["max"] = ground_state_network["local_cloud"]["reliability"]["max"]
-        param_edge.state_network["local_cloud"]["reliability"]["mean"] = ground_state_network["local_cloud"]["reliability"]["mean"]
+        param_edge.state_network["ground_to_edge"]["reliability"]["value"] = ground_state_network["ground_to_edge"]["reliability"]["value"]
+        param_edge.state_network["ground_to_edge"]["reliability"]["min"] = ground_state_network["ground_to_edge"]["reliability"]["min"]
+        param_edge.state_network["ground_to_edge"]["reliability"]["max"] = ground_state_network["ground_to_edge"]["reliability"]["max"]
+        param_edge.state_network["ground_to_edge"]["reliability"]["mean"] = ground_state_network["ground_to_edge"]["reliability"]["mean"]
 
-        param_edge.state_network["local_cloud"]["interruption"]["value"] = ground_state_network["local_cloud"]["interruption"]["value"]
-        param_edge.state_network["local_cloud"]["interruption"]["min"] = ground_state_network["local_cloud"]["interruption"]["min"]
-        param_edge.state_network["local_cloud"]["interruption"]["max"] = ground_state_network["local_cloud"]["interruption"]["max"]
-        param_edge.state_network["local_cloud"]["interruption"]["mean"] = ground_state_network["local_cloud"]["interruption"]["mean"]
+        param_edge.state_network["ground_to_edge"]["interruption"]["value"] = ground_state_network["ground_to_edge"]["interruption"]["value"]
+        param_edge.state_network["ground_to_edge"]["interruption"]["min"] = ground_state_network["ground_to_edge"]["interruption"]["min"]
+        param_edge.state_network["ground_to_edge"]["interruption"]["max"] = ground_state_network["ground_to_edge"]["interruption"]["max"]
+        param_edge.state_network["ground_to_edge"]["interruption"]["mean"] = ground_state_network["ground_to_edge"]["interruption"]["mean"]
 
-        param_edge.state_network["local_cloud"]["latency"]["value"] = ground_state_network["local_cloud"]["latency"]["value"]
-        param_edge.state_network["local_cloud"]["latency"]["min"] = ground_state_network["local_cloud"]["latency"]["min"]
-        param_edge.state_network["local_cloud"]["latency"]["max"] = ground_state_network["local_cloud"]["latency"]["max"]
-        param_edge.state_network["local_cloud"]["latency"]["mean"] = ground_state_network["local_cloud"]["latency"]["mean"]
+        param_edge.state_network["ground_to_edge"]["latency"]["value"] = ground_state_network["ground_to_edge"]["latency"]["value"]
+        param_edge.state_network["ground_to_edge"]["latency"]["min"] = ground_state_network["ground_to_edge"]["latency"]["min"]
+        param_edge.state_network["ground_to_edge"]["latency"]["max"] = ground_state_network["ground_to_edge"]["latency"]["max"]
+        param_edge.state_network["ground_to_edge"]["latency"]["mean"] = ground_state_network["ground_to_edge"]["latency"]["mean"]

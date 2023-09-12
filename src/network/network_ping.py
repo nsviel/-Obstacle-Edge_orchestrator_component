@@ -29,7 +29,7 @@ def make_ping():
 
 def compute_timestamp():
     timestamp = time.time()
-    param_edge.state_network["cloud_local"]["timestamp"] = timestamp
+    param_edge.state_network["edge_to_ground"]["timestamp"] = timestamp
 
 def compute_latency(data, list_latency):
     if(param_edge.state_edge["interface"]["capture"]["http_connected"] == True):
@@ -39,10 +39,10 @@ def compute_latency(data, list_latency):
             latency = float(data[id_b:id_e])
             specific.list_stack(list_latency, latency, 10)
 
-            param_edge.state_network["cloud_local"]["latency"]["value"] = latency
-            param_edge.state_network["cloud_local"]["latency"]["min"] = min(list_latency)
-            param_edge.state_network["cloud_local"]["latency"]["max"] = max(list_latency)
-            param_edge.state_network["cloud_local"]["latency"]["mean"] = specific.mean(list_latency)
+            param_edge.state_network["edge_to_ground"]["latency"]["value"] = latency
+            param_edge.state_network["edge_to_ground"]["latency"]["min"] = min(list_latency)
+            param_edge.state_network["edge_to_ground"]["latency"]["max"] = max(list_latency)
+            param_edge.state_network["edge_to_ground"]["latency"]["mean"] = specific.mean(list_latency)
         except:
             pass
 
@@ -52,7 +52,7 @@ def compute_reliability(data, list_reliability):
         reliability = 100 - packetloss
         specific.list_stack(list_reliability, reliability, 10)
 
-        param_edge.state_network["cloud_local"]["reliability"]["value"] = reliability;
-        param_edge.state_network["cloud_local"]["reliability"]["min"] = min(list_reliability)
-        param_edge.state_network["cloud_local"]["reliability"]["max"] = max(list_reliability)
-        param_edge.state_network["cloud_local"]["reliability"]["mean"] = specific.mean(list_reliability)
+        param_edge.state_network["edge_to_ground"]["reliability"]["value"] = reliability;
+        param_edge.state_network["edge_to_ground"]["reliability"]["min"] = min(list_reliability)
+        param_edge.state_network["edge_to_ground"]["reliability"]["max"] = max(list_reliability)
+        param_edge.state_network["edge_to_ground"]["reliability"]["mean"] = specific.mean(list_reliability)

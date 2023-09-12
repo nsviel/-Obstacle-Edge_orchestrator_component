@@ -65,9 +65,8 @@
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "vpn0",
-        "3": "br-de470ff68a90",
-        "4": "br-fc5d7334c3b2"
+        "2": "br-de470ff68a90",
+        "3": "br-fc5d7334c3b2"
     },
     "interface": {
         "edge": {
