@@ -2,9 +2,9 @@
     "capture": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "-",
-            "status": "Offline",
-            "nb_thread": 6
+            "add": "localhost",
+            "status": "Online",
+            "nb_thread": 0
         },
         "socket": {
             "server_l1_port": 8308,
@@ -17,8 +17,8 @@
     "lidar_1": {
         "info": {
             "ip": "192.168.1.201",
-            "add": "-",
-            "status": "Offline",
+            "add": "lidar_1_static",
+            "status": "Online",
             "connected": false,
             "activated": true,
             "port": 2368,
@@ -41,8 +41,8 @@
     "lidar_2": {
         "info": {
             "ip": "192.168.2.201",
-            "add": "-",
-            "status": "Offline",
+            "add": "lidar_2_static",
+            "status": "Online",
             "connected": false,
             "activated": true,
             "port": 2369,
@@ -65,12 +65,21 @@
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "br-de470ff68a90",
-        "3": "br-fc5d7334c3b2"
+        "2": "lo",
+        "3": "br-de470ff68a90",
+        "4": "br-fc5d7334c3b2",
+        "5": "bluetooth-monitor",
+        "6": "nfqueue",
+        "7": "dbus-session",
+        "8": "dbus-session",
+        "9": "dbus-session",
+        "10": "dbus-system",
+        "11": "veth5fd752f",
+        "12": "veth83826ab"
     },
     "interface": {
         "edge": {
-            "http_connected": true
+            "http_connected": false
         }
     }
 }

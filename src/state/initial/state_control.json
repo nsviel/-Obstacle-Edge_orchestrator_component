@@ -3,7 +3,7 @@
     "info":{
       "ip": "127.0.0.1",
       "add": "-",
-      "status": "Offline",
+      "status": "Online",
       "nb_thread": 0
     },
     "socket":{
@@ -14,7 +14,7 @@
   "ssd": {
     "info":{
       "connected": false,
-      "status": "Offline",
+      "status": "Online",
       "activated": false,
       "space_total": 0,
       "space_used": 0

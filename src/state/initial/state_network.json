@@ -2,7 +2,7 @@
     "mongodb": {
         "ip": "10.17.216.35",
         "add": "-",
-        "status": "Offline",
+        "status": "Online",
         "port": 27017,
         "database": "07092023_5gmed_UC3_P2",
         "collection": "kpis",

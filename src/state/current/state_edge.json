@@ -3,7 +3,7 @@
         "info": {
             "ip": "127.0.0.1",
             "add": "localhost",
-            "status": "Offline",
+            "status": "Online",
             "edge_id": 0,
             "country": "France",
             "nb_thread": 9
@@ -19,7 +19,7 @@
     },
     "slam": {
         "info": {
-            "status": "Offline"
+            "status": "Online"
         },
         "socket": {
             "connected": false,
@@ -36,7 +36,7 @@
     },
     "ai": {
         "info": {
-            "status": "Offline"
+            "status": "Online"
         },
         "http": {
             "connected": false,
@@ -58,7 +58,7 @@
         "capture": {
             "sock_l1_connected": false,
             "sock_l2_connected": false,
-            "http_connected": true
+            "http_connected": false
         }
     }
 }
