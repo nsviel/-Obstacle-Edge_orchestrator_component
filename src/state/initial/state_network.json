@@ -8,7 +8,7 @@
         "collection": "kpis",
         "username": "",
         "password": "",
-        "nb_data": 50,
+        "nb_data": 1000,
         "connected": false
     },
     "ground_to_edge": {
