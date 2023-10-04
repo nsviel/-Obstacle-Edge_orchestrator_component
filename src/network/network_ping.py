@@ -16,7 +16,7 @@ def compute_ping(self):
         compute_reliability(data, self.list_reliability)
 
 def make_ping():
-    ip = param_edge.state_edge["hub"]["info"]["ip"]
+    ip = param_edge.state_ground["capture"]["info"]["ip"]
     try:
         response = subprocess.check_output(
             ['ping', '-c', '3', '-i', '0.002', ip],
