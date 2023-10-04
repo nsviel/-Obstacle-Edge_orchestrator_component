@@ -38,13 +38,12 @@ class Connection(daemon.Daemon):
         prediction.format_prediction()
         update_nb_thread()
         update_data()
-
     def thread_end(self):
         self.mqtt.mqtt_disconnection()
 
     def get_geolocalization(self):
         try:
-            response = requests.get('http://10.17.217.33:5000/get_gps')
+            response = requests.get('http://10.17.217.33:5000/get_gps', timeout=1)
             gps_data = response.json()
         except:
             pass
