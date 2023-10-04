@@ -40,7 +40,7 @@ def send_kpi_to_mongodb():
         collection = get_collection(url, database_name, collection_name, username, password)
 
         # Check for data number
-        control_collection_old_data(collection, nb_kept_data)
+        #control_collection_old_data(collection, nb_kept_data)
 
         # Insert kpi json into collection
         kpi = copy.deepcopy(param_edge.state_kpi)
