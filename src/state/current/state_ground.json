@@ -1,10 +1,10 @@
 {
     "capture": {
         "info": {
-            "ip": "10.17.212.21",
-            "add": "Capture",
-            "status": "Offline",
-            "nb_thread": 6
+            "ip": "127.0.0.1",
+            "add": "-",
+            "status": "Online",
+            "nb_thread": 0
         },
         "socket": {
             "server_l1_port": 8308,
@@ -17,10 +17,10 @@
     "lidar_1": {
         "info": {
             "ip": "192.168.1.201",
-            "add": "lidar_1_static",
-            "status": "Offline",
+            "add": "-",
+            "status": "Online",
             "connected": false,
-            "activated": false,
+            "activated": true,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
         },
@@ -35,19 +35,16 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "mean": 0,
-            "max": 0
+            "value": 0
         }
     },
     "lidar_2": {
         "info": {
             "ip": "192.168.2.201",
-            "add": "lidar_2_static",
-            "status": "Offline",
+            "add": "-",
+            "status": "Online",
             "connected": false,
-            "activated": false,
+            "activated": true,
             "port": 2369,
             "device": "enxf8e43b6cdf6c"
         },
@@ -62,22 +59,27 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "mean": 0,
-            "max": 0
+            "value": 0
         }
     },
     "device": {
-        "0": "enp0s31f6",
-        "1": "enx00e04c68760f",
-        "2": "vlan10-P1",
-        "3": "ztwdjfturv",
-        "4": "wlp4s0"
+        "0": "wlp2s0",
+        "1": "ztwdjfturv",
+        "2": "lo",
+        "3": "br-de470ff68a90",
+        "4": "br-fc5d7334c3b2",
+        "5": "bluetooth-monitor",
+        "6": "nfqueue",
+        "7": "dbus-session",
+        "8": "dbus-session",
+        "9": "dbus-session",
+        "10": "dbus-system",
+        "11": "veth5fd752f",
+        "12": "veth83826ab"
     },
     "interface": {
         "edge": {
-            "http_connected": true
+            "http_connected": false
         }
     }
 }

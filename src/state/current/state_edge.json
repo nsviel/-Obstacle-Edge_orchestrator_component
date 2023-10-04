@@ -2,11 +2,11 @@
     "hub": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "localhost",
+            "add": "-",
             "status": "Online",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 10
+            "nb_thread": 8
         },
         "socket": {
             "server_l1_port": 344,
@@ -19,7 +19,7 @@
     },
     "slam": {
         "info": {
-            "status": "Online"
+            "status": "Offline"
         },
         "socket": {
             "connected": false,
@@ -36,7 +36,7 @@
     },
     "ai": {
         "info": {
-            "status": "Online"
+            "status": "Offline"
         },
         "http": {
             "connected": false,
@@ -58,7 +58,7 @@
         "capture": {
             "sock_l1_connected": false,
             "sock_l2_connected": false,
-            "http_connected": true
+            "http_connected": false
         }
     }
 }

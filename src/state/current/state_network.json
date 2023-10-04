@@ -9,10 +9,10 @@
         "username": "",
         "password": "",
         "nb_data": 1000,
-        "connected": true
+        "connected": false
     },
     "ground_to_edge": {
-        "timestamp": 1696410414.550186,
+        "timestamp": 0,
         "throughput": {
             "value": 0,
             "min": 0,
@@ -20,37 +20,37 @@
             "mean": 0
         },
         "latency": {
-            "value": 0.018,
-            "min": 0.017,
-            "max": 0.021,
-            "mean": 0.018899999999999997
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "reliability": {
-            "value": 100.0,
-            "min": 100.0,
-            "max": 100.0,
-            "mean": 100.0
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "interruption": {
-            "value": 2.02956,
-            "min": 2.02956,
-            "max": 2.02956,
-            "mean": 2.02956
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         }
     },
     "edge_to_ground": {
-        "timestamp": 1696410414.8134665,
+        "timestamp": 1696418851.7430303,
         "latency": {
-            "value": 65.1,
-            "min": 55.8,
-            "max": 163.0,
-            "mean": 71.02
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "reliability": {
-            "value": 100.0,
-            "min": 100.0,
-            "max": 100.0,
-            "mean": 100.0
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         }
     },
     "time": {

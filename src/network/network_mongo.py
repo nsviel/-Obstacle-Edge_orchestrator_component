@@ -34,15 +34,13 @@ def send_kpi_to_mongodb():
     password = param_edge.state_network["mongodb"]["password"]
     nb_kept_data = param_edge.state_network["mongodb"]["nb_data"]
 
-    #database_name = "20221107_5gmed_UC3_P2"
-    #collection_name = "ServiceKpis"
     try:
         # Get collection pointer
         url = ip + ":" + str(port)
         collection = get_collection(url, database_name, collection_name, username, password)
 
         # Check for data number
-        control_collection_nbData(collection, nb_kept_data)
+        control_collection_old_data(collection, nb_kept_data)
 
         # Insert kpi json into collection
         kpi = copy.deepcopy(param_edge.state_kpi)
@@ -69,7 +67,8 @@ def get_collection(url, database_name, collection_name, username, password):
 
     return database[collection_name]
 
-def control_collection_nbData(collection, nb_kept_data):
-    if(param_edge.state_kpi["ID"] > nb_kept_data):
-        to_supress = { "ID": param_edge.state_kpi["ID"] - nb_kept_data }
-        collection.delete_one(to_supress)
+# Delete data older than the day
+def control_collection_old_data(collection, nb_kept_data):
+    umber_of_days = 1
+    cutoff_date = datetime.datetime.utcnow() - datetime.timedelta(days=number_of_days)
+    collection.delete_many({"orderExpDate": {"$lt": cutoff_date}})
