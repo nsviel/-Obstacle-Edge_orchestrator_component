@@ -30,15 +30,15 @@ def format_state_kpi():
 
     kpis = {
         "timestamp": datetime.datetime.utcfromtimestamp(timestamp),
-        "uplink_data_rate_Mbs": param_edge.state_ground["lidar_1"]["throughput"]["value"],
-        "uplink_cloud_end_to_end_latency_ms": param_edge.state_network["ground_to_edge"]["latency"]["value"],
+        "uplink_data_rate_Mbs": float(param_edge.state_ground["lidar_1"]["throughput"]["value"]),
+        "uplink_cloud_end_to_end_latency_ms": float(param_edge.state_network["ground_to_edge"]["latency"]["value"]),
 
-        "downlink_cloud_end_to_end_latency_ms": param_edge.state_network["edge_to_ground"]["latency"]["value"],
-        "uplink_reliability_%": param_edge.state_network["ground_to_edge"]["reliability"]["value"],
-        "downlink_reliability_%": param_edge.state_network["edge_to_ground"]["reliability"]["value"],
+        "downlink_cloud_end_to_end_latency_ms": float(param_edge.state_network["edge_to_ground"]["latency"]["value"]),
+        "uplink_reliability_%": float(param_edge.state_network["ground_to_edge"]["reliability"]["value"]),
+        "downlink_reliability_%": float(param_edge.state_network["edge_to_ground"]["reliability"]["value"]),
 
-        "time_mobility_interruption_s": param_edge.state_network["ground_to_edge"]["interruption"]["value"],
-        "time_service_warning_ms": param_edge.state_network["time"]["total"],
+        "time_mobility_interruption_s": float(param_edge.state_network["ground_to_edge"]["interruption"]["value"]),
+        "time_service_warning_ms": float(param_edge.state_network["time"]["total"]),
         "ID": param_edge.state_kpi["ID"] + 1,
 
         "service": "P2"
