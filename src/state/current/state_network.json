@@ -4,12 +4,12 @@
         "add": "-",
         "status": "Online",
         "port": 27017,
-        "database": "07092023_5gmed_UC3_P2",
+        "database": "19102023_5gmed_UC3_P2",
         "collection": "kpis",
         "username": "",
         "password": "",
         "nb_data": 1000,
-        "connected": false
+        "connected": true
     },
     "ground_to_edge": {
         "timestamp": 0,
@@ -39,7 +39,7 @@
         }
     },
     "edge_to_ground": {
-        "timestamp": 1697705276.9580858,
+        "timestamp": 1697706566.0018246,
         "latency": {
             "value": 0,
             "min": 0,

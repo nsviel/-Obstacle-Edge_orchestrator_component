@@ -28,6 +28,23 @@ def format_state_kpi():
     param_edge.state_kpi["ID"] = param_edge.state_kpi["ID"] + 1
     param_edge.state_kpi["service"] = "P2"
 
+    kpis = {
+        "timestamp": datetime.datetime.utcfromtimestamp(timestamp),
+        "uplink_data_rate_Mbs": param_edge.state_ground["lidar_1"]["throughput"]["value"],
+        "uplink_cloud_end_to_end_latency_ms": param_edge.state_network["ground_to_edge"]["latency"]["value"],
+
+        "downlink_cloud_end_to_end_latency_ms": param_edge.state_network["edge_to_ground"]["latency"]["value"],
+        "uplink_reliability_%": param_edge.state_network["ground_to_edge"]["reliability"]["value"],
+        "downlink_reliability_%": param_edge.state_network["edge_to_ground"]["reliability"]["value"],
+
+        "time_mobility_interruption_s": param_edge.state_network["ground_to_edge"]["interruption"]["value"],
+        "time_service_warning_ms": param_edge.state_network["time"]["total"],
+        "ID": param_edge.state_kpi["ID"] + 1,
+
+        "service": "P2"
+    }
+    return kpis
+
 def send_kpi_to_mongodb():
     ip = param_edge.state_network["mongodb"]["ip"]
     port = param_edge.state_network["mongodb"]["port"]
@@ -37,17 +54,20 @@ def send_kpi_to_mongodb():
     password = param_edge.state_network["mongodb"]["password"]
     nb_kept_data = param_edge.state_network["mongodb"]["nb_data"]
 
+    kpis = format_state_kpi()
+
     try:
         # Get collection pointer
         url = ip + ":" + str(port)
         collection = get_collection(url, database_name, collection_name, username, password)
+        collection.insert_one(kpis)
 
         # Check for data number
         #control_collection_old_data(collection, nb_kept_data)
 
         # Insert kpi json into collection
-        kpi = copy.deepcopy(param_edge.state_kpi)
-        collection.insert_one(kpi)
+        #kpi = copy.deepcopy(param_edge.state_kpi)
+        #collection.insert_one(kpi)
 
         # Update connection info
         param_edge.state_network["mongodb"]["connected"] = True

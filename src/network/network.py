@@ -31,7 +31,6 @@ class Network(daemon.Daemon):
         network_module.ask_for_time()
 
         # Make mongo stuff
-        network_mongo.format_state_kpi()
         network_mongo.send_kpi_to_mongodb()
 
         # Update state file and sleep one second
