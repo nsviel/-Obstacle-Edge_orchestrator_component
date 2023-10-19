@@ -28,6 +28,8 @@ def format_state_kpi():
     param_edge.state_kpi["ID"] = param_edge.state_kpi["ID"] + 1
     param_edge.state_kpi["service"] = "P2"
 
+    #print(param_edge.state_kpi["uplink_reliability_%"]);
+
     kpis = {
         "timestamp": datetime.datetime.utcfromtimestamp(timestamp),
         "uplink_data_rate_Mbs": float(param_edge.state_ground["lidar_1"]["throughput"]["value"]),
