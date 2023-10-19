@@ -15,7 +15,8 @@ import copy
 
 
 def format_state_kpi():
-    param_edge.state_kpi["timestamp"] = datetime.datetime.now().timestamp()
+    timestamp = datetime.datetime.now().timestamp()
+    param_edge.state_kpi["timestamp"] = datetime.datetime.utcfromtimestamp(timestamp)
     param_edge.state_kpi["uplink_data_rate_Mbs"] = param_edge.state_ground["lidar_1"]["throughput"]["value"]
     param_edge.state_kpi["uplink_cloud_end_to_end_latency_ms"] = param_edge.state_network["ground_to_edge"]["latency"]["value"]
     param_edge.state_kpi["downlink_cloud_end_to_end_latency_ms"] = param_edge.state_network["edge_to_ground"]["latency"]["value"]
@@ -24,6 +25,7 @@ def format_state_kpi():
     param_edge.state_kpi["time_mobility_interruption_s"] = param_edge.state_network["ground_to_edge"]["interruption"]["value"]
     param_edge.state_kpi["time_service_warning_ms"] = param_edge.state_network["time"]["total"]
     param_edge.state_kpi["ID"] = param_edge.state_kpi["ID"] + 1
+    param_edge.state_kpi["service"] = "P2"
 
 def send_kpi_to_mongodb():
     ip = param_edge.state_network["mongodb"]["ip"]
