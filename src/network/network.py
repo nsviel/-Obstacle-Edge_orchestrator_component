@@ -83,3 +83,6 @@ class Network(daemon.Daemon):
             param_edge.state_network["ground_to_edge"]["latency"]["min"] = 0
             param_edge.state_network["ground_to_edge"]["latency"]["max"] = 0
             param_edge.state_network["ground_to_edge"]["latency"]["mean"] = 0
+
+            param_edge.state_network["edge_to_ground"]["latency"]["value"] = 0
+            param_edge.state_network["edge_to_ground"]["reliability"]["value"] = 0
