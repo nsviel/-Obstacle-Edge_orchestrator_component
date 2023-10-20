@@ -11,7 +11,6 @@ import os
 def compute_ping(self):
     data = make_ping()
     if(data != None):
-        compute_timestamp()
         compute_latency(data, self.list_latency)
         compute_reliability(data, self.list_reliability)
 
@@ -27,10 +26,6 @@ def make_ping():
         response = None
     return response
 
-def compute_timestamp():
-    timestamp = time.time()
-    param_edge.state_network["edge_to_ground"]["timestamp"] = timestamp
-
 def compute_latency(data, list_latency):
     if(param_edge.state_edge["interface"]["capture"]["http_connected"] == True):
         try:
@@ -45,6 +40,11 @@ def compute_latency(data, list_latency):
             param_edge.state_network["edge_to_ground"]["latency"]["mean"] = specific.mean(list_latency)
         except:
             pass
+    else:
+        param_edge.state_network["edge_to_ground"]["latency"]["value"] = 0
+        param_edge.state_network["edge_to_ground"]["latency"]["min"] = 0
+        param_edge.state_network["edge_to_ground"]["latency"]["max"] = 0
+        param_edge.state_network["edge_to_ground"]["latency"]["mean"] = 0
 
 def compute_reliability(data, list_reliability):
     if(param_edge.state_edge["interface"]["capture"]["http_connected"] == True):
@@ -56,3 +56,8 @@ def compute_reliability(data, list_reliability):
         param_edge.state_network["edge_to_ground"]["reliability"]["min"] = min(list_reliability)
         param_edge.state_network["edge_to_ground"]["reliability"]["max"] = max(list_reliability)
         param_edge.state_network["edge_to_ground"]["reliability"]["mean"] = specific.mean(list_reliability)
+    else:
+        param_edge.state_network["edge_to_ground"]["reliability"]["value"] = 0
+        param_edge.state_network["edge_to_ground"]["reliability"]["min"] = 0
+        param_edge.state_network["edge_to_ground"]["reliability"]["max"] = 0
+        param_edge.state_network["edge_to_ground"]["reliability"]["mean"] = 0
