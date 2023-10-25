@@ -20,6 +20,7 @@ def manage_get(self):
     if(command == '/http_ping'):
         self.send_response(200)
     elif(command == '/get_state_edge'):
+        
         data = json.dumps(param_edge.state_edge).encode(encoding='utf_8')
         https_server_fct.send_get_response(self, data, "application/json")
     elif(command == '/get_state_ground'):

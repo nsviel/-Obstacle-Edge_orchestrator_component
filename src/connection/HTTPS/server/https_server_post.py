@@ -39,7 +39,7 @@ def manage_post(self):
     # POST state
     if(command == '/post_state_ground'):
         param_edge.state_ground = json.loads(payload)
-        https_client_post.post_state("ground", param_edge.state_ground)
+        https_client_post.post_state_ground("ground", param_edge.state_ground)
     elif(command == '/post_state_edge'):
         param_edge.state_edge = json.loads(payload)
     elif(command == '/post_state_cloud'):

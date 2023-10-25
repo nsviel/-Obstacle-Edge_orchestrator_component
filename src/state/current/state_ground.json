@@ -1,14 +1,16 @@
 {
     "capture": {
         "info": {
-            "ip": "10.17.212.21",
-            "add": "Capture",
+            "ip": "127.0.0.1",
+            "add": "localhost",
             "status": "Offline",
             "nb_thread": 6
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309
+            "server_l2_port": 8309,
+            "l1_connected": false,
+            "l2_connected": false
         },
         "http": {
             "server_port": 314
@@ -69,15 +71,15 @@
         }
     },
     "device": {
-        "0": "enp0s31f6",
-        "1": "enx00e04c68760f",
-        "2": "vlan10-P1",
-        "3": "ztwdjfturv",
-        "4": "wlp4s0"
+        "0": "wlp2s0",
+        "1": "ztwdjfturv",
+        "2": "vpn0",
+        "3": "br-de470ff68a90",
+        "4": "br-fc5d7334c3b2"
     },
     "interface": {
         "edge": {
-            "http_connected": false
+            "http_connected": true
         }
     }
 }

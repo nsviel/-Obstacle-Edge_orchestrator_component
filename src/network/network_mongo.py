@@ -50,13 +50,6 @@ def send_kpi_to_mongodb():
         collection = get_collection(url, database_name, collection_name, username, password)
         collection.insert_one(kpis)
 
-        # Check for data number
-        #control_collection_old_data(collection, nb_kept_data)
-
-        # Insert kpi json into collection
-        #kpi = copy.deepcopy(param_edge.state_kpi)
-        #collection.insert_one(kpi)
-
         # Update connection info
         param_edge.state_network["mongodb"]["connected"] = True
     except:

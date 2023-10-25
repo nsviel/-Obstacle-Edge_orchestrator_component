@@ -3,10 +3,10 @@
         "info": {
             "ip": "127.0.0.1",
             "add": "localhost",
-            "status": "Online",
+            "status": "Offline",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 9
+            "nb_thread": 11
         },
         "socket": {
             "server_l1_port": 344,
@@ -26,7 +26,7 @@
             "server_port": 2370
         },
         "http": {
-            "connected": false,
+            "connected": true,
             "server_port": 8888
         },
         "parameter": {
@@ -36,7 +36,7 @@
     },
     "ai": {
         "info": {
-            "status": "Online"
+            "status": "Offline"
         },
         "http": {
             "connected": false,
