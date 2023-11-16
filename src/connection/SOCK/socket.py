@@ -24,7 +24,10 @@ class Socket():
         self.sock_client = socket_client.Socket_client()
 
     def callback_l1_packet(self, packet):
-        param_edge.state_edge["interface"]["capture"]["sock_l1_connected"] = True
+        if(len(packet) > 100):
+            param_edge.state_edge["interface"]["capture"]["sock_l1_connected"] = True
+        else:
+            param_edge.state_edge["interface"]["capture"]["sock_l1_connected"] = False
         main_source = param_edge.state_edge["hub"]["socket"]["lidar_main"]
         if(main_source == "lidar_1"):
             self.sock_client.send_packet(packet, "control", "lidar_1")
@@ -36,7 +39,10 @@ class Socket():
     def callback_l1_deco(self):
         param_edge.state_edge["interface"]["capture"]["sock_l1_connected"] = False
     def callback_l2_packet(self, packet):
-        param_edge.state_edge["interface"]["capture"]["sock_l2_connected"] = True
+        if(len(packet) > 100):
+            param_edge.state_edge["interface"]["capture"]["sock_l2_connected"] = True
+        else:
+            param_edge.state_edge["interface"]["capture"]["sock_l2_connected"] = False
         main_source = param_edge.state_edge["hub"]["socket"]["lidar_main"]
         if(main_source == "lidar_2"):
             self.sock_client.send_packet(packet, "control", "lidar_1")

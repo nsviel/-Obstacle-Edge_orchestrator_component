@@ -15,10 +15,11 @@ import copy
 
 
 def format_state_kpi():
+    main_source = param_edge.state_edge["hub"]["socket"]["lidar_main"]
     timestamp = datetime.datetime.now().timestamp()
     kpis = {
         "timestamp": datetime.datetime.utcfromtimestamp(timestamp),
-        "P2_uplink_data_rate_Mbs": float(param_edge.state_ground["lidar_1"]["throughput"]["value"]),
+        "P2_uplink_data_rate_Mbs": float(param_edge.state_ground[main_source]["throughput"]["value"]),
         "P2_uplink_cloud_end_to_end_latency_ms": float(param_edge.state_network["ground_to_edge"]["latency"]["value"]),
 
         "P2_downlink_cloud_end_to_end_latency_ms": float(param_edge.state_network["edge_to_ground"]["latency"]["value"]),

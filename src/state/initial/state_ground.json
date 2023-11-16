@@ -21,6 +21,7 @@
           "status": "Online",
           "connected": false,
           "activated": true,
+          "simulated": true,
           "port": 2368,
           "device": "enxf8e43b6cdf6c"
         },
@@ -45,8 +46,9 @@
           "status": "Online",
           "connected": false,
           "activated": true,
+          "simulated": false,
           "port": 2369,
-          "device": "enxf8e43b6cdf6c"
+          "device": "enxa0cec8737a9e"
         },
         "motor":{
           "running": false,

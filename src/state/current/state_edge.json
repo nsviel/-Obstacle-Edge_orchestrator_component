@@ -6,12 +6,12 @@
             "status": "Online",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 7
+            "nb_thread": 9
         },
         "socket": {
             "server_l1_port": 344,
             "server_l2_port": 345,
-            "lidar_main": "lidar_1"
+            "lidar_main": "lidar_2"
         },
         "http": {
             "server_port": 443
@@ -19,15 +19,15 @@
     },
     "slam": {
         "info": {
-            "status": "Online"
+            "status": "Offline"
         },
         "socket": {
-            "connected": false,
+            "connected": true,
             "server_port": 2370
         },
         "http": {
-            "connected": false,
-            "server_port": 8888
+            "connected": true,
+            "server_port": 8889
         },
         "parameter": {
             "with_slam": 0,
@@ -36,7 +36,7 @@
     },
     "ai": {
         "info": {
-            "status": "Online"
+            "status": "Offline"
         },
         "http": {
             "connected": false,
@@ -48,7 +48,7 @@
         }
     },
     "data": {
-        "nb_frame": 0,
+        "nb_frame": 40,
         "nb_prediction": 0
     },
     "interface": {
@@ -57,7 +57,7 @@
         },
         "capture": {
             "sock_l1_connected": false,
-            "sock_l2_connected": false,
+            "sock_l2_connected": true,
             "http_connected": true
         }
     }

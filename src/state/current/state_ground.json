@@ -4,7 +4,7 @@
             "ip": "127.0.0.1",
             "add": "-",
             "status": "Online",
-            "nb_thread": 6
+            "nb_thread": 8
         },
         "socket": {
             "server_l1_port": 8308,
@@ -21,6 +21,7 @@
             "status": "Online",
             "connected": false,
             "activated": true,
+            "simulated": true,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
         },
@@ -43,27 +44,31 @@
             "ip": "192.168.2.201",
             "add": "-",
             "status": "Online",
-            "connected": false,
+            "connected": true,
             "activated": true,
+            "simulated": false,
             "port": 2369,
-            "device": "enxf8e43b6cdf6c"
+            "device": "enxa0cec8737a9e"
         },
         "motor": {
-            "running": false,
+            "running": true,
             "speed": 600
         },
         "throughput": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 7.648,
+            "min": 7.64,
+            "max": 7.696,
+            "mean": 7.6728421052631575
         },
         "packet": {
-            "value": 0
+            "value": 471905
         }
     },
     "device": {
-        "0": "wlp0s20f3"
+        "0": "wlp0s20f3",
+        "1": "enxa0cec8737a9e",
+        "2": "vpn0",
+        "3": "veth7dcef6a"
     },
     "interface": {
         "edge": {
