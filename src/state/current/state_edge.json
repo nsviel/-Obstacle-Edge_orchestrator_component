@@ -6,7 +6,7 @@
             "status": "Offline",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 6
+            "nb_thread": 9
         },
         "socket": {
             "server_l1_port": 344,
@@ -19,14 +19,14 @@
     },
     "slam": {
         "info": {
-            "status": "Online"
+            "status": "Offline"
         },
         "socket": {
-            "connected": true,
+            "connected": false,
             "server_port": 2370
         },
         "http": {
-            "connected": true,
+            "connected": false,
             "server_port": 8889
         },
         "parameter": {
@@ -58,7 +58,7 @@
         "capture": {
             "sock_l1_connected": true,
             "sock_l2_connected": false,
-            "http_connected": false
+            "http_connected": true
         }
     }
 }

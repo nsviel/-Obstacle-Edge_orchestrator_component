@@ -7,6 +7,7 @@ import json
 
 def load_configuration():
     load_json_file()
+    load_config();
     terminal.addLog("#", "Configuration loaded")
 
 def load_json_file():
@@ -17,7 +18,14 @@ def load_json_file():
     param_edge.state_cloud = parser_json.load_state(param_edge.path_state_initial + "state_cloud.json")
     param_edge.state_kpi = parser_json.load_state(param_edge.path_state_initial + "state_kpi.json")
     param_edge.state_prediction = parser_json.load_state(param_edge.path_state_initial + "state_prediction.json")
-    
+
+def load_config():
+    with open('config.json') as f:
+        data = json.load(f)
+        ip_address = data['capture']['ip']
+        print("Capture module IP Address:", ip_address)
+        param_edge.state_ground["capture"]["info"]["ip"] = ip_address;
+
 def upload_states():
     parser_json.upload_file(param_edge.path_state_current + "state_ground.json", param_edge.state_ground)
     parser_json.upload_file(param_edge.path_state_current + "state_edge.json", param_edge.state_edge)

@@ -1,7 +1,7 @@
 {
     "control": {
         "info": {
-            "ip": "192.168.153.49",
+            "ip": "192.168.154.202",
             "add": "-",
             "status": "Online",
             "nb_thread": 6
@@ -24,9 +24,9 @@
             "dir_l1": "/app/lidar_ssd/capture/lidar_1",
             "dir_l2": "/app/lidar_ssd/capture/lidar_2",
             "file_name_add": "",
-            "file_name": "_22-01-2024_15h39.pcap",
-            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_22-01-2024_15h39.pcap",
-            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_22-01-2024_15h39.pcap",
+            "file_name": "_16-02-2024_16h56.pcap",
+            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_16-02-2024_16h56.pcap",
+            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_16-02-2024_16h56.pcap",
             "bandwidth": 0
         },
         "space_used": 0,
@@ -35,7 +35,7 @@
     "interface": {
         "edge": {
             "http_connected": true,
-            "sock_l1_connected": false,
+            "sock_l1_connected": true,
             "sock_l2_connected": false
         },
         "ssd_connected": false
