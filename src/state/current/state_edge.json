@@ -2,11 +2,11 @@
     "hub": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "localhost",
-            "status": "Offline",
+            "add": "-",
+            "status": "Online",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 9
+            "nb_thread": 7
         },
         "socket": {
             "server_l1_port": 344,

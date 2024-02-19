@@ -17,18 +17,22 @@ import copy
 class RollingMean:
     def __init__(self, window_size):
         self.window = deque(maxlen=window_size)  # Circular buffer to store last n values
-        self.sum = 0  # Sum of values in the window
-        self.mean = 0  # Current mean value
+        self.sum = float(0)  # Sum of values in the window
+        self.mean = float(0)  # Current mean value
 
     def add_value(self, value):
         # Update sum by subtracting the oldest value and adding the new value
         if len(self.window) == self.window.maxlen:
             self.sum -= self.window[0]
-        self.sum += value
-        # Add new value to the window
-        self.window.append(value)
-        # Update mean
-        self.mean = self.sum / len(self.window)
+        if value == 0:
+            self.sum = 0
+            self.mean = 0
+        else:
+            self.sum += value
+            # Add new value to the window
+            self.window.append(value)
+            # Update mean
+            self.mean = self.sum / len(self.window)
 
     def get_mean(self):
         return self.mean
@@ -47,10 +51,10 @@ def format_state_kpi():
 
     kpis = {
         "timestamp": datetime.datetime.utcfromtimestamp(timestamp),
-        "P2_uplink_data_rate_Mbs": uplink_data_rate_mean.get_mean(),
+        "P2_uplink_data_rate_Mbs": float(uplink_data_rate_mean.get_mean()),
 
-        "P2_uplink_cloud_end_to_end_latency_ms": latency_ground_to_edge_mean.get_mean(),
-        "P2_downlink_cloud_end_to_end_latency_ms": latency_edge_to_ground_mean.get_mean(),
+        "P2_uplink_cloud_end_to_end_latency_ms": float(latency_ground_to_edge_mean.get_mean()),
+        "P2_downlink_cloud_end_to_end_latency_ms": float(latency_edge_to_ground_mean.get_mean()),
 
         "P2_uplink_reliability_%": float(param_edge.state_network["ground_to_edge"]["reliability"]["value"]),
         "P2_downlink_reliability_%": float(param_edge.state_network["edge_to_ground"]["reliability"]["value"]),
