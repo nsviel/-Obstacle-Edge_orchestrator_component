@@ -30,7 +30,7 @@
             "speed": 600
         },
         "throughput": {
-            "value": 16.938611985860256,
+            "value": 2.0652323470024325,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -65,8 +65,7 @@
         }
     },
     "device": {
-        "0": "wlp0s20f3",
-        "1": "vpn0"
+        "0": "wlp0s20f3"
     },
     "interface": {
         "edge": {

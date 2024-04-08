@@ -26,6 +26,6 @@ def network_info(dest, source):
         if(source == "lidar_2"):
             port = param_edge.state_control["control"]["socket"]["server_l2_port"]
     elif(dest == "slam"):
-        ip = param_edge.state_edge["hub"]["info"]["ip"]
-        port = param_edge.state_edge["slam"]["socket"]["server_port"]
+        ip = "127.0.0.1"
+        port = 55555
     return [ip, port]
