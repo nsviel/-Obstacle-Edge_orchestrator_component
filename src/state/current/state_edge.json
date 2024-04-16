@@ -2,8 +2,8 @@
     "hub": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "-",
-            "status": "Online",
+            "add": "localhost",
+            "status": "Offline",
             "edge_id": 0,
             "country": "France",
             "nb_thread": 8
@@ -22,8 +22,8 @@
             "status": "Offline"
         },
         "socket": {
-            "connected": false,
-            "server_port": 2370
+            "connected": true,
+            "server_port": 55555
         },
         "http": {
             "connected": false,

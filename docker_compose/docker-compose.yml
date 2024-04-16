@@ -27,7 +27,7 @@ services:
     devices:
       - "/dev/dri:/dev/dri"
     #ports:
-    #  - 2370:2370
+    #  - 5555:5555
     #  - 8888:8888
     command: sudo xvfb-run -a --server-args='-screen 0 1024x500x24' ./executable server
 
