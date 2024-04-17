@@ -20,7 +20,7 @@ def manage_get(self):
     if(command == '/http_ping'):
         self.send_response(200)
     elif(command == '/get_state_edge'):
-        
+
         data = json.dumps(param_edge.state_edge).encode(encoding='utf_8')
         https_server_fct.send_get_response(self, data, "application/json")
     elif(command == '/get_state_ground'):
@@ -38,9 +38,12 @@ def manage_get(self):
         print("[error] HTTP GET command not known [%s]"% command)
 
 def get_image(self):
-    if(io.is_file_exist(param_edge.path_image) and param_edge.state_edge["slam"]["http"]["connected"]):
+    #path = param_edge.path_image
+    path = "engine/build/image.bmp"
+    #print(io.is_file_exist(path))
+    if(io.is_file_exist(path)):
         try:
-            data = io.load_binary(param_edge.path_image)
+            data = io.load_binary(path)
             https_server_fct.send_get_response(self, data, "image/bmp")
         except:
             pass

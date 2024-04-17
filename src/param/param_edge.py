@@ -38,7 +38,7 @@ path_state_initial = "src/state/initial/"
 
 # Data dir
 path_data_dir =  "../data"
-path_image_dir = "../data/image"
+path_image_dir = "engine/image.jpeg"
 path_frame_dir = "../data/frames"
 path_predi_dir = "../data/prediction"
 path_generic = "src/param/generic/"

@@ -27,7 +27,7 @@ class Connection(daemon.Daemon):
     def thread_function(self):
         # Test connection
         self.mqtt.test_connection_operator()
-        https_client_con.test_connection_slam()
+        #https_client_con.test_connection_slam()
         #https_client_con.test_connection_ai()
         https_client_con.test_connection_ground()
         self.get_geolocalization()

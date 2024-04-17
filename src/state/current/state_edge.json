@@ -22,7 +22,7 @@
             "status": "Offline"
         },
         "socket": {
-            "connected": true,
+            "connected": false,
             "server_port": 55555
         },
         "http": {
