@@ -26,7 +26,7 @@ class Connection(daemon.Daemon):
 
     def thread_function(self):
         # Test connection
-        self.mqtt.test_connection_operator()
+        #self.mqtt.test_connection_operator()
         #https_client_con.test_connection_slam()
         #https_client_con.test_connection_ai()
         https_client_con.test_connection_ground()
@@ -39,7 +39,7 @@ class Connection(daemon.Daemon):
         update_nb_thread()
         update_data()
     def thread_end(self):
-        self.mqtt.mqtt_disconnection()
+        pass#self.mqtt.mqtt_disconnection()
 
     def get_geolocalization(self):
         try:

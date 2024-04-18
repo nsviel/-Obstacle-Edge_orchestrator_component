@@ -58,7 +58,7 @@
         "capture": {
             "sock_l1_connected": true,
             "sock_l2_connected": false,
-            "http_connected": true
+            "http_connected": false
         }
     }
 }

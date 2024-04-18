@@ -2,8 +2,8 @@
     "capture": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "-",
-            "status": "Online",
+            "add": "localhost",
+            "status": "Offline",
             "nb_thread": 8
         },
         "socket": {
@@ -19,10 +19,10 @@
     "lidar_1": {
         "info": {
             "ip": "192.168.1.201",
-            "add": "-",
-            "status": "Online",
+            "add": "lidar_1_static",
+            "status": "Offline",
             "connected": false,
-            "activated": true,
+            "activated": false,
             "simulated": true,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
@@ -32,43 +32,48 @@
             "speed": 600
         },
         "throughput": {
-            "value": 0.0,
+            "value": 2.0334629503146284,
             "min": 0,
             "max": 0,
             "mean": 0
         },
         "packet": {
-            "value": 0
+            "value": 0,
+            "min": 0,
+            "mean": 0,
+            "max": 0
         }
     },
     "lidar_2": {
         "info": {
             "ip": "192.168.2.201",
-            "add": "-",
-            "status": "Online",
-            "connected": true,
-            "activated": true,
+            "add": "lidar_2_static",
+            "status": "Offline",
+            "connected": false,
+            "activated": false,
             "simulated": false,
             "port": 2369,
             "device": "enxa0cec8737a9e"
         },
         "motor": {
-            "running": true,
+            "running": false,
             "speed": 600
         },
         "throughput": {
             "value": 0,
-            "min": 7.64,
-            "max": 7.696,
-            "mean": 7.674947368421052
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "packet": {
-            "value": 17150
+            "value": 0,
+            "min": 0,
+            "mean": 0,
+            "max": 0
         }
     },
     "device": {
-        "0": "wlp0s20f3",
-        "1": "enxa0cec8737a9e"
+        "0": "wlp0s20f3"
     },
     "interface": {
         "edge": {
