@@ -4,7 +4,7 @@
             "ip": "127.0.0.1",
             "add": "localhost",
             "status": "Offline",
-            "nb_thread": 8
+            "nb_thread": 7
         },
         "socket": {
             "server_l1_port": 8308,
@@ -32,7 +32,7 @@
             "speed": 600
         },
         "throughput": {
-            "value": 2.0334629503146284,
+            "value": 2.0660304858169503,
             "min": 0,
             "max": 0,
             "mean": 0
