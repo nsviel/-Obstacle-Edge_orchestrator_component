@@ -38,9 +38,10 @@ def manage_get(self):
         print("[error] HTTP GET command not known [%s]"% command)
 
 def get_image(self):
-    #path = param_edge.path_image
-    path = "engine/build/image.bmp"
+    path = param_edge.path_image
+    #path = "engine/build/image"
     #print(io.is_file_exist(path))
+    #print(path)
     if(io.is_file_exist(path)):
         try:
             data = io.load_binary(path)

@@ -32,7 +32,7 @@
             "speed": 600
         },
         "throughput": {
-            "value": 2.0660304858169503,
+            "value": 2.0755201614706653,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -49,14 +49,14 @@
             "ip": "192.168.2.201",
             "add": "lidar_2_static",
             "status": "Offline",
-            "connected": false,
+            "connected": true,
             "activated": false,
             "simulated": false,
             "port": 2369,
             "device": "enxa0cec8737a9e"
         },
         "motor": {
-            "running": false,
+            "running": true,
             "speed": 600
         },
         "throughput": {
@@ -66,14 +66,15 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
+            "value": 151,
             "min": 0,
             "mean": 0,
             "max": 0
         }
     },
     "device": {
-        "0": "wlp0s20f3"
+        "0": "wlp0s20f3",
+        "1": "enxa0cec8737a9e"
     },
     "interface": {
         "edge": {

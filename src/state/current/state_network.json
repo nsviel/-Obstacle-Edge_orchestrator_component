@@ -12,7 +12,7 @@
         "connected": false
     },
     "ground_to_edge": {
-        "timestamp": 1713451744.6862175,
+        "timestamp": 1713530778.6081922,
         "throughput": {
             "value": 0,
             "min": 0,
@@ -20,42 +20,42 @@
             "mean": 0
         },
         "latency": {
-            "value": 0.042,
-            "min": 0.012,
-            "max": 0.042,
-            "mean": 0.020399999999999998
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "reliability": {
-            "value": 100.0,
-            "min": 100.0,
-            "max": 100.0,
-            "mean": 100.0
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "interruption": {
             "value": 0,
-            "min": 4.007205,
-            "max": 4.007205,
-            "mean": 4.007205
+            "min": 0,
+            "max": 0,
+            "mean": 0
         }
     },
     "edge_to_ground": {
         "timestamp": 0,
         "latency": {
-            "value": 0.05,
-            "min": 0.012,
-            "max": 0.05,
-            "mean": 0.0189
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "reliability": {
-            "value": 100.0,
-            "min": 100.0,
-            "max": 100.0,
-            "mean": 100.0
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         }
     },
     "time": {
-        "slam": 0,
+        "slam": 0.0,
         "ai": 0,
-        "total": 0
+        "total": 0.0
     }
 }
